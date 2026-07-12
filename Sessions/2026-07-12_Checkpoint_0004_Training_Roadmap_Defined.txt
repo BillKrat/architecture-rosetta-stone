@@ -34,7 +34,7 @@ Repository:
 https://github.com/BillKrat/architecture-rosetta-stone
 
 Git Commit:
-(pending — filled in after commit, see below)
+cc90725
 
 Previous Checkpoint:
 0003 - Training Scope Defined
