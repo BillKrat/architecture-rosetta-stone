@@ -1,7 +1,7 @@
 ---
 name: bduf-freeze-and-training
 description: The BDUF (Big Design Up Front) working agreement for this project — the two frozen source-of-truth maps, and the training-before-touching protocol now in effect.
-status: active — frozen maps in place, training scope defined, format not yet started
+status: active — full 5-phase roadmap defined, Phase 1 (Application) about to begin
 last-updated: 2026-07-12
 ---
 
@@ -109,10 +109,44 @@ Staying strictly inside the map's nodes is what makes that foundation
 actually common — scope creep into adjacent topics would undermine the
 premise.
 
+## Full roadmap (defined 2026-07-12)
+
+Five phases, each gated on the previous one's completion:
+
+1. **Train on Concern A (`rosetta-stone-AI`), node-by-node.** Order is
+   clockwise from the map's current layout: Application -> Model (incl.
+   API-service/Edge/RAG variants) -> Agent -> Tool -> Retrieval -> Memory
+   -> Security -> Deployment Context Notes -> Cross-cutting fields ->
+   Diagnostics/Observability. Per node: Claude asks questions covering
+   every field (Responsibilities, Collaborators, Inputs/Outputs, Metrics
+   & Thresholds, Known Failure Modes, Runtime Hooks, Regulatory Notes,
+   Owner, Acceptance Criteria — see Training Scope above), Bill answers
+   and works through them, Claude judges when understanding is solid.
+   When both agree a node is understood, its task-checkbox on the live
+   `rosetta-stone-AI` map is checked off and the walkthrough moves to
+   the next node. **Checking these checkboxes is the one sanctioned
+   exception to the "no modification" freeze** — it's status tracking,
+   not content editing; no Responsibility/Collaborator/field text
+   changes during this phase.
+2. **Unfreeze and jointly re-investigate Concern A.** Once every
+   checkbox from Phase 1 is checked, uncheck all of them, lift the
+   content freeze, and go through the map again — this time
+   investigating, discussing, and mutually agreeing on each node's
+   actual correctness (not just comprehension). Nodes may be added,
+   expanded, or contracted as warranted. Check off each node's box again
+   as Bill and Claude both sign off on it.
+3. **Repeat phases 1-2 on Concern B (`rosetta-stone-MCP-Bridge`).** Same
+   train-then-investigate structure, applied to the parked MCP
+   IDE-extension delivery document once Concern A is fully signed off.
+4. **Gap analysis.** Once both documents are signed off, assess current
+   state (what the two finalized maps represent) versus target state
+   (what's actually needed) to identify what's missing or wrong.
+5. **Requirements document and backlog.** Convert the gap analysis into
+   concrete requirements and a working backlog — the actual handoff into
+   development.
+
 ## Open questions
 
-- What does the training phase look like mechanically (session
-  structure, whether Claude proctors/quizzes, whether it's self-paced
-  reading)? Scope is now settled; format/cadence is not.
-- `rosetta-stone-MCP-Bridge` has no defined next step yet — it's frozen and
-  parked, not part of the training curriculum.
+- None currently — scope (previous section) and roadmap (this section)
+  are both settled as of 2026-07-12. Training format is the roadmap
+  itself; no separate format decision remains open.

@@ -1,0 +1,189 @@
+========================================================================
+ROSETTA STONE CHECKPOINT 0004
+========================================================================
+
+File:
+2026-07-12_Checkpoint_0004_Training_Roadmap_Defined.txt
+
+Checkpoint:
+0004
+
+Date:
+2026-07-12
+
+Project:
+Rosetta Stone for Software Architecture
+
+Project Phase:
+BDUF training phase — Phase 1 of the newly-defined 5-phase roadmap
+(train Concern A node-by-node) is about to begin.
+
+Checkpoint Title:
+Training Roadmap Defined
+
+Project Status:
+Continuation of the same 2026-07-12 session as Checkpoints 0001-0003.
+Checkpoint 0003 settled training *scope*. This checkpoint settles
+training *mechanics* — the full end-to-end roadmap from "Bill
+understands every node" through requirements and backlog — and records
+the task-checkbox mechanism XMind provides for tracking node-level
+sign-off, which Bill is using as the literal progress tracker on the
+live frozen map.
+
+Repository:
+https://github.com/BillKrat/architecture-rosetta-stone
+
+Git Commit:
+(pending — filled in after commit, see below)
+
+Previous Checkpoint:
+0003 - Training Scope Defined
+
+Next Objective:
+Begin Phase 1: walk through the "Application" node of `rosetta-stone-AI`
+with Bill (first node in the clockwise order), covering every field
+(Responsibilities, Collaborators, Inputs/Outputs, Metrics & Thresholds,
+Known Failure Modes, Runtime Hooks, Regulatory Notes, Owner, Acceptance
+Criteria). When Bill's understanding is solid, check off Application's
+task-checkbox on the live map and move to Model.
+
+========================================================================
+SESSION HANDOFF
+========================================================================
+
+WORKING AGREEMENT
+------------------
+Extends the Checkpoints 0002/0003 agreement with the full roadmap and
+one explicit carve-out: checking a node's task-checkbox on the live
+`rosetta-stone-AI` map during Phase 1 (training) is the one sanctioned
+exception to the "no modification" freeze — it is status tracking, not
+content editing. No Responsibility/Collaborator/field text may change
+during Phase 1; that only happens in Phase 2. Full roadmap detail is in
+`Topics/bduf-freeze-and-training.md`.
+
+OBJECTIVES COMPLETED
+---------------------
+
+1. Bill shared a screenshot of the live `rosetta-stone-AI` mind map
+   showing that each top-level node already carries a task-checkbox
+   (visible as a small square icon before each node's icon/title) —
+   confirming both the node layout (Application, Model, Agent, Tool,
+   Retrieval on the right; Diagnostics/Observability, Cross-cutting
+   fields, Deployment Context Notes, Security, Memory on the left,
+   radiating from a central "AI" node) and that XMind's built-in
+   checkbox feature is available as a literal progress-tracking
+   mechanism, not something that needs to be built or simulated.
+
+2. Bill defined the full end-to-end roadmap in one statement, which
+   Claude reviewed and confirmed as sound before persisting:
+   - Phase 1: node-by-node training walkthrough of `rosetta-stone-AI`,
+     starting at Application and proceeding clockwise. Per node: Claude
+     asks questions, Bill works through them, and when Claude judges
+     understanding solid, the two agree and check off that node's
+     checkbox, then move to the next node.
+   - Phase 2: once every checkbox from Phase 1 is checked, uncheck them
+     all, lift the content freeze, and jointly investigate/discuss/
+     agree on each node's actual correctness (not just comprehension)
+     — nodes may be added, expanded, or contracted as warranted. Sign
+     off (check the box again) as each node is mutually agreed correct.
+   - Phase 3: repeat Phases 1-2 on `rosetta-stone-MCP-Bridge` (the
+     parked Concern B document) once Concern A is fully signed off.
+   - Phase 4: gap analysis — current state (the two finalized maps)
+     versus target state (what's actually needed).
+   - Phase 5: requirements document and backlog — the handoff into
+     actual development.
+   Bill's closing framing: "That is the roadmap I envision, I look
+   forward to your reasoning and training to get us successfully over
+   the finish line" — i.e. explicit request for Claude's assessment of
+   the plan before starting, then to begin acting as mentor/trainer
+   through it.
+
+3. Claude's review, given before persisting: the phase structure is
+   sound because it keeps "do I understand this" (Phase 1) strictly
+   separate from "is this actually correct" (Phase 2) — collapsing
+   those two questions is a common way BDUF efforts drift, and this
+   roadmap avoids it by gating each phase on explicit sign-off of the
+   previous one. Flagged and confirmed with Bill that checkbox-toggling
+   is compatible with the existing content freeze (it's status
+   metadata, not the frozen Responsibility/Collaborator content itself).
+
+4. Persisted the full roadmap into `Topics/bduf-freeze-and-training.md`
+   as a new "Full roadmap" section (five phases, in the terms above),
+   updated the topic's frontmatter status, and resolved the topic's
+   previously-open "what does training look like mechanically" question
+   — it's now answered by the roadmap itself.
+
+REPOSITORY / ENVIRONMENT STATE
+--------------------------------
+- Repo: /Users/billkratochvil/AI/repos/architecture-rosetta-stone,
+  branch main, prior state at commit cc3bd1c (Checkpoint 0003,
+  corrected).
+- No XMind Cloud changes this checkpoint — the actual Phase 1
+  walkthrough (and the first checkbox check-off) had not yet started as
+  of this checkpoint; it begins immediately after this persistence step,
+  in the same session, and will be captured in the next checkpoint.
+- Changed files this checkpoint:
+  - Topics/bduf-freeze-and-training.md (updated: new "Full roadmap"
+    section, resolved open question, frontmatter status line)
+  - This checkpoint file
+  - INDEX.md updated in place (topic summary line, History pointer)
+
+TOPICS TOUCHED THIS SESSION
+------------------------------
+- Topics/bduf-freeze-and-training.md — added the "Full roadmap" section
+  (all 5 phases) and the task-checkbox-is-a-sanctioned-exception note;
+  resolved the "training mechanics" open question from Checkpoint 0003.
+  See file for full detail.
+
+METHOD DISCOVERIES
+--------------------
+- When a user-proposed process introduces a narrow, specific exception
+  to a previously-agreed constraint (here: checkbox toggling vs. the
+  content freeze), name and record that exception explicitly rather
+  than letting it live only as an implicit understanding — it's exactly
+  the kind of detail a future session (or a stricter reading of the
+  working agreement) could otherwise get wrong.
+
+NEXT SESSION
+==============
+1. Read Topics/bduf-freeze-and-training.md — roadmap and scope are both
+   settled; this is now purely execution.
+2. Resume Phase 1 at whichever node was in progress or next in the
+   clockwise order (Application first, then Model, Agent, Tool,
+   Retrieval, Memory, Security, Deployment Context Notes, Cross-cutting
+   fields, Diagnostics/Observability). Check `rosetta-stone-AI`'s live
+   checkbox state to see which nodes are already signed off if resuming
+   mid-phase.
+3. Do not begin Phase 2 (unfreezing/re-investigating) until every node's
+   checkbox from Phase 1 is checked and Bill confirms readiness to move
+   on.
+
+END OF SESSION CHECKLIST
+==========================
+[x] Full 5-phase roadmap reviewed and confirmed sound
+[x] Task-checkbox exception to the content freeze named explicitly
+[x] Topics/bduf-freeze-and-training.md updated with the roadmap
+[x] INDEX.md updated (topic summary, History pointer)
+[x] Checkpoint committed, tagged, and pushed (see Git Commit above —
+    filled in as part of this same checkpoint's commit sequence)
+[ ] Phase 1 walkthrough of "Application" (first node) — begins
+    immediately after this checkpoint, to be captured next session
+
+SESSION SUMMARY
+================
+A planning checkpoint, not an execution one: Bill laid out the entire
+path from "we don't understand this document yet" to "we have a
+requirements doc and backlog," in one coherent five-phase shape, and
+asked for a sanity check before committing to it. The roadmap holds up
+structurally because it never asks Claude and Bill to simultaneously
+judge comprehension and correctness — those are sequenced into separate,
+explicitly-gated phases. The one wrinkle worth flagging for continuity
+is the sanctioned checkbox exception to the content freeze, now written
+down so it doesn't get second-guessed or missed by a future session
+reading the working agreement literally. Actual training — the
+Application walkthrough — starts immediately after this checkpoint, in
+the same conversation.
+
+========================================================================
+END CHECKPOINT 0004
+========================================================================

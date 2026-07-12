@@ -13,7 +13,7 @@ doing.
 
 ## Topics
 
-- [bduf-freeze-and-training](Topics/bduf-freeze-and-training.md) — frozen maps + the training-before-touching working agreement; training scope is strictly the nodes of `rosetta-stone-AI` (active)
+- [bduf-freeze-and-training](Topics/bduf-freeze-and-training.md) — frozen maps + the full 5-phase BDUF roadmap (train -> re-investigate -> repeat on Concern B -> gap analysis -> requirements/backlog); Phase 1 in progress (active)
 - [claude-in-chrome-connectivity](Topics/claude-in-chrome-connectivity.md) — recurring per-session Claude-in-Chrome domain-lockout bug and the standing workaround (open, no permanent fix)
 - [xmind-copilot-collaboration](Topics/xmind-copilot-collaboration.md) — reliable method for bulk-editing the XMind map via its Copilot (established, reusable)
 
@@ -24,11 +24,12 @@ and align local workflow files"): all prior Topic files, Session
 checkpoints, and Evidence stubs were deleted as part of aligning this
 repo with the shared, repo-agnostic skill workflow (see `AGENTS.md`).
 
-Latest checkpoint: [Sessions/2026-07-12_Checkpoint_0003_Training_Scope_Defined.txt](Sessions/2026-07-12_Checkpoint_0003_Training_Scope_Defined.txt)
-— defined the scope of the training phase established in Checkpoint 0002:
-every conversation must stay strictly within the nodes of the frozen
-`rosetta-stone-AI` map (all fields, all branches), and nothing outside it.
-See `Topics/bduf-freeze-and-training.md`.
+Latest checkpoint: [Sessions/2026-07-12_Checkpoint_0004_Training_Roadmap_Defined.txt](Sessions/2026-07-12_Checkpoint_0004_Training_Roadmap_Defined.txt)
+— defined the full 5-phase BDUF roadmap (train Concern A node-by-node ->
+unfreeze and jointly re-investigate -> repeat on Concern B -> gap analysis
+-> requirements/backlog), including the task-checkbox mechanism for
+tracking node sign-off. Phase 1 (Application, first node, clockwise order)
+begins next. See `Topics/bduf-freeze-and-training.md`.
 
 ## Reference
 
