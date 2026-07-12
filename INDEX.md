@@ -13,6 +13,7 @@ doing.
 
 ## Topics
 
+- [bduf-freeze-and-training](Topics/bduf-freeze-and-training.md) — the two frozen source-of-truth maps and the training-before-touching working agreement (active)
 - [claude-in-chrome-connectivity](Topics/claude-in-chrome-connectivity.md) — recurring per-session Claude-in-Chrome domain-lockout bug and the standing workaround (open, no permanent fix)
 - [xmind-copilot-collaboration](Topics/xmind-copilot-collaboration.md) — reliable method for bulk-editing the XMind map via its Copilot (established, reusable)
 
@@ -23,28 +24,33 @@ and align local workflow files"): all prior Topic files, Session
 checkpoints, and Evidence stubs were deleted as part of aligning this
 repo with the shared, repo-agnostic skill workflow (see `AGENTS.md`).
 
-Latest checkpoint: [Sessions/2026-07-12_Checkpoint_0001_XMind_Copilot_Cleanup.txt](Sessions/2026-07-12_Checkpoint_0001_XMind_Copilot_Cleanup.txt)
-— first checkpoint under the current structure. Connected Claude-in-Chrome
-to the `rosetta-stone-AI` XMind Cloud map, worked out a reliable
-Copilot-driven bulk-edit method, and used it to strip a stray
-bullet-dot-prefix formatting defect from ~122 topic titles across the
-whole map, giving a clean foundational document to build the actual
-architecture content on next.
+Latest checkpoint: [Sessions/2026-07-12_Checkpoint_0002_Concern_Split_And_Freeze.txt](Sessions/2026-07-12_Checkpoint_0002_Concern_Split_And_Freeze.txt)
+— split the cleaned `rosetta-stone-AI` map into two concerns (the AI
+Responsibility vocabulary vs. an unrelated MCP IDE-extension delivery
+concern), froze both as source of truth, committed snapshots to this repo,
+and put the project into a BDUF training phase: no further modification or
+investigation of either map until Bill has comprehensive understanding of
+every node. See `Topics/bduf-freeze-and-training.md`.
 
 ## Reference
 
 - Evidence sources: none currently populated (`Evidence/` was removed
   in the 2026-07-12 reset; recreate per-author folders here if/when
   evidence-backed work resumes)
-- Mindmap: two XMind Cloud documents (`rosetta-stone-architecture`,
-  `rosetta-stone-AI`), live-edited via Claude-in-Chrome + XMind Copilot
-  (see `Topics/xmind-copilot-collaboration.md`). `rosetta-stone-AI` is
-  the active one as of 2026-07-12. No local `.xmind` snapshots are
-  kept — the cloud document is the source of truth. `Artifacts/XMind/`
-  holds incident writeups and per-session Chrome-permission fix
-  scripts (see `Topics/claude-in-chrome-connectivity.md`) — a fresh
-  `.command` script is generated each session, so treat any existing
-  one there as possibly stale.
+- Mindmap: two active XMind Cloud documents, both frozen as of
+  2026-07-12 — `rosetta-stone-AI` (the Responsibility vocabulary,
+  https://app.xmind.com/GPJHh8wQ) and `rosetta-stone-MCP-Bridge` (the
+  split-out MCP IDE-extension delivery concern,
+  https://app.xmind.com/IPtIA0Kd). Edited via Claude-in-Chrome + XMind
+  Copilot (see `Topics/xmind-copilot-collaboration.md`). Frozen
+  snapshots of both (`.xmind` source + `.outline.md` readable mirror)
+  are committed under `Artifacts/XMind/` — see
+  `Topics/bduf-freeze-and-training.md` for the freeze rationale and the
+  standing working agreement. `Artifacts/XMind/` also holds incident
+  writeups and per-session Chrome-permission fix scripts (see
+  `Topics/claude-in-chrome-connectivity.md`) — a fresh `.command`
+  script is generated each session, so treat any existing one there as
+  possibly stale.
 - Related repos (context only, not actively worked on):
   `/Users/billkratochvil/AI/repos/vs-mcp-bridge`,
   `/Users/billkratochvil/AI/repos/BlogAI`

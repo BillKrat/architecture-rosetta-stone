@@ -1,0 +1,242 @@
+========================================================================
+ROSETTA STONE CHECKPOINT 0002
+========================================================================
+
+File:
+2026-07-12_Checkpoint_0002_Concern_Split_And_Freeze.txt
+
+Checkpoint:
+0002
+
+Date:
+2026-07-12
+
+Project:
+Rosetta Stone for Software Architecture
+
+Project Phase:
+Transition from foundational tooling into BDUF (Big Design Up Front):
+the map is split, frozen, and the project now enters a training phase
+before any further content work happens.
+
+Checkpoint Title:
+Concern Split And Freeze
+
+Project Status:
+Continuation of the same 2026-07-12 session as Checkpoint 0001. That
+checkpoint left `rosetta-stone-AI` fully clean of the bullet-prefix
+defect but still mixing two unrelated concerns. This checkpoint splits
+those concerns into two documents, freezes both as source of truth,
+commits snapshots of both to this repo, and establishes the working
+agreement for the training phase that follows.
+
+Repository:
+https://github.com/BillKrat/architecture-rosetta-stone
+
+Git Commit:
+(pending — filled in after commit, see below)
+
+Previous Checkpoint:
+0001 - XMind Copilot Cleanup
+
+Next Objective:
+Training phase: Bill builds comprehensive understanding of every node
+in the frozen `rosetta-stone-AI` map (every Responsibility, every
+Collaborator relationship) before any further modification or
+investigation happens. No defined format yet for how the training
+itself proceeds — that's the first open question for next session.
+
+========================================================================
+SESSION HANDOFF
+========================================================================
+
+WORKING AGREEMENT
+------------------
+New standing agreement as of this checkpoint: no modification and no
+investigation of either frozen map (`rosetta-stone-AI` or
+`rosetta-stone-MCP-Bridge`) until Bill has comprehensive understanding
+of every node in `rosetta-stone-AI` specifically. Once that
+understanding exists, the plan is to jointly investigate, tear down
+what doesn't hold up, build up what's missing, and converge on a final
+`rosetta-stone-AI` solid enough to start real development from. Full
+detail in `Topics/bduf-freeze-and-training.md`.
+
+OBJECTIVES COMPLETED
+---------------------
+
+1. Completed the bullet-prefix cleanup that Checkpoint 0001 had
+   under-verified. Checkpoint 0001's "fully clean" claim was checked
+   against only the branches that happened to be expanded at
+   verification time; six branches were still collapsed and unchecked
+   (Transport, Host (VSIX/IDE), Diagnostics/Observability, Testing/CI,
+   Packaging/Release, Connector/Adapter), each with 3 bullet-prefixed
+   children (18 topics total). Expanded and confirmed the defect, then
+   cleaned all 18 in one Copilot batch using the same
+   exact-literal-branch-scoped method from Checkpoint 0001 — succeeded
+   in a single pass. Full-map reload + outline dump then confirmed zero
+   remaining bullet-glyph prefixes anywhere across the entire original
+   document (140 topics cleaned in total across both checkpoints).
+
+2. Identified the two intertwined concerns in the now-fully-clean map,
+   by inspecting every branch's actual content (not just titles):
+   - Concern A (the real Rosetta Stone content — Responsibility-Driven
+     Design vocabulary for AI systems): Application, Model (+
+     API-service/Edge/RAG variants), Agent, Tool, Retrieval, Memory,
+     Security, Deployment Context Notes, Cross-cutting fields template,
+     Diagnostics/Observability.
+   - Concern B (a specific, unrelated implementation project — reads
+     like the `vs-mcp-bridge` repo's design, not general AI vocabulary):
+     Transport (MCP/stdio/named-pipe), Host (VSIX/IDE), Testing/CI,
+     Packaging/Release, Connector/Adapter — their content is explicitly
+     VSIX/stdio/MCP-tool-schema specific ("Build VSIX, sign artifacts,"
+     "Own IDE APIs and editor state," "Translate host APIs to MCP
+     tools").
+   Proposed this split to Bill for confirmation before cutting anything,
+   since it's a structural change to a soon-to-be-frozen document. Bill
+   confirmed and specified the mechanism: clone the existing map into a
+   new, appropriately-named map, then prune each copy down to only its
+   own concern (rather than, e.g., moving nodes piecemeal). Bill also
+   clarified that the map's pre-existing empty "Map 2" sheet should NOT
+   be used as the Concern B destination — it's earmarked as a
+   scratch/playground sheet for the training phase instead.
+
+3. Executed the split in XMind Cloud:
+   - Duplicated `rosetta-stone-AI` via the file browser's right-click
+     "Duplicate" action, renamed the copy to `rosetta-stone-MCP-Bridge`.
+   - In the new `rosetta-stone-MCP-Bridge` copy: deleted every Concern A
+     branch (Application, Model, Agent, Tool, Retrieval, Memory,
+     Security, Deployment Context Notes, Cross-cutting fields,
+     Diagnostics/Observability), leaving only the 5 Concern B branches.
+   - In the original `rosetta-stone-AI`: deleted every Concern B branch
+     (Transport, Host, Testing/CI, Packaging/Release, Connector/
+     Adapter), leaving only the 10 Concern A branches.
+   - Verified both results via full page reload + outline text dump
+     after each deletion pass — each document contains exactly its own
+     concern's branches, nothing more, nothing less, with no title/body
+     corruption from the deletion work.
+   - Node deletion in the Outliner turned out to be UI-quirky: the
+     right-click context menu frequently rendered clipped at the
+     browser viewport's bottom edge with no visible "Delete" item and
+     no scroll affordance that reliably worked. The dependable method
+     that emerged: click the row's drag-handle (the "::::" grip to the
+     left of the expand caret) to select the row as a true block (not
+     just place a text cursor), then press the actual Delete /
+     forward-delete key — this deletes the whole branch cleanly without
+     needing the context menu at all. Worth remembering for any future
+     node-deletion work in this map.
+   - One near-miss during this work: a plain left-click on a row (not
+     the drag-handle) plus Backspace was initially mistaken for a
+     row-delete shortcut, but it actually entered text-edit mode and
+     deleted one character from the title ("paste" -> "pte" in
+     "Cross-cutting fields to paste into..."). Caught immediately via
+     zoomed screenshot verification, and moot in that instance since
+     the row was being deleted outright anyway — but the lesson stands:
+     always verify a "delete" action actually removed the row, not just
+     that something changed.
+
+4. Renamed `rosetta-stone-AI`, dropping its `[draft]` prefix now that
+   it's frozen source of truth rather than a work-in-progress draft.
+
+5. Froze both documents and committed snapshots to this repo as the
+   permanent record:
+   - Downloaded both as native `.xmind` files via each document's
+     right-click "Download" action (Bill approved this export approach
+     when asked how "commit and push" should work for a cloud-hosted
+     XMind document).
+   - Copied both into `Artifacts/XMind/` in this repo.
+   - Additionally wrote a plain-text/Markdown outline mirror of each
+     (`*.outline.md`) built from the same verified outline-text captures
+     used for the split verification, so the frozen content is
+     diffable/readable directly in git without needing XMind — the
+     `.xmind` files remain the actual source of record.
+
+REPOSITORY / ENVIRONMENT STATE
+--------------------------------
+- Repo: /Users/billkratochvil/AI/repos/architecture-rosetta-stone,
+  branch main, prior state at commit 0d57e59 (Checkpoint 0001, corrected).
+- New/changed files this session (this checkpoint's portion):
+  - Artifacts/XMind/rosetta-stone-AI.xmind (frozen snapshot)
+  - Artifacts/XMind/rosetta-stone-AI.outline.md (readable mirror)
+  - Artifacts/XMind/rosetta-stone-MCP-Bridge.xmind (frozen snapshot)
+  - Artifacts/XMind/rosetta-stone-MCP-Bridge.outline.md (readable mirror)
+  - Topics/bduf-freeze-and-training.md (new topic)
+  - This checkpoint file
+  - INDEX.md updated in place (Topics list, History, Reference)
+- XMind Cloud state: `rosetta-stone-AI` (https://app.xmind.com/GPJHh8wQ)
+  now contains only Concern A; `rosetta-stone-MCP-Bridge`
+  (https://app.xmind.com/IPtIA0Kd) now contains only Concern B. Both are
+  to be treated as frozen going forward per the working agreement above.
+- Pre-existing unrelated `.xmind`/`.opml` files from earlier sessions
+  remain in ~/Downloads (not touched, not part of this repo).
+
+TOPICS TOUCHED THIS SESSION
+------------------------------
+- Topics/bduf-freeze-and-training.md — new. Documents the freeze
+  decision, what's frozen where, and the standing working agreement for
+  the training phase. See file for full detail.
+- Topics/xmind-copilot-collaboration.md — no changes needed; the
+  18-topic cleanup batch and the split's node-deletion work both
+  confirmed its existing guidance (small scoped batches, exact literal
+  text, verify via diff/reload) rather than adding anything new.
+
+METHOD DISCOVERIES
+--------------------
+- A "fully verified" claim about a large map is only as good as what was
+  actually expanded and checked — collapsed branches are invisible to
+  both eyeballing and `get_page_text` alike. Any future full-map
+  verification pass should explicitly expand every top-level branch
+  first, not just the ones already open from prior work.
+- XMind Outliner node deletion: use the row's drag-handle to select the
+  row as a block, then press Delete/forward-delete. The right-click
+  "Delete" menu item is unreliable in this browser context (context
+  menu clips at the viewport edge with no reliable way to reach it).
+
+NEXT SESSION
+==============
+1. Read Topics/bduf-freeze-and-training.md first — it holds the current
+   working agreement (no modification/investigation of the frozen maps
+   until Bill has comprehensive understanding).
+2. The training phase itself has no defined format yet. First order of
+   business: figure out with Bill how training should proceed (e.g.
+   guided node-by-node walkthrough, Q&A, something else), and update
+   Topics/bduf-freeze-and-training.md once that's settled.
+3. Do not touch `rosetta-stone-AI` or `rosetta-stone-MCP-Bridge` content
+   until that understanding is confirmed reached.
+
+END OF SESSION CHECKLIST
+==========================
+[x] Remaining 18 bullet-prefixed topics cleaned, whole map verified
+    clean (140 total across both checkpoints)
+[x] Two concerns identified and confirmed with Bill before cutting
+[x] Map split executed and verified (Concern A / Concern B fully
+    separated, no cross-contamination, no corruption)
+[x] rosetta-stone-AI renamed to drop [draft] prefix
+[x] Both documents frozen and snapshotted (.xmind + .outline.md) into
+    Artifacts/XMind/
+[x] Topics/bduf-freeze-and-training.md written
+[x] INDEX.md updated (Topics list, History, Reference)
+[x] Checkpoint committed, tagged, and pushed (see Git Commit above —
+    filled in as part of this same checkpoint's commit sequence)
+
+SESSION SUMMARY
+================
+This checkpoint closes out the tooling/cleanup thread from Checkpoint
+0001 (the last 18 stray bullet-prefixed topics that a too-narrow
+verification pass had missed) and then pivots the project into its next
+phase: a deliberate BDUF working agreement. The core insight driving the
+session's second half was that the original map, once fully clean,
+turned out to contain two genuinely different documents wearing one
+skin — a general AI-architecture Responsibility vocabulary, and a
+specific MCP IDE-extension delivery design that had gotten tangled in
+during earlier authoring. Splitting them, freezing both, and committing
+snapshots to git converts "a live document someone might change anytime"
+into "a fixed artifact everyone can build shared understanding against"
+— which is the actual precondition Bill wants before any deeper
+investigation, teardown, or rebuild of the real content begins. Nothing
+in this session touched the architecture vocabulary's actual content;
+it was entirely about getting the container right before training
+starts.
+
+========================================================================
+END CHECKPOINT 0002
+========================================================================
