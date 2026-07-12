@@ -1,0 +1,216 @@
+========================================================================
+ROSETTA STONE CHECKPOINT 0001
+========================================================================
+
+File:
+2026-07-12_Checkpoint_0001_XMind_Copilot_Cleanup.txt
+
+Checkpoint:
+0001
+
+Date:
+2026-07-12
+
+Project:
+Rosetta Stone for Software Architecture
+
+Project Phase:
+Foundational tooling — establishing the Claude-in-Chrome + XMind Copilot
+collaboration workflow before real architecture-content work begins.
+
+Checkpoint Title:
+XMind Copilot Cleanup
+
+Project Status:
+First checkpoint under the post-reset structure (repo was reset to a
+clean slate earlier on 2026-07-12, commit f7269bc). This session did no
+architecture-content work; it established the mechanics for working the
+mindmap at all — Chrome connectivity and a reliable Copilot bulk-edit
+method — and used them to clean up a pre-existing formatting defect
+across the whole `rosetta-stone-AI` map, producing a clean canvas for
+future sessions.
+
+Repository:
+https://github.com/BillKrat/architecture-rosetta-stone
+
+Git Commit:
+(pending — filled in after commit, see below)
+
+Previous Checkpoint:
+none — first checkpoint under the current structure
+
+Next Objective:
+Begin real architecture-content work on the `rosetta-stone-AI` map
+(the vocabulary/Responsibility work the project exists to do), now that
+the map is clean and the collaboration mechanics are proven. Apply the
+`Topics/xmind-copilot-collaboration.md` method for any further bulk
+edits, and the `Topics/claude-in-chrome-connectivity.md` procedure at
+the start of every new session that touches XMind.
+
+========================================================================
+SESSION HANDOFF
+========================================================================
+
+OBJECTIVES COMPLETED
+---------------------
+
+1. Re-established Claude-in-Chrome connectivity to XMind Cloud.
+   Following the standing lesson from 2026-07-11 ("navigate to the real
+   target domain first, not a throwaway test domain"), the session's
+   first navigation went to `https://www.xmind.works`. That domain
+   turned out to be dead (browser error page), but the domain-lockout
+   bug (see Topics/claude-in-chrome-connectivity.md) still froze it as
+   the session's one allowed domain, blocking `app.xmind.com` just the
+   same as a bad first-navigation choice would have. Diagnosed via the
+   session's local state file
+   (`~/Library/Application Support/Claude/claude-code-sessions/.../local_4fd647b4-cf05-443e-a06c-c4254791150a.json`,
+   cliSessionId `259a107f-b203-409e-b9f4-b240d931cb0b`), wrote a fresh
+   incident doc and a session-specific `.command` fix script under
+   `Artifacts/XMind/`, and refined the standing rule: the first
+   navigation must go to a domain confirmed to actually load, which for
+   this project means `app.xmind.com` specifically (not
+   `www.xmind.works`). User quit Claude, ran the fix script, resumed,
+   and connectivity was restored — verified by reaching the XMind
+   "Recents" view and opening the `[draft] rosetta-stone-AI` map.
+
+2. Learned the XMind editing surface. Switched from the default
+   Mindmap (radial) view to the Outliner view (bottom-right toggle),
+   which the user had already found easier for text editing than
+   manipulating nodes directly on the radial canvas.
+
+3. Diagnosed and fixed a formatting defect: nearly every topic title in
+   the map carried a stray leading bullet-dot prefix (`• ` or `◦ `)
+   baked directly into the title text (not a list-style artifact).
+   Confirmed by directly editing one node ("Model") via
+   click+Home+Shift+Right+Delete in the Outliner text editor — this
+   manual method is 100% reliable but node-by-node, which the user
+   flagged as "painfully long" at map scale (~122 affected titles).
+
+4. Worked out a reliable method for using XMind's built-in Copilot
+   (via its in-app chat panel, driven through Claude-in-Chrome) to do
+   this at scale instead of by hand. Full detail and the concrete
+   prompt pattern are in `Topics/xmind-copilot-collaboration.md`; in
+   short:
+   - A single node passed to Copilot worked correctly and cheaply.
+   - Asking Copilot to fix the *entire map* in one ~104-operation batch
+     failed: it confused the two different bullet glyphs in use,
+     mismatched titles against hidden leading-space noise in its own
+     tool output, and ultimately made almost no real edits despite
+     reporting "Done." twice — a real trap, since the chat transcript
+     alone looked like success.
+   - The reliable pattern: scope each Copilot request to one
+     branch/parent at a time (~7-15 topics), and hand it the *exact
+     literal old-text titles* to match rather than asking it to
+     self-identify what needs fixing. Every batch scoped this way
+     succeeded in a single clean pass, at a fraction of the credit cost
+     of the failed whole-map attempt.
+   - Also discovered a UI quirk worth remembering: the Copilot chat
+     input submits on a bare Enter (not Shift+Enter-for-newline), so a
+     prompt typed with real embedded newlines gets silently truncated
+     mid-message. Multi-item batch prompts need to be composed as a
+     single line, not a multi-line numbered list.
+
+5. Applied that method across the whole map in 5 scoped batches
+   (Model's 9 direct children; Application's 9 children; Model
+   (API-service)/(Edge)/(RAG) plus Model (RAG)'s 9 children; and the 7
+   remaining top-level branches — Agent, Tool, Retrieval, Memory,
+   Security, Deployment Context Notes, Cross-cutting fields — plus
+   their own children, 63 topics in that last batch alone). Verified
+   the full result after a page reload by pulling the live outline text
+   and confirming zero remaining bullet-glyph prefixes anywhere in the
+   map, cross-checked against Copilot's own per-batch diff logs. No
+   other content (colors, tree structure, body/note text) was altered
+   — confirmed line-by-line against the diffs.
+
+REPOSITORY / ENVIRONMENT STATE
+--------------------------------
+- Repo: /Users/billkratochvil/AI/repos/architecture-rosetta-stone,
+  branch main, previously clean at commit f199774 (the 2026-07-12
+  clean-slate reset).
+- New files this session (untracked prior to this checkpoint's commit):
+  - Artifacts/XMind/2026-07-12_claude-in-chrome-permission-issue.md
+  - Artifacts/XMind/2026-07-12_fix-chrome-domain-permission.command
+    (chmod +x'd; session-specific, will go stale once this session
+    ends — see Topics/claude-in-chrome-connectivity.md)
+  - Topics/claude-in-chrome-connectivity.md (new topic)
+  - Topics/xmind-copilot-collaboration.md (new topic)
+  - This checkpoint file
+  - INDEX.md updated in place (Topics list, History, Reference)
+- No local `.xmind` file changes — all mindmap edits happened directly
+  in XMind Cloud via the live Copilot session; the cloud document
+  `rosetta-stone-AI` (https://app.xmind.com/GPJHh8wQ) is the artifact
+  that actually changed, not anything in this git repo. This repo only
+  records the workflow/lessons, not a mirror of the map's content.
+
+TOPICS TOUCHED THIS SESSION
+------------------------------
+- Topics/claude-in-chrome-connectivity.md — new. Documents the
+  recurring per-session domain-lockout bug, the corrected "must
+  actually resolve" first-navigation rule, and the standing
+  quit-and-patch workaround procedure. See file for full detail.
+- Topics/xmind-copilot-collaboration.md — new. Documents the
+  batch-scoping method for reliable Copilot bulk edits, the
+  Enter-submits UI quirk, and the verification method. See file for
+  full detail and the reusable prompt pattern.
+
+METHOD DISCOVERIES
+--------------------
+- Claude-in-Chrome's domain lockout is per-session and recurs every
+  session until fixed upstream; the mitigation is procedural (always
+  navigate straight to the confirmed-working target domain first), not
+  a one-time fix. See Topics/claude-in-chrome-connectivity.md.
+- For AI-copilot-driven bulk edits generally (not just XMind): don't
+  hand a copilot an open-ended "fix everything" instruction at scale
+  and trust its own "Done." — scope requests narrowly, supply exact
+  literal targets rather than asking it to identify them, and verify
+  against a structured diff/log rather than prose output. This
+  generalizes beyond XMind to any similar copilot-in-a-tool workflow
+  this project might use later.
+
+NEXT SESSION
+==============
+1. At session start, if XMind access is needed: navigate straight to
+   `https://app.xmind.com` as the very first Claude-in-Chrome action
+   (see Topics/claude-in-chrome-connectivity.md). If locked out, expect
+   to generate a fresh fix script and repeat the quit/patch/resume
+   procedure — this is expected, not a regression.
+2. Resume actual architecture-content work on `rosetta-stone-AI` (the
+   vocabulary/Responsibility definitions the project exists to build),
+   now that the map is a clean canvas. No content-level decisions have
+   been made yet this session — this checkpoint is purely
+   infrastructure/tooling.
+3. Apply the Topics/xmind-copilot-collaboration.md method for any
+   further bulk edits to the map.
+
+END OF SESSION CHECKLIST
+==========================
+[x] Claude-in-Chrome connectivity restored and documented
+[x] Bullet-dot prefix formatting defect fixed across entire map (~122
+    topics), verified clean
+[x] Topics/claude-in-chrome-connectivity.md written
+[x] Topics/xmind-copilot-collaboration.md written
+[x] INDEX.md updated (Topics list, History, Reference)
+[x] Checkpoint committed, tagged, and pushed (see Git Commit above —
+    filled in as part of this same checkpoint's commit sequence)
+
+SESSION SUMMARY
+================
+This was an infrastructure/tooling session, not a content session: no
+architecture vocabulary or Responsibility definitions were written or
+changed. The work was entirely about making the Claude-in-Chrome +
+XMind Copilot collaboration loop actually usable — first by fighting
+through a recurring Chrome permission bug (worse this time, since the
+frozen domain was itself dead), then by empirically discovering that
+XMind's Copilot is reliable at small, precisely-scoped, exact-text
+batch edits but unreliable and misleadingly self-reports success on
+large open-ended ones. Both lessons are captured as standing topic
+files rather than one-off notes, because both are expected to recur:
+the Chrome bug on every future session until Anthropic fixes it
+upstream, and the Copilot batching discipline on every future bulk-edit
+task on this map. The practical deliverable is a `rosetta-stone-AI` map
+with its formatting defect fully cleaned, ready for real content work
+to begin next session.
+
+========================================================================
+END CHECKPOINT 0001
+========================================================================
