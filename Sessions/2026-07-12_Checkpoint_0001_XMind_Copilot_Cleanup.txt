@@ -34,7 +34,7 @@ Repository:
 https://github.com/BillKrat/architecture-rosetta-stone
 
 Git Commit:
-(pending — filled in after commit, see below)
+73e94b4
 
 Previous Checkpoint:
 none — first checkpoint under the current structure
