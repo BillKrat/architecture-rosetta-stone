@@ -1,0 +1,20 @@
+# macOS
+.DS_Store
+._*
+
+# Local agent/tooling state
+.claude/
+.vs/
+
+# Nested workspace clones kept for local work only
+BlogAI/
+ai-skills/
+architecture-rosetta-stone/
+vs-mcp-bridge/
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Archives
+*.zip

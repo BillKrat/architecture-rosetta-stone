@@ -1,0 +1,19 @@
+# Normalize all text files to LF in the repository and on checkout,
+# regardless of which OS (macOS/Windows) checked them out.
+* text=auto eol=lf
+
+# Windows batch scripts are line-ending sensitive; keep CRLF.
+*.cmd text eol=crlf
+*.bat text eol=crlf
+
+# Binary formats: never diff, never convert line endings.
+*.xmind binary
+*.zip binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
+*.docx binary
+*.xlsx binary
+*.pptx binary
