@@ -1,7 +1,7 @@
 ---
 name: bduf-freeze-and-training
 description: The BDUF (Big Design Up Front) working agreement for this project — the two frozen source-of-truth maps, and the training-before-touching protocol now in effect.
-status: active — frozen maps in place, training phase not yet started
+status: active — frozen maps in place, training scope defined, format not yet started
 last-updated: 2026-07-12
 ---
 
@@ -62,14 +62,57 @@ together, tear down what doesn't hold up, build up what's missing, and
 converge on a final `rosetta-stone-AI` that's solid enough to start real
 development from.
 
-**Training phase**: begins now. Format and cadence not yet defined by
-Bill — this section should be updated once the training approach is
-decided (e.g. node-by-node walkthrough, Q&A, something else).
+## Training scope (defined 2026-07-12)
+
+**Every training conversation must stay strictly within the nodes of the
+frozen `rosetta-stone-AI` map — the whole of each node, and nothing
+outside it.**
+
+"The whole of each node" means all fields the map actually carries per
+node, not a reduced subset:
+Responsibilities, Collaborators, Inputs/Outputs, Metrics & Thresholds,
+Known Failure Modes, Runtime Hooks, Regulatory Notes, Owner, Acceptance
+Criteria — across all 10 top-level branches (Application, Model, Agent,
+Tool, Retrieval, Memory, Security, Deployment Context Notes, Cross-cutting
+fields, Diagnostics/Observability) plus Model's 3 deployment variants
+(API-service / Edge / RAG).
+
+This was clarified after Bill proposed a car-analogy conceptual model
+("AI Car Conceptual Model — Responsibility-Driven Design") as a
+scope-check: an implementation-agnostic frame using only Responsibilities
++ Collaborations, explicitly excluding vendor/technology differences
+(Copilot vs. ChatGPT vs. Claude vs. Google AI mode = "engine type," same
+non-issue as gas vs. diesel vs. electric). The analogy itself was
+confirmed as a correct instance of the RDD principle already embedded in
+the map (see `Deployment Context Notes`, which treats
+API-service/Edge/RAG the same way — deployment variants, not different
+Models). But Bill then clarified the actual scope decision: he wants
+**everything on the diagram**, not the reduced Responsibilities+
+Collaborations-only slice the car analogy modeled — because he doesn't
+yet know what he doesn't know, so narrowing the field set in advance
+risks leaving gaps. The car analogy's job was to validate that Claude and
+Bill share the same RDD frame; it is not itself an ongoing simplification
+of the training curriculum.
+
+**Explicitly out of scope for these conversations:**
+- `rosetta-stone-MCP-Bridge` (the other frozen document — parked,
+  unrelated concern)
+- Any content, comparison, or tangent not represented by a node in
+  `rosetta-stone-AI` (e.g. specific AI product/vendor discussion beyond
+  what's needed to confirm a Responsibility is vendor-agnostic)
+
+**Rationale:** Bill's stated assumption is that full node-by-node
+comprehension is what lets him engage with Claude's questions
+intelligently going forward, establishing the common foundational
+understanding the later investigate/tear-down/rebuild phase depends on.
+Staying strictly inside the map's nodes is what makes that foundation
+actually common — scope creep into adjacent topics would undermine the
+premise.
 
 ## Open questions
 
-- What does the training phase actually look like in practice (session
+- What does the training phase look like mechanically (session
   structure, whether Claude proctors/quizzes, whether it's self-paced
-  reading)?
+  reading)? Scope is now settled; format/cadence is not.
 - `rosetta-stone-MCP-Bridge` has no defined next step yet — it's frozen and
-  parked, not actively part of the training curriculum.
+  parked, not part of the training curriculum.

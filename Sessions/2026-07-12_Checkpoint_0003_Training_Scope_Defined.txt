@@ -1,0 +1,173 @@
+========================================================================
+ROSETTA STONE CHECKPOINT 0003
+========================================================================
+
+File:
+2026-07-12_Checkpoint_0003_Training_Scope_Defined.txt
+
+Checkpoint:
+0003
+
+Date:
+2026-07-12
+
+Project:
+Rosetta Stone for Software Architecture
+
+Project Phase:
+BDUF training phase (established in Checkpoint 0002) — this checkpoint
+defines the scope of that training, not its format.
+
+Checkpoint Title:
+Training Scope Defined
+
+Project Status:
+Continuation of the same 2026-07-12 session as Checkpoints 0001 and
+0002. Checkpoint 0002 froze the split maps and put the project into a
+training phase but left the scope of "comprehensive understanding"
+undefined. This checkpoint closes that gap: training conversations are
+now bounded to exactly the nodes of the frozen `rosetta-stone-AI` map.
+
+Repository:
+https://github.com/BillKrat/architecture-rosetta-stone
+
+Git Commit:
+(pending — filled in after commit, see below)
+
+Previous Checkpoint:
+0002 - Concern Split And Freeze
+
+Next Objective:
+Begin the actual training. Scope is now settled (see
+`Topics/bduf-freeze-and-training.md`); the mechanics still need to be
+worked out with Bill — session structure, whether Claude proctors or
+quizzes, self-paced vs. guided walkthrough, node-by-node order, etc.
+
+========================================================================
+SESSION HANDOFF
+========================================================================
+
+WORKING AGREEMENT
+------------------
+Extends the Checkpoint 0002 agreement with an explicit scope boundary:
+every training conversation must stay strictly within the nodes of the
+frozen `rosetta-stone-AI` map — all fields (Responsibilities,
+Collaborators, Inputs/Outputs, Metrics & Thresholds, Known Failure
+Modes, Runtime Hooks, Regulatory Notes, Owner, Acceptance Criteria)
+across all branches, and nothing outside that. `rosetta-stone-MCP-Bridge`
+and any tangential AI-product/vendor discussion are explicitly out of
+scope. Full detail in `Topics/bduf-freeze-and-training.md`.
+
+OBJECTIVES COMPLETED
+---------------------
+
+1. Bill proposed an "AI Car Conceptual Model (Responsibility-Driven
+   Design)" as a scope-check analogy — an implementation-agnostic
+   Responsibility/Collaboration model for a car (Engine, Transmission,
+   Axle, Tires, Body, Steering, AC, Alternator), explicitly excluding
+   engine type, transmission type, and product features as irrelevant
+   to a component's core Responsibility. The framing question: does
+   this correctly convey what he wants the training to look like?
+
+2. Confirmed the analogy is a correct instance of the RDD principle
+   already embedded in the frozen map itself — specifically, the map's
+   "Deployment Context Notes" node already treats Model's
+   API-service/Edge/RAG variants the same way the car analogy treats
+   engine types: deployment/technology variants that don't redefine the
+   core Responsibility. Also flagged one open question before treating
+   the analogy as the literal training frame: the car model used only
+   Responsibilities + Collaborations, a narrower field set than the 9
+   fields every node in `rosetta-stone-AI` actually carries, and asked
+   whether that narrowing was intentional.
+
+3. Bill resolved the question: he wants training scoped to **everything
+   or only** the nodes of the `rosetta-stone-AI` diagram — all fields,
+   not the reduced Responsibilities/Collaborations-only slice the car
+   analogy used — specifically because he doesn't yet know what he
+   doesn't know, so pre-narrowing the field set risks leaving
+   comprehension gaps. The car analogy's actual purpose was validating
+   shared understanding of the RDD frame, not defining a reduced
+   training curriculum. He also stated the reasoning for the scope
+   discipline itself: full node-by-node comprehension is what lets him
+   engage with Claude's future questions intelligently, which is the
+   precondition for the common foundational understanding the later
+   investigate/tear-down/rebuild phase depends on — so conversations
+   drifting outside the map's nodes would undermine that premise.
+
+4. Updated `Topics/bduf-freeze-and-training.md` with a new "Training
+   scope" section capturing this decision precisely: what's in scope
+   (every field, every node, every branch including Model's 3
+   deployment variants), what's explicitly out of scope
+   (`rosetta-stone-MCP-Bridge`, tangential vendor/product discussion),
+   and the rationale. Left the training's actual mechanics (format,
+   cadence, whether Claude quizzes) as an open question — scope and
+   format are separate decisions, and only scope was resolved this
+   checkpoint.
+
+REPOSITORY / ENVIRONMENT STATE
+--------------------------------
+- Repo: /Users/billkratochvil/AI/repos/architecture-rosetta-stone,
+  branch main, prior state at commit 679db20 (Checkpoint 0002,
+  corrected).
+- No XMind Cloud changes this checkpoint — both frozen maps remain
+  untouched, consistent with the working agreement. This session was
+  entirely a scoping conversation about the training phase, not content
+  work.
+- Changed files this checkpoint:
+  - Topics/bduf-freeze-and-training.md (updated: new "Training scope"
+    section, frontmatter status line)
+  - This checkpoint file
+  - INDEX.md updated in place (topic summary line, History pointer)
+
+TOPICS TOUCHED THIS SESSION
+------------------------------
+- Topics/bduf-freeze-and-training.md — added the "Training scope"
+  section defining exactly what's in and out of bounds for training
+  conversations, and the reasoning behind it. See file for full detail.
+
+METHOD DISCOVERIES
+--------------------
+- When Bill proposes a conceptual analogy or model to check alignment
+  (like the car model here), treat it as exactly that — a
+  verification device, not necessarily the literal frame to adopt
+  going forward. Confirm what it gets right, then explicitly ask
+  before assuming any narrowing or simplification it introduced was
+  intended to carry forward. That question is what surfaced the actual
+  scope decision in this checkpoint.
+
+NEXT SESSION
+==============
+1. Read Topics/bduf-freeze-and-training.md — scope is settled, format
+   is not.
+2. Work out training mechanics with Bill: how sessions are structured,
+   whether Claude asks Bill questions to check understanding, whether
+   coverage proceeds node-by-node in a fixed order or Bill-directed,
+   etc. Update Topics/bduf-freeze-and-training.md once decided.
+3. Stay within `rosetta-stone-AI`'s nodes only, per the scope now
+   documented — do not let training conversations drift into
+   `rosetta-stone-MCP-Bridge` or unrelated AI-product discussion.
+
+END OF SESSION CHECKLIST
+==========================
+[x] Training scope clarified and confirmed with Bill
+[x] Topics/bduf-freeze-and-training.md updated with the scope decision
+    and rationale
+[x] INDEX.md updated (topic summary, History pointer)
+[x] Checkpoint committed, tagged, and pushed (see Git Commit above —
+    filled in as part of this same checkpoint's commit sequence)
+
+SESSION SUMMARY
+================
+A short, purely-scoping checkpoint: Bill used a car-analogy conceptual
+model to check that Claude understood what "training" should mean, and
+in working through it the actual scope decision surfaced — training
+covers everything on the `rosetta-stone-AI` diagram, not a
+pre-simplified subset, because Bill's whole point is that he doesn't yet
+know which parts matter enough to warrant simplifying. No map content
+was touched; this checkpoint exists purely to make the training
+boundary durable so it isn't re-litigated or drifted from in a future
+session.
+
+========================================================================
+END CHECKPOINT 0003
+========================================================================

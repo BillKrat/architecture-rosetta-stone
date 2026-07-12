@@ -13,7 +13,7 @@ doing.
 
 ## Topics
 
-- [bduf-freeze-and-training](Topics/bduf-freeze-and-training.md) — the two frozen source-of-truth maps and the training-before-touching working agreement (active)
+- [bduf-freeze-and-training](Topics/bduf-freeze-and-training.md) — frozen maps + the training-before-touching working agreement; training scope is strictly the nodes of `rosetta-stone-AI` (active)
 - [claude-in-chrome-connectivity](Topics/claude-in-chrome-connectivity.md) — recurring per-session Claude-in-Chrome domain-lockout bug and the standing workaround (open, no permanent fix)
 - [xmind-copilot-collaboration](Topics/xmind-copilot-collaboration.md) — reliable method for bulk-editing the XMind map via its Copilot (established, reusable)
 
@@ -24,13 +24,11 @@ and align local workflow files"): all prior Topic files, Session
 checkpoints, and Evidence stubs were deleted as part of aligning this
 repo with the shared, repo-agnostic skill workflow (see `AGENTS.md`).
 
-Latest checkpoint: [Sessions/2026-07-12_Checkpoint_0002_Concern_Split_And_Freeze.txt](Sessions/2026-07-12_Checkpoint_0002_Concern_Split_And_Freeze.txt)
-— split the cleaned `rosetta-stone-AI` map into two concerns (the AI
-Responsibility vocabulary vs. an unrelated MCP IDE-extension delivery
-concern), froze both as source of truth, committed snapshots to this repo,
-and put the project into a BDUF training phase: no further modification or
-investigation of either map until Bill has comprehensive understanding of
-every node. See `Topics/bduf-freeze-and-training.md`.
+Latest checkpoint: [Sessions/2026-07-12_Checkpoint_0003_Training_Scope_Defined.txt](Sessions/2026-07-12_Checkpoint_0003_Training_Scope_Defined.txt)
+— defined the scope of the training phase established in Checkpoint 0002:
+every conversation must stay strictly within the nodes of the frozen
+`rosetta-stone-AI` map (all fields, all branches), and nothing outside it.
+See `Topics/bduf-freeze-and-training.md`.
 
 ## Reference
 
