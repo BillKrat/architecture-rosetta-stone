@@ -13,7 +13,7 @@ doing.
 
 ## Topics
 
-- [bduf-freeze-and-training](Topics/bduf-freeze-and-training.md) — frozen maps + the full 5-phase BDUF roadmap (train -> re-investigate -> repeat on Concern B -> gap analysis -> requirements/backlog); Phase 1 in progress (active)
+- [bduf-freeze-and-training](Topics/bduf-freeze-and-training.md) — frozen maps + the full 5-phase BDUF roadmap; Phase 1 mid-walkthrough on node 1/10 (Application) — resume point recorded (active)
 - [claude-in-chrome-connectivity](Topics/claude-in-chrome-connectivity.md) — recurring per-session Claude-in-Chrome domain-lockout bug and the standing workaround (open, no permanent fix)
 - [xmind-copilot-collaboration](Topics/xmind-copilot-collaboration.md) — reliable method for bulk-editing the XMind map via its Copilot (established, reusable)
 
@@ -24,12 +24,12 @@ and align local workflow files"): all prior Topic files, Session
 checkpoints, and Evidence stubs were deleted as part of aligning this
 repo with the shared, repo-agnostic skill workflow (see `AGENTS.md`).
 
-Latest checkpoint: [Sessions/2026-07-12_Checkpoint_0004_Training_Roadmap_Defined.txt](Sessions/2026-07-12_Checkpoint_0004_Training_Roadmap_Defined.txt)
-— defined the full 5-phase BDUF roadmap (train Concern A node-by-node ->
-unfreeze and jointly re-investigate -> repeat on Concern B -> gap analysis
--> requirements/backlog), including the task-checkbox mechanism for
-tracking node sign-off. Phase 1 (Application, first node, clockwise order)
-begins next. See `Topics/bduf-freeze-and-training.md`.
+Latest checkpoint: [Sessions/2026-07-12_Checkpoint_0005_Phase1_Application_Started.txt](Sessions/2026-07-12_Checkpoint_0005_Phase1_Application_Started.txt)
+— Phase 1 training began on node 1/10 (Application): Claude asked its
+three opening questions (unique Responsibility, Collaborators and why,
+Application/Model boundary). Bill has not yet answered — session ended
+here to resume tomorrow with a fresh "Let's code." See
+`Topics/bduf-freeze-and-training.md` for the exact resume point.
 
 ## Reference
 

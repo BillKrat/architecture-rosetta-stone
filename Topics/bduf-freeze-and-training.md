@@ -1,7 +1,7 @@
 ---
 name: bduf-freeze-and-training
 description: The BDUF (Big Design Up Front) working agreement for this project — the two frozen source-of-truth maps, and the training-before-touching protocol now in effect.
-status: active — full 5-phase roadmap defined, Phase 1 (Application) about to begin
+status: active — Phase 1 in progress, mid-walkthrough on node 1/10 (Application)
 last-updated: 2026-07-12
 ---
 
@@ -145,8 +145,24 @@ Five phases, each gated on the previous one's completion:
    concrete requirements and a working backlog — the actual handoff into
    development.
 
+## Phase 1 progress
+
+- **Node 1/10 — Application: IN PROGRESS, not yet checked off.** Claude
+  opened the walkthrough with three questions: (1) what is Application's
+  unique Responsibility that no other node could take over, (2) which
+  other nodes does Application collaborate with and why, (3) where's the
+  boundary between Application and Model — if a user sees a wrong or
+  misleading answer, whose fault is it and how do you tell? Bill has not
+  yet answered these; session ended before working through them. **This
+  is the exact resume point for the next session** — do not restart the
+  Application walkthrough from scratch or re-ask different opening
+  questions; pick up with these same three.
+- Nodes 2-10 (Model, Agent, Tool, Retrieval, Memory, Security, Deployment
+  Context Notes, Cross-cutting fields, Diagnostics/Observability): not
+  started.
+
 ## Open questions
 
-- None currently — scope (previous section) and roadmap (this section)
-  are both settled as of 2026-07-12. Training format is the roadmap
-  itself; no separate format decision remains open.
+- None currently — scope and roadmap are both settled as of 2026-07-12.
+  Training format is the roadmap itself; no separate format decision
+  remains open. Execution is mid-flight (see Phase 1 progress above).

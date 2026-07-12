@@ -1,0 +1,157 @@
+========================================================================
+ROSETTA STONE CHECKPOINT 0005
+========================================================================
+
+File:
+2026-07-12_Checkpoint_0005_Phase1_Application_Started.txt
+
+Checkpoint:
+0005
+
+Date:
+2026-07-12
+
+Project:
+Rosetta Stone for Software Architecture
+
+Project Phase:
+BDUF training, Phase 1 (train Concern A node-by-node) — in progress,
+paused mid-node.
+
+Checkpoint Title:
+Phase1 Application Started
+
+Project Status:
+Closing checkpoint for the 2026-07-12 session (Checkpoints 0001-0005).
+Phase 1 training formally began: Claude opened the Application node
+walkthrough with three questions. Bill chose to stop for the day before
+answering, to give them proper time rather than rush. Session resumes
+tomorrow with a fresh "Let's code."
+
+Repository:
+https://github.com/BillKrat/architecture-rosetta-stone
+
+Git Commit:
+(pending — filled in after commit, see below)
+
+Previous Checkpoint:
+0004 - Training Roadmap Defined
+
+Next Objective:
+Resume the Application walkthrough at the exact point it paused: Bill
+answers Claude's three opening questions (unique Responsibility,
+Collaborators and why, Application/Model boundary). Do not restart with
+different questions. Full detail and the questions themselves are in
+`Topics/bduf-freeze-and-training.md` under "Phase 1 progress."
+
+========================================================================
+SESSION HANDOFF
+========================================================================
+
+OBJECTIVES COMPLETED
+---------------------
+
+1. Claude opened Phase 1 by reviewing the Application node's frozen
+   content internally (not shown to Bill yet) and asking three opening
+   questions designed to test genuine understanding rather than
+   recall/repetition:
+   - What is Application's Responsibility that's uniquely its own — no
+     other node (Model, Agent, Memory, etc.) could take it over?
+   - Which other nodes does Application collaborate with, and why —
+     what does it get from or give to each?
+   - Where's the boundary between Application and Model? If a user sees
+     a wrong or misleading answer on screen, whose fault is it, and how
+     do you tell the difference?
+
+2. Bill confirmed alignment with Claude's approach so far and connected
+   the documentation-rigor standard being applied here ("worth naming"
+   explicit exceptions, precise scope/roadmap capture) to a broader
+   ambition: the same quality bar will be required if `vs-mcp-bridge`
+   is going to be trustworthy enough for organizations to adopt as a
+   starter kit. This is a stated aspiration, not a current work item —
+   `vs-mcp-bridge` remains untouched and out of scope for this project's
+   training conversations (see Topics/bduf-freeze-and-training.md,
+   Training Scope section). Noted here for continuity/motivation context
+   only.
+
+3. Bill chose to stop before answering the three questions, explicitly
+   to take the time needed to work through them properly rather than
+   rush at end of session — and asked that context be updated so the
+   next session ("Let's code") resumes exactly at these three questions,
+   not a restart.
+
+4. Updated `Topics/bduf-freeze-and-training.md` with a new "Phase 1
+   progress" section recording the exact resume point (node 1/10,
+   Application, the three questions verbatim, Bill's answers still
+   pending) and marking nodes 2-10 as not started. Updated frontmatter
+   status accordingly.
+
+REPOSITORY / ENVIRONMENT STATE
+--------------------------------
+- Repo: /Users/billkratochvil/AI/repos/architecture-rosetta-stone,
+  branch main, prior state at commit c27e039 (Checkpoint 0004,
+  corrected).
+- No XMind Cloud changes this checkpoint — Application's task-checkbox
+  has NOT been checked yet (that only happens once Bill's understanding
+  is confirmed solid, which hasn't happened). Both frozen maps remain
+  otherwise untouched.
+- Changed files this checkpoint:
+  - Topics/bduf-freeze-and-training.md (updated: new "Phase 1 progress"
+    section with exact resume point, frontmatter status line)
+  - This checkpoint file
+  - INDEX.md updated in place (topic summary line, History pointer)
+
+TOPICS TOUCHED THIS SESSION
+------------------------------
+- Topics/bduf-freeze-and-training.md — added "Phase 1 progress" section;
+  this is now the authoritative resume pointer for training sessions
+  going forward and should be checked first every time a training
+  session starts.
+
+METHOD DISCOVERIES
+--------------------
+- When a training/mentoring session is paused mid-node (not just
+  mid-project), the resume point needs to be more granular than "which
+  node" — it needs the literal questions or state so the next session
+  doesn't inadvertently re-ask differently-framed questions and lose
+  continuity. Capturing the three questions verbatim in the topic file
+  (not just "Claude asked opening questions") is what makes that
+  possible.
+
+NEXT SESSION
+==============
+1. On "Let's code," read Topics/bduf-freeze-and-training.md — go
+   straight to "Phase 1 progress" for the exact resume point.
+2. Resume the Application walkthrough with Bill's answers to the three
+   recorded questions. Do not re-derive or reframe the questions.
+3. When Application's understanding is solid, check off its task
+   checkbox on the live `rosetta-stone-AI` map (the sanctioned
+   exception to the freeze — see Checkpoint 0004 / Topics file), then
+   move to Model (next in the clockwise Phase 1 order).
+
+END OF SESSION CHECKLIST
+==========================
+[x] Phase 1 walkthrough opened on Application with three questions
+[x] Exact resume point recorded in Topics/bduf-freeze-and-training.md
+[x] INDEX.md updated (topic summary, History pointer)
+[x] Checkpoint committed, tagged, and pushed (see Git Commit above —
+    filled in as part of this same checkpoint's commit sequence)
+[ ] Application node checkbox — not yet checked (Bill's answers still
+    pending, to be completed next session)
+
+SESSION SUMMARY
+================
+This closes out a long single-day session (Checkpoints 0001 through
+0005) that took the project from "the map still has a formatting defect
+and mixes two unrelated concerns" all the way to "training has formally
+begun." The actual pedagogical work — Bill working through what
+Application's Responsibility and Collaborators really are — is
+deliberately left for tomorrow rather than rushed tonight, which is
+itself consistent with the quality bar this session established:
+precision over speed. The one thing that matters for continuity is
+narrow and concrete: three specific questions about the Application
+node, now recorded verbatim, waiting for Bill's answers.
+
+========================================================================
+END CHECKPOINT 0005
+========================================================================
