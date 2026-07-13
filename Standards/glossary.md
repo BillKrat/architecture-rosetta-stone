@@ -1,8 +1,8 @@
 ---
 name: glossary
 description: Cross-project terminology, abbreviations, and their source of truth — starting with WDNA (Windows DNA).
-status: established 2026-07-12; one entry so far
-last-updated: 2026-07-12
+status: established 2026-07-12; one entry (WDNA), now with a supporting MCSD/MSF comparison note
+last-updated: 2026-07-13
 ---
 
 # Glossary
@@ -69,3 +69,48 @@ Credential Indirection and Secure Secret Management Service (see
 WDNA's three tiers. Bill referenced wanting to see "that map" again to
 refresh his memory before going further with this — treat that as the
 next step in this thread, not something to pre-empt here.
+
+**Related but distinct: MCSD / MSF (2026-07-13 finding)**
+
+```yaml
+basis: primary-source
+quoted: >
+  "MSF provides a set of models, principles, and guidelines for
+  designing and developing enterprise solutions..." / "the process of
+  describing the solution in terms of its organization, structure, and
+  the interaction of its parts... breaks the problem into modules, and
+  for each module identifies objects, services, attributes, and
+  relationships" — Microsoft Official Curriculum 2710 (2710PRO.CHM,
+  Bill's own MCSD-track study material, read directly by Claude
+  2026-07-13).
+```
+
+Bill studied toward this material (course 2710, "Analyzing Requirements
+and Defining Microsoft .NET Solution Architectures," the MCSD exam
+70-300 prep book) years ago, before it went obsolete with Agile's rise
+— initially misremembered as MCSE. Reviewed directly to check whether it
+overlaps with or should inform WDNA. Finding: **it's a different,
+unrelated Microsoft framework, not an alternate name or version of
+WDNA.** It bundles two things, neither of which changes anything
+established above:
+
+- **MSF (Microsoft Solutions Framework)** — a *project process model*
+  (Envisioning/Planning/Developing/Stabilizing/Deploying phases, waterfall
+  vs. spiral tradeoffs). Governs project lifecycle, not architecture
+  layers. Not adopted — superseded by Agile, same reason Bill's
+  certification went obsolete.
+- **Conceptual/Logical/Physical Design** (a step within MSF's Planning
+  phase) — a *responsibility-discovery method* ("identify objects,
+  services, attributes, relationships" from use cases), the same
+  lineage as Wirfs-Brock's Responsibility-Driven Design that
+  `rosetta-stone-AI` already uses, just less rigorous. Not adopted as a
+  replacement for RDD; RDD is already the more disciplined version of
+  the same idea. The three-way *label* (Conceptual/Logical/Physical) may
+  be useful later purely as a way to talk about which project phase a
+  piece of content belongs to (e.g. Phase 4/5 gap-analysis and
+  requirements work) — not decided, not needed now.
+
+Net effect: WDNA (tier placement) and RDD (responsibility definition
+within a tier) remain exactly as already established. This entry exists
+so the comparison doesn't have to be re-run if the question comes up
+again.
