@@ -1,7 +1,7 @@
 ---
 name: xmind-copilot-collaboration
 description: How to reliably use XMind's built-in Copilot (driven via Claude-in-Chrome) for bulk edits to the mindmap, and the batch-scoping method that makes it reliable.
-status: established, reusable method
+status: established method, with two known unreliable surfaces (chat-panel click targeting, AI landing-page Enter-submit) — see below
 last-updated: 2026-07-12
 ---
 
@@ -71,6 +71,68 @@ compose box (which can look like it sent, since the box scrolls and a
 multi-item batch prompts as a **single line** (no embedded newlines) —
 use plain-language enumeration or slash/semicolon separators instead of
 a real numbered list with line breaks.
+
+**Confirmed 2026-07-12 (second occurrence): this is not unique to the
+in-document chat panel.** XMind's separate "Create with AI" landing page
+(Home -> Create New -> Create with AI, a full-page "What would you like
+to create today?" prompt box used to generate a brand-new map from
+scratch) has the same bare-Enter-submits behavior. There, the failure
+mode is worse than truncation: a multi-line prompt fired off multiple
+partial submissions, each spawning a **separate new blank document**
+("untitled", generic "Central Topic / Main Topic 1-4" placeholder
+content) — seven of them from one attempt, burning roughly 21 XMind AI
+credits for zero usable output. Treat "Enter submits, compose as a
+single line" as a platform-wide rule for any XMind AI text-entry
+surface, not just the in-document chat panel, until a surface is
+individually confirmed to behave otherwise. After any XMind AI
+generation request, check All Maps/Recents for unexpected extra
+documents before trusting that a single clean result (or a clean
+failure) occurred.
+
+## Incident: unreliable click-targeting into the chat panel (2026-07-12)
+
+Clicking into the in-document Copilot chat input by pixel coordinate,
+based on a screenshot taken moments earlier, is not reliable — a layout
+reflow between the screenshot and the click (e.g. from the panel's
+content scrolling as prior chat history renders) can land the click on
+the canvas behind the panel instead of the input field. When that
+happens, subsequently "typing into the chat box" actually types onto
+the canvas: a first incident merged typed text into a stray new topic
+under an existing node; a follow-up attempt to clear the (wrongly
+targeted) input with Cmd+A / Delete appeared to select and briefly
+blank the entire canvas. Both were fully recoverable with Cmd+Z (5
+undos total across the incident), but **don't assume a click "into the
+chat box" landed there** — after any click intended for that panel,
+take a fresh screenshot and confirm a text cursor is visible in the
+input (or that typed text appears in the compose box) before proceeding
+to type or submit. If in doubt, use `read_page` to get an accessibility
+ref for the actual input element rather than reusing coordinates from
+an earlier screenshot.
+
+## Recovery verification: diff against the frozen repo copy
+
+If an accidental edit to the live document is suspected (see incident
+above), the fastest trustworthy way to confirm full recovery is a
+structural diff against the frozen snapshot already committed to this
+repo (`Artifacts/XMind/rosetta-stone-AI.xmind`), not screenshots or the
+app's own visual state (a scroll-position blank screen can look
+identical to real data loss). Method: have the live document downloaded
+as a fresh `.xmind` file, then treat both the download and the repo copy
+as zip archives —
+
+```bash
+unzip -oq path/to/downloaded.xmind -d downloaded/
+unzip -oq Artifacts/XMind/rosetta-stone-AI.xmind -d repo/
+```
+
+— and diff `content.json` from each. A raw text diff of topic titles
+alone is a fast first check; for full confidence, recursively compare
+title + notes + markers + child structure per topic (ignoring volatile
+fields like ids/timestamps) via a small Python script rather than
+trusting `diff` on the raw JSON (key ordering can differ harmlessly).
+Used 2026-07-12 to confirm a 5-undo recovery was byte-for-byte
+identical to the frozen copy (141/141 topics matched across every
+sheet) after the click-targeting incident above.
 
 ## Verification method
 

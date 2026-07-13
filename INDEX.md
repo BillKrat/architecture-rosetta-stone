@@ -13,9 +13,10 @@ doing.
 
 ## Topics
 
-- [bduf-freeze-and-training](Topics/bduf-freeze-and-training.md) — frozen maps + the full 5-phase BDUF roadmap; Phase 1 mid-walkthrough on node 1/10 (Application) — resume point recorded (active)
+- [bduf-freeze-and-training](Topics/bduf-freeze-and-training.md) — frozen maps + the full 5-phase BDUF roadmap; Phase 1 mid-walkthrough on node 1/10 (Application) — resume point recorded (active); ⚠ see Checkpoint 0006 flag re: a same-day session that investigated the frozen map outside this process
 - [claude-in-chrome-connectivity](Topics/claude-in-chrome-connectivity.md) — recurring per-session Claude-in-Chrome domain-lockout bug and the standing workaround (open, no permanent fix)
-- [xmind-copilot-collaboration](Topics/xmind-copilot-collaboration.md) — reliable method for bulk-editing the XMind map via its Copilot (established, reusable)
+- [xmind-copilot-collaboration](Topics/xmind-copilot-collaboration.md) — reliable method for bulk-editing the XMind map via its Copilot, plus known-unreliable surfaces (chat-panel click targeting, AI landing-page Enter-submit) and a repo-diff recovery-verification method (established, reusable, with caveats)
+- [architecture-artifacts-taxonomy](Topics/architecture-artifacts-taxonomy.md) — new, separate XMind map for a standard MSDN-style architecture-artifact taxonomy; first creation attempt failed and was cleaned up, not yet built (blocked)
 
 ## History
 
@@ -24,12 +25,20 @@ and align local workflow files"): all prior Topic files, Session
 checkpoints, and Evidence stubs were deleted as part of aligning this
 repo with the shared, repo-agnostic skill workflow (see `AGENTS.md`).
 
-Latest checkpoint: [Sessions/2026-07-12_Checkpoint_0005_Phase1_Application_Started.txt](Sessions/2026-07-12_Checkpoint_0005_Phase1_Application_Started.txt)
-— Phase 1 training began on node 1/10 (Application): Claude asked its
-three opening questions (unique Responsibility, Collaborators and why,
-Application/Model boundary). Bill has not yet answered — session ended
-here to resume tomorrow with a fresh "Let's code." See
-`Topics/bduf-freeze-and-training.md` for the exact resume point.
+Latest checkpoint: [Sessions/2026-07-12_Checkpoint_0006_Artifact_Taxonomy_And_Copilot_Lessons.txt](Sessions/2026-07-12_Checkpoint_0006_Artifact_Taxonomy_And_Copilot_Lessons.txt)
+— a parallel, same-day session: produced a collaborator-relationship
+diagram and an ownership/responsibility audit from the frozen
+rosetta-stone-AI map (published as Claude Artifacts, not committed to
+this repo), survived and verified full recovery from an accidental-edit
+scare caused by unreliable XMind Copilot click-targeting, and made a
+first failed attempt (now cleaned up) at a new, separate
+rosetta-stone-Architecture-Artifacts map. Flags an open question for
+Bill: this session's investigation of the frozen map appears to
+conflict with the freeze agreement in
+`Topics/bduf-freeze-and-training.md` — see that checkpoint's "Flag for
+Bill" section. Phase 1 training itself is untouched — its resume point
+is still Checkpoint 0005's (Application, three opening questions
+unanswered).
 
 ## Reference
 

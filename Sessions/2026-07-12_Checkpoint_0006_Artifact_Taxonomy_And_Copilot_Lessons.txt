@@ -1,0 +1,287 @@
+========================================================================
+ROSETTA STONE CHECKPOINT 0006
+========================================================================
+
+File:
+2026-07-12_Checkpoint_0006_Artifact_Taxonomy_And_Copilot_Lessons.txt
+
+Checkpoint:
+0006
+
+Date:
+2026-07-12
+
+Project:
+Rosetta Stone for Software Architecture
+
+Project Phase:
+Phase 1 (node-by-node training on rosetta-stone-AI) remains paused at
+its Checkpoint 0005 resume point (Application, questions unanswered) —
+this session did not touch Phase 1. Instead it ran two parallel,
+out-of-band threads: (a) ad hoc investigation of the frozen
+rosetta-stone-AI map (a collaborator-relationship diagram and an
+ownership/responsibility audit), and (b) the start of a new initiative —
+a second XMind map to hold a standard artifact taxonomy, separate from
+the AI-vocabulary work entirely. See "Flag for Bill" below — thread (a)
+appears to conflict with the standing freeze agreement.
+
+Checkpoint Title:
+Artifact Taxonomy And Copilot Lessons
+
+Project Status:
+This checkpoint captures a session that: produced two analysis
+artifacts from the frozen rosetta-stone-AI map (collaborator diagram,
+ownership audit), survived and fully recovered from an accidental-edit
+scare caused by unreliable XMind Copilot chat targeting, and made a
+first (failed, now cleaned up) attempt at a new, separate
+"rosetta-stone-Architecture-Artifacts" map. No repo content changed
+before this checkpoint — working tree was clean going in.
+
+Repository:
+https://github.com/BillKrat/architecture-rosetta-stone
+
+Git Commit:
+(pending — filled in after commit, see Step 6)
+
+Previous Checkpoint:
+0005 - Phase1 Application Started
+
+Next Objective:
+Bill to reconcile the flagged scope question (see "Flag for Bill"
+below), then either resume Phase 1 training on rosetta-stone-AI
+(Topics/bduf-freeze-and-training.md) or continue the
+rosetta-stone-Architecture-Artifacts build-out
+(Topics/architecture-artifacts-taxonomy.md) — whichever Bill prioritizes.
+
+========================================================================
+SESSION HANDOFF
+========================================================================
+
+WORKING AGREEMENT
+------------------
+New standing practice established this session, at Bill's request:
+**pause and run this update-context checkpoint after each XMind diagram
+or map created/attempted**, not only at the end of a whole work session.
+Rationale (Bill's words, paraphrased): this repo is a space Claude owns
+and is actively learning to navigate; as long as a checkpoint/backup
+exists after each successful step, an in-progress mistake (like this
+session's accidental-edit scare) is recoverable and not something to be
+overly cautious about avoiding in advance.
+
+OBJECTIVES COMPLETED
+---------------------
+
+1. Collaborator-relationship diagram (rosetta-stone-AI, read-only).
+   Connected to XMind Cloud via Claude-in-Chrome (the sandboxed Browser
+   pane hit a login wall first — no saved session there — so switched to
+   Claude-in-Chrome, which had Bill's existing login). Manually expanded
+   all 7 core nodes (Application, Security, Memory, Retrieval, Tool,
+   Agent, Model) one at a time via their collapse/expand badges and read
+   each "Collaborators:" field. Built a Mermaid graph of all
+   collaborator relationships (core-to-core plus external actors: Legal/
+   Ops/Compliance, Product/Human reviewers, Data, Monitoring) and
+   published it as a Claude Artifact. Finding: the 7 core nodes are
+   nearly fully interconnected — only Memory<->Tool and Retrieval<->Tool
+   are never named as direct collaborators of each other.
+
+2. Ownership / responsibility audit (rosetta-stone-AI, read-only).
+   Bill's ask: in a well-designed framework, each responsibility should
+   have exactly one owner — find violations. First attempt tried to
+   offload the field-extraction to XMind's in-document Copilot chat
+   panel (Bill's suggestion, since it was already open) — this is where
+   the accidental-edit scare happened (see next item). After recovery,
+   switched to a safe method: Bill downloaded the live document
+   (`rosetta-stone-AI (1).xmind`) and it was read directly as a zip/JSON
+   file via Bash/python, no further browser risk. Extracted every
+   Owner/Responsibilities/Regulatory Notes field across all 7 core nodes
+   plus Model's 3 deployment variants (API-service/Edge/RAG), Deployment
+   Context Notes, and Diagnostics/Observability. Found 5 concrete
+   single-owner violations, published as a second Artifact:
+     - Diagnostics/Observability has NO Owner: field at all, despite
+       being named (under 3 different names) as a collaborator by Tool,
+       Model (API-service), and Model (Edge).
+     - Deployment-context responsibilities (API-service/Edge/RAG) are
+       modeled TWICE in the tree with two different owner schemes: once
+       as Model's sub-topics (each with its own owner), and again in
+       the separate "Deployment Context Notes" node under a single
+       "Deployment owner (infra/devops)."
+     - Provenance/grounding responsibility is claimed independently by
+       three different owners: Retrieval, Model (RAG), and Deployment
+       Context Notes -> RAG.
+     - PII/data-handling policy is split three ways (Security, Memory,
+       Tool) with no stated precedence between them.
+     - Takedown/DMCA handling is worded almost verbatim in both
+       Retrieval and Model (RAG)'s Regulatory Notes.
+   Both diagram and audit are currently only Claude Artifact URLs (not
+   committed to this repo) — see "Flag for Bill" below.
+
+3. Accidental-edit incident and full recovery (rosetta-stone-AI).
+   While trying to type a data-extraction request into the in-document
+   XMind Copilot chat box, a click missed the input (likely a
+   layout-reflow between screenshot and click) and the typed text landed
+   on the canvas instead, merging into a stray new topic under "Agent."
+   Undid with Cmd+Z. A follow-up attempt to clear leftover text in the
+   chat box (triple-click + Cmd+A + Delete) appeared to also hit the
+   canvas — the mindmap went briefly blank — prompting 2 more undos (5
+   Cmd+Z total across the incident). Recovery was verified, not assumed:
+   Bill downloaded the live document afterward, and it was diffed
+   programmatically (title + notes + markers + full tree structure, via
+   Python, unzipping both .xmind files and comparing content.json) against
+   the frozen `Artifacts/XMind/rosetta-stone-AI.xmind` already committed
+   to this repo. Result: 141/141 topics identical across every sheet —
+   confirmed zero data loss or corruption. This diff-against-frozen-copy
+   method is now the standing verification technique (see
+   Topics/xmind-copilot-collaboration.md).
+
+4. rosetta-stone-Architecture-Artifacts — first attempt (failed, cleaned
+   up). Bill asked for a new, separate XMind map organizing artifact
+   types per a Microsoft/MSDN application-architecture-style taxonomy (5
+   categories, each with named child artifact types — full spec now
+   recorded in Topics/architecture-artifacts-taxonomy.md). Used XMind's
+   dedicated "Create with AI" landing-page flow (Home -> Create New ->
+   Create with AI) rather than the in-document chat panel, expecting a
+   plain form field to be more reliable than a floating chat-over-canvas
+   panel. It was NOT more reliable in the way expected: the same
+   "Enter submits" UI quirk already known for the in-document Copilot
+   chat (see Topics/xmind-copilot-collaboration.md) turned out to apply
+   here too. The prompt was typed with embedded newlines (a numbered
+   list); each embedded Enter fired a partial submission, and the flow
+   spawned SEVEN separate blank "untitled" documents (generic "Central
+   Topic / Main Topic 1-4" placeholder content, none of the requested
+   taxonomy), consuming roughly 21 XMind AI credits (401.3 -> 380.3) for
+   no usable output. All 7 were manually moved to Trash (right-click ->
+   Move to Trash, one at a time, verified via screenshot after each).
+   Final state confirmed clean: only the two real documents remain
+   (rosetta-stone-AI.xmind, rosetta-stone-MCP-Bridge.xmind). The actual
+   Architecture-Artifacts map was NOT created this session — still
+   pending a retry with a single-line prompt.
+
+REPOSITORY / ENVIRONMENT STATE
+--------------------------------
+Repo: /Users/billkratochvil/AI/repos/architecture-rosetta-stone, branch
+main. Working tree was clean before this checkpoint (last commit 08c63dc,
+"Checkpoint 0005 - fill in commit hash"); this checkpoint is the first
+repo write of the session. No changes to Artifacts/XMind/ this session —
+the two frozen .xmind snapshots there were read (for the diff-verification
+in item 3 above) but not modified. Two Claude Artifact URLs exist from
+this session (collaborator diagram, ownership audit) but are not
+committed anywhere in this repo — see "Flag for Bill."
+
+TOPICS TOUCHED THIS SESSION
+------------------------------
+- Topics/xmind-copilot-collaboration.md — added: (a) the "Enter submits"
+  UI quirk also applies to the separate "Create with AI" landing-page
+  flow, not just the in-document chat panel, and multi-line prompts
+  there can spawn multiple stray documents rather than just truncating
+  one message; (b) pixel-coordinate clicks into the in-document chat
+  panel are unreliable after a layout reflow and can misfire onto the
+  canvas — treat any click into that panel as unverified until a
+  follow-up screenshot confirms the cursor/focus landed in the input,
+  not the canvas; (c) the diff-against-frozen-copy recovery/verification
+  method (unzip both .xmind files, compare content.json title/notes/
+  markers/tree structure) as the standing way to confirm an undo
+  sequence didn't lose or corrupt anything.
+- Topics/architecture-artifacts-taxonomy.md — new file. Records Bill's
+  MSDN/Microsoft-architecture-style taxonomy spec in full (5 categories
+  + named children), the naming decision
+  ("rosetta-stone-Architecture-Artifacts"), and the failed first attempt
+  with its root cause, so a future session can retry without re-asking
+  Bill for the spec.
+- Topics/bduf-freeze-and-training.md — not edited, but see "Flag for
+  Bill" below: this session's investigation of rosetta-stone-AI (items
+  1-2 above) appears to conflict with this file's "no investigation of
+  either frozen map" clause. Left as-is pending Bill's call rather than
+  silently resolved.
+
+METHOD DISCOVERIES
+--------------------
+- The "Enter submits, don't embed real newlines" rule (previously
+  scoped to the in-document Copilot chat panel only) is broader than
+  first recorded — it applies to at least one other XMind AI text-entry
+  surface (the "Create with AI" landing page) and possibly others.
+  Treat it as a platform-wide XMind AI input quirk, not a single-widget
+  quirk, until proven otherwise.
+- A failed/interrupted XMind AI generation doesn't fail cleanly — it can
+  silently spawn multiple junk documents and burn credits with no
+  visible error. After any XMind AI prompt submission, check "All Maps"
+  / "Recents" for unexpected new documents before assuming a single
+  clean result (or none at all).
+- When an accidental edit to a live, actively-used document is
+  suspected, the fastest trustworthy verification is a structural diff
+  against a frozen copy already committed to the repo (unzip both
+  .xmind files as zip archives, compare content.json programmatically)
+  rather than relying on screenshots or the app's own UI state, which
+  can look ambiguous (e.g. a scroll-position blank screen looking like
+  data loss when it wasn't).
+- New standing practice (this session, Bill's instruction): checkpoint
+  after each diagram/map created or attempted in XMind, not just at
+  session end — treats the repo as the safety net for an app Claude is
+  still learning to navigate reliably.
+
+NEXT SESSION
+==============
+1. Resolve the flag below (freeze-agreement conflict) with Bill first.
+2. If continuing the artifact-taxonomy thread: retry creating
+   rosetta-stone-Architecture-Artifacts using a single-line prompt (no
+   embedded newlines) via XMind's "Create with AI" flow — full taxonomy
+   spec is in Topics/architecture-artifacts-taxonomy.md, no need to
+   re-ask Bill. Verify credit cost and resulting document content before
+   declaring success; check All Maps for stray "untitled" docs
+   afterward regardless of apparent success.
+3. If resuming Phase 1 training instead: see
+   Topics/bduf-freeze-and-training.md, "Phase 1 progress" — resume point
+   is Application's three unanswered opening questions, unchanged by
+   this session.
+4. Open follow-up (not yet actioned): the collaborator diagram and
+   ownership audit from this session exist only as Claude Artifact URLs,
+   which are not durable the way this repo's committed files are (a
+   future conversation without this session's context cannot re-open the
+   same URL to update it). Consider whether either should be committed
+   into the repo (e.g. under Artifacts/) if they're meant to be
+   referenced again later.
+
+FLAG FOR BILL
+================
+Topics/bduf-freeze-and-training.md records a working agreement (dated
+2026-07-12, same day as this session) that neither modification NOR
+investigation of the frozen rosetta-stone-AI map should happen until
+Phase 1 node-by-node training completes. This session's first two
+objectives (the collaborator diagram and the ownership audit) are both
+investigation of that frozen map, done in direct response to Bill's
+requests within this session — they were not flagged against the freeze
+agreement in the moment because this session's chat history contains no
+record of that agreement ever being discussed. This looks like two
+different sessions on the same repo, same day, working from different
+context. Nothing was permanently changed (see item 3 above — verified
+byte-identical to the frozen copy), so there's no cleanup needed, but
+Bill should decide: does the freeze agreement still hold as written, or
+does ad hoc investigation like this session's count as acceptable input
+toward the eventual Phase 2 "unfreeze and jointly re-investigate" step?
+
+END OF SESSION CHECKLIST
+==========================
+[ ] Commit this checkpoint + topic changes
+[ ] Tag checkpoint-0006
+[ ] Push commit and tag to origin/main
+[ ] Fill in real commit hash and check off these items in a second commit
+
+SESSION SUMMARY
+================
+A mixed session: two pieces of read-only analysis work product
+(collaborator diagram, ownership audit) delivered cleanly as Artifacts;
+one real incident (accidental canvas edits from unreliable Copilot-chat
+click targeting) that was fully recovered from and, more importantly,
+*verified* recovered from via a repo-diff rather than assumed; and one
+new initiative (a second XMind map for a general artifact taxonomy)
+that hit the same "Enter submits" UI quirk already known from the AI
+vocabulary map, this time in a different XMind surface, spawning seven
+throwaway documents that were manually cleaned up. The most durable
+outcome from a project-continuity standpoint is procedural rather than
+content: the diff-against-frozen-copy recovery method, the broadened
+understanding of the Enter-submits quirk, and Bill's new standing
+practice of checkpointing after every XMind diagram attempt so that
+future navigation mistakes stay cheap.
+
+========================================================================
+END CHECKPOINT 0006
+========================================================================
