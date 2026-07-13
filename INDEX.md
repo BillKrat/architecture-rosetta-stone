@@ -16,7 +16,7 @@ doing.
 - [bduf-freeze-and-training](Topics/bduf-freeze-and-training.md) — frozen maps + the full 5-phase BDUF roadmap; Phase 1 mid-walkthrough on node 1/10 (Application) — resume point recorded (active); ⚠ see Checkpoint 0006 flag re: a same-day session that investigated the frozen map outside this process
 - [claude-in-chrome-connectivity](Topics/claude-in-chrome-connectivity.md) — recurring per-session Claude-in-Chrome domain-lockout bug and the standing workaround (open, no permanent fix)
 - [xmind-copilot-collaboration](Topics/xmind-copilot-collaboration.md) — reliable method for bulk-editing the XMind map via its Copilot, plus known-unreliable surfaces (chat-panel click targeting, AI landing-page Enter-submit) and a repo-diff recovery-verification method (established, reusable, with caveats)
-- [architecture-artifacts-taxonomy](Topics/architecture-artifacts-taxonomy.md) — new, separate XMind map for a standard MSDN-style architecture-artifact taxonomy; first creation attempt failed and was cleaned up, not yet built (blocked)
+- [architecture-artifacts-taxonomy](Topics/architecture-artifacts-taxonomy.md) — superseded; kept for incident history only — see `Architecture/rosetta-stone-AI-Architecture/` for the live document
 
 ## History
 
@@ -42,6 +42,20 @@ unanswered).
 
 ## Reference
 
+- Architecture deliverables: [Architecture/rosetta-stone-AI-Architecture/](Architecture/rosetta-stone-AI-Architecture/README.md)
+  — the living, MSDN-style BDUF artifact container companion to
+  `rosetta-stone-AI` (see naming convention below). Markdown in this
+  repo, not XMind — deliberately chosen 2026-07-12 over both a flat
+  XMind map (scalability risk) and a GitHub wiki (would fragment git
+  history into a second repo). One file per MSDN category
+  (Requirements & Use Cases, Logical Architecture, Physical & Technical
+  Specs, System Policies, Operational Plans); each artifact type inside
+  currently holds a placeholder summary, not real content, pending
+  `rosetta-stone-AI` Phase 1 sign-off. Naming convention going forward:
+  `rosetta-stone-<Concern>-Architecture`, sibling folders under
+  `Architecture/` — next expected is
+  `rosetta-stone-MCP-Bridge-Architecture` once gap-analysis work starts
+  toward `vs-mcp-bridge`.
 - Evidence sources: none currently populated (`Evidence/` was removed
   in the 2026-07-12 reset; recreate per-author folders here if/when
   evidence-backed work resumes)

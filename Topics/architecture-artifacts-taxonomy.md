@@ -1,7 +1,7 @@
 ---
 name: architecture-artifacts-taxonomy
-description: A new, separate XMind map ("rosetta-stone-Architecture-Artifacts") to hold a standard, MSDN/Microsoft-style taxonomy of software architecture artifact types — distinct from the rosetta-stone-AI Responsibility vocabulary. First creation attempt failed and was cleaned up; not yet built.
-status: blocked — first attempt failed (spawned 7 junk docs, all cleaned up); retry not yet done
+description: Superseded — the MSDN-style architecture-artifact taxonomy moved from a planned XMind map to markdown files under Architecture/rosetta-stone-AI-Architecture/. Kept for the incident history (why XMind was rejected for this job).
+status: superseded — see Architecture/rosetta-stone-AI-Architecture/ for the live version
 last-updated: 2026-07-12
 ---
 
@@ -74,10 +74,32 @@ contains all 5 branches and their required children (the AI may
 still take liberties even with a clean single-line prompt) before
 treating this as done.
 
-## Open questions
+## Superseded 2026-07-12
 
-- Confirm the proposed name (`rosetta-stone-Architecture-Artifacts`)
-  with Bill, or get his preferred name, before/while retrying creation.
-- Once created, decide whether this new map should also get a frozen
-  `Artifacts/XMind/` snapshot committed to this repo, matching the
-  pattern used for the other two maps.
+After the failed attempt above, Bill raised a real scalability concern:
+a single flat XMind canvas, growing for the *lifetime* of the project,
+risks becoming exactly the "densely populated, unnavigable" kind of map
+he'd seen elsewhere. Discussed alternatives (GitHub wiki vs. an in-repo
+markdown folder) and settled on the latter, to keep one unified git
+history rather than fragmenting into a second `.wiki.git` repo.
+
+The live version of this work is now
+`Architecture/rosetta-stone-AI-Architecture/` — a folder of markdown
+files (one per MSDN category, plus a `README.md` index), not an XMind
+map. See `Architecture/rosetta-stone-AI-Architecture/README.md` for the
+current structure and naming convention
+(`rosetta-stone-<Concern>-Architecture`).
+
+This file is kept, not deleted, because the XMind attempt and its
+failure are real incident history worth preserving — the "Enter
+submits" lesson recorded in `Topics/xmind-copilot-collaboration.md` came
+directly from it.
+
+## Open questions (as of the XMind attempt — now moot)
+
+- ~~Confirm the proposed name (`rosetta-stone-Architecture-Artifacts`)~~
+  — superseded; the live document uses `rosetta-stone-AI-Architecture`
+  per the naming convention above.
+- ~~Decide whether this new map should also get a frozen
+  `Artifacts/XMind/` snapshot~~ — moot; it's markdown in this repo now,
+  already git-native.
