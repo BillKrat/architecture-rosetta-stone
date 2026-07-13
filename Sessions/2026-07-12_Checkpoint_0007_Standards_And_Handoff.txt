@@ -1,0 +1,250 @@
+========================================================================
+ROSETTA STONE CHECKPOINT 0007
+========================================================================
+
+File:
+2026-07-12_Checkpoint_0007_Standards_And_Handoff.txt
+
+Checkpoint:
+0007
+
+Date:
+2026-07-12
+
+Project:
+Rosetta Stone for Software Architecture
+
+Project Phase:
+BDUF-research session (same track as Checkpoint 0006) closing out for
+the evening. Phase 1 training track (the separate "coding session")
+remains untouched — still at Checkpoint 0005's resume point.
+
+Checkpoint Title:
+Standards And Handoff
+
+Project Status:
+This checkpoint closes out a full-evening BDUF-research session: built
+the `Standards/` folder (identifier scheme + relationship vocabulary),
+scaffolded `Architecture/rosetta-stone-AI-Architecture/` as a 6-file
+living document, then exercised both standards for real by formalizing
+the single-owner-per-Responsibility principle as tracked Requirement
+Definitions and converting the ownership audit's 5 findings into tracked
+Risks/Known Issues. Also resolved Checkpoint 0006's open "Flag for
+Bill" — the tension between this session's investigation of the frozen
+map and the freeze agreement — by design rather than by fiat: findings
+get recorded in the unfrozen Architecture document, never written back
+into the frozen map, with an explicit handoff pointer added to
+Topics/bduf-freeze-and-training.md for the coding-session track to pick
+up when Phase 1 reaches the relevant nodes.
+
+Repository:
+https://github.com/BillKrat/architecture-rosetta-stone
+
+Git Commit:
+(pending — filled in after commit, see Step 6)
+
+Previous Checkpoint:
+0006 - Artifact Taxonomy And Copilot Lessons
+
+Next Objective:
+Two independent threads to resume, either order: (1) Phase 1 training on
+`rosetta-stone-AI` in the coding session — resume point unchanged since
+Checkpoint 0005 (Application, three opening questions), now with 5
+pre-loaded findings to fold in when their nodes are reached (see Topics/
+bduf-freeze-and-training.md); (2) continue populating
+Architecture/rosetta-stone-AI-Architecture/ in this session's track —
+Business Requirements Document, Functional Specifications, User Stories,
+Use Cases, and the other 4 MSDN categories are all still placeholder.
+
+========================================================================
+SESSION HANDOFF
+========================================================================
+
+OBJECTIVES COMPLETED
+---------------------
+
+1. Standards/ folder (identifier scheme + relationship vocabulary).
+   Bill seeded a `TYPE_SCOPE_SEQ` identifier format
+   (e.g. `UC_RSAI_00001`, `RD_RSAI_0001`) meant to give every artifact
+   across every future project a permanent, unambiguous ID, and asked
+   Claude to flush out the standard rather than take the seed literally.
+   Two inconsistencies in the seed were caught and resolved before
+   building: digit-width mismatch (standardized on 4 digits everywhere)
+   and RD's meaning (Bill's example tagged one atomic requirement
+   statement, not a whole document — split into RD = Requirement
+   Definition vs. BRD = Business Requirements Document, the containing
+   deliverable). Built `Standards/README.md`, `identifier-scheme.md`
+   (full TYPE registry — 17 document/definition codes + 7 diagram codes
+   — and a SCOPE registry with `RSAI` as the first entry), and
+   `relationship-vocabulary.md` (7 starter predicates — partOf,
+   realizes, satisfies, collaboratesWith, dependsOn, tracesTo,
+   supersedes/supersededBy — recorded as structured YAML rather than
+   only prose). The relationship vocabulary was explicitly designed
+   around Bill's stated long-term vision of eventually loading every
+   architecture deliverable into a triple store, SPARQL-navigable "up,
+   down, and sideways" — flagged by Bill as deep backlog, not current
+   work, so nothing was built toward it beyond making today's recording
+   convention additive-friendly for a future export step.
+
+2. Architecture/rosetta-stone-AI-Architecture/ scaffolded, then exercised
+   for real. Following on from the prior session's XMind-vs-wiki-vs-
+   markdown decision (Checkpoint 0006's tail end), Bill confirmed the
+   in-repo-markdown-folder approach and asked for the appropriate name
+   under the established `rosetta-stone-<Concern>-Architecture`
+   convention. Built a `README.md` index plus 5 category files
+   (Requirements & Use Cases, Logical Architecture, Physical & Technical
+   Specs, System Policies, Operational Plans), each artifact type inside
+   with a first-pass "what this collects" summary tying back to this
+   session's ownership-audit findings — all placeholder pending real
+   content. Later in the session, Bill asked to circle back to the
+   original ownership-audit work and have it become real content rather
+   than sit only in Checkpoint 0006's narrative and a Claude Artifact
+   URL. Added a 6th file, `risks-and-open-issues.md` (cross-cutting, not
+   one of the original 5 MSDN categories — a risk can concern any of
+   them), and populated it with the audit's 5 findings as `RSK_RSAI_0001`
+   through `0005`, each with a `violates` relationship pointing at one of
+   two new Requirement Definitions added to
+   `requirements-and-use-cases.md`: `RD_RSAI_0001` ("every Responsibility
+   has exactly one Owner" — Bill's own stated assumption from earlier in
+   the session, formalized rather than paraphrased) and `RD_RSAI_0002`
+   ("every concern is defined in exactly one place" — Claude's synthesis
+   from the pattern across the 5 findings, explicitly flagged as such
+   since it wasn't Bill's direct words). Also added "Use Cases" and
+   "Requirement Definitions" sections to `requirements-and-use-cases.md`
+   that hadn't existed before — a gap caught while doing this work: the
+   Standards TYPE registry already listed `UC` and `RD` as codes mapped
+   to that category, but the Architecture file itself only had sections
+   for the original 3 artifact types Bill listed (BRD, FS, US). Fixed
+   for consistency rather than left silently mismatched. No Use Case was
+   invented to fill the section — left genuinely empty rather than
+   fabricated, since a real one should come from Phase 1 training
+   producing an actual scenario.
+
+3. Standards refined from first real use. Two additions surfaced by
+   actually minting IDs rather than just designing the scheme
+   abstractly: added `RSK` as a new TYPE code (Risk/Known Issue,
+   cross-cutting, its own file rather than forced into one of the 5
+   MSDN categories) to `identifier-scheme.md`; added `violates`/
+   `satisfiedBy` as a new predicate pair to `relationship-vocabulary.md`
+   (the negative counterpart to `satisfies`, needed once there were real
+   findings that fail to conform to a requirement); and refined the
+   relationship-recording convention itself — the original example
+   assumed one artifact per file (literal frontmatter), but in practice
+   several small artifacts share one category file, so the convention
+   was adapted to a fenced `yaml` block under each artifact's own
+   heading instead, same fields, section-scoped rather than file-scoped.
+
+4. Handoff mechanism resolved without a new document type. Bill asked
+   for "a hand off document that is understood to be used between this
+   session claude and that session claude," specifically so the
+   ownership-audit findings would be available to the Phase 1
+   training/coding session when it reaches the relevant nodes. Rather
+   than create a new parallel document (risking a second copy of the
+   same content going stale relative to the first), added a substantial
+   new section to `Topics/bduf-freeze-and-training.md` — "Known findings
+   from a parallel session" — since that file is already what the
+   coding session reads before resuming Phase 1. The section: summarizes
+   all 5 findings in one line each, points to the real content in
+   `Architecture/rosetta-stone-AI-Architecture/risks-and-open-issues.md`
+   rather than duplicating it, and explicitly explains why recording
+   findings this way doesn't conflict with the "no modification, no
+   investigation" freeze (the investigation's *output* landed in the
+   unfrozen companion document, never written back into the frozen map).
+   This directly closes Checkpoint 0006's "Flag for Bill" — Bill
+   confirmed this session's investigation was welcome specifically
+   because of where its output landed.
+
+REPOSITORY / ENVIRONMENT STATE
+--------------------------------
+Repo: /Users/billkratochvil/AI/repos/architecture-rosetta-stone, branch
+main. Two commits landed before this checkpoint this session: `68eb789`
+(Architecture/ scaffold) and `4756b40` (Standards/ folder) — both
+already pushed. This checkpoint's own changes (risks-and-open-issues.md,
+the requirements-and-use-cases.md real content, the Standards
+refinements, and the bduf-freeze-and-training.md handoff section) are
+staged as part of this checkpoint's commit, not yet pushed until Step 6
+below.
+
+TOPICS TOUCHED THIS SESSION
+------------------------------
+- Topics/bduf-freeze-and-training.md — added "Known findings from a
+  parallel session" section (the handoff mechanism); updated frontmatter
+  status to point at it; Checkpoint 0006's "Flag for Bill" is now
+  resolved, explained in that new section rather than by editing
+  Checkpoint 0006 itself (checkpoints are append-only history, per the
+  update-context skill's own rule).
+- No other Topics/*.md files changed this session beyond what Checkpoint
+  0006 already covered (architecture-artifacts-taxonomy.md,
+  xmind-copilot-collaboration.md).
+
+METHOD DISCOVERIES
+--------------------
+- Standards and their first real application should happen close
+  together in time, not standard-design followed by a long gap — this
+  session caught two real gaps (a missing TYPE code, a missing
+  relationship predicate, and a mismatch between the Standards TYPE
+  registry and the Architecture file's actual sections) specifically
+  *because* real IDs got minted the same session the standard was
+  written, not weeks later. A standard that's never been exercised is
+  unverified.
+- When two parallel sessions touch the same underlying subject
+  (rosetta-stone-AI) under different working agreements (frozen vs.
+  living companion), the resolution isn't to pick one agreement and
+  override the other — it's to make sure each session's output lands in
+  the document that agreement actually governs. Investigation output
+  that never gets written back into a frozen document doesn't violate
+  a freeze on that document, even if the investigation itself touched
+  it.
+- Cross-session handoff doesn't need a new document type if an existing
+  Topics/*.md file is already what the other session reads — a pointer
+  section added there, plus the real content living in exactly one
+  other place, does the job without creating a duplication risk.
+
+NEXT SESSION
+==============
+1. Coding session: resume Phase 1 at Checkpoint 0005's exact point
+   (Application's three opening questions) — now with
+   Topics/bduf-freeze-and-training.md's "Known findings" section
+   available as context for the nodes it touches.
+2. This session's track: populate the remaining placeholder categories
+   in Architecture/rosetta-stone-AI-Architecture/ (Business Requirements
+   Document, Functional Specifications, User Stories, Use Cases, and all
+   of Logical Architecture / Physical & Technical Specs / System
+   Policies / Operational Plans) — real content should still wait on
+   rosetta-stone-AI's Phase 1 sign-off where it depends on the
+   vocabulary being settled, per the existing working agreement in
+   Architecture/rosetta-stone-AI-Architecture/README.md.
+3. Still open from Checkpoint 0006, unresolved: the collaborator
+   diagram and ownership audit still exist only as Claude Artifact URLs,
+   not committed to this repo. Now that their *findings* are captured as
+   real content in risks-and-open-issues.md, this is lower priority than
+   it was, but the diagram itself (not just its conclusions) may still
+   be worth committing if it'll be referenced again.
+
+END OF SESSION CHECKLIST
+==========================
+[ ] Commit this checkpoint + all staged changes
+[ ] Tag checkpoint-0007
+[ ] Push commit and tag to origin/main
+[ ] Fill in real commit hash and check off these items in a second commit
+
+SESSION SUMMARY
+================
+A long, mostly infrastructure-and-methodology session that ended by
+proving itself out: everything built earlier (the Architecture folder,
+the identifier scheme, the relationship vocabulary) got exercised with
+real content in the session's final stretch, rather than staying
+theoretical. The ownership audit from Checkpoint 0006 — originally just
+a Claude Artifact and a flagged process concern — became durable,
+ID-tagged, cross-referenced content that both this session and the
+separate Phase 1 training session can now build on. The open tension
+from Checkpoint 0006 (did investigating the frozen map violate the
+freeze agreement?) resolved cleanly once the actual question became
+"where does the investigation's output live" rather than "should the
+investigation have happened" — a distinction worth carrying forward
+whenever this project's multiple parallel sessions touch overlapping
+ground again.
+
+========================================================================
+END CHECKPOINT 0007
+========================================================================

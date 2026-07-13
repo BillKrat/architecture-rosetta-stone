@@ -13,7 +13,7 @@ doing.
 
 ## Topics
 
-- [bduf-freeze-and-training](Topics/bduf-freeze-and-training.md) — frozen maps + the full 5-phase BDUF roadmap; Phase 1 mid-walkthrough on node 1/10 (Application) — resume point recorded (active); ⚠ see Checkpoint 0006 flag re: a same-day session that investigated the frozen map outside this process
+- [bduf-freeze-and-training](Topics/bduf-freeze-and-training.md) — frozen maps + the full 5-phase BDUF roadmap; Phase 1 mid-walkthrough on node 1/10 (Application) — resume point recorded (active); now includes a "known findings from a parallel session" pointer for 5 pre-loaded risks the coding session should use when it reaches the relevant nodes
 - [claude-in-chrome-connectivity](Topics/claude-in-chrome-connectivity.md) — recurring per-session Claude-in-Chrome domain-lockout bug and the standing workaround (open, no permanent fix)
 - [xmind-copilot-collaboration](Topics/xmind-copilot-collaboration.md) — reliable method for bulk-editing the XMind map via its Copilot, plus known-unreliable surfaces (chat-panel click targeting, AI landing-page Enter-submit) and a repo-diff recovery-verification method (established, reusable, with caveats)
 - [architecture-artifacts-taxonomy](Topics/architecture-artifacts-taxonomy.md) — superseded; kept for incident history only — see `Architecture/rosetta-stone-AI-Architecture/` for the live document
@@ -25,20 +25,20 @@ and align local workflow files"): all prior Topic files, Session
 checkpoints, and Evidence stubs were deleted as part of aligning this
 repo with the shared, repo-agnostic skill workflow (see `AGENTS.md`).
 
-Latest checkpoint: [Sessions/2026-07-12_Checkpoint_0006_Artifact_Taxonomy_And_Copilot_Lessons.txt](Sessions/2026-07-12_Checkpoint_0006_Artifact_Taxonomy_And_Copilot_Lessons.txt)
-— a parallel, same-day session: produced a collaborator-relationship
-diagram and an ownership/responsibility audit from the frozen
-rosetta-stone-AI map (published as Claude Artifacts, not committed to
-this repo), survived and verified full recovery from an accidental-edit
-scare caused by unreliable XMind Copilot click-targeting, and made a
-first failed attempt (now cleaned up) at a new, separate
-rosetta-stone-Architecture-Artifacts map. Flags an open question for
-Bill: this session's investigation of the frozen map appears to
-conflict with the freeze agreement in
-`Topics/bduf-freeze-and-training.md` — see that checkpoint's "Flag for
-Bill" section. Phase 1 training itself is untouched — its resume point
-is still Checkpoint 0005's (Application, three opening questions
-unanswered).
+Latest checkpoint: [Sessions/2026-07-12_Checkpoint_0007_Standards_And_Handoff.txt](Sessions/2026-07-12_Checkpoint_0007_Standards_And_Handoff.txt)
+— same parallel BDUF-research session as Checkpoint 0006, closing out
+for the evening. Built `Standards/` (identifier scheme + relationship
+vocabulary), then exercised both for real: formalized the
+single-owner-per-Responsibility principle as `RD_RSAI_0001`/`0002` and
+converted Checkpoint 0006's ownership-audit findings into
+`RSK_RSAI_0001`-`0005` in
+`Architecture/rosetta-stone-AI-Architecture/risks-and-open-issues.md`.
+Resolves Checkpoint 0006's "Flag for Bill": findings live in the
+unfrozen Architecture document, never written back into the frozen map,
+with a handoff pointer added to `Topics/bduf-freeze-and-training.md` for
+the coding-session track. Phase 1 training itself remains untouched —
+its resume point is still Checkpoint 0005's (Application, three opening
+questions unanswered).
 
 ## Reference
 
@@ -56,9 +56,12 @@ unanswered).
   XMind map (scalability risk) and a GitHub wiki (would fragment git
   history into a second repo). One file per MSDN category
   (Requirements & Use Cases, Logical Architecture, Physical & Technical
-  Specs, System Policies, Operational Plans); each artifact type inside
-  currently holds a placeholder summary, not real content, pending
-  `rosetta-stone-AI` Phase 1 sign-off. Naming convention going forward:
+  Specs, System Policies, Operational Plans), plus a 6th cross-cutting
+  `risks-and-open-issues.md`. Most artifact types are still placeholder
+  summaries pending `rosetta-stone-AI` Phase 1 sign-off, but two
+  Requirement Definitions and all 5 Risks/Known Issues are real content
+  as of 2026-07-12 — see `Topics/bduf-freeze-and-training.md`'s "Known
+  findings" section. Naming convention going forward:
   `rosetta-stone-<Concern>-Architecture`, sibling folders under
   `Architecture/` — next expected is
   `rosetta-stone-MCP-Bridge-Architecture` once gap-analysis work starts

@@ -38,6 +38,7 @@ TYPE table grows.
 | `dependsOn` | sideways/down | One artifact requires another to exist or hold true. |
 | `tracesTo` | up | General traceability pointer, for links that don't fit a more specific predicate above. |
 | `supersedes` / `supersededBy` | lifecycle | An artifact replaces an earlier one. Use this instead of deleting or renumbering a retired ID — sequence numbers are never reused (`Standards/identifier-scheme.md`). |
+| `violates` / `satisfiedBy` | up, from a Risk/Known Issue (`RSK`) to the requirement it fails to meet | Added 2026-07-12, first real use case: a Risk/Known Issue artifact `violates` a Requirement Definition it currently fails to conform to. `satisfiedBy` is the positive counterpart — a Requirement Definition is `satisfiedBy` whatever artifact eventually resolves it (left empty until resolved). |
 
 "Up, down, sideways" (Bill's framing) map onto these directly: `partOf`/
 `satisfies`/`tracesTo` go up toward broader context, `realizes` goes down
@@ -64,7 +65,34 @@ explaining *why* the relationship holds is still encouraged alongside
 the frontmatter — the structured field is for machines, the prose is
 still for the next human reader.
 
-Not built yet: this convention has no real artifacts to apply to so far
-(everything in `Architecture/rosetta-stone-AI-Architecture/` is still a
-placeholder). Apply it starting with the first artifact that gets a real
-minted ID, rather than retrofitting placeholders that don't need it yet.
+**Refined 2026-07-12, first real use:** the example above assumes one
+artifact per file, so its `relationships:` block reads as literal file
+frontmatter. In practice, several small artifacts share one category
+file (e.g. every `RD` in `requirements-and-use-cases.md`). Where that's
+true, use a fenced `yaml` block immediately under each artifact's own
+heading instead of file-level frontmatter — same fields, same meaning,
+just scoped to the section rather than the whole file:
+
+```markdown
+### RSK_RSAI_0001 — Diagnostics/Observability has no owner
+
+​```yaml
+id: RSK_RSAI_0001
+type: RSK
+scope: RSAI
+status: open
+relationships:
+  violates: [RD_RSAI_0001]
+​```
+
+[prose describing the finding]
+```
+
+First applied 2026-07-12 in
+`Architecture/rosetta-stone-AI-Architecture/requirements-and-use-cases.md`
+(`RD_RSAI_0001`, `RD_RSAI_0002`) and the new
+`Architecture/rosetta-stone-AI-Architecture/risks-and-open-issues.md`
+(`RSK_RSAI_0001` through `0005`) — the first real artifacts minted
+against this scheme, formalizing the single-owner-per-Responsibility
+principle and the ownership audit's findings against the frozen
+`rosetta-stone-AI` map.

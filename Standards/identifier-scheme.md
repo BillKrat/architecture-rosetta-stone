@@ -84,6 +84,7 @@ containing deliverable).
 | DRP  | Disaster Recovery Plan | Operational Plans |
 | MS   | Monitoring Strategy | Operational Plans |
 | RRP  | Rollout / Rollback Plan | Operational Plans |
+| RSK  | Risk / Known Issue | Risks & Open Issues *(added 2026-07-12 — cross-cutting, not one of the original 5 MSDN categories; a risk can concern any node or any other category, so it gets its own file rather than being forced into one)* |
 
 ### Diagram / notation types
 
@@ -133,11 +134,14 @@ a safety net for this whole project.
 
 ## Where minted IDs live
 
-Not built yet — no real artifact has needed an ID minted against it so
-far; everything in `Architecture/rosetta-stone-AI-Architecture/` is still
-a placeholder (see that folder's `README.md`). When the first real
-artifact is authored, create `Standards/ID-Registry/RSAI.md` (one file
-per scope, mirroring the per-scope folder pattern already used under
-`Architecture/`) as a lean, `INDEX.md`-style pointer list: ID, one-line
-title, link to where it's actually defined, status. Don't build this
-ahead of having anything to put in it.
+**First real IDs minted 2026-07-12:** `RD_RSAI_0001`, `RD_RSAI_0002`
+(`Architecture/rosetta-stone-AI-Architecture/requirements-and-use-cases.md`)
+and `RSK_RSAI_0001` through `RSK_RSAI_0005`
+(`Architecture/rosetta-stone-AI-Architecture/risks-and-open-issues.md`) —
+formalizing the single-owner-per-Responsibility principle and the 5
+findings from the ownership audit against the frozen `rosetta-stone-AI`
+map. `Standards/ID-Registry/RSAI.md` (a lean pointer list: ID, one-line
+title, link, status — mirroring `INDEX.md`'s own map-not-content rule)
+should be created the next time a batch of new RSAI IDs is minted, once
+there's enough volume that scanning the category files directly stops
+being fast enough. Not urgent at 7 IDs.

@@ -18,20 +18,27 @@ summaries, and status live in each category's own file.
 
 ## Categories
 
-- [Requirements & Use Cases](requirements-and-use-cases.md) — Business Requirements Document, Functional Specifications, User Stories
+- [Requirements & Use Cases](requirements-and-use-cases.md) — Business Requirements Document, Functional Specifications, User Stories, Use Cases, Requirement Definitions *(this last one has real content — see Status)*
 - [Logical Architecture](logical-architecture.md) — Data Models, Process Diagrams, System Component Models
 - [Physical & Technical Specs](physical-and-technical-specs.md) — Technology Choices, API Contracts, Infrastructure Topology Mappings
 - [System Policies](system-policies.md) — Security Model, Identity Model, Access Control Model
 - [Operational Plans](operational-plans.md) — Disaster Recovery (DR) Plans, Monitoring Strategy, Rollout / Rollback Plan
+- [Risks & Open Issues](risks-and-open-issues.md) — cross-cutting, added 2026-07-12; not one of the original 5 MSDN categories, a risk can concern any of them
 
 ## Status
 
-Scaffolded 2026-07-12. Every artifact type below currently holds a
-first-pass summary of *what it's meant to collect*, not real content —
+Scaffolded 2026-07-12; first real content added the same day.
+`risks-and-open-issues.md` (5 findings) and the "Requirement Definitions"
+section of `requirements-and-use-cases.md` (2 entries, `RD_RSAI_0001`
+and `RD_RSAI_0002`) are populated — everything else is still a
+placeholder summary of *what it's meant to collect*, not real content.
 `rosetta-stone-AI` itself is still mid Phase 1 training (see
-`../../Topics/bduf-freeze-and-training.md`), so this document's actual
+`../../Topics/bduf-freeze-and-training.md`); this document's remaining
 content should mature alongside that vocabulary as it gets signed off,
-not race ahead of it.
+not race ahead of it. The risks are the exception — they document known
+issues *in* the frozen vocabulary itself, surfaced by a same-day
+ownership audit, meant to inform Phase 1 discussion when training
+reaches the relevant nodes rather than wait for it.
 
 ## Naming convention
 

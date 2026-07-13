@@ -1,7 +1,7 @@
 ---
 name: bduf-freeze-and-training
 description: The BDUF (Big Design Up Front) working agreement for this project — the two frozen source-of-truth maps, and the training-before-touching protocol now in effect.
-status: active — Phase 1 in progress, mid-walkthrough on node 1/10 (Application)
+status: active — Phase 1 in progress, mid-walkthrough on node 1/10 (Application); see "Known findings from a parallel session" for pre-loaded context on 5 nodes not yet reached
 last-updated: 2026-07-12
 ---
 
@@ -161,8 +161,50 @@ Five phases, each gated on the previous one's completion:
   Context Notes, Cross-cutting fields, Diagnostics/Observability): not
   started.
 
+## Known findings from a parallel session (2026-07-12) — read before resuming Phase 1
+
+A same-day, parallel Claude Code session (BDUF-research, not this
+Phase 1 training track) ran a collaborator-relationship diagram and an
+ownership audit against this frozen map, looking for violations of "every
+Responsibility should have exactly one owner." **No edits were made to
+`rosetta-stone-AI`** — the freeze held — but 5 findings were formalized
+as tracked Risks/Known Issues in
+`Architecture/rosetta-stone-AI-Architecture/risks-and-open-issues.md`
+(`RSK_RSAI_0001` through `0005`), against two new Requirement
+Definitions in `Architecture/rosetta-stone-AI-Architecture/requirements-and-use-cases.md`
+(`RD_RSAI_0001`, `RD_RSAI_0002`). Summary, one line each:
+
+- `RSK_RSAI_0001` — Diagnostics/Observability has no `Owner:` field at all.
+- `RSK_RSAI_0002` — Deployment-context (API-service/Edge/RAG) responsibilities are modeled twice, under two different owners.
+- `RSK_RSAI_0003` — Provenance/grounding is independently claimed by Retrieval, Model (RAG), and Deployment Context Notes.
+- `RSK_RSAI_0004` — PII/data-handling policy is split three ways across Security, Memory, and Tool with no stated precedence.
+- `RSK_RSAI_0005` — Takedown/DMCA handling is worded near-identically in both Retrieval and Model (RAG).
+
+**Why this doesn't conflict with the freeze:** the working agreement above
+prohibits *modifying or investigating the frozen map's content*. What
+happened is upstream of that — a diagram and an audit *of* the map, with
+findings recorded in the separate, unfrozen `Architecture/` document, not
+written back into `rosetta-stone-AI` itself. Whether each finding is a
+real defect to fix when Phase 1 training reaches its node, or a
+conscious "actually fine as-is" call, is exactly the kind of judgment
+Phase 1/Phase 2 exists to make — nothing here presumes the answer. Bill
+directed this be captured for continuity ("this will help the other
+session as well as Claude mentors, educates, and ramps me up") rather
+than left buried in a checkpoint only the BDUF-research session would
+read again.
+
+This resolves Checkpoint 0006's "Flag for Bill" (the concern that
+investigating the frozen map without this agreement in context might
+have been out of scope) — Bill confirmed the investigation's *output*
+is welcome specifically because it landed here, as tracked findings, not
+as edits.
+
 ## Open questions
 
 - None currently — scope and roadmap are both settled as of 2026-07-12.
   Training format is the roadmap itself; no separate format decision
   remains open. Execution is mid-flight (see Phase 1 progress above).
+  When Phase 1 reaches nodes Diagnostics/Observability, Deployment
+  Context Notes, Retrieval, Model, Security, Memory, or Tool, also
+  resolve the corresponding finding(s) above as part of that node's
+  walkthrough rather than treating them as a separate pass.
