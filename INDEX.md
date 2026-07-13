@@ -42,6 +42,13 @@ unanswered).
 
 ## Reference
 
+- Standards: [Standards/](Standards/README.md) — cross-project rules,
+  not scoped to `rosetta-stone-AI`: the `TYPE_SCOPE_SEQ` unique
+  identifier scheme for every requirement/use-case/diagram/deliverable
+  across every project, and a relationship-recording convention
+  designed so a future triple-store/SPARQL migration (Bill's stated
+  long-term vision, explicitly deep backlog, not current work) can be
+  additive instead of a rewrite.
 - Architecture deliverables: [Architecture/rosetta-stone-AI-Architecture/](Architecture/rosetta-stone-AI-Architecture/README.md)
   — the living, MSDN-style BDUF artifact container companion to
   `rosetta-stone-AI` (see naming convention below). Markdown in this

@@ -40,3 +40,11 @@ not race ahead of it.
 one anticipated is `rosetta-stone-MCP-Bridge-Architecture`, once
 gap-analysis/design work starts for `vs-mcp-bridge` against the frozen
 `rosetta-stone-MCP-Bridge` document.
+
+## Identifiers
+
+Every artifact in the category files below gets a unique ID once it has
+*real* content (scope code `RSAI`) — see `../../Standards/identifier-scheme.md`
+for the format and type codes, and `../../Standards/relationship-vocabulary.md`
+for how to record a relationship to another artifact. Placeholders don't
+get IDs minted yet; that happens as each one is actually authored.
