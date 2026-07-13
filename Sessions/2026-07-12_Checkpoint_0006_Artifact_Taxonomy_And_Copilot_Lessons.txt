@@ -41,7 +41,7 @@ Repository:
 https://github.com/BillKrat/architecture-rosetta-stone
 
 Git Commit:
-(pending — filled in after commit, see Step 6)
+a309174e15475a662b870c80eb13546d0753f3ed
 
 Previous Checkpoint:
 0005 - Phase1 Application Started
@@ -260,10 +260,10 @@ toward the eventual Phase 2 "unfreeze and jointly re-investigate" step?
 
 END OF SESSION CHECKLIST
 ==========================
-[ ] Commit this checkpoint + topic changes
-[ ] Tag checkpoint-0006
-[ ] Push commit and tag to origin/main
-[ ] Fill in real commit hash and check off these items in a second commit
+[x] Commit this checkpoint + topic changes
+[x] Tag checkpoint-0006
+[x] Push commit and tag to origin/main
+[x] Fill in real commit hash and check off these items in a second commit
 
 SESSION SUMMARY
 ================
