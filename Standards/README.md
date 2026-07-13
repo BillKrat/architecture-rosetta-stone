@@ -15,6 +15,7 @@ standard and a link; the actual rules live in each standard's own file.
 
 - [identifier-scheme](identifier-scheme.md) — the `TYPE_SCOPE_SEQ` unique-identifier format used for every requirement, use case, diagram, and architecture deliverable across every project (established)
 - [relationship-vocabulary](relationship-vocabulary.md) — controlled vocabulary + recording convention for how identified artifacts reference each other, designed so a future triple-store migration is additive (established as a convention; no tooling built or planned near-term)
+- [source-of-truth](source-of-truth.md) — every artifact declares its basis (`authoritative` citation, `primary-source` quote, or explicitly-labeled `claude-reasoning`) — Bill's statements alone are never sufficient (established)
 
 ## Why this exists as its own top-level folder
 

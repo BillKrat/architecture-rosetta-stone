@@ -81,12 +81,22 @@ id: RSK_RSAI_0001
 type: RSK
 scope: RSAI
 status: open
+basis: primary-source
 relationships:
   violates: [RD_RSAI_0001]
 ​```
 
 [prose describing the finding]
 ```
+
+**Also carries `basis`** (added 2026-07-12, see
+`Standards/source-of-truth.md`) — every artifact's metadata block
+declares where its claim comes from: `authoritative` (with a real
+citation), `primary-source` (a direct quote/read of the thing being
+described), `claude-reasoning` (explicitly labeled inference, with a
+rationale), or `unverified` (provisional, not yet checked). Bill's own
+statements alone never qualify as any of the first three — see that
+standard for the full rule.
 
 First applied 2026-07-12 in
 `Architecture/rosetta-stone-AI-Architecture/requirements-and-use-cases.md`

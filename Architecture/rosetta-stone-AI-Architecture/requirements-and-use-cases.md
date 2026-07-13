@@ -85,6 +85,16 @@ id: RD_RSAI_0001
 type: RD
 scope: RSAI
 status: active
+basis: claude-reasoning
+rationale: >
+  Originated as Bill's stated assumption ("in a well designed framework,
+  there will be only one owner of a responsibility") — per
+  Standards/source-of-truth.md, that alone isn't sufficient basis. What
+  actually grounds this as a requirement: it's the same rule the RACI
+  framework enforces for its "Accountable" role (exactly one party, never
+  zero, never more than one) applied here by analogy to Responsibility
+  ownership, not verified against a specific citable standard. Upgrade
+  to `authoritative` if a specific citable source is sourced later.
 relationships:
   satisfiedBy: []
 ```
@@ -110,6 +120,16 @@ id: RD_RSAI_0002
 type: RD
 scope: RSAI
 status: active
+basis: claude-reasoning
+rationale: >
+  Claude's own synthesis from the pattern across this session's 4
+  duplication-type findings (RSK_RSAI_0002-0005) — not Bill's direct
+  words, and not verified against a specific citable standard. Informally
+  echoes well-known non-duplication/single-source-of-truth principles
+  (e.g. DRY, and requirements-engineering guidance on avoiding
+  conflicting/duplicate requirements) but that's context, not a citation.
+  Flag if this shouldn't stand as its own rule separate from
+  RD_RSAI_0001.
 relationships:
   satisfiedBy: []
 ```

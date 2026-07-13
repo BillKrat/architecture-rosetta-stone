@@ -34,6 +34,10 @@ id: RSK_RSAI_0001
 type: RSK
 scope: RSAI
 status: open
+basis: primary-source
+quoted: >
+  Diagnostics/Observability's topic tree in rosetta-stone-AI has no
+  "Owner:" line among its fields (compare every other node, which does).
 relationships:
   violates: [RD_RSAI_0001]
 ```
@@ -63,6 +67,12 @@ id: RSK_RSAI_0002
 type: RSK
 scope: RSAI
 status: open
+basis: primary-source
+quoted: >
+  "Owner: API/model infra owner." (Model (API-service)), "Owner: Edge/model
+  release owner." (Model (Edge)), "Owner: RAG pipeline owner." (Model (RAG))
+  vs. "Owner: Deployment owner (infra/devops)." (Deployment Context Notes) —
+  two independent Owner assignments over the same deployment concerns.
 relationships:
   violates: [RD_RSAI_0002]
 ```
@@ -90,6 +100,12 @@ id: RSK_RSAI_0003
 type: RSK
 scope: RSAI
 status: open
+basis: primary-source
+quoted: >
+  Retrieval: "provide provenance"; Model (RAG): "attach provenance for
+  each claim"; Deployment Context Notes -> RAG: "ensure provenance is
+  attached and retrieval quality is monitored" — three independent
+  Responsibilities claims over the same concern.
 relationships:
   violates: [RD_RSAI_0002]
 ```
@@ -114,6 +130,12 @@ id: RSK_RSAI_0004
 type: RSK
 scope: RSAI
 status: open
+basis: primary-source
+quoted: >
+  Security: "enforce data and usage policies"; Memory: "enforce access
+  controls, consent, TTL, and selective forgetting"; Tool Regulatory
+  Notes: "Data residency, PII handling, contractual constraints" — three
+  nodes independently claiming pieces of data-handling policy.
 relationships:
   violates: [RD_RSAI_0002]
 ```
@@ -140,6 +162,12 @@ id: RSK_RSAI_0005
 type: RSK
 scope: RSAI
 status: open
+basis: primary-source
+quoted: >
+  Retrieval Regulatory Notes: "Source attribution, takedown/DMCA
+  handling, sensitive-data filters"; Model (RAG) Regulatory Notes:
+  "Source attribution requirements, takedown handling, sensitive-source
+  filtering" — near-identical wording in two independent nodes.
 relationships:
   violates: [RD_RSAI_0002]
 ```
