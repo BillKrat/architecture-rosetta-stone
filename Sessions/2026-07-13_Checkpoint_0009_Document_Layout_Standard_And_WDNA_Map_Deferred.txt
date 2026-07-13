@@ -1,0 +1,199 @@
+========================================================================
+ROSETTA STONE CHECKPOINT 0009
+========================================================================
+
+File:
+2026-07-13_Checkpoint_0009_Document_Layout_Standard_And_WDNA_Map_Deferred.txt
+
+Checkpoint:
+0009
+
+Date:
+2026-07-13
+
+Project:
+Rosetta Stone for Software Architecture
+
+Project Phase:
+Same BDUF-research track as Checkpoints 0006-0008, closing out before
+Bill leaves for work — his explicit last prompt of the session. Phase 1
+training track remains untouched.
+
+Checkpoint Title:
+Document Layout Standard And WDNA Map Deferred
+
+Project Status:
+Bill asked for two things to be made durable before he goes: (1) that
+WDNA is the terminology standard and the Architecture/ BDUF structure is
+binding, discoverable automatically by any session including the coding
+one, without him re-explaining it; (2) a formal layout standard for BDUF
+artifact documents themselves, since one had been growing organically
+but was never written down, and needs to hold up against a future
+triple-store requirement without a rewrite (the triple store itself
+stays off the backlog). Both done. A third ask — a visual WDNA reference
+map with notes behind each node — was explicitly deferred by Bill to
+next session ("we can address it then"); recorded here in detail so it
+doesn't need to be re-derived, but nothing was built toward it.
+
+Repository:
+https://github.com/BillKrat/architecture-rosetta-stone
+
+Git Commit:
+(pending — filled in after commit, see Step 6)
+
+Previous Checkpoint:
+0008 - WDNA Glossary And Credential Vault
+
+Next Objective:
+Build the WDNA reference map — see "Deferred: WDNA reference map" below
+for Bill's exact requirements. That's the concrete next task whenever
+this thread resumes.
+
+========================================================================
+SESSION HANDOFF
+========================================================================
+
+OBJECTIVES COMPLETED
+---------------------
+
+1. Made WDNA/BDUF structure durable across sessions — via INDEX.md, not
+   skills. Bill asked to "update the skills and/or context file" so this
+   wouldn't need reconstructing in the coding session or any future one.
+   Investigated both options before choosing: `.claude/skills/` in this
+   repo is local, machine-specific tooling state, excluded from git
+   entirely (`.gitignore`: "Local agent/tooling state"), and `AGENTS.md`
+   explicitly mandates skills stay repo-agnostic ("do not hardcode...
+   one project's folder layout unless the task explicitly requires it";
+   "Reuse Standard: stay reusable across ai-skills, architecture-rosetta-stone,
+   BlogAI, and vs-ms-bridge"). Putting WDNA-specific content into a
+   skill file would violate that existing, deliberate design and
+   wouldn't even be captured by git. `INDEX.md`, by contrast, is exactly
+   what the `lets-code` skill reads in full at the start of every
+   session (confirmed by reading `.claude/skills/lets-code/SKILL.md`
+   directly: "Step 1 — Read INDEX.md first... provide the project
+   mission, topic list... Do not open any topic file yet"), is
+   git-tracked, and works identically for the coding-session thread
+   since it's the same repo. Added a new "Binding standards" paragraph
+   directly under INDEX.md's opening mission statement — impossible to
+   skip past since the file's own rule is "read this in full" — stating
+   WDNA as the terminology source of truth and pointing to
+   `Standards/README.md` for the full set, rather than duplicating
+   Standards' content into INDEX.md itself.
+
+2. Standards/document-layout.md — new standard, formalizing existing
+   practice. Bill's ask: establish a layout/design standard for BDUF
+   artifact documents themselves if one doesn't already exist in written
+   form, built to hold up against future triple-store requirements
+   without needing a rewrite (triple store itself stays off the
+   backlog, per Checkpoint 0007). There wasn't a written one — the
+   category-file template, the per-artifact-entry template (heading +
+   yaml metadata block + prose), and the contributed-source-document
+   template had all been used consistently since Checkpoint 0006/0007
+   but never extracted into their own Standards file. Wrote
+   `Standards/document-layout.md` documenting all three patterns exactly
+   as already practiced (not inventing something new), explicitly
+   cross-referencing rather than duplicating `identifier-scheme.md`
+   (IDs), `relationship-vocabulary.md` (cross-references, triple-store
+   rationale), and `source-of-truth.md` (basis) — this file governs
+   *shape*, those three govern *content rules*. Noted explicitly that a
+   future visual reference map (see below) is a different kind of
+   artifact that should point *into* documents laid out per this
+   standard, not duplicate them.
+
+REPOSITORY / ENVIRONMENT STATE
+--------------------------------
+Repo: /Users/billkratochvil/AI/repos/architecture-rosetta-stone, branch
+main. Working tree was clean before this checkpoint (last commit
+6e038fa, "Checkpoint 0008 - fill in commit hash"). This checkpoint's
+changes (Standards/document-layout.md, Standards/README.md, INDEX.md)
+are staged as part of this checkpoint's commit.
+
+Also noted, not acted on: this repo's root contains gitignored nested
+directories (`BlogAI/`, `ai-skills/`, `architecture-rosetta-stone/`,
+`vs-mcp-bridge/`) — local working copies kept for cross-repo skill
+development, per `.gitignore`'s own comment. Not part of this repo's
+tracked content; mentioned here only because this session's
+investigation into where skills live surfaced them, not because
+anything needs to change about them.
+
+TOPICS TOUCHED THIS SESSION
+------------------------------
+- No Topics/*.md files changed. This session's work was entirely new
+  Standards/ content plus strengthening INDEX.md's own framing text.
+
+METHOD DISCOVERIES
+--------------------
+- When a request could be satisfied by either editing a skill or editing
+  tracked project content, check whether the skill is actually
+  version-controlled and repo-specific before assuming it's the right
+  target — in this repo it's neither (local-only, and deliberately
+  repo-agnostic by its own charter in AGENTS.md). The project's own
+  `INDEX.md` + `Topics/`/`Sessions/`/`Standards/`/`Architecture/`
+  structure is the actual durable, cross-machine, cross-session
+  mechanism; skills are just the automation that reads it.
+- A "standard for our standards" (this session's document-layout.md) is
+  worth writing down explicitly once a pattern has proven itself
+  consistent across a few real files, rather than leaving it as tacit
+  convention only Claude remembers between sessions — otherwise it's
+  exactly the kind of undocumented convention this whole project exists
+  to avoid inheriting.
+
+NEXT SESSION
+==============
+Deferred: WDNA reference map. Bill's exact requirements, recorded so
+this doesn't need to be re-derived or re-asked:
+- A visual map/diagram of the WDNA infrastructure — the three tiers
+  (Presentation / Business / Data Services) as nodes.
+- "Notes behind nodes" — each node carries explanatory notes, not just
+  a label (same spirit as `rosetta-stone-AI`'s per-node detail fields).
+- Purpose, in Bill's words: help him "learn the lingo and proper
+  locations for documents," and give both of them "an approved and
+  easily understood map to go to for reference" instead of talking in
+  abstract terms during collaboration.
+- Context for why this matters to Bill specifically: he studied toward
+  MCSE certification years ago; it became obsolete (Agile's rise) before
+  he finished the final exam. WDNA-style three-tier thinking is
+  genuinely familiar ground he's trying to reconnect with, not a new
+  concept being introduced (see Checkpoint 0008).
+- Bill separately mentioned "that map I saw momentarily" (an unspecified
+  prior reference) — find out what he means by that specifically before
+  assuming it dictates the new map's exact form; don't guess at
+  reproducing something unseen.
+- Per `Standards/document-layout.md`'s closing note: this map is a
+  reference/learning artifact, not a source-of-record document — it
+  should point into the Standards/Architecture documents laid out per
+  that standard, not duplicate their content.
+- Given this session's experience, prefer Mermaid (rendered via the
+  validate_and_render_mermaid_diagram tool, published as a Claude
+  Artifact) over XMind for anything net-new — XMind carries real
+  interaction risk (Checkpoint 0006's incident) and the frozen maps
+  shouldn't be touched anyway; Mermaid was already used successfully
+  this session's earlier thread for the collaborator-relationship
+  diagram.
+
+Otherwise, both threads from Checkpoint 0007 remain open independently:
+Phase 1 training (coding session, unchanged resume point) and the
+remaining placeholder Architecture categories.
+
+END OF SESSION CHECKLIST
+==========================
+[ ] Commit this checkpoint + all staged changes
+[ ] Tag checkpoint-0009
+[ ] Push commit and tag to origin/main
+[ ] Fill in real commit hash and check off these items in a second commit
+
+SESSION SUMMARY
+================
+A short, deliberately scoped closing session: two durable standards
+written (where BDUF/WDNA context lives for any future session, and what
+a BDUF document is supposed to look like), one concrete task deferred on
+Bill's explicit instruction rather than rushed through before he had to
+leave. The main judgment call was recognizing that "update the skills"
+wasn't actually the right mechanism for what Bill was asking for, and
+saying so with the reasoning rather than either silently doing something
+that wouldn't have worked (editing gitignored local skill files) or
+silently substituting a different fix without explaining the swap.
+
+========================================================================
+END CHECKPOINT 0009
+========================================================================

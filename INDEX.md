@@ -6,6 +6,19 @@ borrowed one — so architects can build and discuss these systems
 without inheriting meaning-drift. AI is the current test case running
 through the method, not the boundary of it.
 
+**Binding standards — read before authoring anything, in any session:**
+this project's terminology source of truth for architectural layers is
+**WDNA (Windows DNA)** — Presentation / Business / Data Services — not
+ad hoc naming. Every architecture *document* this project produces
+follows the templates in `Standards/document-layout.md`; every tracked
+*artifact* gets an ID per `Standards/identifier-scheme.md`, declares its
+`basis` per `Standards/source-of-truth.md`, and records cross-references
+per `Standards/relationship-vocabulary.md`. This applies identically
+whether you're in this BDUF-research thread or the Phase 1
+training/"coding session" thread — see `Standards/README.md` for the
+full set. Established 2026-07-12/13; not optional polish (see that
+folder's own "why this exists" for why).
+
 **This file is a map, not content.** It holds one line per topic and a
 link — the actual state lives in `Topics/`. Read this in full; open a
 `Topics/*.md` file only when that topic is relevant to what you're
@@ -25,18 +38,19 @@ and align local workflow files"): all prior Topic files, Session
 checkpoints, and Evidence stubs were deleted as part of aligning this
 repo with the shared, repo-agnostic skill workflow (see `AGENTS.md`).
 
-Latest checkpoint: [Sessions/2026-07-13_Checkpoint_0008_WDNA_Glossary_And_Credential_Vault.txt](Sessions/2026-07-13_Checkpoint_0008_WDNA_Glossary_And_Credential_Vault.txt)
-— Bill contributed a document on Windows DNA (WDNA) and the placement of
-a new Credential Indirection and Secure Secret Management Service before
-heading to work. Added `Standards/glossary.md` (first entry WDNA,
-fact-checked via WebSearch rather than taken on Bill's word — the
-source-of-truth rule from Checkpoint 0007 used for real within hours of
-being written), preserved Bill's document verbatim, and extracted it
-into `SCM_RSAI_0001` + `SEC_RSAI_0001`. Bill also mentioned wanting to
-see a WDNA-style map he saw once, to refresh memory from unfinished MCSE
-study years ago — noted as the next ask, not yet acted on. Phase 1
-training itself remains untouched — its resume point is still Checkpoint
-0005's (Application, three opening questions unanswered).
+Latest checkpoint: [Sessions/2026-07-13_Checkpoint_0009_Document_Layout_Standard_And_WDNA_Map_Deferred.txt](Sessions/2026-07-13_Checkpoint_0009_Document_Layout_Standard_And_WDNA_Map_Deferred.txt)
+— Bill's last message before work: made WDNA/BDUF structure durable
+across sessions (this "Binding standards" paragraph, not a skill edit —
+`.claude/skills/` here is local/gitignored and `AGENTS.md` mandates
+skills stay repo-agnostic; `INDEX.md` is what `lets-code` actually reads
+in full), and added `Standards/document-layout.md` formalizing the
+document template already in consistent use. A WDNA reference map (three
+tiers, notes behind each node, for Bill to learn the terminology and
+"proper locations for documents") was explicitly deferred to next
+session — full requirements recorded in Checkpoint 0009's "Deferred:
+WDNA reference map" section, nothing built yet. Phase 1 training remains
+untouched — resume point still Checkpoint 0005's (Application, three
+opening questions unanswered).
 
 ## Reference
 

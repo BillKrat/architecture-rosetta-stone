@@ -17,6 +17,7 @@ standard and a link; the actual rules live in each standard's own file.
 - [relationship-vocabulary](relationship-vocabulary.md) — controlled vocabulary + recording convention for how identified artifacts reference each other, designed so a future triple-store migration is additive (established as a convention; no tooling built or planned near-term)
 - [source-of-truth](source-of-truth.md) — every artifact declares its basis (`authoritative` citation, `primary-source` quote, or explicitly-labeled `claude-reasoning`) — Bill's statements alone are never sufficient (established)
 - [glossary](glossary.md) — cross-project terminology; first entry is WDNA (Windows DNA), the three-tier reference architecture now guiding component placement in `rosetta-stone-AI-Architecture` (established, one entry)
+- [document-layout](document-layout.md) — the template every BDUF artifact document follows (category files, individual ID-tagged entries, contributed source documents) — formalizes what was already consistent practice, designed to stay compatible with a future triple-store migration (established)
 
 ## Why this exists as its own top-level folder
 
