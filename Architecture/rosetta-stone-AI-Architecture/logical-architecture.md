@@ -1,8 +1,8 @@
 ---
 name: logical-architecture
 description: Data models, process diagrams, and system component models for the rosetta-stone-AI system.
-status: scaffolded — placeholders only, no real content yet
-last-updated: 2026-07-12
+status: mixed — System Component Models has real content (1 entry, contributed by Bill); Data Models and Process Diagrams still placeholder
+last-updated: 2026-07-13
 ---
 
 # Logical Architecture
@@ -50,8 +50,59 @@ This is where the Model (API-service)/(Edge)/(RAG) deployment variants
 already documented in `rosetta-stone-AI` turn into real component
 boundaries.
 
-**Status:** Not started.
+**Status:** 1 real entry below; otherwise not started.
 
 **Owner:** (unassigned)
 
-**Linked artifacts:** none yet.
+**Linked artifacts:** `SCM_RSAI_0001` below.
+
+### SCM_RSAI_0001 — Credential Indirection and Secure Secret Management Service, placed in WDNA's Business Services tier
+
+```yaml
+id: SCM_RSAI_0001
+type: SCM
+scope: RSAI
+status: active
+basis: primary-source
+quoted: >
+  "Within the Windows DNA model, the Credential Indirection and Secure
+  Secret Management Service belongs in the Business Services tier,
+  specifically within the Security Services category." — Bill,
+  contributed-windows-dna-credential-vault-context.md, section 2.
+relationships:
+  partOf: []
+  dependsOn: [SEC_RSAI_0001]
+```
+
+A new component, not yet mapped to any existing `rosetta-stone-AI` node
+(it's additive architecture-layer content, not a re-derivation of the
+frozen vocabulary — see `../../Topics/bduf-freeze-and-training.md`).
+Placed using `../../Standards/glossary.md`'s WDNA three-tier model as the
+terminology source of truth, per Bill's contributed document
+(`contributed-windows-dna-credential-vault-context.md`):
+
+- **Tier:** Business Services (specifically its Security Services
+  category) — not Presentation, not Data.
+- **Boundary:** MCP processes run in the Business Services tier but
+  never handle raw credentials directly. The Credential Vault Service
+  mediates all credential usage; MCP-visible identifiers are opaque,
+  non-derivable Credential Reference Identifiers (CRIDs) that map to
+  encrypted credentials the Vault manages exclusively.
+- **Adjacent Data Services tier component:** the encrypted credential
+  store itself (e.g. SQLite or similar) — the store's *existence* is a
+  Data Services concern, but the logic, policy, and access control
+  governing it stay in Business Services. This is a Data Model
+  candidate once that section has real content.
+- **Security responsibilities** (encryption, KMS, access control, audit
+  logging) are tracked separately as `SEC_RSAI_0001` in
+  `system-policies.md` — this entry is about *where the component sits*
+  in the tier model, not what it does internally.
+
+**Status:** Active — conceptual, per the source document's own framing
+("not a finalized standard or protocol specification... will evolve as
+requirements mature"). Evolution path stated in the source: requirements
+gathering -> detailed requirements -> component-level design ->
+interface definitions -> security/operational hardening -> optional
+RFC-style formalization.
+
+**Owner:** (unassigned)

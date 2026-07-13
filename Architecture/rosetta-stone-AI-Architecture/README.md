@@ -18,27 +18,33 @@ summaries, and status live in each category's own file.
 
 ## Categories
 
-- [Requirements & Use Cases](requirements-and-use-cases.md) — Business Requirements Document, Functional Specifications, User Stories, Use Cases, Requirement Definitions *(this last one has real content — see Status)*
-- [Logical Architecture](logical-architecture.md) — Data Models, Process Diagrams, System Component Models
+- [Requirements & Use Cases](requirements-and-use-cases.md) — Business Requirements Document, Functional Specifications, User Stories, Use Cases, Requirement Definitions *(this last one has real content)*
+- [Logical Architecture](logical-architecture.md) — Data Models, Process Diagrams, System Component Models *(this last one has real content)*
 - [Physical & Technical Specs](physical-and-technical-specs.md) — Technology Choices, API Contracts, Infrastructure Topology Mappings
-- [System Policies](system-policies.md) — Security Model, Identity Model, Access Control Model
+- [System Policies](system-policies.md) — Security Model, Identity Model, Access Control Model *(the first has real content)*
 - [Operational Plans](operational-plans.md) — Disaster Recovery (DR) Plans, Monitoring Strategy, Rollout / Rollback Plan
 - [Risks & Open Issues](risks-and-open-issues.md) — cross-cutting, added 2026-07-12; not one of the original 5 MSDN categories, a risk can concern any of them
+- [contributed-windows-dna-credential-vault-context](contributed-windows-dna-credential-vault-context.md) — not a category, a verbatim record of a source document Bill contributed 2026-07-13; the real content it produced lives in Logical Architecture (`SCM_RSAI_0001`) and System Policies (`SEC_RSAI_0001`) above
 
 ## Status
 
-Scaffolded 2026-07-12; first real content added the same day.
-`risks-and-open-issues.md` (5 findings) and the "Requirement Definitions"
-section of `requirements-and-use-cases.md` (2 entries, `RD_RSAI_0001`
-and `RD_RSAI_0002`) are populated — everything else is still a
-placeholder summary of *what it's meant to collect*, not real content.
-`rosetta-stone-AI` itself is still mid Phase 1 training (see
-`../../Topics/bduf-freeze-and-training.md`); this document's remaining
-content should mature alongside that vocabulary as it gets signed off,
-not race ahead of it. The risks are the exception — they document known
-issues *in* the frozen vocabulary itself, surfaced by a same-day
-ownership audit, meant to inform Phase 1 discussion when training
-reaches the relevant nodes rather than wait for it.
+Scaffolded 2026-07-12; first real content added the same day, more added
+2026-07-13. Populated so far: `risks-and-open-issues.md` (5 findings),
+`requirements-and-use-cases.md`'s "Requirement Definitions"
+(`RD_RSAI_0001`, `RD_RSAI_0002`), `logical-architecture.md`'s "System
+Component Models" (`SCM_RSAI_0001` — Credential Indirection and Secure
+Secret Management Service, placed via WDNA's tier model, see
+`../../Standards/glossary.md`), and `system-policies.md`'s "Security
+Model" (`SEC_RSAI_0001` — the same service's internal responsibilities).
+Everything else is still a placeholder summary of *what it's meant to
+collect*, not real content. `rosetta-stone-AI` itself is still mid
+Phase 1 training (see `../../Topics/bduf-freeze-and-training.md`); most
+remaining content should mature alongside that vocabulary as it gets
+signed off, not race ahead of it — the risks and the credential-vault
+placement are both exceptions with their own independent justification
+(the risks document known issues *in* the frozen vocabulary; the
+credential-vault work is additive, new-component architecture that
+doesn't depend on Phase 1 resolving first).
 
 ## Naming convention
 

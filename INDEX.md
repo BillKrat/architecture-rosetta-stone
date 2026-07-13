@@ -25,30 +25,31 @@ and align local workflow files"): all prior Topic files, Session
 checkpoints, and Evidence stubs were deleted as part of aligning this
 repo with the shared, repo-agnostic skill workflow (see `AGENTS.md`).
 
-Latest checkpoint: [Sessions/2026-07-12_Checkpoint_0007_Standards_And_Handoff.txt](Sessions/2026-07-12_Checkpoint_0007_Standards_And_Handoff.txt)
-— same parallel BDUF-research session as Checkpoint 0006, closing out
-for the evening. Built `Standards/` (identifier scheme + relationship
-vocabulary), then exercised both for real: formalized the
-single-owner-per-Responsibility principle as `RD_RSAI_0001`/`0002` and
-converted Checkpoint 0006's ownership-audit findings into
-`RSK_RSAI_0001`-`0005` in
-`Architecture/rosetta-stone-AI-Architecture/risks-and-open-issues.md`.
-Resolves Checkpoint 0006's "Flag for Bill": findings live in the
-unfrozen Architecture document, never written back into the frozen map,
-with a handoff pointer added to `Topics/bduf-freeze-and-training.md` for
-the coding-session track. Phase 1 training itself remains untouched —
-its resume point is still Checkpoint 0005's (Application, three opening
-questions unanswered).
+Latest checkpoint: [Sessions/2026-07-13_Checkpoint_0008_WDNA_Glossary_And_Credential_Vault.txt](Sessions/2026-07-13_Checkpoint_0008_WDNA_Glossary_And_Credential_Vault.txt)
+— Bill contributed a document on Windows DNA (WDNA) and the placement of
+a new Credential Indirection and Secure Secret Management Service before
+heading to work. Added `Standards/glossary.md` (first entry WDNA,
+fact-checked via WebSearch rather than taken on Bill's word — the
+source-of-truth rule from Checkpoint 0007 used for real within hours of
+being written), preserved Bill's document verbatim, and extracted it
+into `SCM_RSAI_0001` + `SEC_RSAI_0001`. Bill also mentioned wanting to
+see a WDNA-style map he saw once, to refresh memory from unfinished MCSE
+study years ago — noted as the next ask, not yet acted on. Phase 1
+training itself remains untouched — its resume point is still Checkpoint
+0005's (Application, three opening questions unanswered).
 
 ## Reference
 
 - Standards: [Standards/](Standards/README.md) — cross-project rules,
   not scoped to `rosetta-stone-AI`: the `TYPE_SCOPE_SEQ` unique
-  identifier scheme for every requirement/use-case/diagram/deliverable
-  across every project, and a relationship-recording convention
-  designed so a future triple-store/SPARQL migration (Bill's stated
-  long-term vision, explicitly deep backlog, not current work) can be
-  additive instead of a rewrite.
+  identifier scheme, a relationship-recording convention designed so a
+  future triple-store/SPARQL migration (Bill's stated long-term vision,
+  explicitly deep backlog) can be additive, a source-of-truth rule
+  (every artifact declares whether it's `authoritative`,
+  `primary-source`, or explicitly-labeled `claude-reasoning` — Bill's
+  own statements are never sufficient basis alone), and a glossary
+  (first entry: WDNA / Windows DNA, the three-tier reference
+  architecture now guiding component placement).
 - Architecture deliverables: [Architecture/rosetta-stone-AI-Architecture/](Architecture/rosetta-stone-AI-Architecture/README.md)
   — the living, MSDN-style BDUF artifact container companion to
   `rosetta-stone-AI` (see naming convention below). Markdown in this
@@ -58,12 +59,13 @@ questions unanswered).
   (Requirements & Use Cases, Logical Architecture, Physical & Technical
   Specs, System Policies, Operational Plans), plus a 6th cross-cutting
   `risks-and-open-issues.md`. Most artifact types are still placeholder
-  summaries pending `rosetta-stone-AI` Phase 1 sign-off, but two
-  Requirement Definitions and all 5 Risks/Known Issues are real content
-  as of 2026-07-12 — see `Topics/bduf-freeze-and-training.md`'s "Known
-  findings" section. Naming convention going forward:
-  `rosetta-stone-<Concern>-Architecture`, sibling folders under
-  `Architecture/` — next expected is
+  summaries pending `rosetta-stone-AI` Phase 1 sign-off, but Requirement
+  Definitions, all 5 Risks/Known Issues, and — as of 2026-07-13 — a new
+  Credential Indirection and Secure Secret Management Service
+  (`SCM_RSAI_0001` + `SEC_RSAI_0001`, placed via WDNA's Business
+  Services tier, contributed by Bill) are real content. Naming
+  convention going forward: `rosetta-stone-<Concern>-Architecture`,
+  sibling folders under `Architecture/` — next expected is
   `rosetta-stone-MCP-Bridge-Architecture` once gap-analysis work starts
   toward `vs-mcp-bridge`.
 - Evidence sources: none currently populated (`Evidence/` was removed
