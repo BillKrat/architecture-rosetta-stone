@@ -36,7 +36,7 @@ Repository:
 https://github.com/BillKrat/architecture-rosetta-stone
 
 Git Commit:
-(pending — filled in after commit, see Step 6)
+e876aad840c128b9876935bcf9a8dfbb1a56646a
 
 Previous Checkpoint:
 0009 - Document Layout Standard And WDNA Map Deferred (0009 and this
@@ -152,10 +152,10 @@ requirements — this checkpoint didn't touch that thread.
 
 END OF SESSION CHECKLIST
 ==========================
-[ ] Commit this checkpoint + all staged changes
-[ ] Tag checkpoint-0010
-[ ] Push commit and tag to origin/main
-[ ] Fill in real commit hash and check off these items in a second commit
+[x] Commit this checkpoint + all staged changes
+[x] Tag checkpoint-0010
+[x] Push commit and tag to origin/main
+[x] Fill in real commit hash and check off these items in a second commit
 
 SESSION SUMMARY
 ================
