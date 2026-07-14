@@ -38,19 +38,19 @@ and align local workflow files"): all prior Topic files, Session
 checkpoints, and Evidence stubs were deleted as part of aligning this
 repo with the shared, repo-agnostic skill workflow (see `AGENTS.md`).
 
-Latest checkpoint: [Sessions/2026-07-13_Checkpoint_0009_Document_Layout_Standard_And_WDNA_Map_Deferred.txt](Sessions/2026-07-13_Checkpoint_0009_Document_Layout_Standard_And_WDNA_Map_Deferred.txt)
-— Bill's last message before work: made WDNA/BDUF structure durable
-across sessions (this "Binding standards" paragraph, not a skill edit —
-`.claude/skills/` here is local/gitignored and `AGENTS.md` mandates
-skills stay repo-agnostic; `INDEX.md` is what `lets-code` actually reads
-in full), and added `Standards/document-layout.md` formalizing the
-document template already in consistent use. A WDNA reference map (three
-tiers, notes behind each node, for Bill to learn the terminology and
-"proper locations for documents") was explicitly deferred to next
-session — full requirements recorded in Checkpoint 0009's "Deferred:
-WDNA reference map" section, nothing built yet. Phase 1 training remains
-untouched — resume point still Checkpoint 0005's (Application, three
-opening questions unanswered).
+Latest checkpoint: [Sessions/2026-07-13_Checkpoint_0010_MSF_Reconciled_Framework_Determination.txt](Sessions/2026-07-13_Checkpoint_0010_MSF_Reconciled_Framework_Determination.txt)
+— reconciled the coding session's MCSD/MSF comparison (which Bill
+reviewed and confirmed) into this session's standards: corrected MCSE ->
+MCSD, restructured `Standards/glossary.md` so MSF is its own entry (not
+a sub-note under WDNA), and stated the framework determination plainly —
+WDNA for architectural layering, RDD for responsibility definition
+within a layer, MSF's project-process model explicitly rejected
+(superseded by Agile). Also fixed a stray uncommitted rename
+(`2026-07-11_fix-chrome-domain-permission.command` -> `.command.md`,
+Bill sharing the Chrome fix externally) in commit `f1566b4`. Phase 1
+training remains untouched — resume point still Checkpoint 0005's
+(Application, three opening questions unanswered). WDNA reference map
+still the standing next task (Checkpoint 0009's "Deferred" section).
 
 ## Reference
 
@@ -61,9 +61,10 @@ opening questions unanswered).
   explicitly deep backlog) can be additive, a source-of-truth rule
   (every artifact declares whether it's `authoritative`,
   `primary-source`, or explicitly-labeled `claude-reasoning` — Bill's
-  own statements are never sufficient basis alone), and a glossary
-  (first entry: WDNA / Windows DNA, the three-tier reference
-  architecture now guiding component placement).
+  own statements are never sufficient basis alone), and a glossary (WDNA
+  / Windows DNA, the three-tier reference architecture now guiding
+  component placement; and MSF / Microsoft Solutions Framework, checked
+  against WDNA 2026-07-13 and explicitly not adopted).
 - Architecture deliverables: [Architecture/rosetta-stone-AI-Architecture/](Architecture/rosetta-stone-AI-Architecture/README.md)
   — the living, MSDN-style BDUF artifact container companion to
   `rosetta-stone-AI` (see naming convention below). Markdown in this

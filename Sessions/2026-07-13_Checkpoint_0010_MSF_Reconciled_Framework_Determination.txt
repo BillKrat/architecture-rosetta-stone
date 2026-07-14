@@ -1,0 +1,176 @@
+========================================================================
+ROSETTA STONE CHECKPOINT 0010
+========================================================================
+
+File:
+2026-07-13_Checkpoint_0010_MSF_Reconciled_Framework_Determination.txt
+
+Checkpoint:
+0010
+
+Date:
+2026-07-13
+
+Project:
+Rosetta Stone for Software Architecture
+
+Project Phase:
+Same BDUF-research track. Bill returned from earlier this morning with
+full context on the coding-session's MCSD/MSF work, corrected an earlier
+misremembering, and asked this session to reconcile it properly.
+
+Checkpoint Title:
+MSF Reconciled Framework Determination
+
+Project Status:
+Reconciled the coding session's MCSD/MSF comparison (Checkpoint 0009's
+drift flag) into this session's standards, now that Bill has confirmed
+the underlying finding and corrected a factual detail (MCSD, not MCSE).
+Restructured Standards/glossary.md so MSF is its own entry per
+Standards/document-layout.md, rather than a sub-note under WDNA, and
+recorded an explicit, direct answer to Bill's question ("WDNA or MCSD,
+or best of both"). Also captured a durable collaboration insight Bill
+volunteered about his own review habits.
+
+Repository:
+https://github.com/BillKrat/architecture-rosetta-stone
+
+Git Commit:
+(pending — filled in after commit, see Step 6)
+
+Previous Checkpoint:
+0009 - Document Layout Standard And WDNA Map Deferred (0009 and this
+checkpoint were same-day but separate turns — the "Reconcile stray
+rename" commit f1566b4 landed between them, see git log, not itself
+a numbered checkpoint since it was a small mechanical fix.)
+
+Next Objective:
+Build the WDNA reference map (still the standing next task from
+Checkpoint 0009 — unaffected by this checkpoint's work, since this was
+reconciliation, not the map itself).
+
+========================================================================
+SESSION HANDOFF
+========================================================================
+
+OBJECTIVES COMPLETED
+---------------------
+
+1. Corrected MCSE -> MCSD. Bill's original message (recorded in
+   Checkpoint 0008) said MCSE (Microsoft Certified Systems Engineer). He
+   has now corrected this, twice-confirmed: he checked a 2003 backup
+   server and the material itself (course 2710, "Analyzing Requirements
+   and Defining Microsoft .NET Solution Architectures," the MCSD exam
+   70-300 prep book) is MCSD-track (Microsoft Certified Solution
+   Developer), a different certification. Checkpoints 0008 and 0009
+   still say MCSE in their historical text — left as-is deliberately
+   (checkpoints are append-only snapshots of belief at the time, not
+   rewritten later — see the update-context skill's own rule); the
+   correction lives here and in Standards/glossary.md instead, which is
+   where a future reader would actually look for the current
+   understanding.
+
+2. Standards/glossary.md restructured: MSF promoted to its own entry.
+   The coding session's MCSD/MSF comparison (added in commit b3833af,
+   after Bill had it read 2710PRO.CHM directly) was nested as a bolded
+   sub-note inside the WDNA entry, missing the `term:`/`fullName:`
+   metadata fields the WDNA entry itself uses. Bill reviewed the
+   underlying finding and confirmed it ("The response made sense, I
+   concurred with the findings") and asked this session to reconcile it.
+   Restructured per Standards/document-layout.md's one-term-per-entry
+   glossary pattern: MSF now has its own `## MSF (Microsoft Solutions
+   Framework)` heading with a matching metadata block
+   (term/fullName/basis/citation), and the WDNA entry links to it rather
+   than containing it. No content was walked back — the finding itself
+   was already correct and stays exactly as concluded.
+
+3. Explicit framework determination recorded. Bill asked directly,
+   twice (once in his original coding-session request, once implicitly
+   by asking this session to reconcile): "WDNA or MCSD, or best of
+   both?" Answered plainly in the MSF entry rather than left implicit in
+   the comparison's prose: **WDNA** stays the architectural-layering
+   standard; **RDD** (already used throughout `rosetta-stone-AI`) stays
+   the standard for responsibility definition within a layer, since it's
+   the more disciplined version of what MSF's Conceptual/Logical/
+   Physical step was already doing; **MSF's project-process model is
+   explicitly rejected**, superseded by Agile — the same shift that
+   obsoleted Bill's certification track in the first place, so the
+   rejection isn't arbitrary, it's the same historical judgment already
+   made once. This *is* "best of both" in spirit (WDNA's layering + the
+   more rigorous half of MSF's design-discovery lineage, already present
+   as RDD) without literally blending the two frameworks' processes.
+
+4. Bill's self-disclosed review-risk captured for future collaboration.
+   Bill volunteered, unprompted: when faced with a lot of content to
+   review, he tends toward cursory review and forms assumptions from it
+   rather than full comprehension — concrete example given: he initially
+   read `WDNA` as *not* a legitimate Microsoft acronym and started
+   substituting bare `DNA` (the opposite of the glossary's actual
+   intent, which was already documented in the "Abbreviation note"
+   section he'd skimmed past). A closer re-read caught it. Added one
+   paragraph to the `WDNA` glossary entry recording this round-trip
+   plainly, and saved as a standing personal-memory note (outside this
+   repo, in Claude's cross-session memory) so future sessions can adapt
+   accordingly — see METHOD DISCOVERIES.
+
+REPOSITORY / ENVIRONMENT STATE
+--------------------------------
+Repo: /Users/billkratochvil/AI/repos/architecture-rosetta-stone, branch
+main. Working tree was clean before this checkpoint (last commit
+f1566b4, "Reconcile stray rename..."). This checkpoint's changes
+(Standards/glossary.md, Standards/README.md) are staged as part of this
+checkpoint's commit.
+
+TOPICS TOUCHED THIS SESSION
+------------------------------
+- No Topics/*.md files changed this checkpoint (Topics/claude-in-chrome-connectivity.md
+  was already updated in the prior, unnumbered commit f1566b4).
+
+METHOD DISCOVERIES
+--------------------
+- Cross-session reconciliation works best as "verify and restructure,"
+  not "re-derive." Bill explicitly did not want this session to re-read
+  the .chm itself — the coding session already did that work and Bill
+  already confirmed it. This session's job was checking the *result*
+  against this session's own standards (document-layout.md's entry
+  pattern) and fixing the shape, not re-litigating the content.
+- Saved to Claude's personal cross-session memory (not this repo): Bill
+  self-reports forming assumptions from cursory review of dense content,
+  and gave a concrete example that happened inside this very project.
+  Practical implication for future sessions: when handing Bill something
+  long or dense to review, pull out the specific claim/decision that
+  most needs his attention rather than assuming a full read will catch
+  it, and don't assume silence on a nuanced point means agreement with
+  it specifically.
+
+NEXT SESSION
+==============
+Unchanged from Checkpoint 0009: build the WDNA reference map (three
+tiers, notes behind each node, Mermaid preferred over XMind). See that
+checkpoint's "Deferred: WDNA reference map" section for the full
+requirements — this checkpoint didn't touch that thread.
+
+END OF SESSION CHECKLIST
+==========================
+[ ] Commit this checkpoint + all staged changes
+[ ] Tag checkpoint-0010
+[ ] Push commit and tag to origin/main
+[ ] Fill in real commit hash and check off these items in a second commit
+
+SESSION SUMMARY
+================
+A reconciliation checkpoint, not new investigation: took work the coding
+session already did and Bill already endorsed, fixed a factual detail
+(MCSD vs. MCSE) without disturbing the historical record of how that
+detail was first gotten wrong, restructured a glossary entry to match a
+standard that didn't exist yet when it was first written, and stated
+plainly — because Bill asked for a plain answer, not just a comparison —
+which architecture framework this project actually uses. The most
+durable outcome isn't the glossary edit itself; it's Bill's own
+volunteered observation about how he reads dense material, which is
+exactly the kind of standing context that makes future sessions better
+collaborators, not just better-informed ones.
+
+========================================================================
+END CHECKPOINT 0010
+========================================================================

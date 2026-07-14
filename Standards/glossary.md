@@ -1,7 +1,7 @@
 ---
 name: glossary
-description: Cross-project terminology, abbreviations, and their source of truth — starting with WDNA (Windows DNA).
-status: established 2026-07-12; one entry (WDNA), now with a supporting MCSD/MSF comparison note
+description: Cross-project terminology, abbreviations, and their source of truth — WDNA (Windows DNA) and MSF (Microsoft Solutions Framework), and the determination between them.
+status: established 2026-07-12; 2 entries (WDNA, MSF)
 last-updated: 2026-07-13
 ---
 
@@ -11,7 +11,8 @@ Cross-project, like every other file in `Standards/` — a term defined
 here applies everywhere, not just `rosetta-stone-AI`. Each entry
 declares its `basis` per `Standards/source-of-truth.md`, same as any
 other artifact — a glossary is not exempt from the rule just because
-it's definitional rather than a requirement or risk.
+it's definitional rather than a requirement or risk. One `##` entry per
+term, per `Standards/document-layout.md`.
 
 ## WDNA (Windows DNA)
 
@@ -52,7 +53,17 @@ ambiguous in this project's prose, so `WDNA` is **this project's own
 disambiguating convention** (Bill's proposal, adopted 2026-07-12), not
 an external standard. Flagging that distinction explicitly, per
 `Standards/source-of-truth.md`: the three-tier *model* is
-`authoritative`; the *abbreviation* `WDNA` is not — it's ours.
+`authoritative`; the *abbreviation* `WDNA` is not — it's ours, coined on
+purpose.
+
+That coining round-tripped in a useful way, worth recording: on first
+seeing `WDNA` used, Bill's own cursory-review instinct read it as *not*
+a real Microsoft acronym and therefore invalid, and started substituting
+bare `DNA` — the opposite of the intent. A closer look caught that the
+project was deliberately coining it to avoid the biological-DNA
+collision, not citing it as Microsoft's own term. Both readings are
+findable from this entry as written; the note above exists specifically
+so a fast skim doesn't repeat that misread.
 
 **Role in this project:** Bill's framing (2026-07-12): "WDNA as the
 source of truth for our terminology" — i.e., when this project needs a
@@ -64,15 +75,23 @@ Credential Indirection and Secure Secret Management Service (see
 `Architecture/rosetta-stone-AI-Architecture/logical-architecture.md`,
 `SCM_RSAI_0001`) within the Business Services tier.
 
+**Framework determination (2026-07-13):** checked against MSF/MCSD (see
+the `MSF` entry below) — WDNA remains this project's standard for
+architectural *layering*. Nothing about that determination is a hedge
+or a "for now"; it's the answer to "WDNA or MCSD, or best of both,"
+worked through below.
+
 **Not yet done:** a full mapping of `rosetta-stone-AI`'s own nodes
 (Application, Agent, Tool, Retrieval, Memory, Security, Model) onto
 WDNA's three tiers. Bill referenced wanting to see "that map" again to
 refresh his memory before going further with this — treat that as the
 next step in this thread, not something to pre-empt here.
 
-**Related but distinct: MCSD / MSF (2026-07-13 finding)**
+## MSF (Microsoft Solutions Framework)
 
 ```yaml
+term: MSF
+fullName: Microsoft Solutions Framework
 basis: primary-source
 quoted: >
   "MSF provides a set of models, principles, and guidelines for
@@ -80,37 +99,55 @@ quoted: >
   describing the solution in terms of its organization, structure, and
   the interaction of its parts... breaks the problem into modules, and
   for each module identifies objects, services, attributes, and
-  relationships" — Microsoft Official Curriculum 2710 (2710PRO.CHM,
-  Bill's own MCSD-track study material, read directly by Claude
-  2026-07-13).
+  relationships" — Microsoft Official Curriculum 2710, "Analyzing
+  Requirements and Defining Microsoft .NET Solution Architectures"
+  (2710PRO.CHM, the MCSD exam 70-300 prep material), read directly by
+  Claude 2026-07-13 in the coding-session thread at Bill's request.
 ```
 
-Bill studied toward this material (course 2710, "Analyzing Requirements
-and Defining Microsoft .NET Solution Architectures," the MCSD exam
-70-300 prep book) years ago, before it went obsolete with Agile's rise
-— initially misremembered as MCSE. Reviewed directly to check whether it
-overlaps with or should inform WDNA. Finding: **it's a different,
-unrelated Microsoft framework, not an alternate name or version of
-WDNA.** It bundles two things, neither of which changes anything
-established above:
+**Why this got checked at all:** Bill studied toward MCSD (Microsoft
+Certified Solution Developer) certification for a couple of years,
+before it went obsolete with Agile's rise, just before the final exam —
+initially recalled as MCSE (Microsoft Certified Systems Engineer, a
+different track), corrected after checking a 2003 backup server that
+confirmed it was actually MCSD. Over 20 years removed from the material,
+Bill asked whether it overlapped with or should inform WDNA before this
+project committed further to WDNA as the standard. Reviewed directly
+(coding session, 2026-07-13) rather than answered from memory, per
+`Standards/source-of-truth.md`.
 
-- **MSF (Microsoft Solutions Framework)** — a *project process model*
-  (Envisioning/Planning/Developing/Stabilizing/Deploying phases, waterfall
-  vs. spiral tradeoffs). Governs project lifecycle, not architecture
-  layers. Not adopted — superseded by Agile, same reason Bill's
-  certification went obsolete.
-- **Conceptual/Logical/Physical Design** (a step within MSF's Planning
-  phase) — a *responsibility-discovery method* ("identify objects,
-  services, attributes, relationships" from use cases), the same
-  lineage as Wirfs-Brock's Responsibility-Driven Design that
-  `rosetta-stone-AI` already uses, just less rigorous. Not adopted as a
-  replacement for RDD; RDD is already the more disciplined version of
-  the same idea. The three-way *label* (Conceptual/Logical/Physical) may
-  be useful later purely as a way to talk about which project phase a
-  piece of content belongs to (e.g. Phase 4/5 gap-analysis and
-  requirements work) — not decided, not needed now.
+**Finding:** MSF is a different, unrelated Microsoft framework — not an
+alternate name or earlier version of WDNA. It bundles two things:
 
-Net effect: WDNA (tier placement) and RDD (responsibility definition
-within a tier) remain exactly as already established. This entry exists
-so the comparison doesn't have to be re-run if the question comes up
-again.
+- **The MSF process model** (Envisioning/Planning/Developing/
+  Stabilizing/Deploying phases; waterfall vs. spiral tradeoffs) — a
+  *project lifecycle* model, not an architecture-layering one. **Not
+  adopted** — superseded by Agile, the same shift that obsoleted Bill's
+  certification track in the first place.
+- **Conceptual/Logical/Physical Design** (a step inside MSF's Planning
+  phase) — a *responsibility-discovery method*: identify objects,
+  services, attributes, and relationships from use cases. Same lineage
+  as Wirfs-Brock's Responsibility-Driven Design, which
+  `rosetta-stone-AI` already uses — just less rigorous. **Not adopted**
+  as a replacement for RDD; RDD is the more disciplined descendant of
+  the same idea, already the standard here. The three-way *label*
+  (Conceptual/Logical/Physical) may be worth reusing later purely to
+  talk about which project phase a piece of content belongs to (e.g.
+  Phase 4/5 gap-analysis work) — not decided, not needed now.
+
+**Framework determination (2026-07-13), answering Bill's direct
+question — WDNA, MCSD, or best of both:** effectively already best of
+both, but not as a literal blend of the two frameworks. **WDNA** stays
+the standard for architectural *layering* (Presentation/Business/Data
+Services — see the `WDNA` entry above). **RDD**, already embedded
+throughout `rosetta-stone-AI`, stays the standard for *responsibility
+definition within a layer* — it's the more rigorous version of what
+MSF's Conceptual/Logical/Physical step was already gesturing at, so
+nothing from MCSD's method needed importing. **MSF's project-process
+model is explicitly rejected** — the same reason Bill's certification
+went obsolete applies here too. Net effect: WDNA and RDD remain exactly
+as already established; nothing here changes either.
+
+**Status:** Settled, pending Bill's confirmation reading this restated
+form (he confirmed the underlying finding when it was first written; not
+yet confirmed this specific reorganization into its own entry).
