@@ -103,6 +103,10 @@ terminology source of truth, per Bill's contributed document
 requirements mature"). Evolution path stated in the source: requirements
 gathering -> detailed requirements -> component-level design ->
 interface definitions -> security/operational hardening -> optional
-RFC-style formalization.
+RFC-style formalization. Note added 2026-07-13: this placement addresses
+where credential handling sits, not how MCP server processes get
+compromised in the first place — see `RD_RSAI_0003` and `RSK_RSAI_0006`
+(`risks-and-open-issues.md`) for a real-world, disclosed vulnerability
+class this component doesn't cover.
 
 **Owner:** (unassigned)

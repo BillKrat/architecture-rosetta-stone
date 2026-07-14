@@ -1,8 +1,8 @@
 ---
 name: risks-and-open-issues
-description: Known governance issues in the rosetta-stone-AI vocabulary — currently the ownership-audit findings from 2026-07-12, each tracked as a Risk/Known Issue (RSK) that violates one of the requirements in requirements-and-use-cases.md.
-status: active — 5 open findings, none resolved
-last-updated: 2026-07-12
+description: Known governance issues in the rosetta-stone-AI vocabulary (RSK_RSAI_0001-0005, from the 2026-07-12 ownership audit) and external, real-world security risks relevant to vs-mcp-bridge (RSK_RSAI_0006 onward). Each RSK violates or motivates a requirement in requirements-and-use-cases.md.
+status: active — 6 open findings, none resolved
+last-updated: 2026-07-13
 ---
 
 # Risks & Open Issues
@@ -22,10 +22,15 @@ current design is actually fine and the finding gets closed as
 not-a-defect — either way, that's a decision for the training/
 investigation process, not something pre-empted here.
 
-All 5 below trace to the same source: a collaborator-relationship
-diagram and ownership audit run against the frozen `rosetta-stone-AI`
-map on 2026-07-12 (see `Sessions/2026-07-12_Checkpoint_0006_*.txt` for
-how that work was done).
+`RSK_RSAI_0001` through `0005` trace to the same source: a
+collaborator-relationship diagram and ownership audit run against the
+frozen `rosetta-stone-AI` map on 2026-07-12 (see
+`Sessions/2026-07-12_Checkpoint_0006_*.txt` for how that work was done).
+Those five `violate` a Requirement Definition — internal inconsistencies
+in the vocabulary itself. `RSK_RSAI_0006` onward are a different kind of
+entry: externally-sourced, real-world security findings relevant to
+`vs-mcp-bridge`'s actual purpose, which `motivate` a *new* Requirement
+Definition rather than violate an existing one.
 
 ## RSK_RSAI_0001 — Diagnostics/Observability has no Owner
 
@@ -185,3 +190,61 @@ process, not grounding quality.
 **Relevant node(s):** Retrieval, Model (RAG).
 
 **Status:** Open.
+
+## RSK_RSAI_0006 — MCP STDIO configuration injection: real-world, unauthenticated arbitrary command execution
+
+```yaml
+id: RSK_RSAI_0006
+type: RSK
+scope: RSAI
+status: open
+basis: authoritative
+citation:
+  - https://www.ox.security/blog/the-mother-of-all-ai-supply-chains-critical-systemic-vulnerability-at-the-core-of-the-mcp/
+relationships:
+  motivates: [RD_RSAI_0003]
+```
+
+Surfaced by Bill 2026-07-13, after sending the source article to a work
+architect and having what he described as a realization about the real
+consequences of a developer trusting `vs-mcp-bridge` and then getting
+hacked. Not an internal `rosetta-stone-AI` governance defect like
+`RSK_RSAI_0001`-`0005` — an external, disclosed, real-world
+vulnerability class, directly on-topic for a project whose deliverable
+is an MCP developer starter kit.
+
+**The vulnerability:** unsanitized user/external input flows directly
+into MCP's `StdioServerParameters` configuration, letting an attacker
+inject arbitrary shell commands that execute with full system
+privileges — at the protocol level, before authentication is evaluated
+at all. Reported via four attack families: unauthenticated UI injection
+in AI frameworks, hardening bypasses in "protected" environments,
+zero-click prompt injection in AI IDEs (Windsurf, Cursor), and malicious
+distribution via compromised MCP registries/marketplaces.
+
+**Reported scale:** 150M+ downloads affected; 7,000+ exposed servers,
+up to 200,000 vulnerable instances; commands executed on six live
+production platforms. 10+ CVEs documented, including CVE-2026-30623
+(LiteLLM), CVE-2026-30615 (Windsurf), and CVE-2025-65720 (GPT
+Researcher).
+
+**Relationship to the Credential Vault work already in this
+document — stated plainly, not overclaimed:** `SEC_RSAI_0001` /
+`SCM_RSAI_0001` (`system-policies.md`, `logical-architecture.md`) reduce
+what an attacker gains *after* a compromise like this — credential
+indirection means raw credentials still aren't directly exposed even to
+a fully-compromised MCP process. **They do not prevent the RCE itself.**
+This finding is a different, upstream layer: input validation and
+process isolation, not credential handling. Bill's framing, and the
+reason this got captured rather than treated as solved by existing work:
+the credential-vault document was "a starting place," not a complete
+answer.
+
+**Relevant node(s):** none in `rosetta-stone-AI` yet — this concerns
+`vs-mcp-bridge`'s own MCP-server implementation, upstream of anything
+currently modeled in the frozen vocabulary. Candidate for a future
+`rosetta-stone-MCP-Bridge-Architecture` entry once that thread exists
+(see `Standards/glossary.md`'s naming convention).
+
+**Status:** Open. See `RD_RSAI_0003` (`requirements-and-use-cases.md`)
+for the requirement this motivated.

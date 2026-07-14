@@ -75,7 +75,11 @@ allows credential rotation without touching MCP components, and
 provides auditability.
 
 **Status:** Active — conceptual, same caveat as `SCM_RSAI_0001`: not a
-finalized spec, will evolve.
+finalized spec, will evolve. Note added 2026-07-13: this design limits
+what an attacker gains *after* an MCP process is compromised, but does
+not itself prevent a compromise — see `RD_RSAI_0003` (`dependsOn` this
+entry) and `RSK_RSAI_0006` in `risks-and-open-issues.md` for the
+upstream input-validation/RCE-prevention concern this doesn't cover.
 
 **Owner:** (unassigned)
 

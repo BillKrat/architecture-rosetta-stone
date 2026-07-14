@@ -39,6 +39,7 @@ TYPE table grows.
 | `tracesTo` | up | General traceability pointer, for links that don't fit a more specific predicate above. |
 | `supersedes` / `supersededBy` | lifecycle | An artifact replaces an earlier one. Use this instead of deleting or renumbering a retired ID — sequence numbers are never reused (`Standards/identifier-scheme.md`). |
 | `violates` / `satisfiedBy` | up, from a Risk/Known Issue (`RSK`) to the requirement it fails to meet | Added 2026-07-12, first real use case: a Risk/Known Issue artifact `violates` a Requirement Definition it currently fails to conform to. `satisfiedBy` is the positive counterpart — a Requirement Definition is `satisfiedBy` whatever artifact eventually resolves it (left empty until resolved). |
+| `motivates` | up, from a Risk/Known Issue (`RSK`) to a requirement it justifies creating | Added 2026-07-13, distinct from `violates`: `violates` means an existing requirement already existed and this finding fails to meet it; `motivates` means the finding itself is the reason a *new* requirement was written in the first place — no prior requirement to fail. First use: `RSK_RSAI_0006` (an external, real-world MCP vulnerability disclosure) `motivates` `RD_RSAI_0003`. |
 
 "Up, down, sideways" (Bill's framing) map onto these directly: `partOf`/
 `satisfies`/`tracesTo` go up toward broader context, `realizes` goes down

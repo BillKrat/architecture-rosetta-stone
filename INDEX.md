@@ -38,19 +38,18 @@ and align local workflow files"): all prior Topic files, Session
 checkpoints, and Evidence stubs were deleted as part of aligning this
 repo with the shared, repo-agnostic skill workflow (see `AGENTS.md`).
 
-Latest checkpoint: [Sessions/2026-07-13_Checkpoint_0010_MSF_Reconciled_Framework_Determination.txt](Sessions/2026-07-13_Checkpoint_0010_MSF_Reconciled_Framework_Determination.txt)
-— reconciled the coding session's MCSD/MSF comparison (which Bill
-reviewed and confirmed) into this session's standards: corrected MCSE ->
-MCSD, restructured `Standards/glossary.md` so MSF is its own entry (not
-a sub-note under WDNA), and stated the framework determination plainly —
-WDNA for architectural layering, RDD for responsibility definition
-within a layer, MSF's project-process model explicitly rejected
-(superseded by Agile). Also fixed a stray uncommitted rename
-(`2026-07-11_fix-chrome-domain-permission.command` -> `.command.md`,
-Bill sharing the Chrome fix externally) in commit `f1566b4`. Phase 1
-training remains untouched — resume point still Checkpoint 0005's
-(Application, three opening questions unanswered). WDNA reference map
-still the standing next task (Checkpoint 0009's "Deferred" section).
+Latest checkpoint: [Sessions/2026-07-13_Checkpoint_0011_MCP_STDIO_Vulnerability_Captured.txt](Sessions/2026-07-13_Checkpoint_0011_MCP_STDIO_Vulnerability_Captured.txt)
+— Bill surfaced a real, disclosed MCP vulnerability (unsanitized input
+into STDIO server config -> unauthenticated RCE, 150M+ downloads
+affected, 10+ CVEs) after a "what if a developer trusted our starter kit
+and got hacked" realization. Verified the source directly, added
+`RSK_RSAI_0006` (authoritative basis) and a new `RD_RSAI_0003` it
+`motivates` (a new relationship predicate, distinct from `violates`),
+and explicitly bounded the existing Credential Vault work
+(`SCM_RSAI_0001`/`SEC_RSAI_0001`) as partial coverage — it limits
+post-compromise damage, it doesn't prevent the compromise. Phase 1
+training remains untouched. WDNA reference map still the standing next
+task (Checkpoint 0009's "Deferred" section).
 
 ## Reference
 

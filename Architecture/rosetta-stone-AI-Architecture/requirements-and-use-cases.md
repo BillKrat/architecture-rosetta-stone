@@ -1,8 +1,8 @@
 ---
 name: requirements-and-use-cases
 description: Business requirements, functional specifications, user stories, use cases, and individual requirement definitions for the rosetta-stone-AI system.
-status: mixed — Requirement Definitions has real content (2 entries); everything else still placeholder
-last-updated: 2026-07-12
+status: mixed — Requirement Definitions has real content (3 entries); everything else still placeholder
+last-updated: 2026-07-13
 ---
 
 # Requirements & Use Cases
@@ -150,3 +150,43 @@ stand as its own rule.
 `RSK_RSAI_0005` in `risks-and-open-issues.md`.
 
 **Owner:** (unassigned — same reasoning as `RD_RSAI_0001`)
+
+### RD_RSAI_0003 — No unsanitized external input reaches a subprocess/shell invocation, and none of it runs before authentication is evaluated
+
+```yaml
+id: RD_RSAI_0003
+type: RD
+scope: RSAI
+status: active
+basis: authoritative
+citation:
+  - https://www.ox.security/blog/the-mother-of-all-ai-supply-chains-critical-systemic-vulnerability-at-the-core-of-the-mcp/
+relationships:
+  dependsOn: [SEC_RSAI_0001, SCM_RSAI_0001]
+```
+
+Unlike `RD_RSAI_0001`/`0002` (Claude's synthesis, no external citation),
+this one is grounded directly in a disclosed, real-world vulnerability
+class — see `RSK_RSAI_0006` in `risks-and-open-issues.md` for the full
+finding. Stated as a requirement: no user-supplied or externally-derived
+input may reach a subprocess/shell invocation (the concrete case being
+MCP's `StdioServerParameters` mechanism) without validation and
+sanitization, and no such invocation may execute before authentication
+has been evaluated — the disclosed flaw operates at the protocol level,
+bypassing "protected" environments entirely because it runs before auth
+is even checked.
+
+**Relationship to the Credential Vault work (`dependsOn`, not
+`satisfiedBy`):** `SEC_RSAI_0001`/`SCM_RSAI_0001` don't satisfy this
+requirement — they address a different layer (credential exposure after
+a process is already compromised, not command-injection prevention
+before that). `dependsOn` here means: whatever eventually satisfies this
+requirement (input validation, sandboxing, a hardened server-launch
+path) will likely need to compose with the credential-indirection
+design already in place, not that the vault work already covers it.
+Flagged explicitly so this isn't mistaken for already-solved.
+
+**Status:** Active — not yet satisfied, no design work started beyond
+this requirement statement itself.
+
+**Owner:** (unassigned)
