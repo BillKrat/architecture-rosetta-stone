@@ -26,7 +26,8 @@ doing.
 
 ## Topics
 
-- [bduf-freeze-and-training](Topics/bduf-freeze-and-training.md) — frozen maps + the full 5-phase BDUF roadmap; Phase 1 mid-walkthrough on node 1/10 (Application) — resume point recorded (active); now includes a "known findings from a parallel session" pointer for 5 pre-loaded risks the coding session should use when it reaches the relevant nodes
+- [bduf-freeze-and-training](Topics/bduf-freeze-and-training.md) — frozen maps + the full 5-phase BDUF roadmap; Phase 1 mid-walkthrough on node 1/10 (Application) — resume point recorded (active); now includes a "known findings from a parallel session" pointer for 5 pre-loaded risks the coding session should use when it reaches the relevant nodes; Coding Session scope tightened 2026-07-13 (mentoring only, no coding/updates there)
+- [delivery-roadmap](Topics/delivery-roadmap.md) — Bill's draft (not committed) roadmap from standards-foundation to sprint-based delivery: code audit of existing ChatGPT/Codex work -> gap analysis/backlog -> strict-scope sprints, gated on Bill's full comprehension of both maps + standards (draft)
 - [claude-in-chrome-connectivity](Topics/claude-in-chrome-connectivity.md) — recurring per-session Claude-in-Chrome domain-lockout bug and the standing workaround (open, no permanent fix)
 - [xmind-copilot-collaboration](Topics/xmind-copilot-collaboration.md) — reliable method for bulk-editing the XMind map via its Copilot, plus known-unreliable surfaces (chat-panel click targeting, AI landing-page Enter-submit) and a repo-diff recovery-verification method (established, reusable, with caveats)
 - [architecture-artifacts-taxonomy](Topics/architecture-artifacts-taxonomy.md) — superseded; kept for incident history only — see `Architecture/rosetta-stone-AI-Architecture/` for the live document
@@ -38,18 +39,17 @@ and align local workflow files"): all prior Topic files, Session
 checkpoints, and Evidence stubs were deleted as part of aligning this
 repo with the shared, repo-agnostic skill workflow (see `AGENTS.md`).
 
-Latest checkpoint: [Sessions/2026-07-13_Checkpoint_0011_MCP_STDIO_Vulnerability_Captured.txt](Sessions/2026-07-13_Checkpoint_0011_MCP_STDIO_Vulnerability_Captured.txt)
-— Bill surfaced a real, disclosed MCP vulnerability (unsanitized input
-into STDIO server config -> unauthenticated RCE, 150M+ downloads
-affected, 10+ CVEs) after a "what if a developer trusted our starter kit
-and got hacked" realization. Verified the source directly, added
-`RSK_RSAI_0006` (authoritative basis) and a new `RD_RSAI_0003` it
-`motivates` (a new relationship predicate, distinct from `violates`),
-and explicitly bounded the existing Credential Vault work
-(`SCM_RSAI_0001`/`SEC_RSAI_0001`) as partial coverage — it limits
-post-compromise damage, it doesn't prevent the compromise. Phase 1
-training remains untouched. WDNA reference map still the standing next
-task (Checkpoint 0009's "Deferred" section).
+Latest checkpoint: [Sessions/2026-07-13_Checkpoint_0012_Session_Scope_And_Delivery_Roadmap_Draft.txt](Sessions/2026-07-13_Checkpoint_0012_Session_Scope_And_Delivery_Roadmap_Draft.txt)
+— Bill tightened the Coding Session's scope (mentoring only, strictly —
+see `Topics/bduf-freeze-and-training.md`) and sketched a draft, not
+committed, delivery roadmap in `Topics/delivery-roadmap.md`: audit
+existing ChatGPT/Codex code -> gap analysis/backlog -> strict-scope
+sprints, gated on Bill reaching full comprehension of both maps and this
+project's Standards. No new architecture content this checkpoint. Phase
+1 training remains untouched — resume point still Checkpoint 0005's
+(Application, three opening questions unanswered). WDNA reference map
+still the standing next task, now explicitly recalibrated to
+familiarity rather than mastery.
 
 ## Reference
 

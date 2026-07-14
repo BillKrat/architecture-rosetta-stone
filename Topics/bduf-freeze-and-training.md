@@ -2,7 +2,7 @@
 name: bduf-freeze-and-training
 description: The BDUF (Big Design Up Front) working agreement for this project — the two frozen source-of-truth maps, and the training-before-touching protocol now in effect.
 status: active — Phase 1 in progress, mid-walkthrough on node 1/10 (Application); see "Known findings from a parallel session" for pre-loaded context on 5 nodes not yet reached
-last-updated: 2026-07-12
+last-updated: 2026-07-13
 ---
 
 ## Why BDUF here
@@ -61,6 +61,18 @@ Once that shared understanding exists, the plan is: investigate the design
 together, tear down what doesn't hold up, build up what's missing, and
 converge on a final `rosetta-stone-AI` that's solid enough to start real
 development from.
+
+**Session scope, tightened 2026-07-13 (Bill's own words):** the
+"Coding Session" is *only* this — mentoring/education on the two frozen
+maps, `rosetta-stone-AI` first, then `rosetta-stone-MCP-Bridge` once
+Concern A is signed off (Phase 3 below). "No other conversations are
+meant to take place in there... No coding, no updates." If an idea,
+process, or standard surfaces during a walkthrough, that session's job
+is to route it into the right Standards/Architecture location and
+update context to reflect the routing — not to develop it there. See
+`Topics/delivery-roadmap.md` for where the routed-to work (standards,
+gap analysis, backlog, sprints) actually happens, and why it's
+deliberately a different session.
 
 ## Training scope (defined 2026-07-12)
 

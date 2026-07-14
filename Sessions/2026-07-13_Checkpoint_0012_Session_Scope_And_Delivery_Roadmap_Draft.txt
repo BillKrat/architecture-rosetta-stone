@@ -1,0 +1,165 @@
+========================================================================
+ROSETTA STONE CHECKPOINT 0012
+========================================================================
+
+File:
+2026-07-13_Checkpoint_0012_Session_Scope_And_Delivery_Roadmap_Draft.txt
+
+Checkpoint:
+0012
+
+Date:
+2026-07-13
+
+Project:
+Rosetta Stone for Software Architecture
+
+Project Phase:
+Same BDUF-research track. Bill sketched a draft delivery roadmap
+(explicitly not committed) and tightened the "Coding Session" boundary.
+
+Checkpoint Title:
+Session Scope And Delivery Roadmap Draft
+
+Project Status:
+Bill corrected a memory Claude saved last checkpoint (the "watch for
+bare DNA" example was illustrative, not the literal rule — the actual
+standing instruction is broader: catch and clarify any real-time
+misalignment before continuing). Also tightened what the "Coding
+Session" is for (mentoring only, strictly) and sketched a three-step
+delivery roadmap for after Bill reaches full comprehension of both
+frozen maps and this project's standards: audit existing ChatGPT/Codex
+code, gap analysis + backlog, then strict-scope sprints. Recorded as
+draft, not started, not committed.
+
+Repository:
+https://github.com/BillKrat/architecture-rosetta-stone
+
+Git Commit:
+(pending — filled in after commit, see Step 6)
+
+Previous Checkpoint:
+0011 - MCP STDIO Vulnerability Captured
+
+Next Objective:
+Unchanged: WDNA reference map (Checkpoint 0009), now explicitly
+recalibrated to a lighter bar — familiarity, not mastery, since
+Standards drive WDNA's actual usage per Bill. Otherwise no new work
+started; everything in this checkpoint is a draft roadmap and boundary
+clarification, gated on Bill's ongoing Phase 1 progress in the Coding
+Session (unchanged, still at Application's three opening questions).
+
+========================================================================
+SESSION HANDOFF
+========================================================================
+
+OBJECTIVES COMPLETED
+---------------------
+
+1. Corrected the "watch for DNA" memory. Bill's follow-up: "it is more
+   conceptual not literal. It is unlikely I will say DNA again. But if
+   we're discussing something and in that discussion I am saying
+   something that does not align or seems misunderstood - it has to be
+   called out, clarified, before we continue." The bare-"DNA" example
+   from Checkpoint 0010/0011 was illustrative of a broader real-time
+   instruction, not a keyword to pattern-match. Updated Claude's
+   personal cross-session memory (outside this repo) to reflect the
+   broader rule: catch any claim, assumption, or word choice that
+   doesn't align with what's already established, in the moment, and
+   get it clarified before continuing — not gated on a specific term
+   reappearing.
+
+2. Coding Session scope tightened. Bill: "No other conversations are
+   meant to take place in there... No coding, no updates." If an idea
+   surfaces during mentoring, that session routes it to the right
+   Standards/Architecture location and updates context to reflect the
+   routing, but doesn't develop it there. Added this as an explicit
+   subsection to `Topics/bduf-freeze-and-training.md` ("Session scope,
+   tightened 2026-07-13"), since the existing text described the
+   training content/roadmap but not this operational boundary as
+   sharply. This session (labeled "UML Diagram app integration," despite
+   the name now the standards/BDUF-research thread) is confirmed as
+   where standards get formalized "for us and any future contributors" —
+   outside contribution explicitly discouraged until at least a beta
+   with a solid foundation exists.
+
+3. New Topics/delivery-roadmap.md — draft, not committed. Bill sketched
+   a 3-step roadmap for after he reaches full comprehension of both
+   frozen maps and this project's Standards: (1) Claude analyzes
+   existing ChatGPT/Codex-generated code for `vs-mcp-bridge` — risks,
+   what works, what doesn't, what remains (code exists already; this
+   was new information — location not yet specified); (2) Claude
+   produces a gap analysis and prioritized PBI backlog to reach beta;
+   (3) sprint cycles with strict scope discipline — only assigned PBIs,
+   reprioritization sends work back to the backlog rather than being
+   worked ad hoc. Recorded exactly as Bill framed it: "not 'thee'
+   roadmap... 'we' can decide the roadmap together... isn't set in
+   stone." Also recorded: Bill's WDNA learning goal recalibrated to
+   familiarity (not mastery) since Standards drive actual usage, and an
+   open, non-blocking item — "code reviews by you will protect us" is
+   worth calibrating explicitly as real risk reduction, not a guarantee,
+   whenever real code work starts, especially given `RSK_RSAI_0006`'s
+   stakes.
+
+REPOSITORY / ENVIRONMENT STATE
+--------------------------------
+Repo: /Users/billkratochvil/AI/repos/architecture-rosetta-stone, branch
+main. Working tree was clean before this checkpoint (last commit
+ad8af03, "Checkpoint 0011 - fill in commit hash"). This checkpoint's
+changes (Topics/bduf-freeze-and-training.md, new
+Topics/delivery-roadmap.md, INDEX.md) are staged as part of this
+checkpoint's commit.
+
+TOPICS TOUCHED THIS SESSION
+------------------------------
+- Topics/bduf-freeze-and-training.md — added the "Session scope,
+  tightened 2026-07-13" subsection; frontmatter last-updated bumped.
+- Topics/delivery-roadmap.md — new file, draft status, full detail in
+  the file itself per this skill's own rule (pointer here, not a second
+  copy of the content).
+
+METHOD DISCOVERIES
+--------------------
+- When Bill corrects a memory Claude already saved, the fix belongs in
+  the memory itself (update in place), not just noted for next time —
+  same discipline this project already applies to its own Topics files.
+  Did that this checkpoint rather than letting the narrower, literal
+  reading stand alongside the corrected one.
+- A "draft, not committed" roadmap still deserves a real Topics file,
+  not just a mention in a checkpoint's prose — checkpoints are
+  chronological narrative, easy to lose track of; a Topics file is
+  current-state-per-subject and is what a future session would actually
+  check before assuming a plan doesn't exist yet.
+
+NEXT SESSION
+==============
+No new task created by this checkpoint. Both standing threads are
+unchanged: Phase 1 training (Coding Session, resume point still
+Application's three opening questions) and the WDNA reference map
+(Checkpoint 0009, now explicitly lower-stakes — familiarity, not
+mastery). The delivery roadmap in `Topics/delivery-roadmap.md` doesn't
+start until Bill's comprehension gate is met — don't begin the
+ChatGPT/Codex code audit or gap analysis ahead of that, even if it seems
+efficient to get a head start.
+
+END OF SESSION CHECKLIST
+==========================
+[ ] Commit this checkpoint + all staged changes
+[ ] Tag checkpoint-0012
+[ ] Push commit and tag to origin/main
+[ ] Fill in real commit hash and check off these items in a second commit
+
+SESSION SUMMARY
+================
+A boundary-and-planning checkpoint rather than a content one: no new
+architecture artifacts, no new IDs minted. The real work was making sure
+a self-correction Bill made about his own instruction actually landed in
+the memory it corrected (not left half-updated), that the Coding
+Session's role is unambiguous enough that neither session drifts into
+the other's territory, and that a real, if tentative, plan for what
+happens after the current training phase exists somewhere durable rather
+than only in this conversation.
+
+========================================================================
+END CHECKPOINT 0012
+========================================================================
