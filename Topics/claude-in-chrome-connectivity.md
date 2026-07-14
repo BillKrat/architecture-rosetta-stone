@@ -2,7 +2,7 @@
 name: claude-in-chrome-connectivity
 description: Recurring Claude-in-Chrome domain-lockout bug when connecting to XMind Cloud, and the confirmed per-session workaround.
 status: open — workaround confirmed, no permanent upstream fix
-last-updated: 2026-07-12
+last-updated: 2026-07-13
 ---
 
 ## The bug
@@ -67,7 +67,7 @@ domain is `https://app.xmind.com` — not `www.xmind.works`.
 
 ## Incident record
 
-- [Artifacts/XMind/2026-07-11_claude-in-chrome-permission-issue.md](../Artifacts/XMind/2026-07-11_claude-in-chrome-permission-issue.md) + paired `.command` — first occurrence, root-cause writeup.
+- [Artifacts/XMind/2026-07-11_claude-in-chrome-permission-issue.md](../Artifacts/XMind/2026-07-11_claude-in-chrome-permission-issue.md) + paired fix script (renamed `.command` -> `.command.md` 2026-07-13 so Bill could send it to a work colleague evaluating Claude + the Chrome extension — some transfer channels balk at `.command` attachments; content unchanged) — first occurrence, root-cause writeup.
 - [Artifacts/XMind/2026-07-12_claude-in-chrome-permission-issue.md](../Artifacts/XMind/2026-07-12_claude-in-chrome-permission-issue.md) + paired `.command` — recurrence, refined the "must actually resolve" rule.
 
 ## Open question
