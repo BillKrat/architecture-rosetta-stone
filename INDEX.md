@@ -29,7 +29,7 @@ doing.
 - [bduf-freeze-and-training](Topics/bduf-freeze-and-training.md) — frozen maps + the full 5-phase BDUF roadmap; Phase 1 mid-walkthrough on node 1/10 (Application) — resume point recorded (active); now includes a "known findings from a parallel session" pointer for 5 pre-loaded risks the coding session should use when it reaches the relevant nodes; Coding Session scope tightened 2026-07-13 (mentoring only, no coding/updates there)
 - [delivery-roadmap](Topics/delivery-roadmap.md) — Bill's draft (not committed) roadmap from standards-foundation to sprint-based delivery: code audit of existing ChatGPT/Codex work -> gap analysis/backlog -> strict-scope sprints, gated on Bill's full comprehension of both maps + standards (draft)
 - [claude-in-chrome-connectivity](Topics/claude-in-chrome-connectivity.md) — recurring per-session Claude-in-Chrome domain-lockout bug and the standing workaround (open, no permanent fix)
-- [xmind-copilot-collaboration](Topics/xmind-copilot-collaboration.md) — reliable method for bulk-editing the XMind map via its Copilot, plus known-unreliable surfaces (chat-panel click targeting, AI landing-page Enter-submit) and a repo-diff recovery-verification method (established, reusable, with caveats)
+- [xmind-copilot-collaboration](Topics/xmind-copilot-collaboration.md) — reliable methods for both editing an existing XMind map (branch-scoped Copilot batches) and building a new one from scratch (clipboard paste over simulated typing, confirmed 2026-07-13 across 4+ surfaces); known-unreliable UI patterns and a repo-diff recovery-verification method (established, reusable, with caveats)
 - [architecture-artifacts-taxonomy](Topics/architecture-artifacts-taxonomy.md) — superseded; kept for incident history only — see `Architecture/rosetta-stone-AI-Architecture/` for the live document
 
 ## History
@@ -39,17 +39,19 @@ and align local workflow files"): all prior Topic files, Session
 checkpoints, and Evidence stubs were deleted as part of aligning this
 repo with the shared, repo-agnostic skill workflow (see `AGENTS.md`).
 
-Latest checkpoint: [Sessions/2026-07-13_Checkpoint_0012_Session_Scope_And_Delivery_Roadmap_Draft.txt](Sessions/2026-07-13_Checkpoint_0012_Session_Scope_And_Delivery_Roadmap_Draft.txt)
-— Bill tightened the Coding Session's scope (mentoring only, strictly —
-see `Topics/bduf-freeze-and-training.md`) and sketched a draft, not
-committed, delivery roadmap in `Topics/delivery-roadmap.md`: audit
-existing ChatGPT/Codex code -> gap analysis/backlog -> strict-scope
-sprints, gated on Bill reaching full comprehension of both maps and this
-project's Standards. No new architecture content this checkpoint. Phase
-1 training remains untouched — resume point still Checkpoint 0005's
-(Application, three opening questions unanswered). WDNA reference map
-still the standing next task, now explicitly recalibrated to
-familiarity rather than mastery.
+Latest checkpoint: [Sessions/2026-07-13_Checkpoint_0013_WDNA_Reference_Map_And_Demo.txt](Sessions/2026-07-13_Checkpoint_0013_WDNA_Reference_Map_And_Demo.txt)
+— built `rosetta-stone-WDNA-Reference` (https://app.xmind.com/7oUcRnoy),
+closing Checkpoint 0009's deferred task, while it doubled as a live,
+recorded demo for Bill's work team (active company Claude evaluation
+context). Recovered from two real incidents on camera (a stray-node
+mishap solved by starting fresh; a full accidental deletion solved by
+having Copilot rebuild the whole structure from one fully-specified
+prompt). Two UI reliability fixes came directly from Bill and are now
+confirmed and folded into `Topics/xmind-copilot-collaboration.md`:
+paste a dash-bulleted list onto a selected node to create children
+reliably, and paste (not type) into any XMind text field to avoid a
+word-order-scrambling bug. Phase 1 training and the delivery-roadmap
+gate remain untouched.
 
 ## Reference
 
@@ -85,17 +87,22 @@ familiarity rather than mastery.
 - Evidence sources: none currently populated (`Evidence/` was removed
   in the 2026-07-12 reset; recreate per-author folders here if/when
   evidence-backed work resumes)
-- Mindmap: two active XMind Cloud documents, both frozen as of
+- Mindmap: three active XMind Cloud documents. Two frozen as of
   2026-07-12 — `rosetta-stone-AI` (the Responsibility vocabulary,
   https://app.xmind.com/GPJHh8wQ) and `rosetta-stone-MCP-Bridge` (the
   split-out MCP IDE-extension delivery concern,
-  https://app.xmind.com/IPtIA0Kd). Edited via Claude-in-Chrome + XMind
-  Copilot (see `Topics/xmind-copilot-collaboration.md`). Frozen
-  snapshots of both (`.xmind` source + `.outline.md` readable mirror)
-  are committed under `Artifacts/XMind/` — see
+  https://app.xmind.com/IPtIA0Kd). A third, `rosetta-stone-WDNA-Reference`
+  (https://app.xmind.com/7oUcRnoy, built 2026-07-13), is a living WDNA
+  teaching/reference map — see `Standards/glossary.md`'s WDNA entry, not
+  frozen. Edited via Claude-in-Chrome + XMind Copilot (see
+  `Topics/xmind-copilot-collaboration.md`, which now covers both
+  editing an existing map and building a new one). Frozen snapshots of
+  the two Concern documents (`.xmind` source + `.outline.md` readable
+  mirror) are committed under `Artifacts/XMind/` — see
   `Topics/bduf-freeze-and-training.md` for the freeze rationale and the
-  standing working agreement. `Artifacts/XMind/` also holds incident
-  writeups and per-session Chrome-permission fix scripts (see
+  standing working agreement (the WDNA reference map is not part of
+  that freeze). `Artifacts/XMind/` also holds incident writeups and
+  per-session Chrome-permission fix scripts (see
   `Topics/claude-in-chrome-connectivity.md`) — a fresh `.command`
   script is generated each session, so treat any existing one there as
   possibly stale.

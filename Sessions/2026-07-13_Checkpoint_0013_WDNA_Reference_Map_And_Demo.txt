@@ -1,0 +1,211 @@
+========================================================================
+ROSETTA STONE CHECKPOINT 0013
+========================================================================
+
+File:
+2026-07-13_Checkpoint_0013_WDNA_Reference_Map_And_Demo.txt
+
+Checkpoint:
+0013
+
+Date:
+2026-07-13
+
+Project:
+Rosetta Stone for Software Architecture
+
+Project Phase:
+Same BDUF-research track. This session both completed the deferred WDNA
+reference-map task (Checkpoint 0009) and doubled as a live, Snagit-
+recorded demo for Bill's work team, in the context of an active company
+Claude evaluation.
+
+Checkpoint Title:
+WDNA Reference Map And Demo
+
+Project Status:
+Built `rosetta-stone-WDNA-Reference`, a new (unfrozen) XMind map of
+WDNA's three tiers with example children and a note, closing out
+Checkpoint 0009's deferred task. The build was simultaneously a live
+demo for Bill's work architects/team, requested after Bill's own use of
+a work Claude license produced a successful impossible-deadline demo
+and, per leadership feedback today, contributed to a successful bid
+defense. Several new XMind UI failure modes surfaced during the build,
+each diagnosed and fixed live (including two fixes Bill supplied
+directly), and folded into the existing `xmind-copilot-collaboration.md`
+methodology doc rather than a new file, per Bill's request.
+
+Repository:
+https://github.com/BillKrat/architecture-rosetta-stone
+
+Git Commit:
+(pending — filled in after commit, see Step 6)
+
+Previous Checkpoint:
+0012 - Session Scope And Delivery Roadmap Draft
+
+Next Objective:
+No new task created by this checkpoint specifically. Standing threads
+unchanged: Phase 1 training (Coding Session) and the delivery-roadmap
+gate (Topics/delivery-roadmap.md). The rosetta-stone-AI-node-onto-WDNA-
+tier mapping (Standards/glossary.md's "Still not done") remains the
+next WDNA-related task whenever it's picked up.
+
+========================================================================
+SESSION HANDOFF
+========================================================================
+
+CONTEXT: THE DEMO
+--------------------
+Bill was given a work Claude license for what "would have been an
+impossible task" — a demo built from a 30-minute overview plus architect
+and PO context, delivered in 2.5 of a 4-day window. That work led to
+today's feedback from company leadership that it was used successfully
+in a bid defense. Bill had to return the license afterward (no personal
+work license currently), but had shared this project's XMind/Copilot
+work with an architect, who then asked him to demo it for the team —
+which Bill read as a positive signal for the ongoing company Claude
+evaluation. This session's WDNA map build was deliberately run as that
+demo (Snagit screen recording, no audio, Bill narrating/editing
+separately), with instructions to interact with both Copilot and the
+Outliner/Mindmap view toggle "intentionally even if not necessarily
+needed" so the recording would show real breadth.
+
+OBJECTIVES COMPLETED
+---------------------
+
+1. rosetta-stone-WDNA-Reference built (https://app.xmind.com/7oUcRnoy).
+   Central topic "WDNA (Windows DNA)"; three tier nodes (Presentation
+   Services, Business Services, Data Services) each with 2-3 example
+   children; a note attached to "Credential Vault Service
+   (SCM_RSAI_0001)" tying the map back to this repo's real
+   Architecture/ content. Built via a mix of direct node editing,
+   clipboard-paste list creation, and one full-structure Copilot
+   generation request — all three methods demonstrated on camera as
+   requested. Not part of the `rosetta-stone-AI`/`rosetta-stone-MCP-
+   Bridge` freeze (see `Topics/bduf-freeze-and-training.md`) — a
+   separate, living reference document.
+
+2. Recovered cleanly from a real incident, mid-recording. An early
+   title-rename click landed on canvas instead of the rename dialog
+   (the dialog appeared late, after other actions were already taken),
+   creating 5 stray nodes. Rather than fight an uncertain undo state,
+   abandoned that document outright and started a fresh one — a
+   deliberate choice to keep the recording moving rather than risk
+   further compounding. Later in the same session, a much larger
+   accidental deletion happened (a stray click selected the whole
+   canvas via Cmd+A instead of the AI chat input, and a follow-up
+   Delete/Backspace removed every branch, leaving only the central
+   topic) — Bill reframed this live as "a good opportunity to see how
+   effectively [Copilot] can populate nodes," and a single, fully-
+   specified Copilot prompt rebuilt the entire structure correctly on
+   the first attempt.
+
+3. Two UI reliability fixes came directly from Bill, both confirmed
+   working:
+   - Selecting a node and pasting a dash-bulleted list
+     (`"- Item 1\n- Item 2\n- Item 3"`) creates each line as a
+     correctly-split child node in one paste — replaces an unreliable
+     manual Tab/Return child-creation loop that had already caused one
+     text-merging error this session.
+   - When typed text visibly scrambled (word order corrupted) inside
+     XMind's Note editor, Bill asked whether clicking at the first
+     character and pasting instead of typing would avoid it. Tested
+     directly: writing the text to the clipboard via script and pasting
+     (`Cmd+V`) produced correct word order on the first try. Notably,
+     Claude did not have a prior confirmed fix for this exact bug
+     despite Bill recalling it from an earlier, undocumented session —
+     said so plainly rather than imply otherwise, per
+     `Standards/source-of-truth.md`.
+
+4. `Topics/xmind-copilot-collaboration.md` substantially updated, not
+   replaced. Per Bill's explicit request ("a context file associated
+   with mindmap and referenced from our session context document"),
+   folded all of this session's lessons into the existing topic file
+   (already referenced from `INDEX.md`) rather than creating a new,
+   competing one. New content: the title-rename-dialog-lag issue;
+   Escape-cancels-a-node-edit (vs. Return-commits-it); the Tab/Return
+   child-creation unreliability and the paste-list replacement; chat-
+   panel typing still leaking onto canvas even with ref-based clicks;
+   a refinement of the 2026-07-12 "whole-map requests don't work"
+   lesson (that caution was about *ambiguous edits* to an existing map,
+   not fully-specified *generation* on a blank one — the latter worked
+   perfectly); the typed-text word-scrambling bug and its paste-based
+   fix; and where the Notes feature actually lives (node selected ->
+   top-toolbar `+` menu -> `Note` — not the right-click menu, not the
+   Comments panel).
+
+REPOSITORY / ENVIRONMENT STATE
+--------------------------------
+Repo: /Users/billkratochvil/AI/repos/architecture-rosetta-stone, branch
+main. Working tree was clean before this checkpoint (last commit
+93ba2ee, "Checkpoint 0012 - fill in commit hash"). This checkpoint's
+changes (Topics/xmind-copilot-collaboration.md, Standards/glossary.md,
+INDEX.md) are staged as part of this checkpoint's commit.
+
+TOPICS TOUCHED THIS SESSION
+------------------------------
+- Topics/xmind-copilot-collaboration.md — major update, see Objectives
+  Completed #4 above for the full list; frontmatter status/description
+  updated to reflect it now covers both existing-map editing and
+  new-map building.
+- Standards/glossary.md — WDNA entry's "Not yet done" note split into
+  "Reference map, built 2026-07-13" (done) and "Still not done" (the
+  rosetta-stone-AI-node-to-WDNA-tier mapping, unchanged).
+
+METHOD DISCOVERIES
+--------------------
+- Simulated typing has now caused distinct failures on at least four
+  separate XMind UI surfaces this session alone (title rename, node
+  text, child creation, note text) — this is strong enough evidence to
+  treat clipboard paste as the *default* method for any multi-character
+  text entry in this app, not a fallback reached for only after typing
+  visibly fails.
+- The 2026-07-12 "don't ask Copilot to edit the whole map at once"
+  lesson was scoped correctly at the time but easy to over-apply — the
+  actual risk factor is ambiguity (Copilot having to infer which
+  existing content matches a description), not request size. A large,
+  fully-specified generation request is a different, safer case, and
+  this session is the first real evidence for that distinction.
+- When an incident happens mid-recording, the fastest recovery isn't
+  always careful diagnosis — abandoning a just-created, low-value
+  document and starting fresh was faster and lower-risk than untangling
+  an uncertain undo state, given nothing of real value existed in it
+  yet. That calculus would be different for a document with real
+  content (as reflected in the existing repo-diff-verification method
+  for the frozen maps).
+- Bill's own troubleshooting instincts (paste-a-list, paste-instead-of-
+  type) were both correct and directly reusable — worth treating his
+  in-the-moment UI suggestions as testable hypotheses to verify
+  immediately, not just anecdotal tips.
+
+NEXT SESSION
+==============
+No new task created by this checkpoint. The rosetta-stone-AI-node-to-
+WDNA-tier mapping (Standards/glossary.md, "Still not done") is the
+natural next WDNA-related step whenever Bill wants it, but nothing
+here schedules it. Delivery-roadmap and Phase 1 training threads both
+remain exactly where Checkpoint 0012 left them.
+
+END OF SESSION CHECKLIST
+==========================
+[ ] Commit this checkpoint + all staged changes
+[ ] Tag checkpoint-0013
+[ ] Push commit and tag to origin/main
+[ ] Fill in real commit hash and check off these items in a second commit
+
+SESSION SUMMARY
+================
+A working session that was also, deliberately, a demo — and treated
+the two goals as fully compatible rather than in tension: real content
+got built (the WDNA reference map, closing a deferred task), real
+incidents happened and got recovered from on camera, and two of Bill's
+own live troubleshooting suggestions turned into confirmed, durable
+fixes now folded into the project's standing XMind methodology. Nothing
+here was staged for the recording — the mistakes were real, the
+recoveries were real, and the lessons captured are the same ones that
+would have been captured had no one been watching.
+
+========================================================================
+END CHECKPOINT 0013
+========================================================================

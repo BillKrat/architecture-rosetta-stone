@@ -1,8 +1,8 @@
 ---
 name: xmind-copilot-collaboration
-description: How to reliably use XMind's built-in Copilot (driven via Claude-in-Chrome) for bulk edits to the mindmap, and the batch-scoping method that makes it reliable.
-status: established method, with two known unreliable surfaces (chat-panel click targeting, AI landing-page Enter-submit) — see below
-last-updated: 2026-07-12
+description: How to reliably use XMind (direct manipulation and Copilot, via Claude-in-Chrome) for both editing an existing map and building a new one — two different task shapes with different reliable methods. Standing rule as of 2026-07-13— prefer clipboard paste over simulated typing everywhere in this app.
+status: established method for both existing-map edits and new-map builds; simulated typing confirmed unreliable across 4+ surfaces, paste is the standing default
+last-updated: 2026-07-13
 ---
 
 ## Context
@@ -154,9 +154,124 @@ clean via full-map reload + outline text dump. No other content
 by diffing Copilot's own change log line-by-line against the intended
 scope.
 
-## Reusable takeaway
+## Session 2026-07-13: building a new map — a different task shape, new failure modes
 
-This method (small branch-scoped batches + exact literal target text +
-diff-log verification, avoiding both whole-map requests and multi-line
-prompts) is the standing approach for any future bulk-edit request to
-XMind Copilot on this map, not just this one cleanup pass.
+Context: built `rosetta-stone-WDNA-Reference` (https://app.xmind.com/7oUcRnoy)
+— a brand-new document (WDNA's three tiers + children + a note), doing
+double duty as a live, screen-recorded demo for Bill's work team (see
+the checkpoint for that context). Populating a blank canvas surfaced
+several failure modes distinct from the existing-map-editing lessons
+above — different task, different risks.
+
+### Title-rename dialog can appear late
+
+Clicking the document title to rename it doesn't always open the
+"Rename Map" dialog immediately — it can appear moments later, after
+other actions were already taken on the assumption the click did
+nothing. Typing during that gap lands on the canvas instead (this is
+what caused the session's first incident: 5 stray nodes, cleaned up by
+abandoning the document and starting over, rather than fighting undo).
+**Fix:** after clicking the title, screenshot and confirm the dialog is
+actually visible before typing anything.
+
+### Escape cancels a node-text edit instead of committing it
+
+Typing new text into a node (double-click to enter edit mode) and then
+pressing `Escape` **discards the edit**, reverting to the prior text —
+it does not commit. Use `Return`/`Enter` instead. Mistaken the first
+few times for "the type action silently failed."
+
+### Child-node creation: Tab/Return is unreliable; paste is not
+
+Building children one at a time — `Tab` (new child) -> type -> `Return`
+(commit) -> a second `Return` (creates the next sibling, already in
+edit mode) -> type -> repeat — worked most of the time but not always:
+one attempt merged two children's text into a single node with no clear
+trigger.
+
+**Reliable replacement (Bill's tip, worked every time it was tried):**
+select the parent node, write the child list to the clipboard as a
+dash-bulleted string (`"- Item one\n- Item two\n- Item three"`), paste
+(`Cmd+V`). XMind parses each bulleted line into its own correctly-split
+child node in one paste. **Default to this for any node that needs more
+than one child** — reserve manual Tab/Return for a single one-off
+child.
+
+### Chat-panel typing can still leak onto canvas, even with ref-based clicks
+
+Using an accessibility-tree element ref to click the chat textbox
+(rather than raw pixel coordinates) is more reliable than coordinate
+clicking, but not a complete fix — one attempt still left only a
+fragment of the typed text in the chat box while the rest leaked onto
+the canvas as an uncommitted note-edit popup on whatever node was last
+selected (safely dismissed with `Escape`; nothing was actually saved).
+The 2026-07-12 rule above still applies and bears repeating: **screenshot
+and confirm the full intended text is visible in the chat box before
+submitting, every time** — a successful-looking ref click is not
+sufficient confirmation on its own.
+
+### Refining "whole-map requests don't work": ambiguity is the problem, not size
+
+The 2026-07-12 lesson above was earned editing an existing, ~122-node
+map with ambiguous title-matching. It does **not** generalize to
+generating brand-new structure from a blank canvas with fully explicit
+content: one single-line prompt naming every branch and child topic
+exactly (`under "X" add children: "A", "B", "C"`) correctly built a
+complete 3-tier, 9-child structure in one shot, first try. The
+distinguishing factor is ambiguity, not request size — large-but-fully-
+specified generation is safe; large edit requests requiring Copilot to
+infer which existing topics match a description are not.
+
+Also worth noting: Copilot was honest about a limit mid-task rather than
+faking success — it built the requested structure correctly but
+explicitly reported "I couldn't attach the note to that topic with the
+available map controls here" instead of silently skipping it.
+
+### Typed text can scramble mid-entry in rich-text fields — paste is the fix
+
+Typing a multi-word sentence into XMind's Note editor (node -> `+` menu
+-> `Note`) can result in **word-order corruption** — e.g. the first
+word ending up appended at the very end instead of the start, no error
+shown. Distinct from the Escape-cancels-edit issue: the text lands, but
+scrambled. First diagnosed 2026-07-13 (Bill noted a similar-looking
+issue happened in an earlier, undocumented session too).
+
+**Confirmed fix, tested directly:** write the full text to the
+clipboard via script (`navigator.clipboard.writeText(...)`) and paste
+(`Cmd+V`) instead of simulated character-by-character typing. Paste
+delivered correct word order on the first try. Typing has now caused
+problems on at least four distinct surfaces in this app (title rename,
+node text, child creation, note text) — **treat simulated typing as
+inherently unreliable for anything beyond a few characters in XMind,
+and reach for clipboard paste by default, not just as a fallback after
+typing visibly fails.**
+
+### Finding the Notes feature
+
+Not in the right-click context menu (checked exhaustively — no "Note"
+entry among Insert/Grow Ideas/Work Breakdown/Copy/Cut/Duplicate/Delete/
+Fold/Unfold/etc.), and not the top-toolbar "Comments" icon (a separate,
+collaborative-comment feature, not a per-node note). **Correct path:
+select the node, then use the top toolbar's `+` insert menu -> `Note`.**
+Also: right-clicking a node directly without first left-clicking to
+select it can land the wrong, canvas-level menu (`Paste`/`Map Refine`/
+`Reorganize`/etc.) instead of the node-specific one — left-click to
+select first, then right-click (or use the `+` menu).
+
+## Reusable takeaway (updated 2026-07-13)
+
+Two standing methods now proven across two different task shapes:
+
+1. **Editing an existing map:** branch-scoped batches + exact literal
+   target text handed to Copilot + diff-log verification (2026-07-12
+   method, above).
+2. **Building new content:** prefer clipboard paste over simulated
+   typing for anything beyond a couple of characters — both for
+   creating multiple children (paste a dash-bulleted list onto a
+   selected parent) and for any multi-word text field (titles, node
+   text, notes). Reserve Copilot generation prompts for fully-specified
+   structure (name every node explicitly); don't ask it to infer intent
+   the way the 2026-07-12 whole-map edit attempt required. Verify every
+   click landed where intended via screenshot before typing or pasting —
+   this app's UI has repeatedly shown that a click which looks like it
+   should have worked sometimes hasn't.

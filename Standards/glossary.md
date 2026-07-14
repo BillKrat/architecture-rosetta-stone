@@ -81,11 +81,19 @@ architectural *layering*. Nothing about that determination is a hedge
 or a "for now"; it's the answer to "WDNA or MCSD, or best of both,"
 worked through below.
 
-**Not yet done:** a full mapping of `rosetta-stone-AI`'s own nodes
+**Reference map, built 2026-07-13:** `rosetta-stone-WDNA-Reference`
+(https://app.xmind.com/7oUcRnoy) — a standalone XMind map of WDNA's
+three tiers with example children and one note, built as the deferred
+task from `Sessions/2026-07-13_Checkpoint_0009_*.txt`. This map is a
+generic WDNA teaching/reference tool (also doubled as a live demo for
+Bill's work team — see the checkpoint for that context); it is **not**
+the mapping described below.
+
+**Still not done:** a full mapping of `rosetta-stone-AI`'s own nodes
 (Application, Agent, Tool, Retrieval, Memory, Security, Model) onto
-WDNA's three tiers. Bill referenced wanting to see "that map" again to
-refresh his memory before going further with this — treat that as the
-next step in this thread, not something to pre-empt here.
+WDNA's three tiers. The reference map above is a prerequisite/warm-up
+for this, not a substitute — treat this as the next step in this
+thread.
 
 ## MSF (Microsoft Solutions Framework)
 
