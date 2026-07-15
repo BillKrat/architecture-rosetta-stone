@@ -39,7 +39,7 @@ Repository:
 https://github.com/BillKrat/architecture-rosetta-stone
 
 Git Commit:
-(pending — filled in after commit, see below)
+ea9e66a
 
 Previous Checkpoint:
 0013 - WDNA Reference Map And Demo
