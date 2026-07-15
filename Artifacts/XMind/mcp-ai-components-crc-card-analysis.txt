@@ -1,0 +1,92 @@
+# MCP AI Components CRC Card Analysis
+## AI Application
+### Responsibilities
+- User Interaction Management
+  - Providing the primary interface (Web, Mobile, or CLI) for users to submit prompts.
+  - Displaying the final output and intermediate steps of the AI reasoning process.
+- Session and State Orchestration
+  - Initializing the AI environment and maintaining the lifecycle of a user session.
+  - Routing user requests to the Agent and handling the final delivery of responses.
+### Collaborators
+- AI Agent
+  - Delegates the execution of complex goals and multi-step reasoning to the Agent.
+- Security
+  - Requests authentication and authorization checks before processing any user input.
+
+## AI Model
+### Responsibilities
+- Natural Language Understanding
+  - Parsing complex linguistic structures into machine-interpretable semantic representations.
+- Content Generation
+  - Synthesizing text, code, or structured data based on the provided context and instructions.
+- Logical Reasoning
+  - Applying deductive and inductive reasoning to solve problems presented in the prompt.
+### Collaborators
+- AI Agent
+  - Provides the core "brain" for the Agent to interpret instructions and decide on actions.
+- Retrieval
+  - Receives augmented context from the Retrieval component to reduce hallucinations and ground responses in facts.
+
+## AI Agent
+### Responsibilities
+- Goal Decomposition
+  - Breaking down high-level user objectives into a sequence of smaller, manageable sub-tasks.
+- Tool Selection and Reasoning
+  - Analyzing the available Tools and determining which one to call based on the current task state.
+- Loop Management
+  - Managing the Thought-Action-Observation loop to iterate until the goal is achieved or a timeout occurs.
+### Collaborators
+- AI Model
+  - Uses the Model to generate thoughts and decide on the next logical step in the plan.
+- Tool
+  - Invokes specific Tools to perform actions that the Model cannot do natively, such as searching the web.
+- Memory
+  - Consults Memory to understand the history of the current conversation and avoid repeating mistakes.
+
+## Tool
+### Responsibilities
+- Functional Execution
+  - Performing specific, well-defined tasks like executing Python code, querying a SQL database, or fetching weather data.
+- Data Standardization
+  - Converting raw output from external APIs into a structured format that the Agent and Model can easily process.
+### Collaborators
+- AI Agent
+  - Receives specific input parameters from the Agent and returns the results of the execution.
+- Security
+  - Undergoes sandboxing and permission checks to ensure the tool execution does not compromise the system.
+
+## Retrieval
+### Responsibilities
+- Contextual Search
+  - Searching through vector databases or document indices to find information relevant to the user's query.
+- Information Ranking
+  - Scoring and filtering retrieved documents to ensure only the most relevant snippets are passed to the context window.
+### Collaborators
+- AI Model
+  - Supplies the Model with external knowledge to enhance the accuracy of the generated response.
+- Memory
+  - Can store frequently retrieved items or utilize past search history to refine current retrieval strategies.
+
+## Memory
+### Responsibilities
+- Short-term Buffer Management
+  - Storing the immediate history of the current chat session to maintain conversational flow.
+- Long-term Knowledge Persistence
+  - Archiving user preferences, past task outcomes, and learned information across multiple sessions.
+### Collaborators
+- AI Agent
+  - Provides the Agent with the necessary context to maintain consistency in long-running tasks.
+- AI Application
+  - Interfaces with the Application to save and load user-specific states from a persistent database.
+
+## Security
+### Responsibilities
+- Input and Output Guardrails
+  - Filtering malicious prompts (injection attacks) and sanitizing model outputs for sensitive information or bias.
+- Identity and Access Management
+  - Ensuring that the user and the AI components have the correct permissions to access specific tools or data sources.
+### Collaborators
+- AI Application
+  - Validates user credentials at the entry point of the system.
+- Tool
+  - Enforces strict execution policies to prevent tools from accessing unauthorized file paths or network addresses.

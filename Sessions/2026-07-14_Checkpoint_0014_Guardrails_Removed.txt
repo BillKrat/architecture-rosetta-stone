@@ -1,0 +1,216 @@
+========================================================================
+ROSETTA STONE CHECKPOINT 0014
+========================================================================
+
+File:
+2026-07-14_Checkpoint_0014_Guardrails_Removed.txt
+
+Checkpoint:
+0014
+
+Date:
+2026-07-14
+
+Project:
+Rosetta Stone for Software Architecture
+
+Project Phase:
+Pivot. The BDUF freeze/phase-gating established in Checkpoints 0002-0005
+and tightened in 0012 is lifted. The project moves to a momentum-first
+collaborative mode aimed directly at unblocking real `vs-mcp-bridge`
+development.
+
+Checkpoint Title:
+Guardrails Removed
+
+Project Status:
+After four days (2026-07-12 through 2026-07-14) of BDUF process that
+produced real infrastructure but zero progress on the actual objective
+(Bill's comprehension of the frozen map, which was supposed to unblock
+real development), Bill removed the content freeze and phase-gating
+entirely. Trigger: a side-by-side comparison between `rosetta-stone-AI`
+(4 days, heavy process, real internal defects) and a 7-node CRC-card map
+Bill generated via a single 5-minute prompt (internally consistent, no
+defects found). Standards, the Architecture document set, and both
+frozen maps' content are explicitly kept as reference material — only
+the gating/freeze mechanics are removed.
+
+Repository:
+https://github.com/BillKrat/architecture-rosetta-stone
+
+Git Commit:
+(pending — filled in after commit, see below)
+
+Previous Checkpoint:
+0013 - WDNA Reference Map And Demo
+
+Next Objective:
+Use `Artifacts/XMind/mcp-ai-components-crc-card-analysis.txt` as the
+working draft definition of AI/Model/Application/Agent/Tool/Retrieval/
+Memory/Security, reconcile it against `rosetta-stone-AI`'s existing
+content, and move toward real `vs-mcp-bridge` code — not another
+definition exercise from zero. See
+`Topics/collaborative-momentum-mode.md`.
+
+========================================================================
+SESSION HANDOFF
+========================================================================
+
+WORKING AGREEMENT
+------------------
+Replaces the Checkpoint 0002/0003/0004/0012 working agreement in full.
+New agreement, Bill's own words: "there can be no constraints that
+prevent us from moving forward." No content freeze on either frozen map.
+No phase-gating (comprehension before investigation before Concern B
+before gap analysis before requirements). No "Coding Session is
+mentoring-only" boundary — one thread, real work. Standards/,
+Architecture/, and both maps' existing content are kept as working
+reference material, not discarded and not gates. Full detail in
+`Topics/collaborative-momentum-mode.md`, which supersedes
+`Topics/bduf-freeze-and-training.md` (marked superseded, kept for
+history — its reasoning and the 5 pre-loaded risk findings remain real
+and useful, just no longer a precondition for anything).
+
+OBJECTIVES COMPLETED
+---------------------
+
+1. Bill opened by naming the actual outcome plainly: after four days he
+   was "no closer to understanding the primary objective than when this
+   journey started," and his confidence that `vs-mcp-bridge` development
+   is even feasible under this approach was shaken — because a PO,
+   architect, and source code can answer "what is a Model" on demand,
+   and four days of heavy process hadn't. Asked Claude to look at this
+   from his perspective rather than defend the work done. Claude's
+   review, checked against the actual record rather than just agreeing:
+   confirmed as factually true, not just Bill's framing — the Application
+   node's three opening questions (Checkpoint 0005) were never answered;
+   every session that opened with "let's code" got diverted into
+   something else (Standards authoring, a demo, git archaeology, a map
+   comparison) before reaching that work, four days running.
+
+2. Bill shared his resume (`/Volumes/[T] Windows 11/Bill/Bill.Kratochvil.Resume.docx`,
+   current employer intentionally de-identified) as grounding, not
+   self-promotion, for his stated confidence in his own judgment about
+   what does and doesn't work. Read directly (pandoc unavailable; parsed
+   from the docx XML). Verified, not just accepted: 1979-1992 USAF jet
+   engine technician and programmer (Air Force Commendation Medal);
+   1993-2018 continuous architect/lead-developer roles including 5 years
+   as architect and senior developer for Eli Lilly's award-winning
+   ClinWeb decision-support application; a 2011 MSDN Magazine article
+   ("MVPVM Design Pattern — The Model-View-Presenter-ViewModel Design
+   Pattern for WPF") that is the direct historical source of the MVPVM
+   discipline Bill referenced wanting to apply to `vs-mcp-bridge`
+   earlier this project. Confirms his "never failed a project" claim is
+   backed by a real, checkable record, not asserted without basis — per
+   `Standards/source-of-truth.md`'s own rule, this is now recorded as
+   verified context rather than taken on his word alone.
+
+3. Bill's diagnosis, stated and adopted: the heavy process didn't
+   produce correctness — it consumed the time that should have gone to
+   the one thing that mattered. His operating philosophy, stated
+   verbatim (something he's told every team member who's worked with or
+   for him): "the problem can't be solved by the same mind that created
+   it, if you are not going to be solution oriented, I'll have to do it
+   myself." Explicitly not throwing away the architectural
+   standards/practices work — removing the constraints that were
+   preventing forward motion, specifically.
+
+4. Wrote `Topics/collaborative-momentum-mode.md` (new) capturing: what
+   was removed (the freeze, phase-gating, the mentoring-only Coding
+   Session boundary), what's kept (WDNA terminology, all of Standards/,
+   the Architecture/ document set, both frozen maps' content as
+   reference, the persistence discipline itself), the new operating
+   principle (fast, good-enough-not-perfect shared definitions, depth
+   added only when real work needs it), and the immediate next step
+   (use the CRC card map as the working draft rather than starting a new
+   definition exercise). Marked `Topics/bduf-freeze-and-training.md`
+   superseded in place (status/description updated, a notice added at
+   the top) rather than deleted — its reasoning and the 5 pre-loaded
+   risk findings remain real, useful context.
+
+REPOSITORY / ENVIRONMENT STATE
+--------------------------------
+Repo: /Users/billkratochvil/AI/repos/architecture-rosetta-stone, branch
+main. Working tree was clean before this checkpoint (last commit
+b3833af, the MCSD/MSF glossary note from earlier 2026-07-14). One
+untracked file was already present before this checkpoint's own changes
+— `Artifacts/XMind/mcp-ai-components-crc-card-analysis.txt`, a
+plain-text mirror of the CRC card map, created earlier in today's
+session and left untracked; included in this checkpoint's commit as
+real, relevant content rather than treated as stray.
+
+No XMind Cloud content changes this checkpoint — the pivot is a working-
+agreement change, not a map edit. `rosetta-stone-AI` and
+`rosetta-stone-MCP-Bridge` remain exactly as they stood after the
+2026-07-12 split; they are simply no longer frozen against future edits.
+
+TOPICS TOUCHED THIS SESSION
+------------------------------
+- Topics/collaborative-momentum-mode.md — new. The current, authoritative
+  description of how this project operates as of 2026-07-14. Read this
+  first in any future session, ahead of bduf-freeze-and-training.md.
+- Topics/bduf-freeze-and-training.md — marked superseded (frontmatter
+  status/description, top-of-file notice). Content below the notice is
+  unchanged, preserved as history.
+
+METHOD DISCOVERIES
+--------------------
+- A checkpoint-and-standards system that itself takes real time to
+  maintain is not exempt from the same question it exists to answer for
+  everything else: is this actually serving the objective, or has it
+  become the objective? This project's own persistence discipline
+  survived that question (kept, because it's genuinely what let this
+  pivot get recorded cleanly); the freeze/phase-gating did not.
+- When a user asks "can you see this from my perspective," the honest
+  move is to check the record for whether their framing is actually
+  true, not to agree performatively or to hedge defensively. Here it
+  checked out exactly as stated — that's what made simply confirming it
+  the right response instead of either capitulating or arguing.
+- Verifying a person's stated credentials/track record against a primary
+  source they provide (here, an actual resume) is the same
+  `Standards/source-of-truth.md` discipline this project already applies
+  to architecture claims — it applies to claims about the collaborators
+  too, not just the artifact.
+
+NEXT SESSION
+==============
+1. Read Topics/collaborative-momentum-mode.md first.
+2. Start from `Artifacts/XMind/mcp-ai-components-crc-card-analysis.txt`
+   as the working draft for AI/Model/Application/Agent/Tool/Retrieval/
+   Memory/Security. Reconcile against `rosetta-stone-AI` where useful,
+   but don't restart a definition exercise from zero.
+3. Move toward real `vs-mcp-bridge` code as soon as the shared
+   definitions are good enough to work from — "good enough" is the bar,
+   not "complete."
+
+END OF SESSION CHECKLIST
+==========================
+[x] Bill's perspective confirmed against the actual record, not just
+    accepted or defended against
+[x] Resume read and claims verified against its actual content
+[x] Topics/collaborative-momentum-mode.md written
+[x] Topics/bduf-freeze-and-training.md marked superseded
+[x] INDEX.md updated (binding-standards framing softened, Topics list,
+    History pointer, Reference/Mindmap section)
+[x] Checkpoint committed, tagged, and pushed (see Git Commit above —
+    filled in as part of this same checkpoint's commit sequence)
+
+SESSION SUMMARY
+================
+The most consequential checkpoint so far, and the shortest distance
+between diagnosis and action: Bill named a real four-day failure to
+progress on the only objective that mattered, backed his confidence in
+his own read of the situation with a verifiable track record rather than
+just asserting it, and the response was to remove exactly what was
+blocking progress while explicitly keeping what had genuine value
+(Standards, the Architecture document set, the persistence system
+itself). Nothing about the architecture content changed today. What
+changed is that the process built to protect the work from becoming
+"ambiguous goop" had itself become the obstacle, and both people at the
+table caught it and corrected it together — which is the actual
+collaborative-problem-solving Bill described wanting, demonstrated in
+the same session he asked for it.
+
+========================================================================
+END CHECKPOINT 0014
+========================================================================

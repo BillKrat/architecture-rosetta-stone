@@ -6,18 +6,16 @@ borrowed one — so architects can build and discuss these systems
 without inheriting meaning-drift. AI is the current test case running
 through the method, not the boundary of it.
 
-**Binding standards — read before authoring anything, in any session:**
-this project's terminology source of truth for architectural layers is
-**WDNA (Windows DNA)** — Presentation / Business / Data Services — not
-ad hoc naming. Every architecture *document* this project produces
-follows the templates in `Standards/document-layout.md`; every tracked
-*artifact* gets an ID per `Standards/identifier-scheme.md`, declares its
-`basis` per `Standards/source-of-truth.md`, and records cross-references
-per `Standards/relationship-vocabulary.md`. This applies identically
-whether you're in this BDUF-research thread or the Phase 1
-training/"coding session" thread — see `Standards/README.md` for the
-full set. Established 2026-07-12/13; not optional polish (see that
-folder's own "why this exists" for why).
+**Working reference, not a gate (revised 2026-07-14):** this project's
+terminology for architectural layers is **WDNA (Windows DNA)** —
+Presentation / Business / Data Services. Standards documents/artifacts
+follow `Standards/document-layout.md`'s templates, `Standards/identifier-scheme.md`'s
+IDs, `Standards/source-of-truth.md`'s basis rule, and
+`Standards/relationship-vocabulary.md`'s cross-references when producing
+real Standards/Architecture content — see `Standards/README.md`. These
+are working conventions to keep using, not preconditions that block
+other work — see `Topics/collaborative-momentum-mode.md` for why the
+"binding, not optional" framing was retired.
 
 **This file is a map, not content.** It holds one line per topic and a
 link — the actual state lives in `Topics/`. Read this in full; open a
@@ -26,8 +24,9 @@ doing.
 
 ## Topics
 
-- [bduf-freeze-and-training](Topics/bduf-freeze-and-training.md) — frozen maps + the full 5-phase BDUF roadmap; Phase 1 mid-walkthrough on node 1/10 (Application) — resume point recorded (active); now includes a "known findings from a parallel session" pointer for 5 pre-loaded risks the coding session should use when it reaches the relevant nodes; Coding Session scope tightened 2026-07-13 (mentoring only, no coding/updates there)
-- [delivery-roadmap](Topics/delivery-roadmap.md) — Bill's draft (not committed) roadmap from standards-foundation to sprint-based delivery: code audit of existing ChatGPT/Codex work -> gap analysis/backlog -> strict-scope sprints, gated on Bill's full comprehension of both maps + standards (draft)
+- [collaborative-momentum-mode](Topics/collaborative-momentum-mode.md) — current operating mode: no more freeze/phase-gating, Standards kept as reference not constraint, momentum toward real vs-mcp-bridge development (active, adopted 2026-07-14)
+- [bduf-freeze-and-training](Topics/bduf-freeze-and-training.md) — superseded 2026-07-14; kept for history — the original freeze rationale and 5 pre-loaded risk findings are still real context, just no longer a gate
+- [delivery-roadmap](Topics/delivery-roadmap.md) — Bill's draft roadmap from standards-foundation to sprint-based delivery: code audit of existing ChatGPT/Codex work -> gap analysis/backlog -> strict-scope sprints; the "gated on full comprehension" precondition is lifted per collaborative-momentum-mode (draft)
 - [claude-in-chrome-connectivity](Topics/claude-in-chrome-connectivity.md) — recurring per-session Claude-in-Chrome domain-lockout bug and the standing workaround (open, no permanent fix)
 - [xmind-copilot-collaboration](Topics/xmind-copilot-collaboration.md) — reliable methods for both editing an existing XMind map (branch-scoped Copilot batches) and building a new one from scratch (clipboard paste over simulated typing, confirmed 2026-07-13 across 4+ surfaces); known-unreliable UI patterns and a repo-diff recovery-verification method (established, reusable, with caveats)
 - [architecture-artifacts-taxonomy](Topics/architecture-artifacts-taxonomy.md) — superseded; kept for incident history only — see `Architecture/rosetta-stone-AI-Architecture/` for the live document
@@ -39,19 +38,11 @@ and align local workflow files"): all prior Topic files, Session
 checkpoints, and Evidence stubs were deleted as part of aligning this
 repo with the shared, repo-agnostic skill workflow (see `AGENTS.md`).
 
-Latest checkpoint: [Sessions/2026-07-13_Checkpoint_0013_WDNA_Reference_Map_And_Demo.txt](Sessions/2026-07-13_Checkpoint_0013_WDNA_Reference_Map_And_Demo.txt)
-— built `rosetta-stone-WDNA-Reference` (https://app.xmind.com/7oUcRnoy),
-closing Checkpoint 0009's deferred task, while it doubled as a live,
-recorded demo for Bill's work team (active company Claude evaluation
-context). Recovered from two real incidents on camera (a stray-node
-mishap solved by starting fresh; a full accidental deletion solved by
-having Copilot rebuild the whole structure from one fully-specified
-prompt). Two UI reliability fixes came directly from Bill and are now
-confirmed and folded into `Topics/xmind-copilot-collaboration.md`:
-paste a dash-bulleted list onto a selected node to create children
-reliably, and paste (not type) into any XMind text field to avoid a
-word-order-scrambling bug. Phase 1 training and the delivery-roadmap
-gate remain untouched.
+Latest checkpoint: [Sessions/2026-07-14_Checkpoint_0014_Guardrails_Removed.txt](Sessions/2026-07-14_Checkpoint_0014_Guardrails_Removed.txt)
+— after four days with zero progress on the actual objective, Bill
+removed the BDUF content freeze and phase-gating entirely. See
+`Topics/collaborative-momentum-mode.md` for the new operating mode and
+full reasoning.
 
 ## Reference
 
@@ -87,24 +78,30 @@ gate remain untouched.
 - Evidence sources: none currently populated (`Evidence/` was removed
   in the 2026-07-12 reset; recreate per-author folders here if/when
   evidence-backed work resumes)
-- Mindmap: three active XMind Cloud documents. Two frozen as of
-  2026-07-12 — `rosetta-stone-AI` (the Responsibility vocabulary,
-  https://app.xmind.com/GPJHh8wQ) and `rosetta-stone-MCP-Bridge` (the
+- Mindmap: four active XMind Cloud documents, none frozen as of
+  2026-07-14 (see `Topics/collaborative-momentum-mode.md`) —
+  `rosetta-stone-AI` (the Responsibility vocabulary,
+  https://app.xmind.com/GPJHh8wQ), `rosetta-stone-MCP-Bridge` (the
   split-out MCP IDE-extension delivery concern,
-  https://app.xmind.com/IPtIA0Kd). A third, `rosetta-stone-WDNA-Reference`
-  (https://app.xmind.com/7oUcRnoy, built 2026-07-13), is a living WDNA
-  teaching/reference map — see `Standards/glossary.md`'s WDNA entry, not
-  frozen. Edited via Claude-in-Chrome + XMind Copilot (see
-  `Topics/xmind-copilot-collaboration.md`, which now covers both
-  editing an existing map and building a new one). Frozen snapshots of
-  the two Concern documents (`.xmind` source + `.outline.md` readable
-  mirror) are committed under `Artifacts/XMind/` — see
-  `Topics/bduf-freeze-and-training.md` for the freeze rationale and the
-  standing working agreement (the WDNA reference map is not part of
-  that freeze). `Artifacts/XMind/` also holds incident writeups and
-  per-session Chrome-permission fix scripts (see
-  `Topics/claude-in-chrome-connectivity.md`) — a fresh `.command`
-  script is generated each session, so treat any existing one there as
+  https://app.xmind.com/IPtIA0Kd), `rosetta-stone-WDNA-Reference`
+  (https://app.xmind.com/7oUcRnoy, built 2026-07-13, a WDNA
+  teaching/reference map — see `Standards/glossary.md`'s WDNA entry),
+  and `MCP AI Components CRC Card Analysis`
+  (https://app.xmind.com/vZP5O1WP, built 2026-07-14 in ~5 minutes via a
+  single prompt — a 7-node CRC model of Application/Model/Agent/Tool/
+  Retrieval/Memory/Security that's the current working draft for
+  defining those terms; mirrored at
+  `Artifacts/XMind/mcp-ai-components-crc-card-analysis.txt`). Edited via
+  Claude-in-Chrome + XMind Copilot (see
+  `Topics/xmind-copilot-collaboration.md`). Point-in-time snapshots of
+  `rosetta-stone-AI` and `rosetta-stone-MCP-Bridge` as they stood at the
+  2026-07-12 split (`.xmind` source + `.outline.md` readable mirror) are
+  committed under `Artifacts/XMind/` for history — no longer enforced as
+  the only allowed state now that the freeze is lifted.
+  `Artifacts/XMind/` also holds incident writeups and per-session
+  Chrome-permission fix scripts (see
+  `Topics/claude-in-chrome-connectivity.md`) — a fresh `.command` script
+  is generated each session, so treat any existing one there as
   possibly stale.
 - Related repos (context only, not actively worked on):
   `/Users/billkratochvil/AI/repos/vs-mcp-bridge`,

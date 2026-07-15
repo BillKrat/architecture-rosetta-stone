@@ -1,9 +1,21 @@
 ---
 name: bduf-freeze-and-training
 description: The BDUF (Big Design Up Front) working agreement for this project — the two frozen source-of-truth maps, and the training-before-touching protocol now in effect.
-status: active — Phase 1 in progress, mid-walkthrough on node 1/10 (Application); see "Known findings from a parallel session" for pre-loaded context on 5 nodes not yet reached
-last-updated: 2026-07-13
+status: superseded 2026-07-14 — the freeze and phase-gating described below are lifted; kept for history only. See Topics/collaborative-momentum-mode.md for current state.
+last-updated: 2026-07-14
 ---
+
+## SUPERSEDED 2026-07-14 — read collaborative-momentum-mode.md first
+
+Everything below this notice is historical record, not current working
+agreement. After four days with zero progress on the actual objective
+(Bill's comprehension, unblocking real `vs-mcp-bridge` development) —
+the Application node's three opening questions were never answered —
+Bill removed the content freeze and the phase-gating described here.
+See `Topics/collaborative-momentum-mode.md` for what replaced it, and
+why. The reasoning captured below (why BDUF, the freeze rationale, the
+5 pre-loaded risk findings) is still real and still useful context; it's
+just no longer a gate anything has to wait behind.
 
 ## Why BDUF here
 
