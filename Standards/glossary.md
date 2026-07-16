@@ -242,14 +242,15 @@ not the book's full depth on those two terms specifically.
 term: AI (as used for rosetta-stone-AI's root node)
 basis: authoritative
 citation:
-  - "NIST AI 100-1, Artificial Intelligence Risk Management Framework (AI RMF 1.0), January 2023, p.1. https://doi.org/10.6028/NIST.AI.100-1 — itself adapted from OECD Recommendation on AI:2019 and ISO/IEC 22989:2022."
+  - "NIST AI 100-1, Artificial Intelligence Risk Management Framework (AI RMF 1.0), January 2023, p.1 (definition) and p.38, Appendix B, \"How AI Risks Differ from Traditional Software Risks\" (what distinguishes AI from conventional software). https://doi.org/10.6028/NIST.AI.100-1 — the p.1 definition is itself adapted from OECD Recommendation on AI:2019 and ISO/IEC 22989:2022. Public domain (17 U.S.C. §105)."
+  - "Zaharia, Matei, et al. \"The Shift from Models to Compound AI Systems.\" Berkeley Artificial Intelligence Research (BAIR) Blog, February 2024. https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/"
 quoted: >
   "The AI RMF refers to an AI system as an engineered or machine-based
   system that can, for a given set of objectives, generate outputs such
   as predictions, recommendations, or decisions influencing real or
   virtual environments. AI systems are designed to operate with varying
-  levels of autonomy." — verified by fetching the primary document
-  directly (not a search-engine summary) 2026-07-14.
+  levels of autonomy." — NIST AI 100-1, p.1, verified by fetching the
+  primary document directly (not a search-engine summary) 2026-07-14.
 ```
 
 First grounded definition for the term this whole project exists to give
@@ -257,32 +258,68 @@ a rigorous vocabulary to — requested by Bill 2026-07-14 as the concrete
 start of "flesh out `rosetta-stone-AI` using rdd.pdf, authoritative
 technical articles, and reasoning."
 
+**What distinguishes AI from traditional software** (NIST AI 100-1,
+Appendix B, p.38, paraphrased with citation rather than reproduced —
+though this is a public-domain U.S. government work, so full
+reproduction wouldn't itself be a copyright problem the way the RDD
+book is; paraphrasing here purely for readability): traditional
+software's behavior comes from logic a person wrote. An AI system's
+core reasoning derives substantially from patterns learned from training
+data instead. NIST's own list of AI-specific risks that don't exist the
+same way in conventional software all trace back to that one fact:
+behavior can shift when training data shifts (drift) with no code
+change; large-scale trained models exhibit "emergent properties" whose
+failure modes are harder to predict than a normal bug; and AI systems
+"are not subject to the same controls as traditional code development,"
+making them harder to test in the deterministic way conventional
+software is tested.
+
 ```yaml
 basis: claude-reasoning
 rationale: >
-  Synthesis connecting the NIST/OECD/ISO definition above to RDD's
-  confederation concept (see the RDD entry's Object Organizations note),
-  applied specifically to this project's map structure. Not stated
-  verbatim in either source — this is the bridge between them.
+  Synthesis connecting the NIST/OECD/ISO definition and NIST Appendix B's
+  traditional-software distinction to RDD's confederation concept (see
+  the RDD entry's Object Organizations note) and BAIR's Compound AI
+  Systems argument, applied specifically to this project's map
+  structure. Not stated verbatim in any single source — this is the
+  bridge between them.
 ```
+
+**Why "AI" isn't one component but a confederation:** two unrelated
+sources converge on the same conclusion from opposite directions. RDD
+(2002, general object-oriented design theory) argues a confederation of
+objects, none individually "intelligent," can jointly serve a purpose no
+single member could alone. BAIR's 2024 Compound AI Systems piece makes
+the identical argument specifically about AI: state-of-the-art results
+increasingly come from systems with multiple interacting components —
+models, retrievers, tools, memory stores — rather than a single
+monolithic model, because one model alone can't be made reliable,
+grounded, stateful, and safe all at once. Sixty years and a different
+field apart, same design conclusion.
 
 **Applied to `rosetta-stone-AI`'s structure:** the root `AI` node is not
 itself a Responsibility-bearing component (it has no Responsibilities or
-Collaborators of its own in the map) — it is the **confederation** that
+Collaborators of its own in the map) — it is the confederation that
 Application, Model, Agent, Tool, Retrieval, Memory, Security, Deployment
-Context Notes, and Diagnostics/Observability collectively form. No single
-node "is" the AI system; per RDD's confederation model, the collective,
-coordinated behavior of those nodes — viewed from outside — is what
-satisfies the NIST/OECD/ISO definition above: generating outputs
-(predictions, recommendations, decisions) for a given set of objectives,
-with varying degrees of autonomy, that influence real or virtual
-environments. This gives "What is AI?" a concrete, two-part answer
-instead of a single sentence: (1) the external-facing definition (what
-any AI system does, per NIST/OECD/ISO — vendor-agnostic, confirming the
+Context Notes, and Diagnostics/Observability collectively form. Mapping
+each to the gap it covers, since the Model alone can't cover all of
+them: **Model** is the only node whose behavior is genuinely
+learned/trained rather than coded; **Agent** gives the confederation
+direction (goal decomposition, step sequencing); **Tool** supplies
+deterministic execution the Model can't do reliably itself; **Retrieval**
+grounds the Model in facts outside training data (directly answering
+NIST's stale/detached-data risk); **Memory** supplies persistence the
+Model has none of; **Security** bounds a component that can't fully
+self-police its outputs; **Application** translates confederation
+behavior into something a user can act on; **Diagnostics/Observability**
+answers NIST's "increased opacity" risk directly; **Deployment Context
+Notes** captures the same Model behaving differently under different
+operating constraints. No single node "is" the AI system; their
+coordinated behavior, viewed from outside, is what satisfies the
+NIST/OECD/ISO definition above — also confirming the
 "Copilot/ChatGPT/Claude/Google AI mode doesn't matter" scope decision
-from `Topics/bduf-freeze-and-training.md`), and (2) this project's
-specific internal answer to *how* that gets fulfilled — the confederation
-of the 10 nodes already in the map, per RDD.
+from `Topics/bduf-freeze-and-training.md`, since none of that is
+vendor-specific.
 
 **Status:** First pass, momentum-first per `Topics/collaborative-momentum-mode.md`
 — not exhaustive, meant to be questioned. Next: Bill reviews; open
