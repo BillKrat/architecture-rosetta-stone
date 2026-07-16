@@ -168,25 +168,39 @@ fullName: Responsibility-Driven Design
 basis: authoritative
 citation:
   - "Wirfs-Brock, Rebecca; McKean, Alan. Object Design: Roles, Responsibilities, and Collaborations. Addison-Wesley, 2002/2003. ISBN 0-201-37943-0."
+  - "Free, publisher-sanctioned download: https://www.informit.com/promotions/object-design-142314 (Pearson/InformIT, email-gated), linked from the author's own site, https://wirfs-brock.com/Resources.html — verified 2026-07-14 by fetching both pages directly, not assumed from the domain name."
 ```
 
 The methodology `rosetta-stone-AI` has used from the start (Responsibility
 + Collaborator fields on every node) — confirmed 2026-07-14 against the
 actual source text, not just the name. Bill purchased and provided the
-book. **The PDF itself is intentionally not tracked in this git repo** —
-it's a paid, copyrighted text (Addison-Wesley/Pearson), and this repo may
-eventually become a public starter kit; committing the file would be
-redistributing copyrighted material, not just citing it. It exists as a
-local, untracked working copy only. Summaries and short attributed
-quotes below are fair-use citation, not reproduction — page numbers are
-given so anyone with their own copy can verify. This entry also reads a
+book, and separately flagged (2026-07-14) that Rebecca Wirfs-Brock's own
+site links to a free, publisher-hosted (Pearson/InformIT) download of the
+same book — "for the benefit of future developers." Confirmed genuine
+both ways: `wirfs-brock.com` is Wirfs-Brock Associates' own site (footer
+copyright), and the InformIT link is Pearson's own promotional page
+("access the PDF of this classic text," email-gated, not a piracy
+mirror) — not assumed from the domain looking plausible.
+
+**Practical effect:** anyone using this repo as a starter kit — not just
+Bill — can get their own legitimate copy via the citation above, so this
+project doesn't need to be anyone's only path to the source text. **The
+PDF itself still isn't tracked in this git repo**, but the reasoning is
+narrower now: Pearson chose an email-gated distribution channel rather
+than an open one, and re-hosting our own copy in git would route around
+that choice rather than respect it — pointing to their official link is
+the better citation than a redistributed file either way. Summaries and
+short attributed quotes below remain the right way to cite it in this
+repo's own prose, page numbers included so anyone with a copy (their own
+purchase or the free download) can verify. This entry also reads a
 **partial scan**, roughly the first 100 of the book's ~381 pages: front
 matter plus Chapter 1 ("Design Concepts") and part of Chapter 3
 ("Finding Objects"). The book's own Chapter 4 ("Responsibilities") and
 Chapter 5 ("Collaborations") — the chapters most directly about the two
 fields this project already uses by name — are **not** in this scan.
 Flagging that explicitly rather than treating the grounding as more
-complete than it is.
+complete than it is; the free download above is the direct path to close
+that gap.
 
 Core concepts confirmed directly from the text (Chapter 1), paraphrased
 with page citations rather than reproduced at length:
