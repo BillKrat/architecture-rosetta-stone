@@ -1,9 +1,35 @@
 ---
 name: xmind-copilot-collaboration
-description: How to reliably use XMind (direct manipulation and Copilot, via Claude-in-Chrome) for both editing an existing map and building a new one — two different task shapes with different reliable methods. Standing rule as of 2026-07-13— prefer clipboard paste over simulated typing everywhere in this app.
-status: established method for both existing-map edits and new-map builds; simulated typing confirmed unreliable across 4+ surfaces, paste is the standing default
-last-updated: 2026-07-13
+description: How to reliably use XMind (direct manipulation and Copilot, via Claude-in-Chrome) for both editing an existing map and building a new one — two different task shapes with different reliable methods. Standing rule as of 2026-07-13 — prefer clipboard paste over simulated typing everywhere in this app. 2026-07-14 — a threshold rule for whether to bother at all, now that XMind is downstream visualization, not source of truth.
+status: established method for both existing-map edits and new-map builds; simulated typing confirmed unreliable across 4+ surfaces, paste is the standing default; XMind updates are now opportunistic, gated on the rule below
+last-updated: 2026-07-14
 ---
+
+## Read this first: whether to touch XMind at all (2026-07-14)
+
+Per `Topics/collaborative-momentum-mode.md`, the markdown/repo content is
+source of truth and XMind is downstream visualization only. Bill's rule
+for when updating the map is actually worth doing, in his own framing:
+**"the juice has to be worth the squeeze."** If getting a small,
+useful visualization update out of XMind would take a lot of fiddly
+manual manipulation (squeezing a lot of oranges for a little juice),
+skip it — the job is the markdown content, not maintaining the map.
+
+**The concrete bar, tied directly to the method below:** once real
+analysis work is done and committed to its markdown location, if that
+work can be expressed as a clean, single-line, fully-specified bulleted
+list of the form XMind Copilot already handles reliably (see "What
+works reliably" and the paste-based child-creation method further down)
+— i.e., generating it is close to free because the real thinking already
+happened in markdown — then it's worth the squeeze and the map should
+be updated. If producing that list would itself take significant
+extra effort (re-deriving structure the markdown doesn't already make
+obvious, resolving ambiguity Copilot can't handle, manual node-by-node
+editing), it isn't, and the map is allowed to fall behind the markdown
+until a cheap moment to catch it up presents itself. Don't treat map
+sync as a required step of finishing a piece of work — treat it as an
+opportunistic, low-cost byproduct when the shape of the finished
+markdown already hands you the list for free.
 
 ## Context
 

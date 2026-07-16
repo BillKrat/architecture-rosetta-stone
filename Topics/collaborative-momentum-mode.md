@@ -103,3 +103,15 @@ Retrieval/Memory/Security mean in this project, confirm it against
 `rosetta-stone-AI`'s existing content where they overlap, and move
 toward real `vs-mcp-bridge` code — not a new lengthy definition exercise
 from zero.
+
+## Markdown is source of truth; XMind is downstream visualization (2026-07-14)
+
+Bill's explicit direction: don't bend the XMind map to fit the work —
+use it as a visualization tool that *supplements* the repo, not the
+other way around. Real analysis and definitional work gets written and
+committed to its markdown location first; the map gets updated from that
+content when useful, never the reverse. See
+`Topics/xmind-copilot-collaboration.md`'s "whether to touch XMind at
+all" section for the concrete threshold rule ("juice worth the
+squeeze") governing when a map update is actually worth doing versus
+left to fall behind.
