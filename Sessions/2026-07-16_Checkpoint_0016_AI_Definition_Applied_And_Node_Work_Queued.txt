@@ -1,0 +1,172 @@
+========================================================================
+ROSETTA STONE CHECKPOINT 0016
+========================================================================
+
+File:
+2026-07-16_Checkpoint_0016_AI_Definition_Applied_And_Node_Work_Queued.txt
+
+Checkpoint:
+0016
+
+Date:
+2026-07-16
+
+Project:
+Rosetta Stone for Software Architecture
+
+Branch:
+main
+
+Checkpoint Title:
+AI Definition Applied Cross-Repo; Node Responsibilities/Collaborators Queued
+
+Project Status:
+No file changes to this repo's own definitional content this session —
+the real activity was applying Checkpoint 0015's grounded `AI` glossary
+entry outside this repo for the first time, in `vs-mcp-bridge`, and Bill
+queuing the next real work here: flesh out Responsibilities and
+Collaborators for `rosetta-stone-AI`'s 9 core nodes.
+
+Repository:
+https://github.com/BillKrat/architecture-rosetta-stone
+
+Git Commit:
+(pending — filled in after commit, see Step 6)
+
+Previous Checkpoint:
+0015 - First Grounded AI Definition
+
+Next Objective:
+Work through `Topics/rosetta-stone-ai-node-definitions.md` — flesh out
+Responsibilities/Collaborators for Model, Agent, Tool, Retrieval,
+Memory, Security, Application, Diagnostics/Observability, and
+Deployment Context Notes, and assess whether the 9-node list itself is
+complete. Then start Q&A on the result, same iterative pattern as the
+`AI`/`RDD` glossary entries.
+
+========================================================================
+SESSION HANDOFF
+========================================================================
+
+OBJECTIVES COMPLETED
+---------------------
+
+1. Applied this repo's grounded `AI` glossary entry (Checkpoint 0015 —
+   NIST AI RMF definition, RDD's confederation concept, BAIR's Compound
+   AI Systems research) outside this repo for the first time: wrote a
+   new repo-only draft blog post in `vs-mcp-bridge` at
+   `SolutionFolder/docs/blogs/posts/what-is-ai-a-grounded-definition/`
+   (`post.json` + `content.html`, unpublished), following that repo's
+   own existing canonical-post convention rather than inventing a new
+   one. Content is a paraphrase-with-citation of the same grounding this
+   repo's `Standards/glossary.md` `AI` entry already established, not a
+   restatement from memory.
+
+2. While investigating `vs-mcp-bridge` for this, confirmed it already
+   has a working, non-trivial repo-driven BlogEngine.NET publishing
+   pipeline (export/compare/guarded-update/reload/verify scripts under
+   `SolutionFolder/scripts/blog-publishing/`, canonical posts under
+   `SolutionFolder/docs/blogs/posts/`) — captured a backlog item there
+   (`backlog/adventures-blog-source-synchronized-documentation.md`)
+   generalizing it, WDNA-tier-placed per this repo's own WDNA convention
+   (Business Services for the sync logic, Data Services for the two
+   reconciled stores, Presentation Services for the rendered site/future
+   UI).
+
+3. Bill flagged, and direct verification confirmed (loading
+   `adventuresontheedge.net` live rather than assuming), that the
+   deployed BlogEngine site already has content with no counterpart in
+   the `vs-mcp-bridge` repo at all — the repo is not currently aligned
+   with what's actually live. The backlog item was corrected in place to
+   document this as a missing discovery phase (detect live-side changes
+   and flag them for review, never assume either side is authoritative)
+   that must precede the existing repo-to-BlogEngine pipeline, not a
+   refinement of it.
+
+4. Bill assigned the next real work for this repo: flesh out
+   Responsibilities and Collaborators — the two RDD fields
+   `rosetta-stone-AI` already uses per node — for 9 named nodes (Model,
+   Agent, Tool, Retrieval, Memory, Security, Application,
+   Diagnostics/Observability, Deployment Context Notes), and explicitly
+   assess whether other nodes belong alongside them. Captured as a new
+   topic rather than left only in chat, per this repo's own persistence
+   discipline.
+
+REPOSITORY / ENVIRONMENT STATE
+--------------------------------
+This repo (`architecture-rosetta-stone`), branch main: working tree was
+clean before this checkpoint (last commit unchanged since 93c475e/
+Checkpoint 0015's commit sequence). This checkpoint's changes: new
+`Topics/rosetta-stone-ai-node-definitions.md`, `INDEX.md` updates
+(topic list + latest-checkpoint pointer), and this session file.
+
+`vs-mcp-bridge` (a related, separately-tracked repo, not committed to
+from here): received a real commit this session (new blog post +
+backlog item, hash not tracked in this repo's history by design — see
+`INDEX.md`'s "Related repos (context only, not actively worked on)"
+note). Mentioned here as narrative only.
+
+TOPICS TOUCHED THIS SESSION
+------------------------------
+- Topics/rosetta-stone-ai-node-definitions.md — new. Captures Bill's
+  exact 9-node assignment scope, the grounding method to use (same as
+  Checkpoint 0015's), and status (queued, not started).
+- INDEX.md — added the new topic to the Topics list; updated the
+  latest-checkpoint pointer to this checkpoint, kept 0015 as the
+  previous-checkpoint reference.
+
+METHOD DISCOVERIES
+--------------------
+- The "repo is source of truth" framing needs its own verification, same
+  as any other claim in this project — Bill caught that `vs-mcp-bridge`'s
+  blog repo content and its live deployed site had already diverged, and
+  asked for that to be checked, not assumed, before treating the topic
+  as closed. Checked directly (loaded the live site) rather than taking
+  either side's correctness for granted. Same discipline
+  `Standards/source-of-truth.md` already requires for citations applies
+  to a project's own "source of truth" claims about itself.
+- Applying this repo's grounded definitional content to a real, separate
+  codebase (`vs-mcp-bridge`) worked cleanly as a test of whether the `AI`
+  glossary entry's content was actually usable outside the map/glossary
+  it was written in, not just internally consistent.
+
+NEXT SESSION
+==============
+1. Read `Topics/rosetta-stone-ai-node-definitions.md` and this
+   checkpoint.
+2. Work through Responsibilities/Collaborators for the 9 named nodes,
+   grounded via `rdd.pdf` + verified authoritative sources +
+   labeled reasoning, per `Topics/collaborative-momentum-mode.md`'s
+   operating principle. No fixed order required.
+3. Explicitly assess whether the 9-node list is complete, per Bill's
+   request — don't only fill in the given list.
+4. Once real content exists, start iterative Q&A with Bill on it, same
+   pattern as the `AI`/`RDD` glossary entries.
+
+END OF SESSION CHECKLIST
+==========================
+[x] AI glossary entry content applied outside this repo (vs-mcp-bridge
+    blog post), confirming it holds up as real, usable content
+[x] vs-mcp-bridge blog-publishing capability reviewed and backlogged,
+    WDNA-tier-placed
+[x] Live-site-vs-repo drift claim verified directly, not assumed;
+    backlog item corrected in place
+[x] Next-session node-definition task captured as a topic file, not
+    left only in chat
+[x] Checkpoint committed, tagged, and pushed (see Git Commit above —
+    filled in as part of this same checkpoint's commit sequence)
+
+SESSION SUMMARY
+================
+No new definitional content landed in this repo's own files this
+session — the activity was proving the last checkpoint's content works
+outside this repo (a real blog post in vs-mcp-bridge, grounded in the
+same NIST/RDD/BAIR sources) and surfacing a real gap in a different
+project's "source of truth" claim through direct verification rather
+than assumption, the same discipline this project applies to itself.
+The next session's actual work is queued and scoped precisely, so it can
+start immediately rather than re-deriving the assignment from chat.
+
+========================================================================
+END CHECKPOINT 0016
+========================================================================
