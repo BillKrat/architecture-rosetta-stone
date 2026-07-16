@@ -1,8 +1,8 @@
 ---
 name: glossary
 description: Cross-project terminology, abbreviations, and their source of truth — WDNA (Windows DNA) and MSF (Microsoft Solutions Framework), and the determination between them.
-status: established 2026-07-12; 2 entries (WDNA, MSF)
-last-updated: 2026-07-13
+status: established 2026-07-12; 4 entries (WDNA, MSF, RDD, AI)
+last-updated: 2026-07-14
 ---
 
 # Glossary
@@ -159,3 +159,117 @@ as already established; nothing here changes either.
 **Status:** Settled, pending Bill's confirmation reading this restated
 form (he confirmed the underlying finding when it was first written; not
 yet confirmed this specific reorganization into its own entry).
+
+## RDD (Responsibility-Driven Design)
+
+```yaml
+term: RDD
+fullName: Responsibility-Driven Design
+basis: authoritative
+citation:
+  - "Wirfs-Brock, Rebecca; McKean, Alan. Object Design: Roles, Responsibilities, and Collaborations. Addison-Wesley, 2002/2003. ISBN 0-201-37943-0."
+```
+
+The methodology `rosetta-stone-AI` has used from the start (Responsibility
++ Collaborator fields on every node) — confirmed 2026-07-14 against the
+actual source text, not just the name. Bill purchased and provided the
+book. **The PDF itself is intentionally not tracked in this git repo** —
+it's a paid, copyrighted text (Addison-Wesley/Pearson), and this repo may
+eventually become a public starter kit; committing the file would be
+redistributing copyrighted material, not just citing it. It exists as a
+local, untracked working copy only. Summaries and short attributed
+quotes below are fair-use citation, not reproduction — page numbers are
+given so anyone with their own copy can verify. This entry also reads a
+**partial scan**, roughly the first 100 of the book's ~381 pages: front
+matter plus Chapter 1 ("Design Concepts") and part of Chapter 3
+("Finding Objects"). The book's own Chapter 4 ("Responsibilities") and
+Chapter 5 ("Collaborations") — the chapters most directly about the two
+fields this project already uses by name — are **not** in this scan.
+Flagging that explicitly rather than treating the grounding as more
+complete than it is.
+
+Core concepts confirmed directly from the text (Chapter 1), paraphrased
+with page citations rather than reproduced at length:
+
+- **The Roles-Responsibilities-Collaborations model** (p.5): an
+  application is a system of responsibilities; responsibilities are
+  assigned to roles; roles collaborate to carry those responsibilities
+  out. "An object embodies a set of roles with a designated set of
+  responsibilities" (direct quote, 12 words). This is the model
+  `rosetta-stone-AI` already applies to each node — confirmed, not
+  reinterpreted.
+- **Object Role Stereotypes** (p.4, elaborated pp.93-94, Ch.3): a
+  categorization step this project's nodes don't currently carry —
+  service provider, controller, coordinator, structurer, information
+  holder, or interfacer (with user/external/intersystem sub-types).
+  Not urgent to retrofit, but a candidate lightweight addition per node
+  (one word, "what kind of role is this") the next time nodes are
+  touched.
+- **Object Contracts** (p.7): "conditions-of-use guarantees" (what a
+  responsibility requires of its context to succeed) and "aftereffect
+  guarantees" (what it leaves behind when done) — a sharper, more formal
+  version of what `rosetta-stone-AI`'s "Acceptance Criteria" and "Known
+  Failure Modes" fields gesture at informally.
+- **Object Organizations / confederations** (p.17): a group of objects
+  can act as a confederation serving a purpose no single member could
+  alone, sometimes represented outward by one "gatekeeper" object
+  (paraphrased). Directly applicable to the root `AI` node's
+  relationship to its 10 child nodes — see the `AI` entry below.
+
+**Status:** Actively grounding new work as of 2026-07-14. Chapters 4-5
+should be sourced (fuller scan or a second purchase) before this
+project leans hard on the precise formal definition of "Responsibility"
+or "Collaboration" — Chapter 1's treatment is solid but introductory,
+not the book's full depth on those two terms specifically.
+
+## AI
+
+```yaml
+term: AI (as used for rosetta-stone-AI's root node)
+basis: authoritative
+citation:
+  - "NIST AI 100-1, Artificial Intelligence Risk Management Framework (AI RMF 1.0), January 2023, p.1. https://doi.org/10.6028/NIST.AI.100-1 — itself adapted from OECD Recommendation on AI:2019 and ISO/IEC 22989:2022."
+quoted: >
+  "The AI RMF refers to an AI system as an engineered or machine-based
+  system that can, for a given set of objectives, generate outputs such
+  as predictions, recommendations, or decisions influencing real or
+  virtual environments. AI systems are designed to operate with varying
+  levels of autonomy." — verified by fetching the primary document
+  directly (not a search-engine summary) 2026-07-14.
+```
+
+First grounded definition for the term this whole project exists to give
+a rigorous vocabulary to — requested by Bill 2026-07-14 as the concrete
+start of "flesh out `rosetta-stone-AI` using rdd.pdf, authoritative
+technical articles, and reasoning."
+
+```yaml
+basis: claude-reasoning
+rationale: >
+  Synthesis connecting the NIST/OECD/ISO definition above to RDD's
+  confederation concept (see the RDD entry's Object Organizations note),
+  applied specifically to this project's map structure. Not stated
+  verbatim in either source — this is the bridge between them.
+```
+
+**Applied to `rosetta-stone-AI`'s structure:** the root `AI` node is not
+itself a Responsibility-bearing component (it has no Responsibilities or
+Collaborators of its own in the map) — it is the **confederation** that
+Application, Model, Agent, Tool, Retrieval, Memory, Security, Deployment
+Context Notes, and Diagnostics/Observability collectively form. No single
+node "is" the AI system; per RDD's confederation model, the collective,
+coordinated behavior of those nodes — viewed from outside — is what
+satisfies the NIST/OECD/ISO definition above: generating outputs
+(predictions, recommendations, decisions) for a given set of objectives,
+with varying degrees of autonomy, that influence real or virtual
+environments. This gives "What is AI?" a concrete, two-part answer
+instead of a single sentence: (1) the external-facing definition (what
+any AI system does, per NIST/OECD/ISO — vendor-agnostic, confirming the
+"Copilot/ChatGPT/Claude/Google AI mode doesn't matter" scope decision
+from `Topics/bduf-freeze-and-training.md`), and (2) this project's
+specific internal answer to *how* that gets fulfilled — the confederation
+of the 10 nodes already in the map, per RDD.
+
+**Status:** First pass, momentum-first per `Topics/collaborative-momentum-mode.md`
+— not exhaustive, meant to be questioned. Next: Bill reviews; open
+questions get raised and resolved here, not re-derived elsewhere.

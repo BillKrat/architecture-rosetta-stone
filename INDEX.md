@@ -38,11 +38,12 @@ and align local workflow files"): all prior Topic files, Session
 checkpoints, and Evidence stubs were deleted as part of aligning this
 repo with the shared, repo-agnostic skill workflow (see `AGENTS.md`).
 
-Latest checkpoint: [Sessions/2026-07-14_Checkpoint_0014_Guardrails_Removed.txt](Sessions/2026-07-14_Checkpoint_0014_Guardrails_Removed.txt)
-— after four days with zero progress on the actual objective, Bill
-removed the BDUF content freeze and phase-gating entirely. See
-`Topics/collaborative-momentum-mode.md` for the new operating mode and
-full reasoning.
+Latest checkpoint: [Sessions/2026-07-14_Checkpoint_0015_First_Grounded_AI_Definition.txt](Sessions/2026-07-14_Checkpoint_0015_First_Grounded_AI_Definition.txt)
+— first real content under the new mode: read `rdd.pdf` (Bill's RDD
+book, partial scan) and verified NIST's AI RMF definition of "AI
+system" directly from source, then wrote grounded `RDD` and `AI`
+entries in `Standards/glossary.md`. Caught and fixed a copyright
+over-quoting issue before it reached git.
 
 ## Reference
 
@@ -53,10 +54,14 @@ full reasoning.
   explicitly deep backlog) can be additive, a source-of-truth rule
   (every artifact declares whether it's `authoritative`,
   `primary-source`, or explicitly-labeled `claude-reasoning` — Bill's
-  own statements are never sufficient basis alone), and a glossary (WDNA
-  / Windows DNA, the three-tier reference architecture now guiding
-  component placement; and MSF / Microsoft Solutions Framework, checked
-  against WDNA 2026-07-13 and explicitly not adopted).
+  own statements are never sufficient basis alone), and a glossary — WDNA
+  / Windows DNA (the three-tier reference architecture guiding component
+  placement), MSF (checked against WDNA 2026-07-13, not adopted), RDD
+  (Responsibility-Driven Design, the methodology `rosetta-stone-AI`
+  already uses, confirmed 2026-07-14 against Bill's own copy of the
+  source book — untracked in git, see the glossary entry), and AI (a
+  grounded definition citing NIST's AI RMF, applied to this project's
+  map structure via RDD's confederation concept).
 - Architecture deliverables: [Architecture/rosetta-stone-AI-Architecture/](Architecture/rosetta-stone-AI-Architecture/README.md)
   — the living, MSDN-style BDUF artifact container companion to
   `rosetta-stone-AI` (see naming convention below). Markdown in this

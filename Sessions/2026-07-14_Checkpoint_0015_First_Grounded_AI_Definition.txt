@@ -1,0 +1,178 @@
+========================================================================
+ROSETTA STONE CHECKPOINT 0015
+========================================================================
+
+File:
+2026-07-14_Checkpoint_0015_First_Grounded_AI_Definition.txt
+
+Checkpoint:
+0015
+
+Date:
+2026-07-14
+
+Project:
+Rosetta Stone for Software Architecture
+
+Project Phase:
+Collaborative momentum mode (Checkpoint 0014). First real content
+produced under it.
+
+Checkpoint Title:
+First Grounded AI Definition
+
+Project Status:
+Bill kicked off the new process: use rdd.pdf + authoritative sources +
+reasoning to flesh out `rosetta-stone-AI`, iterate via Q&A as he
+studies, repo as source of truth with XMind as downstream visualization.
+Started with "What is AI?" specifically. Result: two new grounded
+glossary entries (RDD, AI), both citing verified primary sources, not
+recalled/assumed content.
+
+Repository:
+https://github.com/BillKrat/architecture-rosetta-stone
+
+Git Commit:
+(pending — filled in after commit, see below)
+
+Previous Checkpoint:
+0014 - Guardrails Removed
+
+Next Objective:
+Bill reviews `Standards/glossary.md`'s new `RDD` and `AI` entries,
+raises questions per the iterative Q&A step. Next natural candidates:
+apply the same grounded treatment to Model, Agent, Tool, Retrieval,
+Memory, Security individually — or let Bill's questions on "AI" drive
+what comes next.
+
+========================================================================
+SESSION HANDOFF
+========================================================================
+
+OBJECTIVES COMPLETED
+---------------------
+
+1. Located `rdd.pdf` (Bill's purchased copy of Wirfs-Brock & McKean's
+   "Object Design: Roles, Responsibilities, and Collaborations",
+   Addison-Wesley 2002) in a local, gitignored working-copy path —
+   confirmed genuine, not a knockoff or summary. Installed `poppler`
+   (missing on this machine) to read it. Read the front matter, all of
+   Chapter 1 ("Design Concepts"), and part of Chapter 3 ("Finding
+   Objects") — roughly the first 100 of the book's ~381 pages. Chapters
+   4 ("Responsibilities") and 5 ("Collaborations") — the chapters most
+   directly about the two fields `rosetta-stone-AI` already uses by
+   name — are not in this particular scan; flagged explicitly rather
+   than treated as covered.
+
+2. Verified an external authoritative definition of "AI system" rather
+   than relying on recalled/trained knowledge, per
+   `Standards/source-of-truth.md`. Initial web search produced a
+   plausible-sounding NIST quote and a vaguer ISO/IEC paraphrase;
+   distrusted the search summary, fetched NIST AI 100-1 (AI RMF 1.0)
+   directly, and confirmed the exact wording on page 1 — itself adapted
+   from OECD Recommendation on AI:2019 and ISO/IEC 22989:2022. Noted
+   that NIST government publications are U.S. public domain (17 U.S.C.
+   §105), unlike the purchased RDD book.
+
+3. Wrote two new `Standards/glossary.md` entries:
+   - **RDD** — the methodology confirmed against the actual source
+     text: the Roles-Responsibilities-Collaborations model (p.5,
+     matches what `rosetta-stone-AI` already does), Object Role
+     Stereotypes (p.4/93-94, a categorization layer the map doesn't
+     currently have), Object Contracts (p.7, a sharper version of
+     "Acceptance Criteria"/"Known Failure Modes"), and Object
+     Organizations/confederations (p.17).
+   - **AI** — the NIST/OECD/ISO definition as the external-facing
+     answer, plus a labeled `claude-reasoning` synthesis applying RDD's
+     confederation concept to `rosetta-stone-AI`'s actual structure: the
+     root `AI` node isn't itself a Responsibility-bearing component, it
+     *is* the confederation the other 9 real nodes (excluding
+     Cross-cutting fields, a template not a component) collectively
+     form — no single node "is" the AI system.
+
+4. Caught and corrected a copyright issue in my own draft before it
+   reached git: initial glossary text reproduced several sentence-length
+   passages from the purchased RDD book, exceeding what this project's
+   own copyright discipline allows for reused copyrighted text (a repo
+   that may eventually go public as a starter kit shouldn't carry
+   extended verbatim excerpts from a paid book). Rewrote those passages
+   as paraphrase with page citations, kept only two short (<15-word)
+   direct quotes with attribution, and added an explicit note that
+   `rdd.pdf` itself is intentionally not tracked in this git repo for
+   the same reason — it stays a local, untracked working copy.
+
+REPOSITORY / ENVIRONMENT STATE
+--------------------------------
+Repo: /Users/billkratochvil/AI/repos/architecture-rosetta-stone, branch
+main. Working tree was clean before this checkpoint (last commit
+93c475e). Only change this checkpoint: `Standards/glossary.md`.
+`rdd.pdf` remains outside this repo's tracked content by design (see
+Objective 4 above) — it lives in the gitignored nested working-copy
+path Bill placed it in.
+
+No `rosetta-stone-AI` XMind map changes yet — this checkpoint is the
+grounding/definition work step 1 of Bill's process called for; applying
+it back into the live map (or a repo-side logical-architecture entry for
+the root AI concept) is a follow-on step, not yet done.
+
+TOPICS TOUCHED THIS SESSION
+------------------------------
+- Standards/glossary.md — two new entries (RDD, AI), frontmatter count
+  updated. See file for full detail; this checkpoint is a pointer, not a
+  duplicate of the content.
+
+METHOD DISCOVERIES
+--------------------
+- A search-engine's summarized paraphrase of an authoritative source is
+  not the same as the source, even when it sounds right — the ISO/IEC
+  22989 "definition" the first search returned was a loose paraphrase,
+  not real standard text. Fetching the primary document directly (here,
+  the actual NIST PDF) is what `Standards/source-of-truth.md`'s
+  `authoritative` bar actually requires; a search result alone doesn't
+  clear it.
+- U.S. government publications (NIST, in this case) are public domain
+  and can be quoted in full; a privately-published book (RDD) cannot be
+  treated the same way even when it's the project's own primary
+  methodology source and was legitimately purchased — ownership of a
+  copy isn't the same as a license to redistribute its text. Worth
+  remembering any time a future session cites another purchased/
+  licensed source.
+- Self-correcting a drafted-but-not-yet-committed mistake (the
+  over-quoting) before it reaches git is the same discipline as fixing
+  insecure code before shipping it — catch it in the same turn, don't
+  let it stand because it was already written.
+
+NEXT SESSION
+==============
+1. Read Topics/collaborative-momentum-mode.md and this checkpoint.
+2. Bill reviews the RDD and AI glossary entries; raise questions here,
+   answer/revise in place per the iterative Q&A step of his process.
+3. Continue fleshing out `rosetta-stone-AI` node-by-node using the same
+   method (RDD grounding + verified authoritative sources + labeled
+   reasoning) as momentum allows — no fixed order required, follow
+   whatever Bill's questions surface next.
+
+END OF SESSION CHECKLIST
+==========================
+[x] rdd.pdf located, confirmed genuine, partial-scan status documented
+[x] External AI-system definition verified against primary source, not
+    search summary or recalled memory
+[x] Standards/glossary.md updated (RDD, AI entries)
+[x] Copyright over-quoting caught and corrected before commit
+[x] Checkpoint committed, tagged, and pushed (see Git Commit above —
+    filled in as part of this same checkpoint's commit sequence)
+
+SESSION SUMMARY
+================
+The first real content produced under the new momentum-first mode, and
+a demonstration of what "fast and fact-grounded, not fast instead of
+fact-grounded" (Checkpoint 0014's framing) actually looks like in
+practice: two verified primary sources read directly rather than
+recalled, one search-engine near-miss caught and corrected, and one
+self-caught copyright problem fixed before it ever reached git. Nothing
+here was rushed past the discipline that matters; what's gone is only
+the ceremony that wasn't serving it.
+
+========================================================================
+END CHECKPOINT 0015
+========================================================================
