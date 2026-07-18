@@ -1,0 +1,168 @@
+========================================================================
+ROSETTA STONE CHECKPOINT 0020
+========================================================================
+
+File:
+2026-07-17_Checkpoint_0020_Pristine_Doc_Split.txt
+
+Checkpoint:
+0020
+
+Date:
+2026-07-17
+
+Project:
+Rosetta Stone for Software Architecture
+
+Branch:
+main
+
+Checkpoint Title:
+Node-Definitions Document Split — Pristine Reference vs. Q&A Log
+
+Project Status:
+Final housekeeping step at the end of the 2026-07-17 Model Q&A session
+(Checkpoints 0017-0019). Bill asked, before shutting down for the day,
+to separate the settled Stereotype/Responsibilities/Collaborators
+content from all correction history, open questions, and Q&A discovery
+narrative — keeping the document he studies from clean, with the
+process/discovery content preserved equally but separately.
+
+Repository:
+https://github.com/BillKrat/architecture-rosetta-stone
+
+Git Commit:
+(pending — filled in after commit, see Step 6)
+
+Previous Checkpoint:
+0019 - Pseudocode-Driven Comprehension Pattern Established
+
+Next Objective:
+No action required until Bill's next session, per his own words. When
+work resumes: Agent's own dedicated Q&A is next, using the same
+pristine-doc/companion-log split established here — new Q&A findings go
+in `rosetta-stone-ai-node-definitions-qa-log.md`, not back into the
+pristine document, until a node's content is settled enough to fold in.
+
+========================================================================
+SESSION HANDOFF
+========================================================================
+
+WORKING AGREEMENT
+-----------------
+New durable convention: `Topics/rosetta-stone-ai-node-definitions.md`
+holds only settled, current content — a Responsibility or Collaborator
+appears there once it's actually part of the definition, not while
+still a candidate or under discussion. All correction history, open
+questions, un-adopted candidates, and per-node Q&A discovery notes live
+in the new companion file,
+`Topics/rosetta-stone-ai-node-definitions-qa-log.md`. Bill's framing:
+"I'd like to keep the documents I am learning from pristine... [the
+Q&A log content is] equally valuable... an external document." This
+convention should extend to any future Topics file that accumulates
+both reference content and process narrative, not just this one.
+
+Also noted, not yet actionable: Bill's stated intent that `vs-mcp-bridge`
+blog posts are a supplement to this reference chain — once a post moves
+past repo-only-draft status into the backlog and is actually published,
+reference links back to it can be added "as applicable." Recorded as a
+note in the new companion file's "Blog capture note" section; no posts
+are published yet, so nothing to link today.
+
+OBJECTIVES COMPLETED
+---------------------
+
+1. Split `Topics/rosetta-stone-ai-node-definitions.md` into two files.
+   The original kept: the "Method and grounding" section (unchanged),
+   and Stereotype/Responsibilities/Collaborators for all 9 nodes with
+   every inline process annotation removed ("(added this pass — see
+   Corrections below)," "(see Open question 2 below)," and similar) —
+   each bullet now reads as settled content, not a note-to-self about
+   its own history.
+
+2. One Security Responsibility bullet was removed from the pristine doc
+   entirely rather than cleaned in place — the "gate irreversible
+   actions behind approval" candidate was explicitly flagged as "not
+   adopted" in the original text, so it doesn't belong in a document
+   that's supposed to hold only current, settled definitions. Preserved
+   in full in the new companion file's Open Questions section instead.
+
+3. Created `Topics/rosetta-stone-ai-node-definitions-qa-log.md`,
+   carrying forward: the "Corrections found while grounding this pass"
+   section, both "Open questions for Bill," the "Assessment: is the
+   9-node list complete?" section, Model's full Q&A log (the RAG
+   walkthrough, the search-vs-generation distinction, the training-data
+   misconception correction, the pseudocode thread), and the "Where
+   Model's Collaborators understanding stands" status note. Added a
+   short "Purpose" section explaining the split and a "Blog capture
+   note" recording Bill's stated future-linking intent.
+
+4. Added a "See also" pointer at the end of the pristine document
+   directing to the companion file, and updated both files'
+   frontmatter/`INDEX.md` to describe the split accurately.
+
+REPOSITORY / ENVIRONMENT STATE
+--------------------------------
+Branch main. Before this checkpoint: clean at commit 4446a98
+(Checkpoint 0019's hash-fill-in commit). This checkpoint's changes:
+`Topics/rosetta-stone-ai-node-definitions.md` rewritten (content split
+out, not deleted); new `Topics/rosetta-stone-ai-node-definitions-qa-log.md`;
+`INDEX.md` updated with both files' current one-line descriptions.
+
+No `vs-mcp-bridge` changes this session.
+
+TOPICS TOUCHED THIS SESSION
+------------------------------
+- Topics/rosetta-stone-ai-node-definitions.md — reduced to pristine
+  reference content only; nothing deleted, only relocated.
+- Topics/rosetta-stone-ai-node-definitions-qa-log.md — new. Holds
+  everything moved out of the pristine document, in full.
+- INDEX.md — both files listed with accurate one-line descriptions.
+
+METHOD DISCOVERIES
+--------------------
+- Separating "what is true now" from "how we got here" into two files
+  is a pattern likely worth reusing anywhere a reference document is
+  meant to be studied repeatedly rather than read once — the same
+  underlying distinction `Sessions/` vs. `Topics/` already makes at the
+  whole-repo level, just applied one level deeper, inside a single
+  Topics file that had grown both kinds of content at once.
+
+NEXT SESSION
+==============
+1. Read `Topics/rosetta-stone-ai-node-definitions.md` (now pristine) and
+   `Topics/rosetta-stone-ai-node-definitions-qa-log.md` (open questions,
+   Model's Q&A status) before resuming.
+2. Start Agent's own dedicated Q&A. Route new findings to the qa-log
+   file by default; only fold content into the pristine doc once it's
+   genuinely settled.
+3. No other action required — Bill explicitly said so at the start of
+   this checkpoint's session.
+
+END OF SESSION CHECKLIST
+==========================
+[x] Pristine document holds only settled content, verified line by line
+    against the original before the split
+[x] Nothing deleted — every corrections/open-question/Q&A item preserved
+    in the new companion file
+[x] Un-adopted candidate (Security's approval-gating bullet) correctly
+    excluded from the pristine doc rather than merely relocated as-is
+[x] INDEX.md and both files' frontmatter updated to describe the split
+[x] Checkpoint committed, tagged, and pushed (see Git Commit above —
+    filled in as part of this same checkpoint's commit sequence)
+
+SESSION SUMMARY
+================
+A clean stopping point at Bill's own request: the node-definitions
+content now has a durable separation between what's settled (the
+pristine document) and how it got that way (the companion Q&A log) —
+nothing lost, everything easier to study. This closes out a long,
+productive 2026-07-17 session (Checkpoints 0016 through 0020) that moved
+from queuing the node-definitions work, through a full first pass
+grounded in newly-read RDD chapters, through the first live Q&A session
+and a new durable pseudocode-review pattern, to this final organizational
+pass — with no action expected until Bill's next session.
+
+========================================================================
+END CHECKPOINT 0020
+========================================================================

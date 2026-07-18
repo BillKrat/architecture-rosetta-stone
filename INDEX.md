@@ -25,7 +25,8 @@ doing.
 ## Topics
 
 - [collaborative-momentum-mode](Topics/collaborative-momentum-mode.md) — current operating mode: no more freeze/phase-gating, Standards kept as reference not constraint, momentum toward real vs-mcp-bridge development (active, adopted 2026-07-14)
-- [rosetta-stone-ai-node-definitions](Topics/rosetta-stone-ai-node-definitions.md) — Q&A in progress 2026-07-17: Model's Responsibilities and Agent-as-collaborator understood; Retrieval-as-collaborator flagged ambiguous (resolves when Retrieval gets its own Q&A); task/responsibility ownership still open; Agent's own Q&A up next
+- [rosetta-stone-ai-node-definitions](Topics/rosetta-stone-ai-node-definitions.md) — pristine reference: Stereotype/Responsibilities/Collaborators for all 9 nodes, kept clean to study from (Q&A in progress 2026-07-17, Model underway)
+- [rosetta-stone-ai-node-definitions-qa-log](Topics/rosetta-stone-ai-node-definitions-qa-log.md) — companion to the above: correction history, open questions, missing-node assessment, per-node Q&A notes — split out 2026-07-17 to keep the reference doc pristine
 - [bduf-freeze-and-training](Topics/bduf-freeze-and-training.md) — superseded 2026-07-14; kept for history — the original freeze rationale and 5 pre-loaded risk findings are still real context, just no longer a gate
 - [delivery-roadmap](Topics/delivery-roadmap.md) — Bill's draft roadmap from standards-foundation to sprint-based delivery: code audit of existing ChatGPT/Codex work -> gap analysis/backlog -> strict-scope sprints; the "gated on full comprehension" precondition is lifted per collaborative-momentum-mode (draft)
 - [pseudocode-driven-comprehension](Topics/pseudocode-driven-comprehension.md) — working pattern for node Q&A: Bill writes pseudocode himself, Claude reviews with real rigor, the corrected block is both the comprehension check and the note (active, adopted 2026-07-17)
@@ -40,21 +41,20 @@ and align local workflow files"): all prior Topic files, Session
 checkpoints, and Evidence stubs were deleted as part of aligning this
 repo with the shared, repo-agnostic skill workflow (see `AGENTS.md`).
 
-Latest checkpoint: [Sessions/2026-07-17_Checkpoint_0019_Pseudocode_Comprehension_Pattern.txt](Sessions/2026-07-17_Checkpoint_0019_Pseudocode_Comprehension_Pattern.txt)
+Latest checkpoint: [Sessions/2026-07-17_Checkpoint_0020_Pristine_Doc_Split.txt](Sessions/2026-07-17_Checkpoint_0020_Pristine_Doc_Split.txt)
+— end-of-day housekeeping at Bill's request: split
+`rosetta-stone-ai-node-definitions.md` into a pristine reference
+document and a companion Q&A/discovery log
+(`rosetta-stone-ai-node-definitions-qa-log.md`), so the document Bill
+studies from stays clean while nothing is lost. No action required
+until Bill's next session.
+
+Previous checkpoint: [Sessions/2026-07-17_Checkpoint_0019_Pseudocode_Comprehension_Pattern.txt](Sessions/2026-07-17_Checkpoint_0019_Pseudocode_Comprehension_Pattern.txt)
 — continuation of the same Model Q&A session: Bill's own pseudocode
 exercise surfaced a real architecture principle (a vector is only
 useful if its source text can still be retrieved with it) and
 established a new durable pattern for future node Q&A, see
-`Topics/pseudocode-driven-comprehension.md`. Model's Collaborators
-status recorded precisely — Agent understood, Retrieval flagged
-ambiguous, task/responsibility ownership still open.
-
-Previous checkpoint: [Sessions/2026-07-17_Checkpoint_0018_Model_QA_Session.txt](Sessions/2026-07-17_Checkpoint_0018_Model_QA_Session.txt)
-— first live, one-question-at-a-time Q&A session on the node-definitions
-content, working through Model. Found and fixed a real gap in Agent's
-Responsibilities (context-window assembly), corrected a training-data-
-access misconception, and captured the exchange as a `vs-mcp-bridge`
-blog post per Bill's request.
+`Topics/pseudocode-driven-comprehension.md`.
 
 ## Reference
 
