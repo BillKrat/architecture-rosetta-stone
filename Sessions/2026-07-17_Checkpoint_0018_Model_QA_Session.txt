@@ -1,0 +1,203 @@
+========================================================================
+ROSETTA STONE CHECKPOINT 0018
+========================================================================
+
+File:
+2026-07-17_Checkpoint_0018_Model_QA_Session.txt
+
+Checkpoint:
+0018
+
+Date:
+2026-07-17
+
+Project:
+Rosetta Stone for Software Architecture
+
+Branch:
+main
+
+Checkpoint Title:
+Model Node Q&A — First Live Session Under the New Process
+
+Project Status:
+First real iterative Q&A session on the node-definitions content from
+Checkpoint 0017. Bill worked through Model one question at a time (his
+own explicit pacing request), and it produced real content: a corrected
+mental model for how a RAG-style document upload/query flow actually
+works, a precise distinction between vector search and Model generation,
+a direct correction of the "model consults its training data at
+inference" misconception, and — most concretely — a real gap found and
+fixed in Agent's Responsibilities (context-window assembly wasn't named
+anywhere). Model's own Q&A isn't finished; task/responsibility ownership
+is explicitly deferred by Bill to a future session.
+
+Repository:
+https://github.com/BillKrat/architecture-rosetta-stone
+
+Git Commit:
+(pending — filled in after commit, see Step 6)
+
+Previous Checkpoint:
+0017 - Node Responsibilities and Collaborators, first pass
+
+Next Objective:
+Resume Model Q&A where Bill left it — task/responsibility ownership is
+the next thing he flagged as coming, not yet asked. Once Model's Q&A is
+far enough along that the Responsibilities bullets can be "clearly
+stated for the next ignorant developer" (Bill's own framing), rewrite
+the first Model bullet ("Parse linguistic/structured input...") to
+separate input form from internal representation, per the Q&A log in
+`Topics/rosetta-stone-ai-node-definitions.md`. Do not rewrite it before
+then — Bill explicitly asked to hold that edit.
+
+========================================================================
+SESSION HANDOFF
+========================================================================
+
+WORKING AGREEMENT
+-----------------
+Bill set two new working patterns this session, both durable:
+
+1. **One question at a time.** Q&A on the node-definitions content
+   proceeds one exchange per turn, not batched, so nothing scrolls out
+   of view before it's discussed. Applies to all future node Q&A, not
+   just Model.
+2. **Hold polish edits until a node's Q&A has gone far enough to state
+   the answer clearly, rather than editing after every exchange.** Bill's
+   own words: the edits "may evolve more as you start to recognize the
+   ignorance and take me from it to understanding — then you can clearly
+   state it for the next ignorant developer." Raw findings get logged
+   (see the new "Q&A log" subsection pattern in the topic file); the
+   polished Responsibility/Collaborator bullets only get rewritten once
+   a node's Q&A is far enough along. This is now the standard pattern
+   for future node Q&A sessions, not a one-off for Model.
+
+OBJECTIVES COMPLETED
+---------------------
+
+1. Walked Bill through a concrete RAG example (upload a research
+   document, then query it) to ground Model's actual boundary. Found
+   and corrected his initial assumption that the document itself gets
+   sent to the Model — it doesn't, at any point. Traced the real
+   sequence: text extraction -> chunking -> embedding (a separate,
+   smaller model, not the same generative Model) -> vector storage ->
+   query embedding -> similarity search (pure math against a
+   precomputed index, no large model involved) -> chunk retrieval as
+   text -> context assembly -> only then does the Model generate.
+
+2. Distinguished the similarity-search step from the Model's generation
+   step precisely, since Bill flagged they can blur together: search
+   compares two vectors against a stored index (fixed math, no learned
+   judgment in the moment); generation runs the assembled context
+   through the Model's trained weights to synthesize new text. Neither
+   one touches training data directly.
+
+3. Corrected a natural but wrong mental model Bill proposed (that
+   generation "works off of training data" the way search works off
+   context): the Model has no access to its training data at inference
+   time at all. Training data shaped the weights once, during training,
+   and isn't present or consultable afterward — the Model runs a fixed
+   function over whatever's currently in its context window, nothing
+   else.
+
+4. Resolved who owns context-window assembly, which Bill correctly
+   guessed wasn't Model's job but initially attributed to Memory.
+   Corrected: Memory is a container (information holder per its RDD
+   stereotype) that supplies raw material on request; deciding what to
+   include, how much, and in what order is a decision, which belongs to
+   Agent. This surfaced a real, previously-unnoticed gap — Agent's
+   Responsibilities as written in Checkpoint 0017 never actually named
+   context assembly — fixed directly in
+   `Topics/rosetta-stone-ai-node-definitions.md` rather than left as a
+   TODO.
+
+5. Bill explicitly asked to capture this Q&A as a blog post (his
+   framing: "solid gold... at least at my phase of knowledge"), and to
+   batch it by node rather than fragment per exchange — a new post was
+   written in `vs-mcp-bridge` capturing the whole Model walkthrough as a
+   standalone teaching piece, following the established
+   `save-for-future-blog-content` pattern from Checkpoint 0016.
+
+REPOSITORY / ENVIRONMENT STATE
+--------------------------------
+This repo (`architecture-rosetta-stone`), branch main: before this
+checkpoint, clean at commit 23bd07e (Checkpoint 0017's hash-fill-in
+commit). This checkpoint's change:
+`Topics/rosetta-stone-ai-node-definitions.md` — Agent's Responsibilities
+gained one new bullet (context assembly); Model gained a new "Q&A log"
+subsection holding raw, not-yet-polished findings; frontmatter `status`
+updated to reflect Q&A in progress rather than "first pass complete."
+
+`vs-mcp-bridge` (related repo, not committed to from here): received a
+real commit this session, `5c65932` — new repo-only draft post
+`SolutionFolder/docs/blogs/posts/understanding-the-model-node-what-it-actually-does/`,
+pushed to origin/main. Mentioned as narrative only, per this repo's
+context-workflow convention.
+
+TOPICS TOUCHED THIS SESSION
+------------------------------
+- Topics/rosetta-stone-ai-node-definitions.md — Agent's Responsibilities
+  gained a real, agreed fix (context-window assembly). Model gained a
+  "Q&A log, 2026-07-17" subsection preserving the RAG walkthrough, the
+  search-vs-generation distinction, the training-data-access correction,
+  and Bill's own "crowded out, not forgotten" synthesis of context-window
+  size — explicitly marked as raw material to fold into the polished
+  bullets later, not yet done. Frontmatter status updated.
+
+METHOD DISCOVERIES
+--------------------
+- Q&A findings and polished definitional content now have a clear
+  separation established by pattern: a "Q&A log" subsection per node
+  holds raw findings as they emerge; the Responsibilities/Collaborators
+  bullets above it stay stable until Bill judges a node's Q&A is far
+  enough along to state cleanly. This avoids the failure mode of
+  constant micro-edits mid-conversation, and matches Bill's own
+  stated reason for wanting it this way — the wording should reflect
+  understanding actually reached, not be patched reactively after each
+  exchange.
+- Corrections found through direct Q&A (the Agent context-assembly gap)
+  are proving to be a real source of defects the same way the earlier
+  CRC-card cross-check was — a second confirmation that this project's
+  content gets more accurate through active questioning than through
+  more upfront drafting effort.
+
+NEXT SESSION
+==============
+1. Read `Topics/rosetta-stone-ai-node-definitions.md` (Model's Q&A log
+   and Agent's updated Responsibilities) and this checkpoint.
+2. Resume Model Q&A at task/responsibility ownership, per Bill's own
+   stated next question.
+3. Continue holding polish edits to Model's bullets until Bill signals
+   the node's Q&A has gone far enough.
+4. No action needed on the new `vs-mcp-bridge` blog post unless Bill
+   asks for a publish pass — it stays an unpublished repo draft for now.
+
+END OF SESSION CHECKLIST
+==========================
+[x] Model Q&A conducted one question at a time, per Bill's explicit
+    pacing request
+[x] Real gap found and fixed in Agent's Responsibilities (context
+    assembly), not just logged as a question
+[x] Training-data-access misconception corrected directly, not left
+    ambiguous
+[x] Q&A content captured as a vs-mcp-bridge blog post per Bill's request,
+    committed and pushed there
+[x] Checkpoint committed, tagged, and pushed (see Git Commit above —
+    filled in as part of this same checkpoint's commit sequence)
+
+SESSION SUMMARY
+================
+The first live Q&A session under the process Bill described when he
+queued this work ("study the map, raise questions, iterate") actually
+happened, one question at a time as he asked. It produced more than
+clarification — it found and fixed a real gap in Agent's Responsibilities
+that the first-pass write-up had missed, and it generated genuinely
+new-to-this-repo teaching content good enough that Bill asked for it to
+be preserved as a blog post outright. Model's own Q&A isn't finished;
+the session ended on a real stopping point (task/responsibility
+ownership queued, not yet asked) rather than being cut off mid-thought.
+
+========================================================================
+END CHECKPOINT 0018
+========================================================================

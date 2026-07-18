@@ -1,7 +1,7 @@
 ---
 name: rosetta-stone-ai-node-definitions
 description: Responsibilities and Collaborators for rosetta-stone-AI's 9 core nodes (Model, Agent, Tool, Retrieval, Memory, Security, Application, Diagnostics/Observability, Deployment Context Notes), grounded in RDD Chapters 4-5 and the existing CRC card draft, plus an assessment of possibly-missing nodes.
-status: first pass complete 2026-07-17 — ready for Bill's Q&A
+status: Q&A in progress 2026-07-17 — Model node underway (input/RAG boundary, context-window ownership resolved; task/responsibility ownership still open), Agent/Tool/Retrieval/Memory/Security/Application/Diagnostics/Deployment Context Notes not yet started
 last-updated: 2026-07-17
 ---
 
@@ -77,6 +77,56 @@ larger flow, that's Agent).
   reliance on stale or absent training data (directly answers NIST's
   stale/detached-data risk, per the `AI` glossary entry).
 
+### Q&A log, 2026-07-17 (raw findings, not yet folded into the bullets above)
+
+Bill's explicit call: hold edits to the Responsibility bullets above
+until enough of the Q&A has happened to state them clearly for "the next
+ignorant developer," rather than revise mid-stream. This log preserves
+what the Q&A actually established, so the eventual rewrite is grounded
+in it rather than reconstructed from memory later. Model's own Q&A isn't
+finished — task/responsibility ownership is still open, deferred by
+Bill to a future session.
+
+- **"Linguistic/structured input" is not vectors.** It names the *form*
+  of what arrives (natural language text, or structured formats like
+  JSON/code/schemas) — both arrive as plain text, not vectors. Vectors
+  (embeddings) are what that text becomes *after* parsing, one step
+  later — the first bullet compressed "what comes in" and "what it
+  becomes" into one clause, which is what caused the confusion. Needs
+  a reword that separates those two explicitly.
+- **Concrete walkthrough that exposed Model's real (narrow) boundary:**
+  uploading a document and querying it (RAG, Lewis et al. 2020) does
+  **not** send the document to the Model at any point. Chunking, text
+  extraction, embedding the chunks, storing the vectors, embedding the
+  query, and running the similarity search are all done by Retrieval/
+  Memory/pre-processing — Model never touches the file and doesn't know
+  it exists. Model's only real involvement is generating a response from
+  whatever text got assembled into its context window by Agent (see the
+  new Agent bullet above). This directly connects to Bill's own DCI
+  reading (`adventuresontheedge.net`, the Direct Corpus Interaction
+  paper) — DCI's critique is specifically of this chunk-then-top-k
+  pattern, proposing an Agent that searches/reads the corpus directly
+  via Tool calls instead of being fed pre-chunked fragments.
+- **The similarity-search step vs. Model's "apply learned reasoning"
+  step are categorically different, not just sequential.** The search
+  step compares two vectors against a precomputed, stored index — fixed
+  math, no learned reasoning happening in that moment. Model's
+  generation step runs the current context through already-trained
+  weights to synthesize new text. Neither one touches training data
+  directly: **the Model has no access to training data at inference
+  time at all** — training data shaped the weights once, during
+  training, and is not present or consultable afterward. This corrects
+  a very natural but wrong mental model ("the model looks things up in
+  what it was trained on") that's worth stating explicitly for whoever
+  reads this next, per Bill's own framing of the goal.
+- **Bill's own synthesis, worth preserving close to verbatim:** a
+  smaller context window means less material for Agent to assemble and
+  hand to the Model — important information isn't so much "forgotten"
+  as it is *crowded out/replaced* by newer material competing for the
+  same limited space. Correctly derived from the corrected model above,
+  not something I need to add to — flagging it here so it survives into
+  whatever the polished version says about context-window constraints.
+
 ---
 
 ## Agent
@@ -94,6 +144,16 @@ rather than picking one arbitrarily.
   current task state.
 - **(action)** Manage the iteration loop (observe → decide → act) until
   the goal is met or a stopping condition is hit.
+- **(action, added 2026-07-17 — Q&A finding)** Assemble the context
+  window handed to the Model on each call: pull conversation/task state
+  from Memory, pull relevant material from Retrieval, add system
+  instructions and the current input, and combine them into the single
+  prompt the Model actually sees. This was a real gap, not a restated
+  existing bullet — surfaced when Bill asked who owns "Window Context"
+  during Model Q&A and neither Model nor Memory turned out to be the
+  right answer. Memory only supplies raw material on request (it's an
+  information holder); deciding what to include, how much, and in what
+  order is a decision, which belongs here.
 
 ### Collaborators
 - **Model** — calls the Model to generate the next reasoning step or
