@@ -1,0 +1,186 @@
+========================================================================
+ROSETTA STONE CHECKPOINT 0019
+========================================================================
+
+File:
+2026-07-17_Checkpoint_0019_Pseudocode_Comprehension_Pattern.txt
+
+Checkpoint:
+0019
+
+Date:
+2026-07-17
+
+Project:
+Rosetta Stone for Software Architecture
+
+Branch:
+main
+
+Checkpoint Title:
+Pseudocode-Driven Comprehension Pattern Established; Model Collaborators Status
+
+Project Status:
+Continuation of the same 2026-07-17 Model Q&A session (Checkpoints 0018
+and 0019 are one continuous conversation, split because real, durable
+process content accumulated). Bill wrote his own pseudocode to test his
+understanding of the Model/Retrieval boundary, iterated it through
+several real corrections with Claude, and explicitly named this as the
+likely ongoing pattern for future node Q&A. Session ended on a genuine
+stopping point (Bill's real-world plans), not mid-thought.
+
+Repository:
+https://github.com/BillKrat/architecture-rosetta-stone
+
+Git Commit:
+(pending — filled in after commit, see Step 6)
+
+Previous Checkpoint:
+0018 - Model Node Q&A — First Live Session Under the New Process
+
+Next Objective:
+Resume with Agent's own dedicated Q&A (Bill confirmed he understands
+Agent well enough as a Model collaborator to move on, but Agent hasn't
+had its own focused pass yet). Model's task/responsibility-ownership
+question and the "Retrieval feels ambiguous as a Model collaborator"
+flag both remain open — the second one is expected to resolve once
+Retrieval gets its own Q&A, not before.
+
+========================================================================
+SESSION HANDOFF
+========================================================================
+
+WORKING AGREEMENT
+-----------------
+New durable pattern, captured in full at
+`Topics/pseudocode-driven-comprehension.md`: for future node Q&A, Bill
+will write pseudocode himself to force real understanding of a concept
+in motion, Claude reviews it with full code-review rigor (real bugs
+named specifically, not softened because it's a learning exercise, not
+just validated), and the corrected block becomes both the comprehension
+check and the durable note — no separate summary gets written
+afterward. Bill's own words: "we're not cheating by having you clean it
+up - it served its purpose. This will most likely be our iterative
+process." Distinguished explicitly from the existing "hold edits to the
+polished bullets" rule from Checkpoint 0018 — related principle
+(don't let Claude's polish substitute for Bill's own struggle), applied
+to a different kind of artifact (working code exercises vs. the node
+Responsibility/Collaborator bullets themselves).
+
+OBJECTIVES COMPLETED
+---------------------
+
+1. Reviewed three iterations of Bill's own pseudocode for a document-
+   upload/query flow (`prepareForUpload`, `Chunk`, `dalVectorStore`,
+   `sendYourQuery`), catching real, specific defects each pass rather
+   than validating: a dead conditional that could never evaluate false,
+   a parameter-name mismatch, a `static class` contradicting an
+   interface and constructor it had been given, an undeclared
+   dependency reference, and — the substantive one — a broken pairing
+   between each vector and its own source chunk of text.
+
+2. That last finding is the session's real conceptual payoff, restated
+   plainly: **a vector is only useful if whatever finds it can also
+   retrieve what it was a vector of.** Bill's first draft returned the
+   whole original document alongside the chunk vectors, losing the
+   index-for-index link between `chunked[i]` and `embeddings[i]`.
+   Walked this through concretely at query time (a matched vector index
+   with no way to recover its source text) rather than only describing
+   it abstractly, then showed the fix: pairing `Chunk(Text, Embedding)`
+   together and carrying that pairing all the way into storage.
+
+3. Recorded this pseudocode thread in
+   `Topics/rosetta-stone-ai-node-definitions.md`'s Model Q&A log as the
+   implementation-detail version of an already-logged claim (Model
+   never touches the uploaded document) — useful because it's where
+   that abstract claim turns into a concrete reason upload-time code has
+   to be structured a specific way.
+
+4. Bill circled back to Model directly and gave an explicit status
+   read: Responsibilities are adequately understood. Of the two
+   Collaborators, Agent is understood well enough to move on (queued as
+   its own next dedicated Q&A). Retrieval still reads as "broadly
+   ambiguous" as a Model collaborator — flagged explicitly by Bill
+   rather than forced to a premature resolution; expected to clarify
+   once Retrieval gets its own focused Q&A pass. Task/responsibility
+   ownership (deferred at the end of Checkpoint 0018) is still open —
+   this session's pseudocode work clarified the Model/Retrieval boundary
+   but didn't reach that specific question.
+
+REPOSITORY / ENVIRONMENT STATE
+--------------------------------
+Branch main. Before this checkpoint: clean at commit 5b64455
+(Checkpoint 0018's hash-fill-in commit). This checkpoint's changes: new
+`Topics/pseudocode-driven-comprehension.md`; `Topics/rosetta-stone-ai-node-definitions.md`
+gained a new Model Q&A log entry plus a "Where Model's Collaborators
+understanding stands" subsection, and its frontmatter `status` line was
+updated accordingly.
+
+`vs-mcp-bridge`: no changes this session — the pseudocode exercise
+wasn't flagged by Bill for blog capture (unlike the RAG walkthrough in
+Checkpoint 0018), so none was created. Only capture blog content there
+on Bill's explicit cue, per the established pattern.
+
+TOPICS TOUCHED THIS SESSION
+------------------------------
+- Topics/pseudocode-driven-comprehension.md — new. Names and documents
+  the pattern Bill established this session for future reuse.
+- Topics/rosetta-stone-ai-node-definitions.md — Model's Q&A log gained
+  the pseudocode-thread summary; new subsection records exactly where
+  Model's Collaborators understanding stands and what's still open;
+  frontmatter `status` updated to reflect it.
+
+METHOD DISCOVERIES
+--------------------
+- A user-authored pseudocode exercise, reviewed with real code-review
+  rigor rather than validated politely, surfaced a genuine architecture
+  principle (vector/source-text pairing must survive end to end) more
+  effectively than an abstract explanation alone had. Consistent with
+  this project's repeated finding that active production (writing code,
+  writing collaboration lists) catches what passive reading doesn't —
+  same lesson as the CRC-card cross-check and the Agent context-assembly
+  gap, now showing up a third time in a different form.
+- Distinguishing "hold edits to polished definitional bullets" from
+  "iterate pseudocode toward a correct, keepable artifact" turned out to
+  be a real, useful distinction rather than the same rule twice — worth
+  keeping both named separately rather than collapsing them.
+
+NEXT SESSION
+==============
+1. Read `Topics/rosetta-stone-ai-node-definitions.md` (Model's current
+   Q&A status) and `Topics/pseudocode-driven-comprehension.md`.
+2. Start Agent's own dedicated Q&A pass — one question at a time, per
+   the standing pacing rule from Checkpoint 0018.
+3. Model's task/responsibility-ownership question and the Retrieval-as-
+   collaborator ambiguity both remain open; the second is expected to
+   resolve naturally once Retrieval gets its own Q&A, not before.
+
+END OF SESSION CHECKLIST
+==========================
+[x] Pseudocode exercise reviewed with real rigor across multiple
+    iterations, not validated prematurely
+[x] Core conceptual finding (vector/source-text pairing) named plainly
+    and traced to a concrete failure scenario, not left abstract
+[x] New durable working pattern captured as its own topic, per Bill's
+    explicit framing that this will likely recur
+[x] Model's Collaborators status recorded precisely — what's understood,
+    what's flagged ambiguous, what's still open — not glossed over
+[x] Checkpoint committed, tagged, and pushed (see Git Commit above —
+    filled in as part of this same checkpoint's commit sequence)
+
+SESSION SUMMARY
+================
+A continuation of the same Model Q&A session split across two
+checkpoints because it kept producing durable content worth recording
+separately: first the conceptual RAG walkthrough (0018), then a
+concrete pseudocode exercise that turned that concept into a real
+implementation principle and established a new, explicitly-named
+collaboration pattern for how future node Q&A will work (0019). Ended on
+a genuine stopping point — Bill's own real-world plans — with an honest,
+specific status read on what's understood, what's flagged as still
+unclear, and what hasn't been reached yet, rather than a tidy but
+inaccurate "done."
+
+========================================================================
+END CHECKPOINT 0019
+========================================================================

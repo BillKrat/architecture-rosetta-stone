@@ -1,7 +1,7 @@
 ---
 name: rosetta-stone-ai-node-definitions
 description: Responsibilities and Collaborators for rosetta-stone-AI's 9 core nodes (Model, Agent, Tool, Retrieval, Memory, Security, Application, Diagnostics/Observability, Deployment Context Notes), grounded in RDD Chapters 4-5 and the existing CRC card draft, plus an assessment of possibly-missing nodes.
-status: Q&A in progress 2026-07-17 — Model node underway (input/RAG boundary, context-window ownership resolved; task/responsibility ownership still open), Agent/Tool/Retrieval/Memory/Security/Application/Diagnostics/Deployment Context Notes not yet started
+status: Q&A in progress 2026-07-17 — Model node underway; Responsibilities and Agent-as-collaborator understood, Retrieval-as-collaborator flagged ambiguous (deferred to Retrieval's own Q&A), task/responsibility ownership still open; Agent/Tool/Retrieval/Memory/Security/Application/Diagnostics/Deployment Context Notes not yet started
 last-updated: 2026-07-17
 ---
 
@@ -126,6 +126,33 @@ Bill to a future session.
   same limited space. Correctly derived from the corrected model above,
   not something I need to add to — flagging it here so it survives into
   whatever the polished version says about context-window constraints.
+- **Worked pseudocode, 2026-07-17 (new — see `Topics/pseudocode-driven-comprehension.md`
+  for the process this came from):** Bill wrote and iterated a
+  `prepareForUpload`/`Chunk`/`dalVectorStore`/`sendYourQuery` example to
+  test his own grasp of the upload/query flow. The core insight it
+  surfaced: **a vector is only useful if whatever finds it can also
+  retrieve what it was a vector of** — his first draft returned the
+  whole original document text alongside the chunk vectors, losing the
+  index-for-index pairing between each vector and its own source chunk.
+  Fixed by carrying `Chunk(Text, Embedding)` pairs together through
+  storage rather than letting the vectors and their text travel
+  separately. This is the same finding as the bullet above ("Model's
+  only real involvement...") restated at implementation-detail level —
+  useful because it's where the abstract claim "Model never touches the
+  document" turns into a concrete reason why upload-time code has to be
+  written a specific way.
+
+### Where Model's Collaborators understanding stands, 2026-07-17
+
+Per Bill directly: Responsibilities are adequately understood. Of the
+two Collaborators, **Agent** is understood well enough to move on (its
+own dedicated Q&A is queued next). **Retrieval still reads as "broadly
+ambiguous"** as a Model collaborator — Bill's own words, flagged
+explicitly rather than glossed over, expected to resolve once Retrieval
+gets its own Q&A pass rather than forced now. Task/responsibility
+ownership (the specific question deferred at the end of Checkpoint
+0018) is **still open** — this session's pseudocode work clarified the
+Model/Retrieval boundary but didn't reach that specific question.
 
 ---
 

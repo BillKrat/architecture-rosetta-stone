@@ -25,9 +25,10 @@ doing.
 ## Topics
 
 - [collaborative-momentum-mode](Topics/collaborative-momentum-mode.md) — current operating mode: no more freeze/phase-gating, Standards kept as reference not constraint, momentum toward real vs-mcp-bridge development (active, adopted 2026-07-14)
-- [rosetta-stone-ai-node-definitions](Topics/rosetta-stone-ai-node-definitions.md) — Q&A in progress 2026-07-17: Model node underway (RAG boundary, context-window ownership resolved, real gap fixed in Agent's Responsibilities); task/responsibility ownership next, one question at a time per Bill's pacing request
+- [rosetta-stone-ai-node-definitions](Topics/rosetta-stone-ai-node-definitions.md) — Q&A in progress 2026-07-17: Model's Responsibilities and Agent-as-collaborator understood; Retrieval-as-collaborator flagged ambiguous (resolves when Retrieval gets its own Q&A); task/responsibility ownership still open; Agent's own Q&A up next
 - [bduf-freeze-and-training](Topics/bduf-freeze-and-training.md) — superseded 2026-07-14; kept for history — the original freeze rationale and 5 pre-loaded risk findings are still real context, just no longer a gate
 - [delivery-roadmap](Topics/delivery-roadmap.md) — Bill's draft roadmap from standards-foundation to sprint-based delivery: code audit of existing ChatGPT/Codex work -> gap analysis/backlog -> strict-scope sprints; the "gated on full comprehension" precondition is lifted per collaborative-momentum-mode (draft)
+- [pseudocode-driven-comprehension](Topics/pseudocode-driven-comprehension.md) — working pattern for node Q&A: Bill writes pseudocode himself, Claude reviews with real rigor, the corrected block is both the comprehension check and the note (active, adopted 2026-07-17)
 - [claude-in-chrome-connectivity](Topics/claude-in-chrome-connectivity.md) — recurring per-session Claude-in-Chrome domain-lockout bug and the standing workaround (open, no permanent fix)
 - [xmind-copilot-collaboration](Topics/xmind-copilot-collaboration.md) — reliable methods for both editing an existing XMind map (branch-scoped Copilot batches) and building a new one from scratch (clipboard paste over simulated typing, confirmed 2026-07-13 across 4+ surfaces); known-unreliable UI patterns and a repo-diff recovery-verification method (established, reusable, with caveats)
 - [architecture-artifacts-taxonomy](Topics/architecture-artifacts-taxonomy.md) — superseded; kept for incident history only — see `Architecture/rosetta-stone-AI-Architecture/` for the live document
@@ -39,18 +40,21 @@ and align local workflow files"): all prior Topic files, Session
 checkpoints, and Evidence stubs were deleted as part of aligning this
 repo with the shared, repo-agnostic skill workflow (see `AGENTS.md`).
 
-Latest checkpoint: [Sessions/2026-07-17_Checkpoint_0018_Model_QA_Session.txt](Sessions/2026-07-17_Checkpoint_0018_Model_QA_Session.txt)
+Latest checkpoint: [Sessions/2026-07-17_Checkpoint_0019_Pseudocode_Comprehension_Pattern.txt](Sessions/2026-07-17_Checkpoint_0019_Pseudocode_Comprehension_Pattern.txt)
+— continuation of the same Model Q&A session: Bill's own pseudocode
+exercise surfaced a real architecture principle (a vector is only
+useful if its source text can still be retrieved with it) and
+established a new durable pattern for future node Q&A, see
+`Topics/pseudocode-driven-comprehension.md`. Model's Collaborators
+status recorded precisely — Agent understood, Retrieval flagged
+ambiguous, task/responsibility ownership still open.
+
+Previous checkpoint: [Sessions/2026-07-17_Checkpoint_0018_Model_QA_Session.txt](Sessions/2026-07-17_Checkpoint_0018_Model_QA_Session.txt)
 — first live, one-question-at-a-time Q&A session on the node-definitions
 content, working through Model. Found and fixed a real gap in Agent's
 Responsibilities (context-window assembly), corrected a training-data-
 access misconception, and captured the exchange as a `vs-mcp-bridge`
-blog post per Bill's request. See
-`Topics/rosetta-stone-ai-node-definitions.md`'s Model "Q&A log" section.
-
-Previous checkpoint: [Sessions/2026-07-17_Checkpoint_0017_Node_Responsibilities_And_Collaborators.txt](Sessions/2026-07-17_Checkpoint_0017_Node_Responsibilities_And_Collaborators.txt)
-— first-pass Responsibilities/Collaborators for all 9 `rosetta-stone-AI`
-nodes, grounded in `rdd.pdf` Chapters 4-5 (read for the first time,
-closing a gap flagged since Checkpoint 0015).
+blog post per Bill's request.
 
 ## Reference
 
