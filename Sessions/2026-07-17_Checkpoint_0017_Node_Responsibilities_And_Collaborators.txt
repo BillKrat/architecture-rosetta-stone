@@ -1,0 +1,189 @@
+========================================================================
+ROSETTA STONE CHECKPOINT 0017
+========================================================================
+
+File:
+2026-07-17_Checkpoint_0017_Node_Responsibilities_And_Collaborators.txt
+
+Checkpoint:
+0017
+
+Date:
+2026-07-17
+
+Project:
+Rosetta Stone for Software Architecture
+
+Branch:
+main
+
+Checkpoint Title:
+Node Responsibilities and Collaborators — First Pass Complete
+
+Project Status:
+Completed the work queued in Checkpoint 0016: real Responsibilities and
+Collaborators content for all 9 `rosetta-stone-AI` nodes, grounded
+directly in RDD's own Chapters 4-5 (read for the first time this
+session, closing a gap Checkpoint 0015 explicitly flagged). Two open
+questions and three candidate missing nodes raised for Bill, not
+resolved unilaterally.
+
+Repository:
+https://github.com/BillKrat/architecture-rosetta-stone
+
+Git Commit:
+(pending — filled in after commit, see Step 6)
+
+Previous Checkpoint:
+0016 - AI Definition Applied Cross-Repo; Node Work Queued
+
+Next Objective:
+Bill reviews `Topics/rosetta-stone-ai-node-definitions.md` — the 9 node
+write-ups, the 3 collaborator-asymmetry corrections found while
+grounding, the 2 open questions (Deployment Context Notes' odd shape;
+whether approval-gating belongs under Security or as its own node), and
+the 3 candidate missing nodes (Evaluation/Feedback, Approval/human-in-
+the-loop, Cost/Resource Management). Iterative Q&A from there, same
+pattern as the `AI`/`RDD` glossary entries.
+
+========================================================================
+SESSION HANDOFF
+========================================================================
+
+OBJECTIVES COMPLETED
+---------------------
+
+1. Read `rdd.pdf` Chapter 4 ("Responsibilities," book p.109-115) and
+   Chapter 5 ("Collaborations," book p.150-153) directly — previously
+   unscanned; Checkpoint 0015 explicitly flagged these as the chapters
+   "most directly about the two fields this project already uses by
+   name" that hadn't been sourced yet. Confirmed the PDF-to-book page
+   offset is a constant +25 (verified twice: book p.93→PDF 118, book
+   p.110→PDF 135), correcting an earlier, less precise offset estimate
+   from Checkpoint 0015.
+
+2. Extracted RDD's actual formal definitions: Responsibilities = three
+   categories (actions performed, knowledge maintained, decisions made
+   that affect others — direct quote, p.110). Collaborations = requests
+   from one object to another to jointly fulfill a larger responsibility
+   (direct quote, p.150), with explicit guidance not to clutter a card
+   with obvious collaborations or list an object as its own collaborator
+   (p.152). Also re-confirmed the six Object Role Stereotypes (service
+   provider, controller, coordinator, structurer, information holder,
+   interfacer) directly from p.93-94 rather than relying on the earlier
+   session's summary of them.
+
+3. Used the existing CRC card draft
+   (`Artifacts/XMind/mcp-ai-components-crc-card-analysis.txt`) as the
+   starting point for 7 of 9 nodes, per `Topics/collaborative-momentum-mode.md`'s
+   explicit instruction not to redo this from zero. Rewrote each node's
+   Responsibilities into RDD's action/knowledge/decision categories,
+   trimmed Collaborators per RDD's own decluttering guidance, and added
+   a one-line Stereotype tag per node (the RDD glossary entry had
+   flagged this as a deferred "candidate lightweight addition... the
+   next time nodes are touched" — this was that moment).
+
+4. Wrote two nodes from scratch that weren't in the CRC card at all:
+   **Diagnostics/Observability** (grounded directly in the `AI` glossary
+   entry's NIST Appendix B "increased opacity" citation) and
+   **Deployment Context Notes** (grounded in the `AI` glossary entry's
+   own framing — the same Model behaving differently under different
+   operating constraints). Flagged that Deployment Context Notes doesn't
+   actually fit RDD's Responsibilities/Collaborators shape the way the
+   other 8 do — it reads as metadata on Model's card, not an independent
+   collaborating object — and raised that structural question to Bill
+   rather than forcing a fit.
+
+5. Cross-checked every node's Collaborators list against every other
+   node's, not just against RDD's guidance in isolation, and found three
+   real asymmetries in the original CRC card (Memory named Application
+   as a collaborator but Application didn't name Memory back; Retrieval
+   named Memory but Memory didn't name Retrieval back; Application named
+   Agent but Agent didn't name Application back). Corrected all three
+   and documented the finding explicitly as a "Corrections" section
+   rather than silently fixing them — matches this project's existing
+   pattern of surfacing internal-consistency defects rather than papering
+   over them (same spirit as the `RSK_RSAI_0001`-`0005` findings).
+
+6. Assessed whether the 9-node list itself is complete, per Bill's
+   explicit request in the assignment. Raised three candidates
+   (Evaluation/Feedback — judging output quality, distinct from
+   Diagnostics' "what happened" record; Approval/human-in-the-loop gate
+   — distinct from Security's access-control framing, grounded in the
+   `vs-mcp-bridge` blog post's "approval-aware boundary" description;
+   Cost/Resource Management) without adopting any of them unilaterally.
+   Explicitly ruled a "Training/Fine-tuning Pipeline" node out of scope
+   (different lifecycle concern than this map's runtime-architecture
+   focus) rather than silently ignoring it.
+
+REPOSITORY / ENVIRONMENT STATE
+--------------------------------
+Branch main. Before this checkpoint: clean, last commit a56b791
+(Checkpoint 0016's hash-fill-in commit). This checkpoint's changes:
+`Topics/rosetta-stone-ai-node-definitions.md` rewritten from a "queued"
+stub to full first-pass content; `INDEX.md`'s one-line summary for that
+topic updated to match.
+
+TOPICS TOUCHED THIS SESSION
+------------------------------
+- Topics/rosetta-stone-ai-node-definitions.md — rewritten in full: 9
+  node write-ups, a "Corrections found while grounding this pass"
+  section, 2 open questions, and a missing-node assessment. Frontmatter
+  status changed from "queued... not started" to "first pass complete."
+- INDEX.md — one-line summary for this topic updated to reflect
+  completion and point at what's ready for Bill's review.
+
+METHOD DISCOVERIES
+--------------------
+- The PDF-to-book page offset for `rdd.pdf` is a constant +25 throughout
+  the body (verified at two independent points 25 pages apart in book
+  terms), not the rougher estimate implied by Checkpoint 0015's
+  page-range notes. Worth using +25 directly for any future page lookup
+  in this same PDF rather than re-deriving it.
+- Walking a full set of Collaborators lists against each other (not just
+  checking each one in isolation against RDD's own guidance) is what
+  actually surfaced the three asymmetry corrections — the same lesson
+  as the earlier CRC-map-vs-rosetta-stone-AI comparison: defects show up
+  at the network level, not the single-card level.
+
+NEXT SESSION
+==============
+1. Read `Topics/rosetta-stone-ai-node-definitions.md` and this
+   checkpoint.
+2. Bill reviews the 9 nodes, the 3 corrections, the 2 open questions,
+   and the 3 candidate missing nodes; raise/resolve questions in place,
+   same iterative pattern as prior glossary work.
+3. Once resolved, decide whether "juice worth the squeeze" applies —
+   i.e., whether this content is now worth pushing into the
+   `rosetta-stone-AI` XMind map, per
+   `Topics/xmind-copilot-collaboration.md`'s threshold rule. Not decided
+   yet; markdown stays source of truth either way.
+
+END OF SESSION CHECKLIST
+==========================
+[x] rdd.pdf Chapters 4-5 read directly, closing the gap Checkpoint 0015
+    flagged
+[x] All 9 nodes have real, RDD-grounded Responsibilities/Collaborators
+[x] CRC card cross-checked against itself; 3 real asymmetries found and
+    corrected, documented rather than silently fixed
+[x] Missing-node assessment done per Bill's explicit request (3
+    candidates raised, 1 explicitly ruled out of scope)
+[x] Checkpoint committed, tagged, and pushed (see Git Commit above —
+    filled in as part of this same checkpoint's commit sequence)
+
+SESSION SUMMARY
+================
+The work queued at the end of the last checkpoint is done: every node
+Bill named now has real, source-grounded Responsibilities and
+Collaborators rather than a one-line "what gap it covers" summary. The
+session also closed a standing gap from two checkpoints back (RDD
+Chapters 4-5 had never actually been read) and found three genuine
+internal inconsistencies in the starting-draft CRC card by checking the
+collaboration network as a whole rather than trusting each card in
+isolation. Nothing here is presented as final — two structural questions
+and three candidate nodes are explicitly left for Bill's judgment, not
+resolved in his absence.
+
+========================================================================
+END CHECKPOINT 0017
+========================================================================

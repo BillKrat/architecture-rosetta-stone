@@ -25,7 +25,7 @@ doing.
 ## Topics
 
 - [collaborative-momentum-mode](Topics/collaborative-momentum-mode.md) — current operating mode: no more freeze/phase-gating, Standards kept as reference not constraint, momentum toward real vs-mcp-bridge development (active, adopted 2026-07-14)
-- [rosetta-stone-ai-node-definitions](Topics/rosetta-stone-ai-node-definitions.md) — queued: flesh out Responsibilities/Collaborators for Model, Agent, Tool, Retrieval, Memory, Security, Application, Diagnostics/Observability, Deployment Context Notes, plus a check for missing nodes (assigned 2026-07-16, not started)
+- [rosetta-stone-ai-node-definitions](Topics/rosetta-stone-ai-node-definitions.md) — first pass complete 2026-07-17: Responsibilities/Collaborators for all 9 nodes, grounded in RDD Ch.4-5 (newly read); 2 open questions and 3 candidate missing nodes flagged for Bill's Q&A
 - [bduf-freeze-and-training](Topics/bduf-freeze-and-training.md) — superseded 2026-07-14; kept for history — the original freeze rationale and 5 pre-loaded risk findings are still real context, just no longer a gate
 - [delivery-roadmap](Topics/delivery-roadmap.md) — Bill's draft roadmap from standards-foundation to sprint-based delivery: code audit of existing ChatGPT/Codex work -> gap analysis/backlog -> strict-scope sprints; the "gated on full comprehension" precondition is lifted per collaborative-momentum-mode (draft)
 - [claude-in-chrome-connectivity](Topics/claude-in-chrome-connectivity.md) — recurring per-session Claude-in-Chrome domain-lockout bug and the standing workaround (open, no permanent fix)
@@ -39,19 +39,17 @@ and align local workflow files"): all prior Topic files, Session
 checkpoints, and Evidence stubs were deleted as part of aligning this
 repo with the shared, repo-agnostic skill workflow (see `AGENTS.md`).
 
-Latest checkpoint: [Sessions/2026-07-16_Checkpoint_0016_AI_Definition_Applied_And_Node_Work_Queued.txt](Sessions/2026-07-16_Checkpoint_0016_AI_Definition_Applied_And_Node_Work_Queued.txt)
+Latest checkpoint: [Sessions/2026-07-17_Checkpoint_0017_Node_Responsibilities_And_Collaborators.txt](Sessions/2026-07-17_Checkpoint_0017_Node_Responsibilities_And_Collaborators.txt)
+— first-pass Responsibilities/Collaborators for all 9 `rosetta-stone-AI`
+nodes, grounded in `rdd.pdf` Chapters 4-5 (read for the first time,
+closing a gap flagged since Checkpoint 0015). See
+`Topics/rosetta-stone-ai-node-definitions.md` for the content, 3
+corrections found, 2 open questions, and 3 candidate missing nodes.
+
+Previous checkpoint: [Sessions/2026-07-16_Checkpoint_0016_AI_Definition_Applied_And_Node_Work_Queued.txt](Sessions/2026-07-16_Checkpoint_0016_AI_Definition_Applied_And_Node_Work_Queued.txt)
 — the `AI` glossary entry's grounded content was applied outside this
 repo for the first time (a `vs-mcp-bridge` blog post), and Bill queued
-the next real work: flesh out Responsibilities/Collaborators for
-`rosetta-stone-AI`'s 9 core nodes, see
-`Topics/rosetta-stone-ai-node-definitions.md`.
-
-Previous checkpoint: [Sessions/2026-07-14_Checkpoint_0015_First_Grounded_AI_Definition.txt](Sessions/2026-07-14_Checkpoint_0015_First_Grounded_AI_Definition.txt)
-— first real content under the new mode: read `rdd.pdf` (Bill's RDD
-book, partial scan) and verified NIST's AI RMF definition of "AI
-system" directly from source, then wrote grounded `RDD` and `AI`
-entries in `Standards/glossary.md`. Caught and fixed a copyright
-over-quoting issue before it reached git.
+the node-definitions work completed in Checkpoint 0017.
 
 ## Reference
 
