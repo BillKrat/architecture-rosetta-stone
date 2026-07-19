@@ -41,13 +41,19 @@ and align local workflow files"): all prior Topic files, Session
 checkpoints, and Evidence stubs were deleted as part of aligning this
 repo with the shared, repo-agnostic skill workflow (see `AGENTS.md`).
 
-Latest checkpoint: [Sessions/2026-07-17_Checkpoint_0020_Pristine_Doc_Split.txt](Sessions/2026-07-17_Checkpoint_0020_Pristine_Doc_Split.txt)
-— end-of-day housekeeping at Bill's request: split
-`rosetta-stone-ai-node-definitions.md` into a pristine reference
-document and a companion Q&A/discovery log
+Latest checkpoint: [Sessions/2026-07-19_Checkpoint_0021_Nested_Clone_Removed.txt](Sessions/2026-07-19_Checkpoint_0021_Nested_Clone_Removed.txt)
+— removed a stale, fully-superseded nested clone of this same repo
+(`architecture-rosetta-stone/architecture-rosetta-stone/`) after
+confirming nothing but a gitignored `rdd.pdf` was at risk; relocated
+that PDF to `Artifacts/XMind/rdd.pdf` directly. Pure housekeeping, done
+as part of Bill's disaster-recovery testing pattern (intentionally
+deleting sessions to confirm work survives in the repo).
+
+Previous checkpoint: [Sessions/2026-07-17_Checkpoint_0020_Pristine_Doc_Split.txt](Sessions/2026-07-17_Checkpoint_0020_Pristine_Doc_Split.txt)
+— end-of-day housekeeping: split `rosetta-stone-ai-node-definitions.md`
+into a pristine reference document and a companion Q&A/discovery log
 (`rosetta-stone-ai-node-definitions-qa-log.md`), so the document Bill
-studies from stays clean while nothing is lost. No action required
-until Bill's next session.
+studies from stays clean while nothing is lost.
 
 Previous checkpoint: [Sessions/2026-07-17_Checkpoint_0019_Pseudocode_Comprehension_Pattern.txt](Sessions/2026-07-17_Checkpoint_0019_Pseudocode_Comprehension_Pattern.txt)
 — continuation of the same Model Q&A session: Bill's own pseudocode

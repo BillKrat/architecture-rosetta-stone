@@ -1,0 +1,154 @@
+========================================================================
+ROSETTA STONE CHECKPOINT 0021
+========================================================================
+
+File:
+2026-07-19_Checkpoint_0021_Nested_Clone_Removed.txt
+
+Checkpoint:
+0021
+
+Date:
+2026-07-19
+
+Project:
+Rosetta Stone for Software Architecture
+
+Branch:
+main
+
+Checkpoint Title:
+Stale Self-Nested Clone Removed; rdd.pdf Relocated
+
+Project Status:
+Housekeeping requested by Bill immediately before intentionally deleting
+this Claude Code session, as a deliberate disaster-recovery exercise —
+his framing: this will become a recurring pattern to test that
+architectural/development work survives a session being discarded, even
+though it won't preserve skills (that's `ai-skills`'/`sync-skills`' job,
+reviewed separately this same checkpoint).
+
+Repository:
+https://github.com/BillKrat/architecture-rosetta-stone
+
+Git Commit:
+(pending — filled in after commit, see Step 6)
+
+Previous Checkpoint:
+0020 - Node-Definitions Document Split — Pristine Reference vs. Q&A Log
+
+Next Objective:
+None specific — this is pure housekeeping. Next real work resumes
+wherever `Topics/rosetta-stone-ai-node-definitions.md` /
+`-qa-log.md` left off: Agent's own dedicated Q&A.
+
+========================================================================
+SESSION HANDOFF
+========================================================================
+
+OBJECTIVES COMPLETED
+---------------------
+
+1. Investigated `architecture-rosetta-stone/architecture-rosetta-stone/`
+   (a nested clone sitting inside this repo's own working directory,
+   already listed in `.gitignore`'s "Nested workspace clones" section)
+   before deleting anything, per this project's own "verify before
+   discarding" discipline. Findings: it was its own git repo, `HEAD` at
+   commit `f7269bc` ("Reset stale content and align local workflow
+   files") — the exact commit this repo's own `INDEX.md` already
+   documents as the 2026-07-12 content-reset point. Its `Sessions/`
+   folder held only `.gitkeep`; `INDEX.md` differed from the current one
+   (expected — frozen at the reset moment, this repo has moved 20+
+   checkpoints since), but `README.md`, `LICENSE`, `AGENTS.md`,
+   `.gitignore`, and `.gitattributes` were byte-identical to current.
+   `git status` inside it showed exactly one untracked file:
+   `Artifacts/XMind/rdd.pdf`.
+
+2. Conclusion: nothing in the nested clone was unique or at risk except
+   `rdd.pdf` (the RDD source book, gitignored by design per the `RDD`
+   glossary entry's reasoning — Pearson's email-gated distribution
+   channel, not ours to redistribute). Everything else was either
+   byte-identical to what's already tracked here, or was the literal
+   commit this repo's own reset already superseded and documented.
+
+3. Moved `rdd.pdf` into this repo's own `Artifacts/XMind/rdd.pdf`
+   (previously it only existed inside the nested clone). Added a
+   specific `.gitignore` line for it with a short rationale comment, so
+   it stays untracked for the same reason as before but now lives in a
+   single, correct location instead of a duplicate nested one.
+
+4. Removed the `architecture-rosetta-stone/` line from `.gitignore`'s
+   "Nested workspace clones" list (the other three — `BlogAI/`,
+   `ai-skills/`, `vs-mcp-bridge/` — were left as-is; not in scope, and
+   Bill didn't ask for those).
+
+5. Deleted `architecture-rosetta-stone/architecture-rosetta-stone/`
+   entirely. Confirmed no remaining references to that nested path
+   anywhere in this repo's tracked Markdown.
+
+REPOSITORY / ENVIRONMENT STATE
+--------------------------------
+Branch main. Before this checkpoint: clean at commit 666ae84
+(Checkpoint 0020's hash-fill-in commit). This checkpoint's tracked
+change: `.gitignore` only (one line removed, one line + comment added).
+`Artifacts/XMind/rdd.pdf` now exists on disk in the correct location but
+is intentionally untracked, same as before.
+
+Flagged, not acted on (out of the scope Bill asked for): three other
+nested clones still sit inside this repo's working directory —
+`BlogAI/` (64M), `ai-skills/` (264K), `vs-mcp-bridge/` (115M) — all
+already gitignored under the same "kept for local work only" rule.
+Mentioned to Bill directly in-session; no action taken without being
+asked.
+
+TOPICS TOUCHED THIS SESSION
+------------------------------
+None — this was a filesystem/`.gitignore` cleanup, not a content change
+to any Topic.
+
+METHOD DISCOVERIES
+--------------------
+- A nested clone that looks like risky clutter can still be checked
+  cheaply before deletion: compare its `HEAD` commit against what this
+  repo's own history already documents, diff its small text files
+  against current, and run `git status` inside it for anything
+  uncommitted. Here that took a few minutes and turned "just delete it"
+  into a confirmed-safe deletion plus one real file (`rdd.pdf`) that
+  actually needed to move first.
+
+NEXT SESSION
+==============
+1. This session's actual work (Model Q&A, the pristine/Q&A-log split)
+   is unaffected — nothing here touches that content.
+2. `rdd.pdf` is now at `Artifacts/XMind/rdd.pdf` in this repo directly;
+   any future page lookups (the confirmed +25 PDF-to-book-page offset
+   from Checkpoint 0017 still applies) should use this path.
+3. Resume with Agent's own dedicated Q&A per
+   `Topics/rosetta-stone-ai-node-definitions-qa-log.md`'s "Next Session"
+   note from Checkpoint 0020.
+
+END OF SESSION CHECKLIST
+==========================
+[x] Nested clone inspected before deletion, not assumed safe
+[x] rdd.pdf preserved in the correct, single location, still
+    intentionally untracked
+[x] .gitignore updated (self-referential entry removed, new specific
+    rdd.pdf rule added with rationale)
+[x] Nested clone deleted; no dangling references found in tracked files
+[x] Checkpoint committed, tagged, and pushed (see Git Commit above —
+    filled in as part of this same checkpoint's commit sequence)
+
+SESSION SUMMARY
+================
+A short, purely custodial checkpoint requested immediately before Bill
+intentionally deletes this Claude Code session as a disaster-recovery
+test. Removed a stale, fully-superseded nested clone of this same repo
+that Bill flagged as noise, after confirming nothing beyond one
+gitignored PDF was at risk of being lost — that PDF now lives in the
+correct place instead of a duplicate one. Three other nested clones
+were noticed and flagged, not touched, since they weren't part of what
+was asked.
+
+========================================================================
+END CHECKPOINT 0021
+========================================================================

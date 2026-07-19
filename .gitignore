@@ -9,7 +9,6 @@
 # Nested workspace clones kept for local work only
 BlogAI/
 ai-skills/
-architecture-rosetta-stone/
 vs-mcp-bridge/
 
 # Windows
@@ -18,3 +17,8 @@ desktop.ini
 
 # Archives
 *.zip
+
+# Purchased/licensed reference material — not ours to redistribute;
+# see Standards/glossary.md's RDD entry for the legitimate free-download
+# citation instead.
+Artifacts/XMind/rdd.pdf
