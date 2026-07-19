@@ -40,7 +40,7 @@ https://github.com/BillKrat/architecture-rosetta-stone (this file); see
 below for the other three repos' commits.
 
 Git Commit:
-(pending — filled in after commit, see Step 6)
+fc2747b
 
 Previous Checkpoint:
 0023 - Cross-Repo Disaster-Recovery System Review
