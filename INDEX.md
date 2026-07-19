@@ -41,16 +41,23 @@ and align local workflow files"): all prior Topic files, Session
 checkpoints, and Evidence stubs were deleted as part of aligning this
 repo with the shared, repo-agnostic skill workflow (see `AGENTS.md`).
 
-Latest checkpoint: [Sessions/2026-07-19_Checkpoint_0023_System_Wide_Review.txt](Sessions/2026-07-19_Checkpoint_0023_System_Wide_Review.txt)
+Latest checkpoint: [Sessions/2026-07-19_Checkpoint_0024_Investigate_Skill_And_Evidence_Discipline.txt](Sessions/2026-07-19_Checkpoint_0024_Investigate_Skill_And_Evidence_Discipline.txt)
+— added a new `investigate` skill and an unconditional "Evidence
+Discipline" rule (no trigger phrase required) to every repo's
+`AGENTS.md`, after Bill described a real incident where an AI assistant
+stated an unverified hypothesis as fact during regulated-industry bug
+triage. Extends `Standards/source-of-truth.md`'s basis vocabulary
+(`authoritative`/`primary-source`/`claude-reasoning`/`unverified`)
+beyond formal artifacts to every claim in every conversation, across
+`architecture-rosetta-stone`, `vs-mcp-bridge`, `BlogAI`, and
+`ai-skills`.
+
+Previous checkpoint: [Sessions/2026-07-19_Checkpoint_0023_System_Wide_Review.txt](Sessions/2026-07-19_Checkpoint_0023_System_Wide_Review.txt)
 — cross-repo disaster-recovery review under Bill's standing "apply best
 practices without waiting for input" authorization. Found and fixed a
 real bug: `sync-skills` restores by per-repo namespace, not a shared
 bucket, and only the workspace root's namespace existed — a restore
 from inside any of the three project repos would have silently failed.
-Also fixed typos, a missing repo in the install list, and structural
-mismatches in `vs-mcp-bridge`/`BlogAI` (`.project-context/` not used
-there). Touches `architecture-rosetta-stone`, `vs-mcp-bridge`, `BlogAI`,
-and `ai-skills`.
 
 Previous checkpoint: [Sessions/2026-07-19_Checkpoint_0022_AiSkills_Bootstrap_Audit.txt](Sessions/2026-07-19_Checkpoint_0022_AiSkills_Bootstrap_Audit.txt)
 — audited whether `ai-skills` (the private GitHub skills backup) could

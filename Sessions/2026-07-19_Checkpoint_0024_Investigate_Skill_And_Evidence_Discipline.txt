@@ -1,0 +1,208 @@
+========================================================================
+ROSETTA STONE CHECKPOINT 0024
+========================================================================
+
+File:
+2026-07-19_Checkpoint_0024_Investigate_Skill_And_Evidence_Discipline.txt
+
+Checkpoint:
+0024
+
+Date:
+2026-07-19
+
+Project:
+Rosetta Stone for Software Architecture (this checkpoint documents a
+new cross-repo skill and standard, spanning architecture-rosetta-stone,
+vs-mcp-bridge, BlogAI, and ai-skills)
+
+Branch:
+main
+
+Checkpoint Title:
+"investigate" Skill and Unconditional Evidence Discipline Added
+
+Project Status:
+Bill described a real incident: an AI coding assistant (Copilot)
+stated an unverified hypothesis as fact while triaging a bug spanning 5
+subsystems (one a black box) in a regulated-industry workplace;
+subsequent research built on that hypothesis as settled; it nearly
+triggered an incorrect Quality Issue escalation. Bill catches this class
+of error in Copilot with a separate "let's investigate" skill carrying
+strict source-of-truth guardrails. He asked whether the same discipline
+was already pinned down for this project and vs-mcp-bridge specifically
+— it was not, only practiced as habit — and asked to fix that, on the
+explicit premise that vs-mcp-bridge's real audience, within a few years,
+includes his own regulated-industry employer.
+
+Repository:
+https://github.com/BillKrat/architecture-rosetta-stone (this file); see
+below for the other three repos' commits.
+
+Git Commit:
+(pending — filled in after commit, see Step 6)
+
+Previous Checkpoint:
+0023 - Cross-Repo Disaster-Recovery System Review
+
+Next Objective:
+None specific — this closes out today's session. Next real work
+resumes wherever `Topics/rosetta-stone-ai-node-definitions-qa-log.md`
+left off (Agent's own dedicated Q&A), now under this same unconditional
+Evidence Discipline for any factual claims that work makes.
+
+========================================================================
+SESSION HANDOFF
+========================================================================
+
+WORKING AGREEMENT
+-----------------
+New, durable, cross-repo standard — not scoped to this repo alone:
+
+- **Evidence Discipline is unconditional**, added to every `AGENTS.md`
+  (workspace root, `architecture-rosetta-stone`, `vs-mcp-bridge`,
+  `BlogAI`): every claim about system or code behavior carries a basis
+  — `authoritative`, `primary-source`, `claude-reasoning`, or
+  `unverified` — using the exact vocabulary already established in
+  `Standards/source-of-truth.md`. This does **not** require a trigger
+  phrase to hold; it is the default, precisely because Bill does not
+  always prompt with perfect precision and the safety needs to survive
+  that.
+- A new named skill, `investigate` (added to all 4 skill locations and
+  all 4 `ai-skills` backup namespaces), is the *structured, heavier*
+  version of the same rule — for formal multi-subsystem root-cause
+  triage or any stakeholder-facing causation/status document. It scopes
+  subsystems explicitly (including marking black boxes as such), labels
+  every claim as it's made, refuses to let an unlabeled claim become
+  load-bearing for later steps, and requires the full causal chain to be
+  verified before any root-cause or defect-classification language is
+  used.
+- `vs-mcp-bridge`'s own `AGENTS.md` carries an explicit
+  "Regulated-Industry Default" section: treat the least common
+  denominator for this product's users as a regulated-industry client
+  now, during beta, not as a later special case — grounded directly in
+  the fact that this includes Bill's own employer within a few years.
+
+OBJECTIVES COMPLETED
+---------------------
+
+1. Gave Bill a direct, honest answer to his actual question first:
+   this discipline was *not* already pinned down as a durable artifact
+   for `vs-mcp-bridge` or general conversational claims — only
+   `Standards/source-of-truth.md`'s formal-artifact version existed,
+   scoped to this repo's own architecture documents. Said so plainly
+   rather than claiming it was already covered.
+
+2. Wrote `vs-mcp-bridge/.claude/skills/investigate/SKILL.md` from
+   scratch: Why-this-exists (the generalized incident), the unconditional
+   rule restated with the four basis labels, then a 6-step structured
+   procedure (scope subsystems and mark black boxes; label every claim
+   as it's made; never let an unlabeled claim become load-bearing;
+   verify the full causal chain before stating root cause, with extra
+   weight on quality/compliance-classification language; write
+   stakeholder summaries so no sentence outruns its weakest evidence;
+   say "I don't know yet" plainly when that's the honest answer).
+
+3. Caught and fixed my own mistake before it spread: the skill's first
+   draft hardcoded `vs-mcp-bridge` specifics into its closing section,
+   violating this project's own "keep skills repo-agnostic" principle
+   (`AGENTS.md`'s Shared Skill Behavior). Rewrote that section to be
+   generic, moved the `vs-mcp-bridge`-specific regulated-industry
+   framing into that repo's own `AGENTS.md` instead, and *then*
+   propagated the corrected skill everywhere — applying the exact
+   "verify before it spreads" lesson from Checkpoint 0023's namespace
+   bug to this checkpoint's own work.
+
+4. Propagated `investigate` to all 8 real locations (4 physical
+   `.claude/skills/` installs, 4 `ai-skills` backup namespaces) and
+   verified byte-identical with `diff`, not assumed.
+
+5. Added the unconditional "Evidence Discipline" section to all 5
+   physical `AGENTS.md` copies (workspace root + 4 repos) and the
+   `ai-skills` canonical copy, plus the `investigate` routing entry in
+   each `Skill Routing` section — six locations, each verified.
+
+6. Extended `Standards/source-of-truth.md` itself with a short section
+   documenting the 2026-07-19 extension: the same basis vocabulary now
+   applies unconditionally, cross-repo, to any claim in any
+   conversation, not only to formal artifact metadata — with a pointer
+   to `investigate` for the structured version.
+
+REPOSITORY / ENVIRONMENT STATE
+--------------------------------
+All four repos clean and pushed:
+- `architecture-rosetta-stone`: `7c11fba` (AGENTS.md + source-of-truth.md).
+- `vs-mcp-bridge`: `93cddd7` (AGENTS.md; the skill itself is gitignored
+  like all skills there, backed up via `ai-skills` instead).
+- `BlogAI`: `7abe7e0` (AGENTS.md; default branch is `master`).
+- `ai-skills`: `b699f3c` (AGENTS.md + `investigate/SKILL.md` in all 4
+  namespaces).
+
+Workspace root: `.claude/skills/investigate/` added directly (not
+git-tracked, root isn't a repo); `AGENTS.md` updated to match.
+
+Final verification (this checkpoint, not assumed): all 4 repos'
+`git status` clean; all 5 physical `.claude/skills/` locations list the
+same 6 skills; all 4 `ai-skills` namespaces list the same 6 skills.
+
+TOPICS TOUCHED THIS SESSION
+------------------------------
+None in `Topics/` — this checkpoint documents a cross-repo standard and
+skill, not `rosetta-stone-AI` content.
+
+METHOD DISCOVERIES
+--------------------
+- A safety discipline that only activates on a trigger phrase fails
+  exactly when it's needed most — under pressure, with an incomplete or
+  leading prompt, before anyone remembers to say the magic words. Bill's
+  own incident happened *before* he thought to ask the corrective
+  question; the fix isn't a better magic phrase, it's not needing one.
+- Writing a new skill is exactly the moment its own stated principles
+  are easiest to violate by accident — the first draft here embedded
+  product-specific content into what was supposed to be a generic
+  procedure. Catching that before propagating, rather than after, is
+  cheaper than fixing eight copies later.
+
+NEXT SESSION
+==============
+1. This Evidence Discipline is now unconditional for all future work in
+   any of these four repos — no separate reminder needed, it lives in
+   each repo's own `AGENTS.md`.
+2. Resume the substantive project work: Agent's own dedicated Q&A, per
+   `Topics/rosetta-stone-ai-node-definitions-qa-log.md`.
+3. If Bill's independent bootstrap test (from his development file
+   server) surfaces anything, the `investigate` skill's own standard
+   now applies to diagnosing that too.
+
+END OF SESSION CHECKLIST
+==========================
+[x] Honest gap assessment given before building anything (not already
+    pinned down; here's specifically what's missing)
+[x] investigate skill written, using the same basis vocabulary as
+    Standards/source-of-truth.md rather than inventing new terms
+[x] Self-caught violation (hardcoded product specifics in a supposedly
+    generic skill) fixed before propagating, not after
+[x] Propagated to all 8 real locations, verified byte-identical
+[x] Evidence Discipline made unconditional in all 5 AGENTS.md copies,
+    not gated behind the skill name
+[x] Standards/source-of-truth.md cross-referenced with the extension
+[x] All four repos verified clean and pushed
+[x] Checkpoint committed, tagged, and pushed (see Git Commit above —
+    filled in as part of this same checkpoint's commit sequence)
+
+SESSION SUMMARY
+================
+Bill described a near-miss with real regulatory stakes and asked a
+direct question: is this project already protected against the same
+failure, or does it need to be built. The honest answer was the second
+one. Built it as two layers — an unconditional rule that needs no
+invocation, and a named, structured skill for the heavy version of the
+same discipline — propagated correctly across every repo and namespace
+this time, having just learned exactly what happens when propagation is
+incomplete. The real test, same as the disaster-recovery system audited
+earlier today, is whether it holds under real future pressure, not
+whether it reads well now.
+
+========================================================================
+END CHECKPOINT 0024
+========================================================================
