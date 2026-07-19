@@ -35,7 +35,7 @@ https://github.com/BillKrat/architecture-rosetta-stone (this file);
 fix committed to https://github.com/BillKrat/ai-skills (commit e4e3a89)
 
 Git Commit:
-(pending — filled in after commit, see Step 6)
+f76c975
 
 Previous Checkpoint:
 0021 - Stale Self-Nested Clone Removed; rdd.pdf Relocated
