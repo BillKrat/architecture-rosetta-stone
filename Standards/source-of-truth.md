@@ -1,8 +1,8 @@
 ---
 name: source-of-truth
 description: Bill's statements are never treated as verified fact on their own — every claim needs an authoritative source, and when none exists, Claude's reasoning stands in for one only if that's explicitly labeled.
-status: established 2026-07-12
-last-updated: 2026-07-12
+status: established 2026-07-12; extended to an unconditional cross-repo rule 2026-07-19
+last-updated: 2026-07-19
 ---
 
 # Source of Truth
@@ -52,6 +52,29 @@ rationale: >
 For `authoritative`, `rationale` becomes `citation` and must be a real,
 checkable reference. For `primary-source`, `rationale` becomes `quoted`
 with the actual excerpt.
+
+## Extended beyond this repo, unconditionally (2026-07-19)
+
+This basis vocabulary (`authoritative`/`primary-source`/`claude-reasoning`/
+`unverified`) is now also the backbone of an unconditional "Evidence
+Discipline" rule in every repo's `AGENTS.md` — not just this repo's own
+formal architecture artifacts. Motivated by a real incident: an AI
+assistant stated an unverified hypothesis as fact during multi-subsystem
+bug triage in a regulated-industry workplace, and subsequent work built
+on it as settled, nearly triggering an incorrect quality/compliance
+escalation.
+
+The extension: this rule applies to *every claim about system or code
+behavior in any conversation*, not only to formal artifact metadata, and
+it does not require an explicit invocation to hold — unlike a triggered
+skill, it is the default. `vs-mcp-bridge/.claude/skills/investigate/SKILL.md`
+holds the structured, heavier procedure this rule scales up to for
+formal root-cause triage or stakeholder-facing causation summaries — the
+same four-category vocabulary, applied with the process a real
+regulated-industry investigation needs (scope the subsystems, label
+every claim as it's made, never let an unlabeled claim become
+load-bearing, verify the full causal chain before concluding a root
+cause).
 
 ## Why this doesn't slow things down more than it should
 
