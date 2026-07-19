@@ -1,0 +1,173 @@
+========================================================================
+ROSETTA STONE CHECKPOINT 0022
+========================================================================
+
+File:
+2026-07-19_Checkpoint_0022_AiSkills_Bootstrap_Audit.txt
+
+Checkpoint:
+0022
+
+Date:
+2026-07-19
+
+Project:
+Rosetta Stone for Software Architecture (this checkpoint documents work
+in the sibling `ai-skills` repo, done as part of the same disaster-
+recovery exercise as Checkpoint 0021)
+
+Branch:
+main
+
+Checkpoint Title:
+ai-skills Audited and Fixed for Real Cold-Start Bootstrap
+
+Project Status:
+Second half of Bill's pre-session-deletion disaster-recovery request:
+audit whether `ai-skills` (the private GitHub backup of Claude Code
+skills, https://github.com/BillKrat/ai-skills) would actually be
+sufficient to bring up a completely new Windows or macOS machine. Found
+it was not, for concrete, specific reasons, and fixed those reasons
+directly in `ai-skills` itself rather than just reporting the gap.
+
+Repository:
+https://github.com/BillKrat/architecture-rosetta-stone (this file);
+fix committed to https://github.com/BillKrat/ai-skills (commit e4e3a89)
+
+Git Commit:
+(pending — filled in after commit, see Step 6)
+
+Previous Checkpoint:
+0021 - Stale Self-Nested Clone Removed; rdd.pdf Relocated
+
+Next Objective:
+None specific. Worth a real test eventually: actually try the new
+manual bootstrap procedure (README's "Restore flow," cold-start branch)
+on a genuinely empty machine or VM, rather than trusting the audit alone
+— an audit from inside an already-set-up environment can still miss
+something a true zero-state attempt would catch.
+
+========================================================================
+SESSION HANDOFF
+========================================================================
+
+OBJECTIVES COMPLETED
+---------------------
+
+1. Read `ai-skills`' full `README.md`, `AGENTS.md`, and git history, then
+   diffed every one of the 5 backed-up skills (`help-skills`,
+   `initialize-context`, `lets-code`, `sync-skills`, `update-context`)
+   against their live copies in three locations: the workspace root
+   (`/Users/billkratochvil/AI/.claude/skills/`),
+   `architecture-rosetta-stone/.claude/skills/`, and
+   `vs-mcp-bridge/.claude/skills/`.
+
+2. Found four concrete gaps, not just a general impression:
+   - **Circular bootstrap instructions.** The README's "Restore flow"
+     said "use `sync-skills`" with no fallback — but `sync-skills` is
+     itself one of the 5 skills being restored. A genuinely fresh
+     machine has zero skills installed, so there's nothing to invoke
+     yet. No plain-git/file-copy procedure existed for that actual
+     cold-start case.
+   - **No location mapping.** The backup only has one namespace (`AI/`),
+     but that content currently has to physically exist in three
+     separate places, because both `architecture-rosetta-stone` and
+     `vs-mcp-bridge` gitignore `.claude/` entirely — cloning either repo
+     brings zero skills with it. Nothing in the backup said this
+     explicitly.
+   - **Real local drift.** The workspace root's copies of `lets-code`,
+     `sync-skills`, and `update-context` were stale — an older,
+     project-hardcoded version (referring to "the Rosetta Stone for
+     Software Architecture project" by name), while the backup and both
+     repos' copies already had the newer, generalized, repo-agnostic
+     rewrite. Root was also missing `help-skills` and
+     `initialize-context` entirely (2 of 5 skills never made it there).
+   - **Two typos** in `AGENTS.md`'s "Reuse Standard" list:
+     `architecture-resetta-stone` and `vs-ms-bridge`.
+
+3. Fixed all four directly:
+   - Synced all 5 canonical skill files from `ai-skills/AI/` onto the
+     workspace root's `.claude/skills/`, closing the drift and the
+     2-missing-skills gap locally (this fix is local-disk only, not
+     itself git-tracked — `.claude/` is gitignored at the workspace
+     root same as elsewhere).
+   - Fixed both `AGENTS.md` typos.
+   - Added an `AGENTS.md` "Known Local Installations" section naming the
+     three physical locations these skills need to exist in, so future
+     restores (or future audits) have an explicit checklist instead of
+     an implicit assumption.
+   - Rewrote the README's "Restore flow" section with two branches: use
+     `sync-skills` if it's reachable anywhere on the machine already;
+     otherwise, a genuinely skill-independent manual bootstrap using
+     plain `cp -r` (macOS/Linux) or `Copy-Item` (Windows PowerShell)
+     against the three known locations. Explicitly framed as also being
+     the right thing to hand a "cold" Claude Code session with zero
+     skills loaded.
+
+REPOSITORY / ENVIRONMENT STATE
+--------------------------------
+`ai-skills` repo: `AGENTS.md` and `README.md` updated, committed, and
+pushed — `origin/main` at `e4e3a89`. Workspace root's
+`/Users/billkratochvil/AI/.claude/skills/` now has all 5 skills, synced
+to match the backup exactly (verified with `diff`).
+
+`architecture-rosetta-stone` (this repo): only this checkpoint file and
+`INDEX.md`'s pointer change this pass — no content in this repo needed
+fixing, the gaps were entirely in `ai-skills` and the workspace root.
+
+TOPICS TOUCHED THIS SESSION
+------------------------------
+None — this checkpoint documents work done in a sibling repo
+(`ai-skills`) and on local disk (the workspace root), not a change to
+any Topic file here.
+
+METHOD DISCOVERIES
+--------------------
+- "We have a backup repo" and "that backup repo would actually work on
+  a machine with nothing on it" are different claims — the second one
+  needs the cold-start case checked specifically (no skills installed
+  anywhere, not even the one that would normally do the restoring),
+  which is easy to miss when auditing from inside a machine that
+  already has everything set up.
+- A backup repo being internally consistent (skills present, README
+  exists) doesn't guarantee the *local* copies it's meant to mirror are
+  actually in sync with it — the workspace root had drifted without
+  anyone noticing, because nothing had compared it against the backup
+  directly until this audit did.
+
+NEXT SESSION
+==============
+1. No action required, per Bill's own framing (this was pre-deletion
+   housekeeping, not the start of new work).
+2. If/when convenient: actually exercise the new cold-start bootstrap
+   procedure for real (a scratch VM, or the Windows Slate 1000 device
+   already in play this session) rather than trusting the audit alone.
+
+END OF SESSION CHECKLIST
+==========================
+[x] All 5 skills diffed against all 3 known local install locations,
+    not assumed in sync
+[x] Circular bootstrap instruction identified and replaced with a real
+    skill-independent procedure
+[x] Location mapping made explicit (workspace root + both project repos)
+[x] Local drift fixed on disk (workspace root's 3 stale skills
+    replaced, 2 missing skills added)
+[x] AGENTS.md typos fixed
+[x] ai-skills changes committed and pushed (e4e3a89)
+[x] Checkpoint committed, tagged, and pushed (see Git Commit above —
+    filled in as part of this same checkpoint's commit sequence)
+
+SESSION SUMMARY
+================
+The second half of today's disaster-recovery request: rather than take
+"we have an ai-skills backup repo" at face value, actually traced
+through what a genuinely fresh machine would need to do with it, found
+a real circular dependency and three other concrete gaps, and fixed all
+of them in the backup repo itself plus the one local drift they'd
+already caused. This is now closer to actually testable — the
+recommended next step is to test it for real rather than trust this
+audit as the final word.
+
+========================================================================
+END CHECKPOINT 0022
+========================================================================

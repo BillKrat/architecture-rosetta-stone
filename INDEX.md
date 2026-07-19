@@ -41,13 +41,19 @@ and align local workflow files"): all prior Topic files, Session
 checkpoints, and Evidence stubs were deleted as part of aligning this
 repo with the shared, repo-agnostic skill workflow (see `AGENTS.md`).
 
-Latest checkpoint: [Sessions/2026-07-19_Checkpoint_0021_Nested_Clone_Removed.txt](Sessions/2026-07-19_Checkpoint_0021_Nested_Clone_Removed.txt)
+Latest checkpoint: [Sessions/2026-07-19_Checkpoint_0022_AiSkills_Bootstrap_Audit.txt](Sessions/2026-07-19_Checkpoint_0022_AiSkills_Bootstrap_Audit.txt)
+— audited whether `ai-skills` (the private GitHub skills backup) could
+actually bootstrap a genuinely fresh Windows/macOS machine. Found and
+fixed a circular restore instruction, a missing location map, real
+local drift at the workspace root, and two repo-name typos — see
+`ai-skills` commit `e4e3a89`. Part of the same disaster-recovery
+exercise as Checkpoint 0021.
+
+Previous checkpoint: [Sessions/2026-07-19_Checkpoint_0021_Nested_Clone_Removed.txt](Sessions/2026-07-19_Checkpoint_0021_Nested_Clone_Removed.txt)
 — removed a stale, fully-superseded nested clone of this same repo
 (`architecture-rosetta-stone/architecture-rosetta-stone/`) after
 confirming nothing but a gitignored `rdd.pdf` was at risk; relocated
-that PDF to `Artifacts/XMind/rdd.pdf` directly. Pure housekeeping, done
-as part of Bill's disaster-recovery testing pattern (intentionally
-deleting sessions to confirm work survives in the repo).
+that PDF to `Artifacts/XMind/rdd.pdf` directly.
 
 Previous checkpoint: [Sessions/2026-07-17_Checkpoint_0020_Pristine_Doc_Split.txt](Sessions/2026-07-17_Checkpoint_0020_Pristine_Doc_Split.txt)
 — end-of-day housekeeping: split `rosetta-stone-ai-node-definitions.md`
