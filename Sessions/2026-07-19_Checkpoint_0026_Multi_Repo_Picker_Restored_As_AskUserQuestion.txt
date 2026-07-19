@@ -37,7 +37,7 @@ https://github.com/BillKrat/architecture-rosetta-stone (this file);
 see below for the `ai-skills` commit carrying the actual file diff.
 
 Git Commit:
-(pending — filled in after commit, see Step 6)
+8dc35d4
 
 Previous Checkpoint:
 0025 - Active Thread Resume Pointer Added to lets-code/update-context
