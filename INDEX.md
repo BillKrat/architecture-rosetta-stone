@@ -40,11 +40,12 @@ still open; Agent/Tool/Retrieval/Memory/Security/Application/
 Diagnostics/Deployment Context Notes have not started their own Q&A
 passes. **Next up: Agent's own dedicated Q&A.**
 
-Checkpoints 0021-0025 (2026-07-19) were cross-repo infra/cleanup —
+Checkpoints 0021-0026 (2026-07-19) were cross-repo infra/cleanup —
 nested-clone removal, `ai-skills` bootstrap audit, disaster-recovery
 review, the `investigate` skill + unconditional Evidence Discipline,
-and (0025) this Active Thread mechanism itself — and did not touch
-this thread; carried forward unchanged by each.
+(0025) this Active Thread mechanism itself, and (0026) restoring
+`lets-code`'s multi-repo picker as a real `AskUserQuestion` prompt —
+and did not touch this thread; carried forward unchanged by each.
 
 This section is the durable "what to resume" pointer, maintained by
 `update-context` on every checkpoint and read first by `lets-code` —
@@ -70,7 +71,17 @@ and align local workflow files"): all prior Topic files, Session
 checkpoints, and Evidence stubs were deleted as part of aligning this
 repo with the shared, repo-agnostic skill workflow (see `AGENTS.md`).
 
-Latest checkpoint: [Sessions/2026-07-19_Checkpoint_0025_Active_Thread_Resume_Pointer_Added.txt](Sessions/2026-07-19_Checkpoint_0025_Active_Thread_Resume_Pointer_Added.txt)
+Latest checkpoint: [Sessions/2026-07-19_Checkpoint_0026_Multi_Repo_Picker_Restored_As_AskUserQuestion.txt](Sessions/2026-07-19_Checkpoint_0026_Multi_Repo_Picker_Restored_As_AskUserQuestion.txt)
+— restored `lets-code`'s multi-repo picker (radio-button repo selection
+at session start) as a real `AskUserQuestion` tool call, after Bill
+noticed a round of his own requested revisions had regressed it to a
+plain-text question. Added as an explicit, self-guarding Step 0 branch
+so it can't silently drop out again — same durability pattern as
+Checkpoint 0025's Active Thread fix. Propagated to all 9 physical
+copies of `lets-code/SKILL.md`; also caught `ai-skills`'s own copy up
+on the Active Thread change it had missed.
+
+Previous checkpoint: [Sessions/2026-07-19_Checkpoint_0025_Active_Thread_Resume_Pointer_Added.txt](Sessions/2026-07-19_Checkpoint_0025_Active_Thread_Resume_Pointer_Added.txt)
 — added a durable **Active Thread** section to this file (above) so
 `lets-code` always knows the real content thread to resume, independent
 of whichever checkpoint is chronologically latest; prompted by Bill

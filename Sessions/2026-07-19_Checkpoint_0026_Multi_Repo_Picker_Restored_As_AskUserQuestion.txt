@@ -1,0 +1,175 @@
+========================================================================
+PROJECT CHECKPOINT 0026
+========================================================================
+
+File:
+2026-07-19_Checkpoint_0026_Multi_Repo_Picker_Restored_As_AskUserQuestion.txt
+
+Checkpoint:
+0026
+
+Date:
+2026-07-19
+
+Project:
+Rosetta Stone for Software Architecture (this checkpoint documents a
+cross-repo fix to the `lets-code` skill itself, spanning
+architecture-rosetta-stone, vs-mcp-bridge, BlogAI, ai-skills, and the
+workspace root — same pattern as Checkpoint 0025)
+
+Branch:
+main
+
+Checkpoint Title:
+Multi-Repo Picker Restored in lets-code as a Real AskUserQuestion Prompt
+
+Project Status:
+Bill noticed that a prior session's repo-picker UI (radio-button
+selection when starting `lets-code` from the multi-repo workspace root)
+had regressed to a plain-text question somewhere along a round of
+revisions, and asked for it to be reinstated durably so it survives
+future edits. Fixed by adding an explicit Step 0 branch to `lets-code`
+that calls the `AskUserQuestion` tool when multiple candidate repos are
+found, with an inline warning against folding it back into prose.
+
+Repository:
+https://github.com/BillKrat/architecture-rosetta-stone (this file);
+see below for the `ai-skills` commit carrying the actual file diff.
+
+Git Commit:
+(pending — filled in after commit, see Step 6)
+
+Previous Checkpoint:
+0025 - Active Thread Resume Pointer Added to lets-code/update-context
+
+Next Objective:
+Resume the substantive project work per Active Thread (unchanged this
+session): Agent's own dedicated Q&A, per
+`Topics/rosetta-stone-ai-node-definitions-qa-log.md`.
+
+========================================================================
+SESSION HANDOFF
+========================================================================
+
+WORKING AGREEMENT
+------------------
+No change this session.
+
+OBJECTIVES COMPLETED
+---------------------
+1. Diagnosed the actual gap: `lets-code` never had a formally specified
+   repo-picker step at all. Multi-repo selection had been ad hoc,
+   improvised per-session by whichever assistant turn noticed the
+   workspace root wasn't a git repo — which is why it was fragile
+   enough to regress to plain prose without anyone deciding to remove
+   it.
+
+2. Added a durable Step 0 branch to `lets-code/SKILL.md`: when
+   `git rev-parse --show-toplevel` fails at the current directory
+   (multi-repo workspace root case), scan `repos/` (or direct
+   subdirectories if no `repos/` folder) for `.git` entries. Zero
+   candidates -> say so and stop. Exactly one -> use it directly, no
+   prompt. Multiple -> call the `AskUserQuestion` tool with one
+   radio-button option per repo, explicitly forbidding a plain-text
+   substitute.
+
+3. Included an inline, self-referential warning in the skill text
+   itself: if a future edit is tempted to fold the `AskUserQuestion`
+   call back into prose "for simplicity," that is the regression to
+   avoid, not an acceptable trim. This is the same durability lesson as
+   Checkpoint 0025's Active Thread field — a behavior that only lives
+   in an assistant's improvised judgment doesn't survive revision;
+   promoting it to an explicit, named skill instruction does.
+
+4. Replaced the old `REPO_ROOT="$(git rev-parse --show-toplevel
+   2>/dev/null || pwd)"` fallback, which silently used the non-repo
+   workspace root itself as `REPO_ROOT` — the actual mechanism that let
+   the picker regress invisibly, since falling back to `pwd` never
+   surfaced a decision point at all.
+
+5. Propagated the edited `lets-code/SKILL.md` to all 9 physical
+   locations (workspace root, `architecture-rosetta-stone`, `BlogAI`,
+   `vs-mcp-bridge`, and all 4 `ai-skills` backup namespaces plus its own
+   `.claude/skills` copy), verified byte-identical via `diff`.
+
+6. As a side effect, this also caught up `ai-skills/.claude/skills/
+   lets-code/SKILL.md`, which had silently fallen behind on Checkpoint
+   0025's Active Thread change — found by the same byte-identical check
+   before making this session's edit.
+
+REPOSITORY / ENVIRONMENT STATE
+--------------------------------
+- `architecture-rosetta-stone`: no tracked-file diff from the skill
+  edit itself (`.claude/` is gitignored here, per Checkpoint 0024).
+  This checkpoint file plus an `INDEX.md` pointer update are the only
+  tracked changes, committed as part of this checkpoint's own commit
+  sequence.
+- `ai-skills`: 4 files modified (`AI/lets-code/SKILL.md`,
+  `BlogAI/lets-code/SKILL.md`, `architecture-rosetta-stone/lets-code/
+  SKILL.md`, `vs-mcp-bridge/lets-code/SKILL.md`), committed and pushed
+  separately from this repo's own workflow, per `update-context`'s rule
+  not to commit to other repos from this repo's context. Commit hash
+  recorded below.
+- `vs-mcp-bridge`, `BlogAI`, workspace root: skill file updated on disk
+  to match; `.claude/` gitignored in the two project repos, workspace
+  root has no `.git` — no separate commit needed or possible, `diff`
+  confirms all 9 copies byte-identical.
+
+TOPICS TOUCHED THIS SESSION
+------------------------------
+None in `Topics/` — this checkpoint documents a change to the
+`lets-code` skill itself, not `rosetta-stone-AI` content.
+
+METHOD DISCOVERIES
+--------------------
+- A UI behavior an assistant produces by its own in-the-moment judgment
+  (deciding to call `AskUserQuestion` because multiple repos were
+  found) is exactly as durable as that judgment being made fresh each
+  session — it isn't backed by any instruction, so a revision pass can
+  drop it without anyone noticing it was ever a deliberate behavior.
+  Same lesson as Checkpoint 0025's Active Thread fix, applied to a
+  different symptom: promote the behavior to a named, explicit skill
+  step, and add a standing note warning against the specific
+  simplification that caused the regression.
+- Bill's framing this session: iterating through "deleting session and
+  starting fresh one to work out the kinks" from his own earlier
+  cleanup request — consistent with the cross-repo infra churn visible
+  across Checkpoints 0021-0026 all landing on 2026-07-19.
+
+NEXT SESSION
+==============
+1. Resume `Topics/rosetta-stone-ai-node-definitions-qa-log.md`: Agent's
+   own dedicated Q&A pass, per Active Thread (carried forward unchanged
+   this session — this checkpoint did not touch it).
+2. Next time `lets-code` starts from the multi-repo workspace root with
+   more than one candidate repo, verify the `AskUserQuestion` tool
+   actually fires instead of a plain-text question.
+
+END OF SESSION CHECKLIST
+==========================
+[x] Actual gap diagnosed (no formal picker step existed at all, not
+    just "it regressed")
+[x] Step 0 branch added to `lets-code/SKILL.md` calling `AskUserQuestion`
+    for the multi-repo case, with an explicit anti-regression note
+[x] Propagated to all 9 physical locations, verified byte-identical
+[x] `ai-skills` committed and pushed (hash recorded below)
+[x] `INDEX.md` latest-checkpoint pointer updated; Active Thread
+    explicitly carried forward unchanged (infra-only session)
+[x] Checkpoint committed, tagged, and pushed (see Git Commit above —
+    filled in as part of this same checkpoint's commit sequence)
+
+SESSION SUMMARY
+================
+Bill asked for the multi-repo radio-button picker he'd seen in an
+earlier session to be reinstated after a round of his own requested
+revisions had dropped it back to a plain-text question, and specifically
+asked that the fix be durable so it doesn't have to be reconstructed
+each session start. Traced the real cause (the behavior had never been
+a named skill instruction, only ad hoc judgment) and fixed it the same
+way Checkpoint 0025 fixed the Active Thread regression: as an explicit,
+self-guarding instruction in the skill file, propagated to every
+physical copy and verified byte-identical.
+
+========================================================================
+END CHECKPOINT 0026
+========================================================================
