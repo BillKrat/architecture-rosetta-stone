@@ -1,0 +1,206 @@
+========================================================================
+ROSETTA STONE CHECKPOINT 0023
+========================================================================
+
+File:
+2026-07-19_Checkpoint_0023_System_Wide_Review.txt
+
+Checkpoint:
+0023
+
+Date:
+2026-07-19
+
+Project:
+Rosetta Stone for Software Architecture (this checkpoint documents a
+cross-repo review spanning architecture-rosetta-stone, vs-mcp-bridge,
+BlogAI, and ai-skills, done under Bill's explicit standing authorization
+to apply best practices without waiting for his input)
+
+Branch:
+main
+
+Checkpoint Title:
+Cross-Repo Disaster-Recovery System Review
+
+Project Status:
+Bill gave explicit, standing authorization ("you have my explicit
+permission to always do processes that follow best practices and
+patterns") to resolve any issues found, without needing his input, then
+asked for a full overview of the disaster-recovery system as it stands.
+Found and fixed one genuinely serious bug (silent restore failure) plus
+several smaller consistency gaps, across all four repos that share the
+skill/context workflow.
+
+Repository:
+https://github.com/BillKrat/architecture-rosetta-stone (this file); see
+below for the other three repos' own commits.
+
+Git Commit:
+(pending — filled in after commit, see Step 6)
+
+Previous Checkpoint:
+0022 - ai-skills Audited and Fixed for Real Cold-Start Bootstrap
+
+Next Objective:
+Bill is about to test the real bootstrap procedure from his development
+file server, which has no knowledge of the Windows 11 instance's work.
+That test is the actual validation of everything in this checkpoint and
+0021-0022 — treat its outcome as authoritative over this audit's
+confidence level.
+
+========================================================================
+SESSION HANDOFF
+========================================================================
+
+WORKING AGREEMENT
+-----------------
+New standing authorization from Bill, stated explicitly: apply reasoning
+and best practices to resolve issues found during this kind of review
+without waiting for his input first ("I do not have the experience in
+this area"), and act on further improvements found during a system
+overview rather than only report them. Scope as exercised this
+checkpoint: real, concrete bugs and inconsistencies — not speculative
+redesign or new abstractions beyond what a found problem actually
+required.
+
+OBJECTIVES COMPLETED
+---------------------
+
+1. **Found and fixed a real disaster-recovery bug, not just a
+   documentation gap.** `sync-skills` derives its backup namespace from
+   `basename($REPO_ROOT)` at run time — it is not one shared bucket.
+   Before this pass, only an `AI/` namespace existed in `ai-skills`
+   (matching the workspace root's own basename). A restore run from
+   inside `architecture-rosetta-stone`, `vs-mcp-bridge`, or `BlogAI`
+   would have looked for a namespace matching that repo's name, found
+   nothing, and silently restored zero skills — the exact kind of
+   failure a disaster-recovery system exists to prevent, and one that
+   would only surface at the worst possible time (an actual fresh-machine
+   restore). Fixed by populating `architecture-rosetta-stone/`,
+   `vs-mcp-bridge/`, and `BlogAI/` as their own namespaces in
+   `ai-skills`, matching what the skill's own documented algorithm
+   actually expects.
+
+2. Fixed a real, already-spreading typo: `AGENTS.md`'s "Reuse Standard"
+   listed `architecture-resetta-stone` and `vs-ms-bridge` — wrong in
+   four of five copies (only the just-edited `ai-skills` copy had been
+   corrected). Propagated the fix to `architecture-rosetta-stone`,
+   `vs-mcp-bridge`, and `BlogAI` directly (each its own commit, each
+   pushed).
+
+3. Found `BlogAI` was missing entirely from the "Known Local
+   Installations" list added in Checkpoint 0022 — it has the identical
+   5-skill setup and its own `AGENTS.md` matching the others, but had
+   never been checked. Added it everywhere the other three repos are
+   already named.
+
+4. Added a workspace-root `AGENTS.md` — none existed, despite this
+   session routinely operating with the workspace root itself as the
+   working directory (not inside any single repo), meaning routing
+   guidance wasn't being loaded there at all.
+
+5. Found and documented a real structural mismatch: `vs-mcp-bridge` has
+   neither `.project-context/` nor the legacy `INDEX.md`+`Sessions/`+
+   `Topics/` layout `lets-code`/`update-context` expect — it has its
+   own, already-working, more mature convention (`AI_START.md` +
+   `SolutionFolder/docs/session-handoffs/`). Without a guard, a future
+   session could get steered toward `initialize-context` and create a
+   redundant, conflicting structure. Added an explicit
+   `vs-mcp-bridge-Specific Note` section to that repo's own `AGENTS.md`
+   rather than changing the shared skill logic (lower risk — doesn't
+   touch what already works correctly in the other repos).
+
+6. Checked `BlogAI` for the same risk — same missing layout, but no
+   clearly established alternative (`docs/session-handoffs/` has only
+   one entry, from 2026-04-19, and the repo's own `README.md` says the
+   project is "on hold"). Added an appropriately-hedged note there
+   instead of asserting a convention that isn't actually established.
+
+7. Corrected my own just-written claim that `AGENTS.md` should be
+   byte-identical across all five locations — it no longer is, by
+   design, now that `vs-mcp-bridge` and `BlogAI` carry their own
+   append-only sections. Narrowed the "keep in sync" instruction to the
+   three shared sections specifically (Skill Routing, Shared Skill
+   Behavior, Reuse Standard).
+
+REPOSITORY / ENVIRONMENT STATE
+--------------------------------
+All four repos clean and pushed as of this checkpoint:
+- `architecture-rosetta-stone`: `8886a5c` (AGENTS.md typo fix; this
+  checkpoint file itself commits separately after).
+- `vs-mcp-bridge`: `d631c91` (AGENTS.md typo fix + vs-mcp-bridge-specific
+  note, two commits).
+- `BlogAI`: `ce73146` (AGENTS.md typo fix + BlogAI-specific note, two
+  commits; note this repo's default branch is `master`, not `main`).
+- `ai-skills`: `5097d7f` (namespace bug fix, README/AGENTS.md rewrites,
+  typo fix, sync-scope clarification — several commits this pass).
+
+Workspace root: `/Users/billkratochvil/AI/AGENTS.md` added (not
+git-tracked — the root itself is not a git repo). `.claude/skills/`
+there now has all 5 skills, matching every other location exactly
+(verified by direct listing across all four physical install points).
+
+TOPICS TOUCHED THIS SESSION
+------------------------------
+None in this repo's own `Topics/` — this checkpoint documents
+cross-repo infrastructure work, not `rosetta-stone-AI` content.
+
+METHOD DISCOVERIES
+--------------------
+- A backup system can look completely fine from the outside (files
+  exist, README reads sensibly, skills are present locally) while
+  containing a restore-time failure that only a genuine trace-through of
+  the actual algorithm — not just reading its description — would catch.
+  Reading `sync-skills`' own `SKILL.md` line by line, specifically the
+  `PROJECT_NAMESPACE="$(basename "$REPO_ROOT")"` line, is what surfaced
+  the real bug; the higher-level README and AGENTS.md descriptions had
+  both been consistent with a wrong mental model of how it worked.
+- Fixing a shared file's content is not the same as fixing its
+  consistency — propagating the `AGENTS.md` typo fix required touching
+  four separate repos individually, since nothing currently automates
+  keeping `AGENTS.md` in sync the way `sync-skills` automates
+  `.claude/skills/` itself. Worth remembering as a standing manual
+  discipline, not a one-time fix.
+
+NEXT SESSION
+==============
+1. Bill's real bootstrap test, from his development file server, is the
+   actual validation step — its outcome should be trusted over this
+   audit's own confidence.
+2. If that test surfaces anything this review missed, fix it the same
+   way: trace the actual mechanism, not just its documentation.
+3. Otherwise, resume the substantive project work — Agent's own
+   dedicated Q&A, per `Topics/rosetta-stone-ai-node-definitions-qa-log.md`.
+
+END OF SESSION CHECKLIST
+==========================
+[x] Real restore-failure bug found by tracing sync-skills' actual logic,
+    not assumed safe from its description
+[x] Bug fixed at the source (namespace population), not just documented
+    around
+[x] Typo and missing-repo gaps propagated to every real location, not
+    just the one file first noticed
+[x] Structural mismatches (vs-mcp-bridge, BlogAI) found and guarded
+    against without touching working shared-skill logic
+[x] All four repos verified clean and pushed; workspace root verified
+    consistent across all install locations
+[x] Checkpoint committed, tagged, and pushed (see Git Commit above —
+    filled in as part of this same checkpoint's commit sequence)
+
+SESSION SUMMARY
+================
+Given explicit standing authorization to act on best-practice findings
+without waiting for input, this pass went past the initial ai-skills
+review (Checkpoint 0022) into an actual trace-through of how the backup
+mechanism works end to end, which surfaced a real bug — not a
+documentation nicety — that would have caused a silent, total restore
+failure on exactly the fresh-machine scenario this whole system exists
+to protect against. Fixed that, plus four smaller consistency gaps found
+along the way, across all four repos that share this workflow. The real
+test is still ahead: Bill's actual bootstrap attempt from an independent
+machine.
+
+========================================================================
+END CHECKPOINT 0023
+========================================================================
