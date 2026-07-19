@@ -22,6 +22,35 @@ link — the actual state lives in `Topics/`. Read this in full; open a
 `Topics/*.md` file only when that topic is relevant to what you're
 doing.
 
+## Active Thread
+
+**Resume here:** `rosetta-stone-ai-node-definitions` Q&A —
+[Topics/rosetta-stone-ai-node-definitions.md](Topics/rosetta-stone-ai-node-definitions.md)
+(pristine reference, study from this) +
+[Topics/rosetta-stone-ai-node-definitions-qa-log.md](Topics/rosetta-stone-ai-node-definitions-qa-log.md)
+(correction history, open questions, per-node Q&A notes). Content
+last advanced 2026-07-17 (Checkpoints 0017-0020): node
+Responsibilities/Collaborators drafted for all 9 nodes grounded in RDD
+Ch. 4-5, Model's own Q&A pass completed, pseudocode-driven-comprehension
+established as the working pattern, doc split into pristine reference +
+Q&A log. Per the current `status` line in the reference doc: Model's
+Responsibilities and Agent-as-collaborator are understood, Retrieval-
+as-collaborator is flagged ambiguous, task/responsibility ownership is
+still open; Agent/Tool/Retrieval/Memory/Security/Application/
+Diagnostics/Deployment Context Notes have not started their own Q&A
+passes. **Next up: Agent's own dedicated Q&A.**
+
+Checkpoints 0021-0025 (2026-07-19) were cross-repo infra/cleanup —
+nested-clone removal, `ai-skills` bootstrap audit, disaster-recovery
+review, the `investigate` skill + unconditional Evidence Discipline,
+and (0025) this Active Thread mechanism itself — and did not touch
+this thread; carried forward unchanged by each.
+
+This section is the durable "what to resume" pointer, maintained by
+`update-context` on every checkpoint and read first by `lets-code` —
+kept separate from "Latest checkpoint" below, which just names the
+most recent session chronologically and may be infra-only.
+
 ## Topics
 
 - [collaborative-momentum-mode](Topics/collaborative-momentum-mode.md) — current operating mode: no more freeze/phase-gating, Standards kept as reference not constraint, momentum toward real vs-mcp-bridge development (active, adopted 2026-07-14)
@@ -41,7 +70,17 @@ and align local workflow files"): all prior Topic files, Session
 checkpoints, and Evidence stubs were deleted as part of aligning this
 repo with the shared, repo-agnostic skill workflow (see `AGENTS.md`).
 
-Latest checkpoint: [Sessions/2026-07-19_Checkpoint_0024_Investigate_Skill_And_Evidence_Discipline.txt](Sessions/2026-07-19_Checkpoint_0024_Investigate_Skill_And_Evidence_Discipline.txt)
+Latest checkpoint: [Sessions/2026-07-19_Checkpoint_0025_Active_Thread_Resume_Pointer_Added.txt](Sessions/2026-07-19_Checkpoint_0025_Active_Thread_Resume_Pointer_Added.txt)
+— added a durable **Active Thread** section to this file (above) so
+`lets-code` always knows the real content thread to resume, independent
+of whichever checkpoint is chronologically latest; prompted by Bill
+noticing that Checkpoints 0021-0024's infra/cleanup run had made
+resuming ambiguous. Also settled, at Bill's prompting, that a single
+global cross-repo pointer is feasible but not worth building yet — the
+per-repo Active Thread plus the existing repo-picker prompt at session
+start is the kept design.
+
+Previous checkpoint: [Sessions/2026-07-19_Checkpoint_0024_Investigate_Skill_And_Evidence_Discipline.txt](Sessions/2026-07-19_Checkpoint_0024_Investigate_Skill_And_Evidence_Discipline.txt)
 — added a new `investigate` skill and an unconditional "Evidence
 Discipline" rule (no trigger phrase required) to every repo's
 `AGENTS.md`, after Bill described a real incident where an AI assistant
@@ -76,13 +115,6 @@ Previous checkpoint: [Sessions/2026-07-17_Checkpoint_0020_Pristine_Doc_Split.txt
 into a pristine reference document and a companion Q&A/discovery log
 (`rosetta-stone-ai-node-definitions-qa-log.md`), so the document Bill
 studies from stays clean while nothing is lost.
-
-Previous checkpoint: [Sessions/2026-07-17_Checkpoint_0019_Pseudocode_Comprehension_Pattern.txt](Sessions/2026-07-17_Checkpoint_0019_Pseudocode_Comprehension_Pattern.txt)
-— continuation of the same Model Q&A session: Bill's own pseudocode
-exercise surfaced a real architecture principle (a vector is only
-useful if its source text can still be retrieved with it) and
-established a new durable pattern for future node Q&A, see
-`Topics/pseudocode-driven-comprehension.md`.
 
 ## Reference
 

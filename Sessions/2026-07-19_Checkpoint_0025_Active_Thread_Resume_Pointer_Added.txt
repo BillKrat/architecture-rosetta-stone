@@ -1,0 +1,191 @@
+========================================================================
+ROSETTA STONE CHECKPOINT 0025
+========================================================================
+
+File:
+2026-07-19_Checkpoint_0025_Active_Thread_Resume_Pointer_Added.txt
+
+Checkpoint:
+0025
+
+Date:
+2026-07-19
+
+Project:
+Rosetta Stone for Software Architecture (this checkpoint documents a
+cross-repo fix to the `lets-code`/`update-context` session-resume
+workflow itself, spanning architecture-rosetta-stone, vs-mcp-bridge,
+BlogAI, ai-skills, and the workspace root)
+
+Branch:
+main
+
+Checkpoint Title:
+Active Thread Resume Pointer Added to lets-code/update-context
+
+Project Status:
+After four straight infra-only checkpoints (0021-0024 — nested-clone
+removal, ai-skills bootstrap audit, disaster-recovery review, the
+investigate skill), Bill flagged that resuming via `lets-code` was
+becoming ambiguous: the workflow's only "what to resume" signal was
+whichever checkpoint happened to be chronologically latest, and that
+had stopped being the actual content thread (`rosetta-stone-ai-node-
+definitions` Q&A, last substantively touched 2026-07-17). Fixed by
+adding a durable Active Thread pointer to INDEX.md, independent of
+checkpoint recency.
+
+Repository:
+https://github.com/BillKrat/architecture-rosetta-stone (this file);
+see below for the other three repos' commits.
+
+Git Commit:
+(pending — filled in after commit, see Step 6)
+
+Previous Checkpoint:
+0024 - "investigate" Skill and Unconditional Evidence Discipline Added
+
+Next Objective:
+Resume the substantive project work per this checkpoint's own new
+Active Thread section: Agent's own dedicated Q&A, per
+`Topics/rosetta-stone-ai-node-definitions-qa-log.md`.
+
+========================================================================
+SESSION HANDOFF
+========================================================================
+
+WORKING AGREEMENT
+-----------------
+New, durable, cross-repo convention for the shared `lets-code` /
+`update-context` skills — not scoped to this repo alone:
+
+- `INDEX.md` now carries an **Active Thread** section, separate from
+  the existing "Latest checkpoint" pointer. Active Thread names the
+  actual content topic to resume and is maintained by `update-context`
+  independent of checkpoint recency — a run of process/infra-only
+  sessions leaves it untouched rather than letting it drift or get
+  buried behind unrelated checkpoint narrative.
+- `update-context` (Step 4) now requires an explicit decision every
+  checkpoint: rewrite Active Thread if the session materially advanced
+  or shifted the content thread, or state plainly that it's being
+  carried forward unchanged if the session was infra-only. Silence is
+  not an option either way.
+- `lets-code` (Steps 1 and 4) now reads Active Thread first and reports
+  it first, ahead of whatever the latest checkpoint's own subject was.
+
+OBJECTIVES COMPLETED
+---------------------
+
+1. Diagnosed the actual gap precisely at Bill's prompting: the
+   mechanism technically still worked (checkpoint 0024's own "Next
+   Objective" field correctly pointed back to the node-definitions
+   Q&A), but only because each infra checkpoint's author remembered to
+   manually carry the pointer forward in free-text prose — a fragile,
+   easy-to-drop chain, not a durable field.
+
+2. Designed the fix as a new persistent `INDEX.md` field rather than a
+   process reminder: Active Thread, read first, updated deliberately
+   (not by default), independent of the "Latest checkpoint" pointer
+   which legitimately just means "most recent session" and may be
+   infra-only.
+
+3. Bill asked a follow-up architecture question: is a single, global,
+   cross-repo pointer (one place naming which of the 4 repos to even
+   start in) feasible, or is that what today's fix already did? Gave
+   the honest answer — no, today's fix is scoped inside one repo; a
+   global pointer would need to live outside any single repo (e.g. the
+   workspace root, which has no `.git` of its own) and was a separate,
+   real gap. Bill reviewed the tradeoff (local-machine-only, not
+   git-tracked, wouldn't survive a fresh-machine bootstrap) and chose
+   to keep the existing repo-picker prompt instead of building it —
+   decision recorded here so it isn't re-litigated next session.
+
+4. Edited `lets-code/SKILL.md` and `update-context/SKILL.md` in
+   `architecture-rosetta-stone`, then propagated both files to all 7
+   other physical locations (workspace root, `vs-mcp-bridge`, `BlogAI`,
+   and all 4 `ai-skills` backup namespaces), verifying byte-identical
+   with `diff` — same propagation discipline `investigate` used in
+   Checkpoint 0024.
+
+5. Populated `INDEX.md`'s new Active Thread section with real content:
+   points at `Topics/rosetta-stone-ai-node-definitions.md` +
+   `-qa-log.md`, states plainly that content was last substantively
+   advanced 2026-07-17 and that Checkpoints 0021-0025 (this one
+   included) are infra-only and did not touch it, and names the actual
+   next step (Agent's own Q&A pass).
+
+REPOSITORY / ENVIRONMENT STATE
+--------------------------------
+- `architecture-rosetta-stone`: `INDEX.md` updated (Active Thread
+  section added); this checkpoint file. Committed as part of this
+  checkpoint's own commit sequence.
+- `ai-skills`: commit `828ea94` — propagated `lets-code/SKILL.md` and
+  `update-context/SKILL.md` across all 4 namespaces (`AI`,
+  `architecture-rosetta-stone`, `vs-mcp-bridge`, `BlogAI`). Pushed.
+- `vs-mcp-bridge`, `BlogAI`, workspace root: skill files updated on
+  disk to match, but `.claude/` is gitignored in the three project
+  repos (established in Checkpoint 0024) and the workspace root has no
+  `.git` at all — no separate commit needed or possible there; `diff`
+  confirms all 8 physical copies are byte-identical.
+
+TOPICS TOUCHED THIS SESSION
+------------------------------
+None in `Topics/` — this checkpoint documents a change to the
+session-resume workflow itself (`INDEX.md` + the shared skills), not
+`rosetta-stone-AI` content. Per this session's own new rule, Active
+Thread's content is therefore carried forward unchanged from what it
+would have said had it existed since 2026-07-17 — this checkpoint only
+adds the mechanism and back-fills the pointer it should already have
+had.
+
+METHOD DISCOVERIES
+--------------------
+- A pointer that lives only in prose (a checkpoint's own "Next
+  Objective" line) is exactly as durable as the discipline of whoever
+  writes the next one. Promoting it to a named, structurally-required
+  field turns "remembered to carry it forward" into "had to make an
+  explicit choice not to."
+- Asked directly, Bill preferred the smaller, already-working fix
+  (per-repo Active Thread + the existing repo-picker prompt) over a
+  more ambitious global cross-repo pointer once the durability tradeoff
+  was made concrete (git-tracked per-repo state vs. a local-only
+  convenience cache). Recording the decision, not just the fix, so the
+  global-pointer idea isn't silently re-proposed later — see
+  `[[project_repo_separation_decision]]`-style precedent of recording
+  settled architecture choices explicitly.
+
+NEXT SESSION
+==============
+1. Resume `Topics/rosetta-stone-ai-node-definitions-qa-log.md`: Agent's
+   own dedicated Q&A pass, per Active Thread above and the topic file's
+   own `status` line.
+2. `lets-code` should now surface Active Thread first on the next
+   session start in this repo — verify that happens as designed.
+
+END OF SESSION CHECKLIST
+==========================
+[x] Actual gap diagnosed precisely, not just patched generically
+[x] Active Thread field designed and added to `lets-code` +
+    `update-context` (both skills, this repo)
+[x] Propagated to all 8 physical locations, verified byte-identical
+[x] `ai-skills` committed and pushed (828ea94)
+[x] `INDEX.md`'s Active Thread populated with real, current content
+[x] Global cross-repo pointer question raised, answered honestly, and
+    Bill's decision (keep the current design) recorded
+[x] Checkpoint committed, tagged, and pushed (see Git Commit above —
+    filled in as part of this same checkpoint's commit sequence)
+
+SESSION SUMMARY
+================
+Bill noticed a real seam: today's earlier cleanup work (Checkpoints
+0021-0024) was valuable but left the session-resume mechanism pointing
+at itself rather than at the actual content thread, and asked to fix
+that before it caused a real reconstruction failure. Fixed it as a
+structural field, not a reminder, propagated correctly across every
+shared-skill location, and used Bill's own follow-up question about a
+global cross-repo pointer to explicitly settle (rather than leave
+implicit) that the current per-repo design is the one to keep. Bill's
+own framing of the day: "we are working out the kinks."
+
+========================================================================
+END CHECKPOINT 0025
+========================================================================
