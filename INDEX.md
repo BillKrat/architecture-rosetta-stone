@@ -26,26 +26,30 @@ doing.
 
 **Resume here:** `rosetta-stone-ai-node-definitions` Q&A —
 [Topics/rosetta-stone-ai-node-definitions.md](Topics/rosetta-stone-ai-node-definitions.md)
-(pristine reference, study from this) +
+(pristine reference) +
 [Topics/rosetta-stone-ai-node-definitions-qa-log.md](Topics/rosetta-stone-ai-node-definitions-qa-log.md)
-(correction history, open questions, per-node Q&A notes). Content
-last advanced 2026-07-17 (Checkpoints 0017-0020): node
-Responsibilities/Collaborators drafted for all 9 nodes grounded in RDD
-Ch. 4-5, Model's own Q&A pass completed, pseudocode-driven-comprehension
-established as the working pattern, doc split into pristine reference +
-Q&A log. Per the current `status` line in the reference doc: Model's
-Responsibilities and Agent-as-collaborator are understood, Retrieval-
-as-collaborator is flagged ambiguous, task/responsibility ownership is
-still open; Agent/Tool/Retrieval/Memory/Security/Application/
-Diagnostics/Deployment Context Notes have not started their own Q&A
-passes. **Next up: Agent's own dedicated Q&A.**
+(correction history, open questions, per-node Q&A notes) — Bill now
+reviews both side-by-side rather than the reference alone. Content last
+advanced 2026-07-19 (Checkpoint 0027): **Model's Q&A is closed**
+(Retrieval-as-Model-collaborator stays flagged as a candidate, not
+settled — Bill's own hypothesis is it may resolve to an Agent-only
+collaborator once later nodes get their own passes); a short "RDD
+Stereotypes at a Glance" section was added to the reference doc; a
+wording bug ("can't do reliably" implying a false partial Model
+capability) was fixed in Agent's Tool collaborator line and Tool's own
+Responsibilities bullet. **Agent's own dedicated Q&A is now underway**
+— no other findings recorded yet beyond the wording fix. Task/
+responsibility ownership (deferred at Checkpoint 0018) is still open.
+Tool/Retrieval/Memory/Security/Application/Diagnostics/Deployment
+Context Notes have not started their own Q&A passes.
 
 Checkpoints 0021-0026 (2026-07-19) were cross-repo infra/cleanup —
 nested-clone removal, `ai-skills` bootstrap audit, disaster-recovery
 review, the `investigate` skill + unconditional Evidence Discipline,
 (0025) this Active Thread mechanism itself, and (0026) restoring
 `lets-code`'s multi-repo picker as a real `AskUserQuestion` prompt —
-and did not touch this thread; carried forward unchanged by each.
+and did not touch this thread; carried forward unchanged by each until
+Checkpoint 0027 advanced it again.
 
 This section is the durable "what to resume" pointer, maintained by
 `update-context` on every checkpoint and read first by `lets-code` —
@@ -55,7 +59,7 @@ most recent session chronologically and may be infra-only.
 ## Topics
 
 - [collaborative-momentum-mode](Topics/collaborative-momentum-mode.md) — current operating mode: no more freeze/phase-gating, Standards kept as reference not constraint, momentum toward real vs-mcp-bridge development (active, adopted 2026-07-14)
-- [rosetta-stone-ai-node-definitions](Topics/rosetta-stone-ai-node-definitions.md) — pristine reference: Stereotype/Responsibilities/Collaborators for all 9 nodes, kept clean to study from (Q&A in progress 2026-07-17, Model underway)
+- [rosetta-stone-ai-node-definitions](Topics/rosetta-stone-ai-node-definitions.md) — pristine reference: Stereotype/Responsibilities/Collaborators for all 9 nodes, plus an RDD Stereotypes glossary; kept clean to study from (Q&A in progress 2026-07-19, Model closed, Agent underway)
 - [rosetta-stone-ai-node-definitions-qa-log](Topics/rosetta-stone-ai-node-definitions-qa-log.md) — companion to the above: correction history, open questions, missing-node assessment, per-node Q&A notes — split out 2026-07-17 to keep the reference doc pristine
 - [bduf-freeze-and-training](Topics/bduf-freeze-and-training.md) — superseded 2026-07-14; kept for history — the original freeze rationale and 5 pre-loaded risk findings are still real context, just no longer a gate
 - [delivery-roadmap](Topics/delivery-roadmap.md) — Bill's draft roadmap from standards-foundation to sprint-based delivery: code audit of existing ChatGPT/Codex work -> gap analysis/backlog -> strict-scope sprints; the "gated on full comprehension" precondition is lifted per collaborative-momentum-mode (draft)
@@ -71,7 +75,19 @@ and align local workflow files"): all prior Topic files, Session
 checkpoints, and Evidence stubs were deleted as part of aligning this
 repo with the shared, repo-agnostic skill workflow (see `AGENTS.md`).
 
-Latest checkpoint: [Sessions/2026-07-19_Checkpoint_0026_Multi_Repo_Picker_Restored_As_AskUserQuestion.txt](Sessions/2026-07-19_Checkpoint_0026_Multi_Repo_Picker_Restored_As_AskUserQuestion.txt)
+Latest checkpoint: [Sessions/2026-07-19_Checkpoint_0027_Model_QA_Closed_RDD_Stereotype_Glossary.txt](Sessions/2026-07-19_Checkpoint_0027_Model_QA_Closed_RDD_Stereotype_Glossary.txt)
+— closed Model's Q&A pass (Retrieval-as-collaborator left flagged as a
+candidate, not settled, with Bill's own hypothesis that it may resolve
+to an Agent-only collaborator once later nodes get their own passes);
+added a short "RDD Stereotypes at a Glance" section to the pristine doc
+after Bill flagged confusing RDD's "Controller" stereotype with ASP.NET
+MVC's dated Controller pattern; corrected a stale cross-reference in
+`Standards/glossary.md` that Claude itself initially got wrong before
+catching it; fixed a real wording bug Bill caught during Agent's own
+Q&A ("can't do reliably" implying a false partial Model capability).
+Agent's dedicated Q&A is now underway.
+
+Previous checkpoint: [Sessions/2026-07-19_Checkpoint_0026_Multi_Repo_Picker_Restored_As_AskUserQuestion.txt](Sessions/2026-07-19_Checkpoint_0026_Multi_Repo_Picker_Restored_As_AskUserQuestion.txt)
 — restored `lets-code`'s multi-repo picker (radio-button repo selection
 at session start) as a real `AskUserQuestion` tool call, after Bill
 noticed a round of his own requested revisions had regressed it to a

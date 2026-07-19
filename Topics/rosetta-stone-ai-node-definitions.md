@@ -1,8 +1,8 @@
 ---
 name: rosetta-stone-ai-node-definitions
 description: Pristine reference — Stereotype, Responsibilities, and Collaborators for rosetta-stone-AI's 9 core nodes, grounded in RDD Chapters 4-5. Kept clean to study from; see rosetta-stone-ai-node-definitions-qa-log.md for correction history, open questions, and Q&A discovery notes.
-status: Q&A in progress 2026-07-17 — Model's Responsibilities and Agent-as-collaborator understood, Retrieval-as-collaborator flagged ambiguous, task/responsibility ownership still open (see companion log); Agent/Tool/Retrieval/Memory/Security/Application/Diagnostics/Deployment Context Notes not yet started
-last-updated: 2026-07-17
+status: Q&A in progress 2026-07-19 — Model closed (Retrieval-as-Model-collaborator remains a flagged candidate, not settled — see companion log); Agent's own dedicated Q&A now underway; Tool/Retrieval/Memory/Security/Application/Diagnostics/Deployment Context Notes not yet started
+last-updated: 2026-07-19
 ---
 
 ## Method and grounding
@@ -53,6 +53,50 @@ candidates not yet adopted, and per-node Q&A discovery notes all live in
 the companion file, `Topics/rosetta-stone-ai-node-definitions-qa-log.md`
 — equally valuable, deliberately kept separate so this document reads
 as a reference, not a running log.
+
+---
+
+## RDD Stereotypes at a Glance
+
+Added 2026-07-19 after Bill flagged that "Controller" reads, by default,
+as the ASP.NET MVC `Controller` class — a specific, now-dated web
+pattern — rather than what RDD actually means. **RDD's six Object Role
+Stereotypes (p.93-94) are a general responsibility-classification
+system, not tied to any framework or era of architecture.** MVC's
+Controller was one historical implementation of the stereotype below by
+that same name; when "smart controls" absorbed the decide-what-happens-
+next job client-side, that's the *responsibility* migrating to a new
+owner, not the *stereotype* going obsolete — the same lesson recurs
+across this project (see the `WDNA`/`MSF` glossary entries).
+
+Only the name list and RDD's own caution quote below are transcribed
+directly from the book so far (Checkpoint 0017, 2026-07-19 — see
+`Standards/glossary.md`'s RDD entry). The one-line gloss for each is
+this project's own working characterization, refined as each node gets
+its dedicated Q&A — not a verbatim book definition. RDD's own words:
+**"Don't worry about giving an object the 'right' stereotype... intended
+to help get you started thinking about your candidates, not to bog you
+down"** (p.93).
+
+- **Service provider** — does defined work on request; doesn't decide
+  what happens next or initiate anything. *(Model, Tool, Retrieval)*
+- **Controller** — decides/directs: makes the call about what happens
+  next based on its own judgment of the situation.
+- **Coordinator** — delegates/organizes the work of others, typically in
+  response to something happening, without doing the substantive work
+  itself. *(Agent is written as a Controller/coordinator hybrid — RDD
+  doesn't sharply force these two apart in the source text reviewed so
+  far, so both readings are flagged rather than one picked arbitrarily.
+  Application also carries coordinator for session/state lifecycle.)*
+- **Structurer** — manages relationships/composition among a group of
+  objects. *(Not yet used by any of this project's 9 nodes.)*
+- **Information holder** — knows and provides access to information; its
+  job is remembering, not deciding or acting on it. *(Memory; also part
+  of Retrieval's and Diagnostics' hybrid tags.)*
+- **Interfacer** — sits at a boundary, translating between this system
+  and something outside it (a user, an external system, another
+  intersystem peer). *(Application, specifically the user-interfacer
+  sub-type.)*
 
 ---
 
@@ -107,7 +151,7 @@ rather than picking one arbitrarily.
 ### Collaborators
 - **Model** — calls the Model to generate the next reasoning step or
   decision.
-- **Tool** — invokes Tools for work the Model can't do reliably itself.
+- **Tool** — invokes Tools for work the Model can't do itself.
 - **Memory** — consults conversation/task history to stay consistent
   across steps and avoid repeating failed approaches.
 - **Application** — Agent is invoked by, and returns results to, the
@@ -123,7 +167,7 @@ Performs a well-defined unit of work on request and nothing more.
 ### Responsibilities
 - **(action)** Execute a specific, narrowly-scoped, deterministic task
   (run code, query a database, fetch live data) that the Model cannot
-  do reliably itself.
+  do itself.
 - **(action)** Normalize raw external results into a structured form the
   Agent/Model can consume.
 

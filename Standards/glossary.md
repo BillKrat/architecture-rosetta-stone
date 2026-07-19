@@ -2,7 +2,7 @@
 name: glossary
 description: Cross-project terminology, abbreviations, and their source of truth — WDNA (Windows DNA) and MSF (Microsoft Solutions Framework), and the determination between them.
 status: established 2026-07-12; 4 entries (WDNA, MSF, RDD, AI)
-last-updated: 2026-07-14
+last-updated: 2026-07-19
 ---
 
 # Glossary
@@ -212,13 +212,23 @@ with page citations rather than reproduced at length:
   responsibilities" (direct quote, 12 words). This is the model
   `rosetta-stone-AI` already applies to each node — confirmed, not
   reinterpreted.
-- **Object Role Stereotypes** (p.4, elaborated pp.93-94, Ch.3): a
-  categorization step this project's nodes don't currently carry —
-  service provider, controller, coordinator, structurer, information
-  holder, or interfacer (with user/external/intersystem sub-types).
-  Not urgent to retrofit, but a candidate lightweight addition per node
-  (one word, "what kind of role is this") the next time nodes are
-  touched.
+- **Object Role Stereotypes** (p.93-94, Ch.3): service provider,
+  controller, coordinator, structurer, information holder, or
+  interfacer (with user/external/intersystem sub-types). Re-confirmed
+  directly from source text (not the earlier session's summary) as part
+  of the Checkpoint 0017 (2026-07-17) scan, alongside Chapters 4-5 below.
+  Now applied as a one-line tag per node in
+  `Topics/rosetta-stone-ai-node-definitions.md` — 5 of the 6 stereotypes
+  appear there (Structurer doesn't, so far); see that document's own
+  short glossary (added 2026-07-19) for a one-line gloss of each as this
+  project applies it. Only the name list and RDD's own anti-overfitting
+  caution ("don't worry about giving an object the 'right'
+  stereotype... not to bog you down," p.93) are direct-quote-grounded so
+  far — full individual definitions of each of the six (e.g. precisely
+  where Controller ends and Coordinator begins) have not been
+  transcribed from the book into this repo; Bill's own copy is the
+  source to check when that precision is needed (see e.g. Agent's
+  flagged Controller/coordinator hybrid stereotype).
 - **Object Contracts** (p.7): "conditions-of-use guarantees" (what a
   responsibility requires of its context to succeed) and "aftereffect
   guarantees" (what it leaves behind when done) — a sharper, more formal
@@ -230,11 +240,11 @@ with page citations rather than reproduced at length:
   (paraphrased). Directly applicable to the root `AI` node's
   relationship to its 10 child nodes — see the `AI` entry below.
 
-**Status:** Actively grounding new work as of 2026-07-14. Chapters 4-5
-should be sourced (fuller scan or a second purchase) before this
-project leans hard on the precise formal definition of "Responsibility"
-or "Collaboration" — Chapter 1's treatment is solid but introductory,
-not the book's full depth on those two terms specifically.
+**Status:** Chapters 4 ("Responsibilities," p.109-115) and 5
+("Collaborations," p.150-153) were sourced directly on 2026-07-17
+(Checkpoint 0017), closing the gap this section flagged as of
+2026-07-14 — see that checkpoint for the direct-quote definitions now
+grounding every node's Responsibility/Collaborator field.
 
 ## AI
 

@@ -2,7 +2,7 @@
 name: rosetta-stone-ai-node-definitions-qa-log
 description: Companion to rosetta-stone-ai-node-definitions.md — correction history, open questions, the missing-node assessment, and per-node Q&A discovery notes. Kept separate so the main reference document stays pristine to study from.
 status: active, grows alongside node-by-node Q&A
-last-updated: 2026-07-17
+last-updated: 2026-07-19
 ---
 
 ## Purpose
@@ -48,6 +48,28 @@ RDD's own method is supposed to catch by walking the collaboration
 network as a whole rather than trusting each card in isolation — and
 exactly the kind of self-consistency check this project's prior
 checkpoints (`RSK_RSAI_0001`-`0005`) already valued.
+
+## Wording correction found during Agent's Q&A (2026-07-19)
+
+Bill caught, during Agent's dedicated Q&A, that both **Agent**'s Tool
+collaborator line and **Tool**'s own Responsibilities bullet said the
+Model "can't do **reliably**" the examples given (run code, query a
+database, fetch live data). "Reliably" implies Model has some native
+capacity there that just needs backup — not true for these specific
+examples: Model has no execution environment, no live network/database
+access, no mechanism to touch anything outside its own forward pass
+over trained weights. It's a hard incapacity, not a reliability gap —
+the same boundary the Model Q&A already established ("the Model has no
+access to training data at inference time at all"). **Corrected**: both
+lines now read "can't do itself" / "cannot do itself," dropping
+"reliably."
+
+Flagged for later, not acted on now: there *are* real reliability-only
+cases (e.g. precise arithmetic on large numbers, exact date math) where
+Model can attempt the work and sometimes gets it wrong rather than being
+categorically unable — if a future Tool Responsibility is added that's
+actually that kind of case, "reliably" would be the right word there,
+just not for the three examples currently listed.
 
 ## Open questions for Bill
 
@@ -175,6 +197,26 @@ gets its own Q&A pass rather than forced now. Task/responsibility
 ownership (the specific question deferred at the end of Checkpoint
 0018) is **still open** — the pseudocode work clarified the
 Model/Retrieval boundary but didn't reach that specific question.
+
+### Model Q&A closed (2026-07-19)
+
+Per Bill directly: Model is checked off — no pseudocode warranted for
+Retrieval at Model's altitude, a plain-language explanation was enough
+(Retrieval finds/ranks grounding content; Agent, not Model, is the one
+that actually calls Retrieval and assembles its results into the
+context window Model sees — see the Agent-mediation point already
+established above). Retrieval-as-a-Model-collaborator stays exactly as
+flagged: a candidate, not settled.
+
+**Bill's own hypothesis, worth preserving verbatim-adjacent:** as the
+remaining nodes get their own Q&A passes, Retrieval may turn out to be
+*only* a Collaborator of Agent, not of Model directly — leaving it
+listed under Model's Collaborators, as-is, risks reading as more
+settled than it is and could confuse a future reader. This is flagged
+as Bill's candidate hypothesis (`claude-reasoning`-adjacent but
+attributed to Bill, not verified against RDD independently), to be
+tested when Retrieval gets its own dedicated Q&A rather than resolved
+now by editing the pristine doc.
 
 ## Blog capture note
 

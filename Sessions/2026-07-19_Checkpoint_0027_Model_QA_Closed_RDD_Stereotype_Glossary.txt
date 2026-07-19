@@ -1,0 +1,197 @@
+========================================================================
+PROJECT CHECKPOINT 0027
+========================================================================
+
+File:
+2026-07-19_Checkpoint_0027_Model_QA_Closed_RDD_Stereotype_Glossary.txt
+
+Checkpoint:
+0027
+
+Date:
+2026-07-19
+
+Project:
+Rosetta Stone for Software Architecture
+
+Branch:
+main
+
+Checkpoint Title:
+Model Q&A Closed, RDD Stereotype Glossary Added, Agent Q&A Underway
+
+Project Status:
+Closed Model's dedicated Q&A pass (Retrieval-as-collaborator left
+intentionally flagged, not settled). Added a short RDD Stereotypes
+glossary to the pristine reference doc after Bill flagged confusing
+RDD's "Controller" stereotype with ASP.NET MVC's dated Controller
+pattern. Corrected a stale cross-reference in Standards/glossary.md
+that Claude itself initially got wrong mid-session. Fixed a real
+wording bug Bill caught during Agent's own Q&A ("can't do reliably"
+implying a false partial capability). Agent's dedicated Q&A is now
+underway.
+
+Repository:
+https://github.com/BillKrat/architecture-rosetta-stone
+
+Git Commit:
+(pending — filled in after commit)
+
+Previous Checkpoint:
+0026 - Multi-Repo Picker Restored As AskUserQuestion
+
+Next Objective:
+Continue Agent's dedicated Q&A per Active Thread — Bill was reviewing
+Agent's Responsibilities/Collaborators live this session; the one
+finding so far (the "reliably" wording fix) is already applied, no
+other open questions recorded yet.
+
+========================================================================
+SESSION HANDOFF
+========================================================================
+
+WORKING AGREEMENT
+------------------
+No change this session. Bill confirmed a refinement to his own review
+habit, not the working agreement itself: he now reads the pristine doc
+and the QA log side-by-side going forward, rather than the pristine doc
+alone — see TOPICS TOUCHED and METHOD DISCOVERIES below.
+
+OBJECTIVES COMPLETED
+---------------------
+1. Closed Model's Q&A (per Bill directly): no pseudocode warranted for
+   Retrieval at Model's altitude — a plain-language explanation was
+   enough (Retrieval finds/ranks grounding content; Agent, not Model,
+   actually calls Retrieval and assembles results into Model's context
+   window). Retrieval-as-a-Model-collaborator stays exactly as flagged
+   in the pristine doc: a candidate, not settled. Bill's own hypothesis
+   captured in the QA log: Retrieval may turn out to be only an Agent
+   collaborator once the remaining nodes get their own Q&A passes —
+   left as a hypothesis to test later, not resolved by editing the
+   pristine doc now.
+
+2. Bill raised a mental-model question: he defaults to reading
+   "Controller" as ASP.NET MVC's `Controller` class (a pattern he
+   considers dated since "smart controls" absorbed its decision logic),
+   drawing a parallel to early confusion in his clinical-trial
+   development career over "Developer" terminology. Explained that
+   RDD's six Object Role Stereotypes are a general responsibility
+   classification, independent of any framework or era — MVC's
+   Controller was one historical implementation of the stereotype, not
+   its definition; the "smart controls" shift is the *responsibility*
+   migrating to a new owner, not the *stereotype* going obsolete.
+
+3. Added a "RDD Stereotypes at a Glance" section to the pristine
+   reference doc, placed right before the 9 nodes, per Bill's explicit
+   request — a one-line gloss per stereotype, which node(s) carry each,
+   RDD's own anti-overfitting caution quote (p.93), and an explicit flag
+   that the one-line glosses are this project's own working
+   characterization, not verbatim book text (only the name list and the
+   caution quote are direct-quote-grounded so far).
+
+4. Corrected a stale claim in Standards/glossary.md's RDD entry — it
+   read as though Ch.3 pp.93-94 (stereotype elaboration) was still
+   unscanned as of 2026-07-14, but the pristine doc's own "Method and
+   grounding" section already showed it was directly re-confirmed on
+   2026-07-17 (Checkpoint 0017) alongside Ch.4-5. This was Claude's own
+   initially-wrong claim to Bill in this same session (repeating the
+   stale glossary line without cross-checking the pristine doc first);
+   caught and corrected within the same turn once the discrepancy
+   surfaced. Updated the glossary entry's stereotype bullet and its
+   Status line to match reality, and pointed it at the new in-doc
+   glossary.
+
+5. Bill caught a real wording bug during Agent's own Q&A: "Tool —
+   invokes Tools for work the Model can't do reliably itself" implied
+   Model *can* do these things (run code, query a database, fetch live
+   data), just unreliably — false. Model has no execution environment
+   or live network/database access at all; it's a hard incapacity, not
+   a reliability gap, consistent with the Model Q&A's own established
+   finding that Model has no access to anything outside its trained
+   weights at inference time. Fixed both occurrences (Agent's Tool
+   collaborator line, Tool's own Responsibilities bullet) to "can't do
+   itself" / "cannot do itself." Logged in the QA log with the reasoning
+   and one flagged exception: a genuine reliability-only case (e.g.
+   precise large-number arithmetic) would still warrant "reliably" if
+   ever added as a Tool example — not true of anything currently listed.
+
+REPOSITORY / ENVIRONMENT STATE
+--------------------------------
+- 3 files modified this session, all committed as part of this
+  checkpoint: `Standards/glossary.md`,
+  `Topics/rosetta-stone-ai-node-definitions.md`,
+  `Topics/rosetta-stone-ai-node-definitions-qa-log.md`.
+- Working tree otherwise clean; branch `main`, up to date with `origin`
+  at session start.
+
+TOPICS TOUCHED THIS SESSION
+------------------------------
+- `rosetta-stone-ai-node-definitions.md` — status line updated to
+  "Model closed"; new "RDD Stereotypes at a Glance" section added before
+  the node list; "can't do reliably" corrected to "can't do itself" in
+  Agent's Tool collaborator line and Tool's own Responsibilities bullet.
+- `rosetta-stone-ai-node-definitions-qa-log.md` — added a "Model Q&A
+  closed (2026-07-19)" entry recording Bill's Retrieval-placement
+  hypothesis, and a "Wording correction found during Agent's Q&A"
+  entry recording the reliably->itself fix and its reasoning.
+- `Standards/glossary.md` (cross-project Standard, not a Topics file,
+  but touched this session) — RDD entry's Object Role Stereotypes
+  bullet and Status line corrected to reflect the 2026-07-17 (Checkpoint
+  0017) direct scan of Ch.3 pp.93-94, replacing the stale "not yet
+  scanned" framing.
+
+METHOD DISCOVERIES
+--------------------
+- A cross-reference between two docs can go stale silently when one
+  gets grounded further (here, the pristine doc's own "Method and
+  grounding" section was updated at Checkpoint 0017, but
+  `Standards/glossary.md`'s separate RDD entry wasn't touched at the
+  same time) — worth cross-checking both sides when one doc describes
+  the grounding state of material that also lives elsewhere.
+- Bill confirmed a refinement to his own review habit: he now opens the
+  pristine doc and the QA log side-by-side and reviews them together,
+  rather than reading the pristine doc alone and consulting the log only
+  when something is flagged. Keep splitting content the same way as
+  before (settled vs. open/candidate) — this doesn't change the split,
+  just how Bill consumes both halves.
+
+NEXT SESSION
+==============
+1. Resume Agent's dedicated Q&A (Active Thread) — Bill was reviewing
+   Agent's Responsibilities/Collaborators live this session; the
+   "reliably" wording fix is the only finding recorded so far.
+2. Retrieval's own dedicated Q&A remains queued after Agent's, carrying
+   the still-open placement question (Model collaborator vs. Agent-only
+   collaborator) from this session.
+
+END OF SESSION CHECKLIST
+==========================
+[x] Model Q&A closed and recorded (pristine doc status line + QA log)
+[x] RDD Stereotypes glossary added to the pristine doc
+[x] Stale Standards/glossary.md RDD entry corrected
+[x] "can't do reliably" wording fixed in both locations, reasoning
+    logged in the QA log
+[x] INDEX.md Active Thread updated to reflect Model-closed / Agent-
+    underway status
+[x] Checkpoint committed, tagged, and pushed (see Git Commit above —
+    filled in as part of this same checkpoint's commit sequence)
+
+SESSION SUMMARY
+================
+Tonight's work (spanning more than this single chat session, per Bill)
+closed out Model's Q&A pass, with Retrieval's placement as a Model
+collaborator intentionally left open as a flagged candidate rather than
+forced — including Bill's own hypothesis that it may resolve to an
+Agent-only collaborator once the remaining nodes get their own passes.
+Added a short RDD Stereotypes glossary to the pristine reference doc
+after Bill flagged confusing RDD's "Controller" stereotype with ASP.NET
+MVC's dated Controller pattern, which also surfaced and corrected a
+stale cross-reference in Standards/glossary.md that Claude itself
+initially got wrong before catching it. Bill separately caught a real
+wording bug during Agent's own Q&A review ("can't do reliably" implying
+a false partial capability), fixed in both places it appeared. Agent's
+dedicated Q&A is now underway and picks up directly next session.
+
+========================================================================
+END CHECKPOINT 0027
+========================================================================
