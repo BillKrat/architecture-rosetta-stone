@@ -34,7 +34,7 @@ Repository:
 https://github.com/BillKrat/architecture-rosetta-stone
 
 Git Commit:
-(pending — filled in after commit, see below)
+030b25f
 
 Previous Checkpoint:
 0027 - Model Q&A Closed, RDD Stereotype Glossary Added
@@ -178,8 +178,7 @@ END OF SESSION CHECKLIST
 [x] INDEX.md Active Thread updated to reflect Agent Q&A's continued
     advance (not just carried forward)
 [x] INDEX.md Topics list and Latest-checkpoint pointer updated
-[ ] Checkpoint committed, tagged, and pushed (commit hash filled in as
-    a follow-up small commit once pushed)
+[x] Checkpoint committed, tagged, and pushed (see Git Commit above)
 
 SESSION SUMMARY
 ================
