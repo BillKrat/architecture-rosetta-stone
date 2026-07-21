@@ -2,7 +2,7 @@
 name: rosetta-stone-ai-node-definitions-qa-log
 description: Companion to rosetta-stone-ai-node-definitions.md — correction history, open questions, the missing-node assessment, and per-node Q&A discovery notes. Kept separate so the main reference document stays pristine to study from.
 status: active, grows alongside node-by-node Q&A
-last-updated: 2026-07-19
+last-updated: 2026-07-21
 ---
 
 ## Purpose
@@ -119,6 +119,76 @@ that's a different lifecycle concern (how the Model's weights get
 produced) than this map's scope (how a deployed AI system is
 architected at runtime); out of scope rather than a gap, unless Bill
 says otherwise.
+
+## Agent — Q&A log (2026-07-21)
+
+Bill's own framing to start: an application/tool "instantiates" an
+Agent and uses it; he no longer sees Application or Tool as owning the
+decompose-and-manage-loop responsibility themselves. Confirmed correct
+against the pristine doc — Application's settled Responsibilities are
+present-interface/manage-session/route-and-deliver
+(`Topics/rosetta-stone-ai-node-definitions.md` Application section);
+Tool's stereotype is explicitly Service provider, "doesn't decide what
+happens next or initiate anything." Decompose/select/loop/assemble
+belongs to Agent alone.
+
+**Note: "agentic" is not a defined term in this project.** Checked
+`Standards/glossary.md` directly — no entry. The useful question isn't
+"is this agentic" but "which node's settled Responsibilities does this
+system actually exercise" — flagged as `claude-reasoning` framing, not
+an adopted definition.
+
+Two wording corrections surfaced while working a concrete example
+(query: "What does St Augustine say about forgiveness after confession
+in regards to reparation," tool = DCI per Bill's own DCI reading,
+already established in the Model Q&A log as an Agent-calls-Tool-directly
+pattern that bypasses chunk-embed-topk Retrieval):
+
+1. **"Agent finds the tool" overstates the settled Responsibility.**
+   The card says "(decision) Select which Tool or Model call happens
+   next, based on current task state" — *select*, not *discover*.
+   Nothing in the settled model gives Agent a tool-discovery mechanism;
+   it chooses among tools it already has access to.
+2. **"Hands gathered information off to the Model" undersells context
+   assembly.** The settled Responsibility is: pull Memory, pull
+   Retrieval/Tool material, add system instructions and current input,
+   *combine them into the single prompt Model sees* — not a simple
+   forward of raw tool output.
+
+Two open questions flagged, not resolved:
+
+- **Nested Agent-inside-a-Tool boundary.** Bill's original visualization
+  had Agent spawning sub-agents; on reflection he wondered whether a
+  Tool might instead run its own observe-decide-act loop internally
+  using a smaller model. Per RDD's classify-by-Responsibility-not-label
+  principle (the same lesson as the Controller/MVC mix-up from Model's
+  Q&A): if something labeled "Tool" runs its own decide-loop, it *is*
+  an Agent by Responsibility, nested inside a Tool-shaped boundary — not
+  Tool doing Agent-like work. Neither the sub-agent-hierarchy framing
+  nor the nested-Agent-in-Tool framing is adopted; both are candidates,
+  same status as the other open candidates above.
+- **Sequential vs. parallel execution of the iteration loop is
+  undetermined by the settled card.** "Manage the iteration loop until
+  the goal is met" describes the Responsibility, not execution
+  mechanics; RDD (pre-LLM, general OO design) doesn't speak to
+  concurrency either. Any parallel-execution design is Bill's own
+  implementation choice to state explicitly, not something groundable
+  in the pristine doc or RDD.
+
+**Worked decomposition example (concrete, prep for next session's
+pseudocode):** the Augustine query bundles two distinct doctrinal
+concepts, not one lookup — sub-task A: forgiveness after confession;
+sub-task B: reparation/satisfaction doctrine; an implicit sub-task C
+(whether Augustine ties A and B together) that's only knowable once A
+and B's results are back. This is why the loop has to be iterative
+rather than a fixed upfront plan, and makes the parallel-execution
+question concrete: A and B are independent enough to run concurrently,
+C depends on both finishing — a per-sub-task dependency, not an
+all-or-nothing choice.
+
+**Status:** Bill plans to write the Application→Agent→(Model/Tool loop)
+pseudocode himself next session, using DCI as the concrete Tool, per
+`Topics/pseudocode-driven-comprehension.md`. Not written yet.
 
 ## Model — Q&A log (2026-07-17)
 

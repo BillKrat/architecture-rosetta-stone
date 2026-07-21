@@ -30,18 +30,28 @@ doing.
 [Topics/rosetta-stone-ai-node-definitions-qa-log.md](Topics/rosetta-stone-ai-node-definitions-qa-log.md)
 (correction history, open questions, per-node Q&A notes) — Bill now
 reviews both side-by-side rather than the reference alone. Content last
-advanced 2026-07-19 (Checkpoint 0027): **Model's Q&A is closed**
-(Retrieval-as-Model-collaborator stays flagged as a candidate, not
-settled — Bill's own hypothesis is it may resolve to an Agent-only
-collaborator once later nodes get their own passes); a short "RDD
-Stereotypes at a Glance" section was added to the reference doc; a
-wording bug ("can't do reliably" implying a false partial Model
-capability) was fixed in Agent's Tool collaborator line and Tool's own
-Responsibilities bullet. **Agent's own dedicated Q&A is now underway**
-— no other findings recorded yet beyond the wording fix. Task/
-responsibility ownership (deferred at Checkpoint 0018) is still open.
-Tool/Retrieval/Memory/Security/Application/Diagnostics/Deployment
-Context Notes have not started their own Q&A passes.
+advanced 2026-07-21 (Checkpoint 0028): **Agent's Q&A continued** —
+worked out, in prose, the agentic-vs-non-agentic distinction (not a
+defined term in this project; the real question is which node's
+settled Responsibilities a system exercises), corrected two of Bill's
+own working phrasings ("finds the tool" -> Agent *selects* among tools
+it already has, no discovery mechanism; "hands info to the Model" ->
+Agent *assembles* a context window from Memory + Tool/Retrieval output
++ instructions + input, not a raw forward), and flagged two open
+questions without resolving them: whether a Tool that runs its own
+decide-loop with a small model is actually a nested Agent by
+Responsibility (not sub-agents, Bill's original framing), and whether
+the iteration loop is sequential or parallel (undetermined by the
+settled card either way). Worked a concrete decomposition example (the
+St Augustine forgiveness/confession/reparation query, tool = DCI) as
+prep. **No pseudocode written yet** — Bill plans to write the
+Application->Agent->(Model/Tool loop) pseudocode himself next session,
+per `Topics/pseudocode-driven-comprehension.md`. Model's Q&A remains
+closed (Retrieval-as-Model-collaborator still flagged as a candidate,
+not settled). Task/responsibility ownership (deferred at Checkpoint
+0018) is still open. Tool/Retrieval/Memory/Security/Application/
+Diagnostics/Deployment Context Notes have not started their own Q&A
+passes.
 
 Checkpoints 0021-0026 (2026-07-19) were cross-repo infra/cleanup —
 nested-clone removal, `ai-skills` bootstrap audit, disaster-recovery
@@ -49,7 +59,7 @@ review, the `investigate` skill + unconditional Evidence Discipline,
 (0025) this Active Thread mechanism itself, and (0026) restoring
 `lets-code`'s multi-repo picker as a real `AskUserQuestion` prompt —
 and did not touch this thread; carried forward unchanged by each until
-Checkpoint 0027 advanced it again.
+Checkpoint 0027 advanced it again, then 0028 continued it.
 
 This section is the durable "what to resume" pointer, maintained by
 `update-context` on every checkpoint and read first by `lets-code` —
@@ -60,7 +70,7 @@ most recent session chronologically and may be infra-only.
 
 - [collaborative-momentum-mode](Topics/collaborative-momentum-mode.md) — current operating mode: no more freeze/phase-gating, Standards kept as reference not constraint, momentum toward real vs-mcp-bridge development (active, adopted 2026-07-14)
 - [rosetta-stone-ai-node-definitions](Topics/rosetta-stone-ai-node-definitions.md) — pristine reference: Stereotype/Responsibilities/Collaborators for all 9 nodes, plus an RDD Stereotypes glossary; kept clean to study from (Q&A in progress 2026-07-19, Model closed, Agent underway)
-- [rosetta-stone-ai-node-definitions-qa-log](Topics/rosetta-stone-ai-node-definitions-qa-log.md) — companion to the above: correction history, open questions, missing-node assessment, per-node Q&A notes — split out 2026-07-17 to keep the reference doc pristine
+- [rosetta-stone-ai-node-definitions-qa-log](Topics/rosetta-stone-ai-node-definitions-qa-log.md) — companion to the above: correction history, open questions, missing-node assessment, per-node Q&A notes — split out 2026-07-17 to keep the reference doc pristine (Agent's Q&A continuing, pseudocode planned next session)
 - [bduf-freeze-and-training](Topics/bduf-freeze-and-training.md) — superseded 2026-07-14; kept for history — the original freeze rationale and 5 pre-loaded risk findings are still real context, just no longer a gate
 - [delivery-roadmap](Topics/delivery-roadmap.md) — Bill's draft roadmap from standards-foundation to sprint-based delivery: code audit of existing ChatGPT/Codex work -> gap analysis/backlog -> strict-scope sprints; the "gated on full comprehension" precondition is lifted per collaborative-momentum-mode (draft)
 - [pseudocode-driven-comprehension](Topics/pseudocode-driven-comprehension.md) — working pattern for node Q&A: Bill writes pseudocode himself, Claude reviews with real rigor, the corrected block is both the comprehension check and the note (active, adopted 2026-07-17)
@@ -75,7 +85,17 @@ and align local workflow files"): all prior Topic files, Session
 checkpoints, and Evidence stubs were deleted as part of aligning this
 repo with the shared, repo-agnostic skill workflow (see `AGENTS.md`).
 
-Latest checkpoint: [Sessions/2026-07-19_Checkpoint_0027_Model_QA_Closed_RDD_Stereotype_Glossary.txt](Sessions/2026-07-19_Checkpoint_0027_Model_QA_Closed_RDD_Stereotype_Glossary.txt)
+Latest checkpoint: [Sessions/2026-07-21_Checkpoint_0028_Agent_QA_Decomposition_Worked_Example.txt](Sessions/2026-07-21_Checkpoint_0028_Agent_QA_Decomposition_Worked_Example.txt)
+— continued Agent's Q&A in prose (no pseudocode yet): settled the
+agentic-vs-non-agentic question isn't a defined term here, corrected two
+of Bill's working phrasings against the settled Agent card (select vs.
+discover a tool; assemble a context window vs. forward raw tool
+output), flagged two open questions (nested-Agent-in-a-Tool-boundary
+vs. sub-agents; sequential vs. parallel loop execution), and worked a
+concrete decomposition example (the St Augustine query, DCI as the
+Tool) as prep for Bill writing the actual pseudocode next session.
+
+Previous checkpoint: [Sessions/2026-07-19_Checkpoint_0027_Model_QA_Closed_RDD_Stereotype_Glossary.txt](Sessions/2026-07-19_Checkpoint_0027_Model_QA_Closed_RDD_Stereotype_Glossary.txt)
 — closed Model's Q&A pass (Retrieval-as-collaborator left flagged as a
 candidate, not settled, with Bill's own hypothesis that it may resolve
 to an Agent-only collaborator once later nodes get their own passes);

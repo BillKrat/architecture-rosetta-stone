@@ -1,0 +1,203 @@
+========================================================================
+PROJECT CHECKPOINT 0028
+========================================================================
+
+File:
+2026-07-21_Checkpoint_0028_Agent_QA_Decomposition_Worked_Example.txt
+
+Checkpoint:
+0028
+
+Date:
+2026-07-21
+
+Project:
+Rosetta Stone for Software Architecture
+
+Branch:
+main
+
+Checkpoint Title:
+Agent Q&A Continued — Agentic Distinction, Two Wording Corrections, Decomposition Worked Example
+
+Project Status:
+Continued Agent's dedicated Q&A in prose, no pseudocode written yet.
+Settled that "agentic" isn't a defined term in this project; corrected
+two of Bill's own working phrasings against the settled Agent card;
+flagged two open design questions without resolving them; worked a
+concrete decomposition example as prep for Bill writing the actual
+Application->Agent->(Model/Tool loop) pseudocode next session. Also
+added a global Bash/MCP permission allowlist (outside this repo, in
+~/.claude/settings.json) to reduce prompt friction going forward.
+
+Repository:
+https://github.com/BillKrat/architecture-rosetta-stone
+
+Git Commit:
+(pending — filled in after commit, see below)
+
+Previous Checkpoint:
+0027 - Model Q&A Closed, RDD Stereotype Glossary Added
+
+Next Objective:
+Bill writes the Application->Agent->(Model/Tool loop) pseudocode
+himself, using DCI as the concrete Tool and the St Augustine
+decomposition example worked out this session, per
+Topics/pseudocode-driven-comprehension.md. Claude reviews for real
+bugs once written — not before.
+
+========================================================================
+SESSION HANDOFF
+========================================================================
+
+WORKING AGREEMENT
+------------------
+No change this session.
+
+OBJECTIVES COMPLETED
+---------------------
+1. Bill asked for clarification on agentic vs. non-agentic applications
+   before writing pseudocode, framing it as: an application/tool
+   instantiates an Agent and uses it; he no longer sees Application or
+   Tool as owning the decompose-and-manage-loop responsibility
+   themselves. Confirmed correct against the settled cards (Application:
+   present-interface/manage-session/route-and-deliver; Tool: Service
+   provider, explicitly doesn't decide or initiate). Also surfaced that
+   "agentic" is not itself a defined term anywhere in this project
+   (checked Standards/glossary.md directly) — reframed the real question
+   as "which node's settled Responsibilities does a system exercise,"
+   flagged as claude-reasoning framing, not an adopted definition.
+
+2. Pushed back on two parts of Bill's original mental model: "Agent
+   spawning sub-agents that observe/decide/act" isn't part of the
+   settled single-Agent-node model (flagged as an unadopted candidate,
+   same status as other open QA-log candidates); "a tool might do
+   similar with a smaller model" contradicts Tool's settled
+   Service-provider stereotype — per RDD's classify-by-Responsibility-
+   not-label principle (same lesson as the Controller/MVC mix-up from
+   Model's Q&A), a Tool running its own decide-loop would actually be an
+   Agent by Responsibility, nested inside a Tool-shaped boundary.
+
+3. Bill worked a concrete example (query: "What does St Augustine say
+   about forgiveness after confession in regards to reparation," tool =
+   DCI, per his own DCI reading already established in the Model Q&A
+   log). Two wording corrections surfaced against the settled Agent
+   card: "Agent finds the tool" overstates the Responsibility, which is
+   *select* (from tools already available), not *discover*; "hands
+   gathered information off to the Model" undersells the Responsibility,
+   which is *assemble* — combine Memory + Tool/Retrieval output + system
+   instructions + current input into one prompt, not a raw forward.
+
+4. Bill raised whether the iteration loop could be parallel rather than
+   his original sub-agent framing. Established this is genuinely
+   undetermined by the settled card (describes the Responsibility, not
+   execution mechanics) and by RDD itself (pre-LLM, no concurrency
+   treatment) — any parallel-execution design is Bill's own
+   implementation choice to state explicitly, not groundable in the
+   pristine doc.
+
+5. Worked the concrete decomposition Bill needed before pseudocode:
+   the Augustine query bundles two distinct doctrinal concepts (A:
+   forgiveness after confession, B: reparation/satisfaction), plus an
+   implicit sub-task C (whether Augustine ties A and B together) only
+   knowable once A and B's results return. This grounds why the loop
+   must be iterative rather than a fixed upfront plan, and makes the
+   parallel-execution question concrete: A and B are independent enough
+   to run concurrently, C depends on both finishing — a per-sub-task
+   dependency, not an all-or-nothing choice.
+
+6. Separately (start of session): ran the fewer-permission-prompts
+   skill at Bill's request, global scope. Added 6 read-only MCP tool
+   patterns (Claude-in-Chrome/Claude_Browser page-read tools) to
+   ~/.claude/settings.json, which did not exist before. Nearly all
+   frequent Bash commands were already covered by Claude Code's
+   built-in auto-allow list; curl-to-api.github.com was deliberately
+   excluded despite frequency (19 calls) because a wildcard prefix
+   pattern could also match an appended -X DELETE/POST on the same
+   prefix, same risk category as the skill's explicit gh-api exclusion.
+   This change lives outside this repo (global Claude Code settings,
+   not tracked in this repo's git history) — noted here for continuity
+   only.
+
+REPOSITORY / ENVIRONMENT STATE
+--------------------------------
+- Files changed this session, all being committed as part of this
+  checkpoint: `Topics/rosetta-stone-ai-node-definitions-qa-log.md`,
+  `INDEX.md`, plus this new Sessions file.
+- `Topics/rosetta-stone-ai-node-definitions.md` (pristine doc) was NOT
+  edited this session — everything found was a sharpening of
+  understanding around already-settled bullets, not a contradiction of
+  them, so nothing warranted a pristine-doc change per the "hold edits"
+  pattern.
+- Working tree otherwise clean at session start; branch `main`, up to
+  date with `origin`.
+
+TOPICS TOUCHED THIS SESSION
+------------------------------
+- `rosetta-stone-ai-node-definitions-qa-log.md` — added a new "Agent —
+  Q&A log (2026-07-21)" section (placed before the existing Model Q&A
+  log) covering the agentic-distinction framing, the two wording
+  corrections, the two open design questions, and the worked
+  decomposition example. `last-updated` bumped to 2026-07-21.
+- `INDEX.md` — Active Thread rewritten to reflect this session's
+  content advance (see below); Topics list one-liner for the QA-log
+  topic updated; Latest checkpoint pointer updated to 0028, previous
+  checkpoints renumbered down one slot.
+
+METHOD DISCOVERIES
+--------------------
+- The Controller/MVC lesson from Model's Q&A (classify by Responsibility,
+  not by label) turned out to generalize directly to Agent's Q&A: it's
+  the same reasoning that resolves whether a "Tool" running its own
+  decide-loop is actually a nested Agent. Worth watching for this
+  pattern recurring again in Tool's or Retrieval's own Q&A passes.
+- Confirmed again that pushing back on an imprecise-but-plausible phrase
+  (not an outright error) is valuable before pseudocode gets written —
+  both corrections this session ("finds" vs. "selects," "hands off" vs.
+  "assembles") would have silently shaped incorrect pseudocode variable
+  names/behavior if left uncaught at the prose stage.
+
+NEXT SESSION
+==============
+1. Resume Agent's dedicated Q&A (Active Thread) — Bill writes the
+   Application->Agent->(Model/Tool loop) pseudocode himself, using DCI
+   as the Tool and the Augustine A/B/C decomposition worked out this
+   session. Claude reviews for real bugs once written, per
+   Topics/pseudocode-driven-comprehension.md — not produced by Claude
+   first.
+2. The two open design questions (nested-Agent-in-Tool vs. sub-agents;
+   sequential vs. parallel loop execution) remain unresolved by design —
+   revisit only if Bill's pseudocode needs to commit to one.
+3. Retrieval's own dedicated Q&A remains queued after Agent's, carrying
+   the still-open placement question (Model collaborator vs. Agent-only
+   collaborator) from Checkpoint 0027.
+
+END OF SESSION CHECKLIST
+==========================
+[x] Agent Q&A log updated with this session's findings
+[x] INDEX.md Active Thread updated to reflect Agent Q&A's continued
+    advance (not just carried forward)
+[x] INDEX.md Topics list and Latest-checkpoint pointer updated
+[ ] Checkpoint committed, tagged, and pushed (commit hash filled in as
+    a follow-up small commit once pushed)
+
+SESSION SUMMARY
+================
+Bill continued Agent's dedicated Q&A entirely in prose, working toward
+writing his own pseudocode next session rather than receiving one from
+Claude. The session settled that "agentic" isn't a term this project
+has defined, corrected two plausible-but-imprecise phrasings Bill used
+while reasoning aloud against the settled Agent Responsibility card
+(select vs. discover a tool; assemble vs. forward context), and flagged
+two genuinely open design questions (nested-Agent-in-a-Tool-boundary
+vs. sub-agents; sequential vs. parallel loop execution) without forcing
+either one closed. A concrete worked example — decomposing a St
+Augustine theology question into two independent sub-tasks plus a
+dependent third — gives Bill what he needs to write real pseudocode
+next session. Separately, a global Claude Code permission allowlist was
+added at Bill's request to reduce prompt friction, unrelated to the
+content thread.
+
+========================================================================
+END CHECKPOINT 0028
+========================================================================
